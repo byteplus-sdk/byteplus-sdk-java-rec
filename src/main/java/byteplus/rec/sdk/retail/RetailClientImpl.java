@@ -22,10 +22,6 @@ public class RetailClientImpl implements RetailClient {
     private final static String ERR_MSG_TOO_MANY_WRITE_ITEMS =
             String.format("Only can receive max to %d items in one write request", MAX_WRITE_COUNT);
 
-    private final static int DATE_INIT_OPTIONS_COUNT = 1;
-
-    private final static int PREDICT_INIT_OPTIONS_COUNT = 1;
-
     private HTTPClient httpClient;
 
     protected RetailClientImpl(HTTPClient httpClient) {
@@ -86,7 +82,7 @@ public class RetailClientImpl implements RetailClient {
     private Option[] addSaasFlag(Option[] opts) {
         final String HTTPHeaderServerFrom = "Server-From";
         final String SaasFlag = "saas";
-        Option[] newOpts = new Option[opts.length + DATE_INIT_OPTIONS_COUNT];
+        Option[] newOpts = new Option[opts.length + 1];
         System.arraycopy(opts, 0, newOpts, 0, opts.length);
         newOpts[newOpts.length - 1] = Option.withHeader(HTTPHeaderServerFrom, SaasFlag);
         return newOpts;
