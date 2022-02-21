@@ -1,38 +1,43 @@
-package byteplus.rec.sdk.retail.example;
-
-import byteplus.rec.core.Utils;
-import byteplus.rec.sdk.region.Region;
-import byteplus.rec.sdk.retail.Constant;
-import byteplus.rec.sdk.retail.RetailClient;
-import byteplus.rec.sdk.retail.RetailClientBuilder;
-import byteplus.rec.sdk.retail.example.entity.DemoProduct;
-import byteplus.rec.sdk.retail.example.entity.DemoUser;
-import byteplus.rec.sdk.retail.example.entity.DemoUserEvent;
-import byteplus.rec.core.BizException;
-import byteplus.rec.core.Option;
-import byteplus.rec.core.StatusHelper;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Device;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Scene;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResult;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResult.ResponseProduct;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictRequest;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResponse;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsResponse;
+package com.byteplus.rec.sdk.retail.example;
 
 import com.alibaba.fastjson.JSON;
+import com.byteplus.rec.core.BizException;
+import com.byteplus.rec.core.Option;
+import com.byteplus.rec.core.StatusHelper;
+import com.byteplus.rec.core.Utils;
+import com.byteplus.rec.sdk.region.Region;
+import com.byteplus.rec.sdk.retail.Constant;
+import com.byteplus.rec.sdk.retail.RetailClient;
+import com.byteplus.rec.sdk.retail.RetailClientBuilder;
+import com.byteplus.rec.sdk.retail.example.entity.DemoProduct;
+import com.byteplus.rec.sdk.retail.example.entity.DemoUser;
+import com.byteplus.rec.sdk.retail.example.entity.DemoUserEvent;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProduct;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsResponse;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Device;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictRequest;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResponse;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResult;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResult.ResponseProduct;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Scene;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @Slf4j
 public class Main {
-    private final static RetailClient client;
+    private static RetailClient client;
 
     private final static int DEFAULT_RETRY_TIMES = 2;
 
@@ -49,14 +54,19 @@ public class Main {
     public final static String MODEL_ID = "***********";
 
     static {
-        client = new RetailClientBuilder()
-                .tenantID("***********")  // Required
-                .region(Region.SG)  // Required
-                .ak("***********")  // Required
-                .sk("***********")  // Required
-                //Schema("https"). // Optional
-                //Hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")}). // Optional
-                .build();
+        try {
+            client = new RetailClientBuilder()
+                    .tenantID("***********")  // Required
+                    .projectID(PROJECT_ID)
+                    .region(Region.SG)  // Required
+                    .authAK("***********")  // Required
+                    .authSK("***********")  // Required
+//                    .schema("http") // Optional
+//                    .hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
+                    .build();
+        } catch (BizException e) {
+            log.error("fail to create byteplus rec client", e);
+        }
     }
 
     public static void main(String[] args) {
@@ -189,23 +199,16 @@ public class Main {
         log.info("predict success");
         // The items, which is eventually shown to user,
         // should send back to Bytedance for deduplication
-        List<AckServerImpressionsRequest.AlteredProduct> alteredProducts = doSomethingWithPredictResult(response.getValue());
+        List<AlteredProduct> alteredProducts = doSomethingWithPredictResult(response.getValue());
         AckServerImpressionsRequest ackRequest =
                 buildAckRequest(response.getRequestId(), predictRequest, alteredProducts);
         Option[] ack_opts = defaultOptions(DEFAULT_ACK_IMPRESSIONS_TIMEOUT);
-        try {
-            response = client.predict(predictRequest, predict_opts);
-        } catch (Exception e) {
-            log.error("predict occur error, msg:{}", e.getMessage());
-            return;
-        }
         Utils.Callable<AckServerImpressionsResponse, AckServerImpressionsRequest> call
                 = (req, optList) -> client.ackServerImpressions(req, optList);
         try {
             Utils.doWithRetry(call, ackRequest, ack_opts, DEFAULT_RETRY_TIMES);
         } catch (Exception e) {
             log.error("[AckServerImpressions] occur error, msg:{}", e.getMessage());
-            return;
         }
     }
 
@@ -233,7 +236,7 @@ public class Main {
                 .build();
     }
 
-    private static List<AckServerImpressionsRequest.AlteredProduct> doSomethingWithPredictResult(PredictResult predictResult) {
+    private static List<AlteredProduct> doSomethingWithPredictResult(PredictResult predictResult) {
         // You can handle recommend results here,
         // such as filter, insert other items, sort again, etc.
         // The list of goods finally displayed to user and the filtered goods
@@ -242,14 +245,14 @@ public class Main {
     }
 
     @NotNull
-    private static List<AckServerImpressionsRequest.AlteredProduct> conv2AlteredProducts(List<ResponseProduct> products) {
+    private static List<AlteredProduct> conv2AlteredProducts(List<ResponseProduct> products) {
         if (Objects.isNull(products) || products.isEmpty()) {
             return Collections.emptyList();
         }
-        List<AckServerImpressionsRequest.AlteredProduct> alteredProducts = new ArrayList<>(products.size());
+        List<AlteredProduct> alteredProducts = new ArrayList<>(products.size());
         for (int i = 0; i < products.size(); i++) {
             ResponseProduct responseProduct = products.get(i);
-            AckServerImpressionsRequest.AlteredProduct alteredProduct = AckServerImpressionsRequest.AlteredProduct.newBuilder()
+            AlteredProduct alteredProduct = AlteredProduct.newBuilder()
                     .setAlteredReason("kept")
                     .setProductId(responseProduct.getProductId())
                     .setRank(i + 1)
@@ -263,7 +266,7 @@ public class Main {
     private static AckServerImpressionsRequest buildAckRequest(
             String predictRequestId,
             PredictRequest predictRequest,
-            List<AckServerImpressionsRequest.AlteredProduct> alteredProducts) {
+            List<AlteredProduct> alteredProducts) {
 
         return AckServerImpressionsRequest.newBuilder()
                 .setProjectId(predictRequest.getProjectId())
@@ -279,7 +282,7 @@ public class Main {
         return new Option[]{
                 // Required，It is required that the Request-Id of each request is not repeated.
                 // If it is not passed, the SDK will add it to each request by default
-                Option.withRequestId(UUID.randomUUID().toString()),
+                Option.withRequestID(UUID.randomUUID().toString()),
                 // Optional. request timeout
                 Option.withTimeout(timeout),
                 // Optional. Add a set of customer headers to the request, which will be overwritten by multiple calls.

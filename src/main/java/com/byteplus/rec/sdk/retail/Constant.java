@@ -1,4 +1,4 @@
-package byteplus.rec.sdk.retail;
+package com.byteplus.rec.sdk.retail;
 
 public final class Constant {
     public final static int MAX_WRITE_COUNT = 2000;

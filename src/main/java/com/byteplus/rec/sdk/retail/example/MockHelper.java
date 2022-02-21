@@ -1,21 +1,22 @@
-package byteplus.rec.sdk.retail.example;
+package com.byteplus.rec.sdk.retail.example;
 
-import byteplus.rec.sdk.retail.example.entity.DemoProduct;
-import byteplus.rec.sdk.retail.example.entity.DemoUser;
-import byteplus.rec.sdk.retail.example.entity.DemoUserEvent;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Device;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Brand;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Price;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Display;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Category;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Category.CategoryNode;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.ProductSpec;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Seller;
+import com.byteplus.rec.sdk.retail.example.entity.DemoProduct;
+import com.byteplus.rec.sdk.retail.example.entity.DemoUser;
+import com.byteplus.rec.sdk.retail.example.entity.DemoUserEvent;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Device;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Brand;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Category;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Display;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Price;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.ProductSpec;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Seller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Category.*;
 
 public class MockHelper {
     public static List<DemoUser> mockUsers(int count) {
@@ -130,14 +131,14 @@ public class MockHelper {
         CategoryNode category1Node1 = CategoryNode.newBuilder()
                 .setIdOrName("Shoes")
                 .build();
-        Category category1 = Category.newBuilder()
+        Category category1 = newBuilder()
                 .setCategoryDepth(1)
                 .addCategoryNodes(category1Node1)
                 .build();
         CategoryNode category2Node1 = CategoryNode.newBuilder()
                 .setIdOrName("Men's Shoes")
                 .build();
-        Category category2 = Category.newBuilder()
+        Category category2 = newBuilder()
                 .setCategoryDepth(2)
                 .addCategoryNodes(category2Node1)
                 .build();

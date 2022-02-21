@@ -1,10 +1,7 @@
-package byteplus.rec.sdk.retail.example.entity;
+package com.byteplus.rec.sdk.retail.example.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class DemoProduct {

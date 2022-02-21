@@ -1,4 +1,4 @@
-package byteplus.rec.sdk.retail.example.entity;
+package com.byteplus.rec.sdk.retail.example.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
