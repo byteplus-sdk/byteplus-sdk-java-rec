@@ -1,14 +1,14 @@
-package byteplus.rec.sdk.retail;
+package com.byteplus.rec.sdk.retail;
 
-import byteplus.rec.core.BizException;
-import byteplus.rec.core.NetException;
-import byteplus.rec.core.Option;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictRequest;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResponse;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest;
-import byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsResponse;
+import com.byteplus.rec.core.BizException;
+import com.byteplus.rec.core.NetException;
+import com.byteplus.rec.core.Option;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsResponse;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictRequest;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResponse;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
 
 public interface RetailClient {
     // writeUsers
@@ -40,8 +40,7 @@ public interface RetailClient {
     // The updated product data will take effect in 30 minutes.
     // Depending on how (realtime or batch) the UserEvents are sent back, it will
     // be fed into the models and take effect after that.
-    PredictResponse predict(
-            PredictRequest request, Option... opts) throws NetException, BizException;
+    PredictResponse predict(PredictRequest request, Option... opts) throws NetException, BizException;
 
     // AckServerImpressions
     //
@@ -61,5 +60,6 @@ public interface RetailClient {
     AckServerImpressionsResponse ackServerImpressions(
             AckServerImpressionsRequest request, Option... opts) throws NetException, BizException;
 
+    // release resource used by client
     void release();
 }
