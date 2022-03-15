@@ -13,21 +13,21 @@ import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
 public interface RetailClient {
     // writeUsers
     //
-    // Writes at most 100 users data at a time. Exceeding 100 in a request results in
+    // Writes at most 2000 users data at a time. Exceeding 2000 in a request results in
     // a rejection.Each element of dataList array is a json serialized string of data.
     // One can use this to upload new data, or update existing data.
     WriteResponse writeUsers(WriteDataRequest request, Option... opts) throws NetException, BizException;
 
     // writeProducts
     //
-    // Writes at most 100 products data at a time. Exceeding 100 in a request results in
+    // Writes at most 2000 products data at a time. Exceeding 2000 in a request results in
     // a rejection.Each element of dataList array is a json serialized string of data.
     // One can use this to upload new data, or update existing data.
     WriteResponse writeProducts(WriteDataRequest request, Option... opts) throws NetException, BizException;
 
     // writeUserEvents
     //
-    // Writes at most 100 user events data at a time. Exceeding 100 in a request results in
+    // Writes at most 2000 user events data at a time. Exceeding 2000 in a request results in
     // a rejection.Each element of dataList array is a json serialized string of data.
     // One can use this to upload new data, or update existing data (by providing all the fields,
     // some data type not support update, e.g. user event).
