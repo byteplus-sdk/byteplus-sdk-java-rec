@@ -1074,17 +1074,18 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required.
-     * True if the product is recommendable (result in `Predict` call).
+     * 1 if the product is recommendable (result in `Predict` call).
+     * 0 if the product isn't recommendable.
      * Note: Any change of this takes up to 1 hour to take effect.
      * Note: Even if a product isn't recommendable, please still send this to us.
      * This is because that users might interact with such products historically,
      * therefore it provides reasonably strong signals.
      * </pre>
      *
-     * <code>bool is_recommendable = 5;</code>
+     * <code>int32 is_recommendable = 5;</code>
      * @return The isRecommendable.
      */
-    boolean getIsRecommendable();
+    int getIsRecommendable();
 
     /**
      * <pre>
@@ -1424,7 +1425,7 @@ public final class ByteplusSaasRetail {
             }
             case 40: {
 
-              isRecommendable_ = input.readBool();
+              isRecommendable_ = input.readInt32();
               break;
             }
             case 50: {
@@ -8513,22 +8514,23 @@ public final class ByteplusSaasRetail {
     }
 
     public static final int IS_RECOMMENDABLE_FIELD_NUMBER = 5;
-    private boolean isRecommendable_;
+    private int isRecommendable_;
     /**
      * <pre>
      * Required.
-     * True if the product is recommendable (result in `Predict` call).
+     * 1 if the product is recommendable (result in `Predict` call).
+     * 0 if the product isn't recommendable.
      * Note: Any change of this takes up to 1 hour to take effect.
      * Note: Even if a product isn't recommendable, please still send this to us.
      * This is because that users might interact with such products historically,
      * therefore it provides reasonably strong signals.
      * </pre>
      *
-     * <code>bool is_recommendable = 5;</code>
+     * <code>int32 is_recommendable = 5;</code>
      * @return The isRecommendable.
      */
     @java.lang.Override
-    public boolean getIsRecommendable() {
+    public int getIsRecommendable() {
       return isRecommendable_;
     }
 
@@ -8917,8 +8919,8 @@ public final class ByteplusSaasRetail {
       if (price_ != null) {
         output.writeMessage(4, getPrice());
       }
-      if (isRecommendable_ != false) {
-        output.writeBool(5, isRecommendable_);
+      if (isRecommendable_ != 0) {
+        output.writeInt32(5, isRecommendable_);
       }
       if (!getTitleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, title_);
@@ -8968,9 +8970,9 @@ public final class ByteplusSaasRetail {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getPrice());
       }
-      if (isRecommendable_ != false) {
+      if (isRecommendable_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, isRecommendable_);
+          .computeInt32Size(5, isRecommendable_);
       }
       if (!getTitleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, title_);
@@ -9087,8 +9089,7 @@ public final class ByteplusSaasRetail {
         hash = (53 * hash) + getPrice().hashCode();
       }
       hash = (37 * hash) + IS_RECOMMENDABLE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsRecommendable());
+      hash = (53 * hash) + getIsRecommendable();
       hash = (37 * hash) + TITLE_FIELD_NUMBER;
       hash = (53 * hash) + getTitle().hashCode();
       hash = (37 * hash) + QUALITY_SCORE_FIELD_NUMBER;
@@ -9295,7 +9296,7 @@ public final class ByteplusSaasRetail {
           price_ = null;
           priceBuilder_ = null;
         }
-        isRecommendable_ = false;
+        isRecommendable_ = 0;
 
         title_ = "";
 
@@ -9505,7 +9506,7 @@ public final class ByteplusSaasRetail {
         if (other.hasPrice()) {
           mergePrice(other.getPrice());
         }
-        if (other.getIsRecommendable() != false) {
+        if (other.getIsRecommendable() != 0) {
           setIsRecommendable(other.getIsRecommendable());
         }
         if (!other.getTitle().isEmpty()) {
@@ -11027,39 +11028,41 @@ public final class ByteplusSaasRetail {
         return priceBuilder_;
       }
 
-      private boolean isRecommendable_ ;
+      private int isRecommendable_ ;
       /**
        * <pre>
        * Required.
-       * True if the product is recommendable (result in `Predict` call).
+       * 1 if the product is recommendable (result in `Predict` call).
+       * 0 if the product isn't recommendable.
        * Note: Any change of this takes up to 1 hour to take effect.
        * Note: Even if a product isn't recommendable, please still send this to us.
        * This is because that users might interact with such products historically,
        * therefore it provides reasonably strong signals.
        * </pre>
        *
-       * <code>bool is_recommendable = 5;</code>
+       * <code>int32 is_recommendable = 5;</code>
        * @return The isRecommendable.
        */
       @java.lang.Override
-      public boolean getIsRecommendable() {
+      public int getIsRecommendable() {
         return isRecommendable_;
       }
       /**
        * <pre>
        * Required.
-       * True if the product is recommendable (result in `Predict` call).
+       * 1 if the product is recommendable (result in `Predict` call).
+       * 0 if the product isn't recommendable.
        * Note: Any change of this takes up to 1 hour to take effect.
        * Note: Even if a product isn't recommendable, please still send this to us.
        * This is because that users might interact with such products historically,
        * therefore it provides reasonably strong signals.
        * </pre>
        *
-       * <code>bool is_recommendable = 5;</code>
+       * <code>int32 is_recommendable = 5;</code>
        * @param value The isRecommendable to set.
        * @return This builder for chaining.
        */
-      public Builder setIsRecommendable(boolean value) {
+      public Builder setIsRecommendable(int value) {
         
         isRecommendable_ = value;
         onChanged();
@@ -11068,19 +11071,20 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required.
-       * True if the product is recommendable (result in `Predict` call).
+       * 1 if the product is recommendable (result in `Predict` call).
+       * 0 if the product isn't recommendable.
        * Note: Any change of this takes up to 1 hour to take effect.
        * Note: Even if a product isn't recommendable, please still send this to us.
        * This is because that users might interact with such products historically,
        * therefore it provides reasonably strong signals.
        * </pre>
        *
-       * <code>bool is_recommendable = 5;</code>
+       * <code>int32 is_recommendable = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearIsRecommendable() {
         
-        isRecommendable_ = false;
+        isRecommendable_ = 0;
         onChanged();
         return this;
       }
@@ -30456,7 +30460,7 @@ public final class ByteplusSaasRetail {
       "y\022<\n\006brands\030\003 \003(\0132,.bytedance.byteplus.r" +
       "ec.retail.Product.Brand\022;\n\005price\030\004 \001(\0132," +
       ".bytedance.byteplus.rec.retail.Product.P" +
-      "rice\022\030\n\020is_recommendable\030\005 \001(\010\022\r\n\005title\030" +
+      "rice\022\030\n\020is_recommendable\030\005 \001(\005\022\r\n\005title\030" +
       "\006 \001(\t\022\025\n\rquality_score\030\007 \001(\001\022\014\n\004tags\030\010 \003" +
       "(\t\022?\n\007display\030\t \001(\0132..bytedance.byteplus" +
       ".rec.retail.Product.Display\022H\n\014product_s" +
