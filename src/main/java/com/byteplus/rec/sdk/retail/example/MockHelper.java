@@ -185,7 +185,7 @@ public class MockHelper {
                 .addBrands(brand1)
                 .addBrands(brand2)
                 .setPrice(price)
-                .setIsRecommendable(true)
+                .setIsRecommendable(1)
                 .setTitle("adidas Men's Yeezy Boost 350 V2 Grey/Borang/Dgsogr")
                 .setQualityScore(4.4)
                 .addAllTags(Arrays.asList("New Product", "Summer Product"))
