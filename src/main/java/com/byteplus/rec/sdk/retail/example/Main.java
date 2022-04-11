@@ -168,6 +168,10 @@ public class Main {
         requestBuilder.setStage(Constant.STAGE_INCREMENTAL_DAILY);
         requestBuilder.setTopic(topic);
 
+        // finish user or product do not need to write dates
+        if(Constant.TOPIC_USER.equals(topic) || Constant.TOPIC_PRODUCT.equals(topic)){
+            return requestBuilder.build();
+        }
         LocalDate date = LocalDate.of(2022, 3, 1);
         List<LocalDate> dateList = Collections.singletonList(date);
 
