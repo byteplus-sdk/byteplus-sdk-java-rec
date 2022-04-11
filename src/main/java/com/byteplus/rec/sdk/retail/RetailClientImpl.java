@@ -21,8 +21,11 @@ public class RetailClientImpl implements RetailClient {
 
     private final HTTPClient httpClient;
 
-    protected RetailClientImpl(HTTPClient httpClient) {
+    private final String projectID;
+
+    protected RetailClientImpl(HTTPClient httpClient, String projectID) {
         this.httpClient = httpClient;
+        this.projectID = projectID;
     }
 
     @Override
@@ -32,7 +35,8 @@ public class RetailClientImpl implements RetailClient {
 
     @Override
     public WriteResponse finishWriteUsers(FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doFinishData(request, Constant.FINISH_USER_URI, opts);
+        FinishWriteDataRequest finishRequest = request.toBuilder().setTopic(Constant.TOPIC_USER).build();
+        return doFinishData(finishRequest, Constant.FINISH_USER_URI, opts);
     }
 
     @Override
@@ -42,7 +46,8 @@ public class RetailClientImpl implements RetailClient {
 
     @Override
     public WriteResponse finishWriteProducts(FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doFinishData(request, Constant.FINISH_PRODUCT_URI, opts);
+        FinishWriteDataRequest finishRequest = request.toBuilder().setTopic(Constant.TOPIC_PRODUCT).build();
+        return doFinishData(finishRequest, Constant.FINISH_PRODUCT_URI, opts);
     }
 
     @Override
@@ -52,7 +57,8 @@ public class RetailClientImpl implements RetailClient {
 
     @Override
     public WriteResponse finishWriteUserEvents(FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doFinishData(request, Constant.FINISH_USER_EVENT_URI, opts);
+        FinishWriteDataRequest finishRequest = request.toBuilder().setTopic(Constant.TOPIC_USER_EVENT).build();
+        return doFinishData(finishRequest, Constant.FINISH_USER_EVENT_URI, opts);
     }
 
     @Override
@@ -67,6 +73,9 @@ public class RetailClientImpl implements RetailClient {
 
     private WriteResponse doWriteData(WriteDataRequest request,
                                       String path, Option... opts) throws NetException, BizException {
+        if (projectID.length() > 0 && request.getProjectId().length() == 0) {
+            request = request.toBuilder().setProjectId(projectID).build();
+        }
         checkUploadDataRequest(request);
         if (request.getDataCount() > Constant.MAX_WRITE_COUNT) {
             throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
@@ -91,7 +100,10 @@ public class RetailClientImpl implements RetailClient {
     }
 
     private WriteResponse doFinishData(FinishWriteDataRequest request,
-                                      String path, Option... opts) throws NetException, BizException {
+                                       String path, Option... opts) throws NetException, BizException {
+        if (projectID.length() > 0 && request.getProjectId().length() == 0) {
+            request = request.toBuilder().setProjectId(projectID).build();
+        }
         checkFinishUploadRequest(request);
         if (request.getDataDatesCount() > Constant.MAX_WRITE_COUNT) {
             throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
@@ -144,6 +156,9 @@ public class RetailClientImpl implements RetailClient {
     @Override
     public AckServerImpressionsResponse ackServerImpressions(AckServerImpressionsRequest request,
                                                              Option... opts) throws NetException, BizException {
+        if (projectID.length() > 0 && request.getProjectId().length() == 0) {
+            request = request.toBuilder().setProjectId(projectID).build();
+        }
         checkAckRequest(request);
         AckServerImpressionsResponse response = httpClient.doPBRequest(
                 "/RetailSaaS/AckServerImpressions",

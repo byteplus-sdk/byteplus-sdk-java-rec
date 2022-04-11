@@ -64,9 +64,12 @@ message FinishWriteDataRequest{
   string stage = 2;
 
   // Optional.
-  // upload the data that topic of which is not specific
+  // upload the data that topic of which is not specific.
+  // When finish others, topic should not be missing
   string topic = 3;
 
+  // Optional.
+  // When finish user events, data_dates should not be missing
   repeated Date data_dates = 10;
 }
 

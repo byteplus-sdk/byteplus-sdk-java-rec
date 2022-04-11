@@ -10,6 +10,36 @@
 </dependency>
 ```
 
+#### Example
+```java
+import com.byteplus.rec.sdk.region.Region;
+import com.byteplus.rec.sdk.retail.RetailClient;
+
+public class Main {
+    private static RetailClient client;
+
+    static {
+        try {
+            client = new RetailClientBuilder()
+                    .AccountID("***********")  // Required
+                    .projectID("***********")
+                    .region(Region.SG)  // Required
+                    .authAK("***********")  // Required
+                    .authSK("***********")  // Required
+//                    .Schema("http") // Optional
+//                    .Hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
+                    .build();
+        } catch (BizException e) {
+            log.error("fail to create byteplus rec client", e);
+        }
+    }
+    public static void main(String[] args) {
+        client.writeUsers();
+        client.predict();
+    }
+}
+```
+
 #### How to run example
 * Clone the project.
 * enter the example directory.

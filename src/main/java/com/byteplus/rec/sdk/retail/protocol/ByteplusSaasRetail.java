@@ -1558,7 +1558,8 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific
+     * upload the data that topic of which is not specific.
+     * When finish others, topic should not be missing
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1568,7 +1569,8 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific
+     * upload the data that topic of which is not specific.
+     * When finish others, topic should not be missing
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1578,24 +1580,49 @@ public final class ByteplusSaasRetail {
         getTopicBytes();
 
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> 
         getDataDatesList();
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDataDates(int index);
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     int getDataDatesCount();
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
         getDataDatesOrBuilderList();
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder getDataDatesOrBuilder(
@@ -1822,7 +1849,8 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific
+     * upload the data that topic of which is not specific.
+     * When finish others, topic should not be missing
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1844,7 +1872,8 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific
+     * upload the data that topic of which is not specific.
+     * When finish others, topic should not be missing
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1868,6 +1897,11 @@ public final class ByteplusSaasRetail {
     public static final int DATA_DATES_FIELD_NUMBER = 10;
     private java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> dataDates_;
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     @java.lang.Override
@@ -1875,6 +1909,11 @@ public final class ByteplusSaasRetail {
       return dataDates_;
     }
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     @java.lang.Override
@@ -1883,6 +1922,11 @@ public final class ByteplusSaasRetail {
       return dataDates_;
     }
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     @java.lang.Override
@@ -1890,6 +1934,11 @@ public final class ByteplusSaasRetail {
       return dataDates_.size();
     }
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     @java.lang.Override
@@ -1897,6 +1946,11 @@ public final class ByteplusSaasRetail {
       return dataDates_.get(index);
     }
     /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     @java.lang.Override
@@ -2524,7 +2578,8 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific
+       * upload the data that topic of which is not specific.
+       * When finish others, topic should not be missing
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2545,7 +2600,8 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific
+       * upload the data that topic of which is not specific.
+       * When finish others, topic should not be missing
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2567,7 +2623,8 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific
+       * upload the data that topic of which is not specific.
+       * When finish others, topic should not be missing
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2587,7 +2644,8 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific
+       * upload the data that topic of which is not specific.
+       * When finish others, topic should not be missing
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2602,7 +2660,8 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific
+       * upload the data that topic of which is not specific.
+       * When finish others, topic should not be missing
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2634,6 +2693,11 @@ public final class ByteplusSaasRetail {
           com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> dataDatesBuilder_;
 
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> getDataDatesList() {
@@ -2644,6 +2708,11 @@ public final class ByteplusSaasRetail {
         }
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public int getDataDatesCount() {
@@ -2654,6 +2723,11 @@ public final class ByteplusSaasRetail {
         }
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDataDates(int index) {
@@ -2664,6 +2738,11 @@ public final class ByteplusSaasRetail {
         }
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder setDataDates(
@@ -2681,6 +2760,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder setDataDates(
@@ -2695,6 +2779,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder addDataDates(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date value) {
@@ -2711,6 +2800,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder addDataDates(
@@ -2728,6 +2822,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder addDataDates(
@@ -2742,6 +2841,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder addDataDates(
@@ -2756,6 +2860,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder addAllDataDates(
@@ -2771,6 +2880,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder clearDataDates() {
@@ -2784,6 +2898,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public Builder removeDataDates(int index) {
@@ -2797,6 +2916,11 @@ public final class ByteplusSaasRetail {
         return this;
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder getDataDatesBuilder(
@@ -2804,6 +2928,11 @@ public final class ByteplusSaasRetail {
         return getDataDatesFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder getDataDatesOrBuilder(
@@ -2814,6 +2943,11 @@ public final class ByteplusSaasRetail {
         }
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
@@ -2825,6 +2959,11 @@ public final class ByteplusSaasRetail {
         }
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder addDataDatesBuilder() {
@@ -2832,6 +2971,11 @@ public final class ByteplusSaasRetail {
             com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.getDefaultInstance());
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder addDataDatesBuilder(
@@ -2840,6 +2984,11 @@ public final class ByteplusSaasRetail {
             index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.getDefaultInstance());
       }
       /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
       public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder> 

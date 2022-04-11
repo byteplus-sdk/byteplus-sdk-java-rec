@@ -36,36 +36,6 @@ public class RetailClientBuilder {
         return this;
     }
 
-    public RetailClientBuilder ProjectID(String projectID) {
-        this.projectID = projectID;
-        return this;
-    }
-
-    public RetailClientBuilder Region(IRegion region) {
-        this.region = region;
-        return this;
-    }
-
-    public RetailClientBuilder AuthAK(String authAK) {
-        this.authAK = authAK;
-        return this;
-    }
-
-    public RetailClientBuilder AuthSK(String authSK) {
-        this.authSK = authSK;
-        return this;
-    }
-
-    public RetailClientBuilder Schema(String schema) {
-        this.schema = schema;
-        return this;
-    }
-
-    public RetailClientBuilder Hosts(List<String> hosts) {
-        this.hosts = hosts;
-        return this;
-    }
-
     public RetailClientImpl build() throws BizException {
         checkRequiredField();
         HTTPClient httpClient = HTTPClient.builder()
@@ -80,7 +50,7 @@ public class RetailClientBuilder {
                 .useAirAuth(isUseAirAuth())
                 .authService(BYTEPLUS_AUTH_SERVICE)
                 .build();
-        return new RetailClientImpl(httpClient);
+        return new RetailClientImpl(httpClient, projectID);
     }
 
     private boolean isUseAirAuth() {
