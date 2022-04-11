@@ -107,15 +107,15 @@ public class RetailClientImpl implements RetailClient {
     }
 
     private void checkFinishUploadRequest(FinishWriteDataRequest request) throws BizException {
-//        if (Utils.isEmptyString(request.getProjectId())) {
-//            throw new BizException("project id is empty");
-//        }
-//        if (Utils.isEmptyString(request.getStage())) {
-//            throw new BizException("stage is empty");
-//        }
-//        if (Utils.isEmptyString(request.getTopic())) {
-//            throw new BizException("topic is empty");
-//        }
+        if (Utils.isEmptyString(request.getProjectId())) {
+            throw new BizException("project id is empty");
+        }
+        if (Utils.isEmptyString(request.getStage())) {
+            throw new BizException("stage is empty");
+        }
+        if (Utils.isEmptyString(request.getTopic())) {
+            throw new BizException("topic is empty");
+        }
     }
 
     @Override
