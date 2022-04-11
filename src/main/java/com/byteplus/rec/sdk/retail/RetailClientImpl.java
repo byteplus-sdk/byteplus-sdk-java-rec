@@ -11,7 +11,7 @@ import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictRequest;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResponse;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
-import com.google.protobuf.Parser;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -27,17 +27,42 @@ public class RetailClientImpl implements RetailClient {
 
     @Override
     public WriteResponse writeUsers(WriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doWriteData(request, "/RetailSaaS/WriteUsers", opts);
+        return doWriteData(request, Constant.USER_URI, opts);
+    }
+
+    @Override
+    public WriteResponse finishWriteUsers(FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
+        return doFinishData(request, Constant.FINISH_USER_URI, opts);
     }
 
     @Override
     public WriteResponse writeProducts(WriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doWriteData(request, "/RetailSaaS/WriteProducts", opts);
+        return doWriteData(request, Constant.PRODUCT_URI, opts);
+    }
+
+    @Override
+    public WriteResponse finishWriteProducts(FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
+        return doFinishData(request, Constant.FINISH_PRODUCT_URI, opts);
     }
 
     @Override
     public WriteResponse writeUserEvents(WriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doWriteData(request, "/RetailSaaS/WriteUserEvents", opts);
+        return doWriteData(request, Constant.USER_EVENT_URI, opts);
+    }
+
+    @Override
+    public WriteResponse finishWriteUserEvents(FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
+        return doFinishData(request, Constant.FINISH_USER_EVENT_URI, opts);
+    }
+
+    @Override
+    public WriteResponse writeOthers(WriteDataRequest request, Option... opts) throws NetException, BizException {
+        return doWriteData(request, Constant.OTHERS_URI, opts);
+    }
+
+    @Override
+    public WriteResponse finishWriteOthers(FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
+        return doFinishData(request, Constant.FINISH_OTHERS_URI, opts);
     }
 
     private WriteResponse doWriteData(WriteDataRequest request,
@@ -63,6 +88,34 @@ public class RetailClientImpl implements RetailClient {
         if (Utils.isEmptyString(request.getStage())) {
             throw new BizException("stage is empty");
         }
+    }
+
+    private WriteResponse doFinishData(FinishWriteDataRequest request,
+                                      String path, Option... opts) throws NetException, BizException {
+        checkFinishUploadRequest(request);
+        if (request.getDataDatesCount() > Constant.MAX_WRITE_COUNT) {
+            throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
+        }
+        WriteResponse response = httpClient.doPBRequest(
+                path,
+                request,
+                WriteResponse.parser(),
+                Option.conv2Options(opts)
+        );
+        log.debug("[ByteplusSDK][FinishWriteData] req:\n{} rsp:\n{}", request, response);
+        return response;
+    }
+
+    private void checkFinishUploadRequest(FinishWriteDataRequest request) throws BizException {
+//        if (Utils.isEmptyString(request.getProjectId())) {
+//            throw new BizException("project id is empty");
+//        }
+//        if (Utils.isEmptyString(request.getStage())) {
+//            throw new BizException("stage is empty");
+//        }
+//        if (Utils.isEmptyString(request.getTopic())) {
+//            throw new BizException("topic is empty");
+//        }
     }
 
     @Override

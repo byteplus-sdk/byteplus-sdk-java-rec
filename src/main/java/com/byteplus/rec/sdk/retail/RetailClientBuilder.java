@@ -31,6 +31,41 @@ public class RetailClientBuilder {
 
     private IRegion region;
 
+    public RetailClientBuilder AccountID(String accountID) {
+        this.tenantID = accountID;
+        return this;
+    }
+
+    public RetailClientBuilder ProjectID(String projectID) {
+        this.projectID = projectID;
+        return this;
+    }
+
+    public RetailClientBuilder Region(IRegion region) {
+        this.region = region;
+        return this;
+    }
+
+    public RetailClientBuilder AuthAK(String authAK) {
+        this.authAK = authAK;
+        return this;
+    }
+
+    public RetailClientBuilder AuthSK(String authSK) {
+        this.authSK = authSK;
+        return this;
+    }
+
+    public RetailClientBuilder Schema(String schema) {
+        this.schema = schema;
+        return this;
+    }
+
+    public RetailClientBuilder Hosts(List<String> hosts) {
+        this.hosts = hosts;
+        return this;
+    }
+
     public RetailClientImpl build() throws BizException {
         checkRequiredField();
         HTTPClient httpClient = HTTPClient.builder()

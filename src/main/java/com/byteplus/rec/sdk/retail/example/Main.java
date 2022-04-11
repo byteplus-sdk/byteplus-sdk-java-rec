@@ -12,6 +12,7 @@ import com.byteplus.rec.sdk.retail.RetailClientBuilder;
 import com.byteplus.rec.sdk.retail.example.entity.DemoProduct;
 import com.byteplus.rec.sdk.retail.example.entity.DemoUser;
 import com.byteplus.rec.sdk.retail.example.entity.DemoUserEvent;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProduct;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsResponse;
@@ -24,16 +25,19 @@ import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Scene;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.concurrent.Callable;
 
 @Slf4j
 public class Main {
@@ -45,39 +49,58 @@ public class Main {
 
     private final static Duration DEFAULT_PREDICT_TIMEOUT = Duration.ofMillis(800);
 
+    private final static Duration DEFAULT_DONE_TIMEOUT = Duration.ofMillis(1000);
+
     private final static Duration DEFAULT_ACK_IMPRESSIONS_TIMEOUT = Duration.ofMillis(800);
 
     // A unique identity assigned by Bytedance.
-    public final static String PROJECT_ID = "***********";
+    public final static String PROJECT_ID = "1022386166";
 
     // Unique id for this model.The saas model id that can be used to get rec results from predict api, which is need to fill in URL.
-    public final static String MODEL_ID = "***********";
+    public final static String MODEL_ID = "952795279527";
+
 
     static {
         try {
             client = new RetailClientBuilder()
-                    .tenantID("***********")  // Required
-                    .projectID(PROJECT_ID)
-                    .region(Region.SG)  // Required
-                    .authAK("***********")  // Required
-                    .authSK("***********")  // Required
-//                    .schema("http") // Optional
-//                    .hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
+                    .AccountID("3000001729")  // Required
+                    .ProjectID(PROJECT_ID)
+                    .Region(Region.SG)  // Required
+                    .AuthAK("AKAPMzgwYzYzN2EzMjQ2NDc3Zjg1ZmZmZmMwODAzMjg2Njk")  // Required
+                    .AuthSK("TURsbU9EZ3pOekppWkRBM05HVTVZbUl5WXpoaU5tTmhZbUprTkRKbU9HRQ")  // Required
+//                    .Schema("http") // Optional
+//                    .Hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
                     .build();
         } catch (BizException e) {
             log.error("fail to create byteplus rec client", e);
         }
     }
 
+
     public static void main(String[] args) {
         // Write real-time user data
         writeUsersExample();
 
+        // Finish write real-time user data
+        finishWriteUsersExample();
+
         // Write real-time product data
         writeProductsExample();
 
+        // Finish write real-time product data
+        finishWriteProductsExample();
+
         // Write real-time user event data
         writeUserEventsExample();
+
+        // Finish write real-time user event data
+        finishWriteUserEventsExample();
+
+        // Write self defined topic data
+        writeOthersExample();
+
+        // Finish write self defined topic data
+        finishWriteOthersExample();
 
         // Get recommendation results
         recommendExample();
@@ -122,6 +145,54 @@ public class Main {
         return requestBuilder.build();
     }
 
+    public static void finishWriteUsersExample() {
+        ByteplusSaasRetail.FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_USER);
+        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        WriteResponse response;
+        try {
+            response = Utils.doWithRetry(client::finishWriteUsers, request, opts, DEFAULT_RETRY_TIMES);
+        } catch (BizException e) {
+            log.error("run finish occur error, msg:{}", e.getMessage());
+            return;
+        }
+        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
+            log.info("finish write user data");
+            return;
+        }
+        log.error("fail to finish write user data, msg:{} errItems:{}",
+                response.getStatus(), response.getInitializationErrorString());
+    }
+
+    private static FinishWriteDataRequest buildDoneRequest(String topic) {
+        FinishWriteDataRequest.Builder requestBuilder = FinishWriteDataRequest.newBuilder();
+        requestBuilder.setProjectId(PROJECT_ID);
+        requestBuilder.setStage(Constant.STAGE_INCREMENTAL_DAILY);
+        requestBuilder.setTopic(topic);
+
+        // only user events request should add dates
+        if (!Constant.TOPIC_USER_EVENT.equals(topic)) {
+            return requestBuilder.build();
+        }
+        LocalDate date = LocalDate.of(2022, 3, 1);
+        List<LocalDate> dateList = Collections.singletonList(date);
+
+        List<ByteplusSaasRetail.Date> dates = new ArrayList<>();
+        for (LocalDate everyDay : dateList) {
+            addDoneDate(dates, everyDay);
+        }
+        requestBuilder.addAllDataDates(dates).build();
+        return requestBuilder.build();
+    }
+
+    private static void addDoneDate(List<ByteplusSaasRetail.Date> dateMapList, LocalDate date) {
+        dateMapList.add(buildDoneDate(date));
+    }
+
+    private static ByteplusSaasRetail.Date buildDoneDate(LocalDate date) {
+        return ByteplusSaasRetail.Date.newBuilder().setYear(date.getYear()).setMonth(date.getMonthValue()).
+                setDay(date.getDayOfMonth()).build();
+    }
+
     public static void writeProductsExample() {
         // The "WriteXXX" api can transfer max to 2000 items at one request
         WriteDataRequest request = buildWriteProductsRequest(1);
@@ -146,10 +217,29 @@ public class Main {
         WriteDataRequest.Builder requestBuilder = WriteDataRequest.newBuilder();
         requestBuilder.setProjectId(PROJECT_ID);
         requestBuilder.setStage(Constant.STAGE_TRIAL);
+        requestBuilder.setTopic(Constant.TOPIC_PRODUCT);
         for (DemoProduct product : products) {
             requestBuilder.addData(JSON.toJSONString(product));
         }
         return requestBuilder.build();
+    }
+
+    public static void finishWriteProductsExample() {
+        ByteplusSaasRetail.FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_PRODUCT);
+        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        WriteResponse response;
+        try {
+            response = Utils.doWithRetry(client::finishWriteProducts, request, opts, DEFAULT_RETRY_TIMES);
+        } catch (BizException e) {
+            log.error("run finish occur error, msg:{}", e.getMessage());
+            return;
+        }
+        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
+            log.info("finish write product data");
+            return;
+        }
+        log.error("fail to finish write product data, msg:{} errItems:{}",
+                response.getStatus(), response.getInitializationErrorString());
     }
 
     public static void writeUserEventsExample() {
@@ -176,10 +266,81 @@ public class Main {
         WriteDataRequest.Builder requestBuilder = WriteDataRequest.newBuilder();
         requestBuilder.setProjectId(PROJECT_ID);
         requestBuilder.setStage(Constant.STAGE_TRIAL);
+        requestBuilder.setTopic(Constant.TOPIC_USER_EVENT);
         for (DemoUserEvent userEvent : userEvents) {
             requestBuilder.addData(JSON.toJSONString(userEvent));
         }
         return requestBuilder.build();
+    }
+
+    public static void finishWriteUserEventsExample() {
+        FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_USER_EVENT);
+        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        WriteResponse response;
+        try {
+            response = Utils.doWithRetry(client::finishWriteUserEvents, request, opts, DEFAULT_RETRY_TIMES);
+        } catch (BizException e) {
+            log.error("run finish occur error, msg:{}", e.getMessage());
+            return;
+        }
+        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
+            log.info("finish write user_event data");
+            return;
+        }
+        log.error("fail to finish write user_event data, msg:{} errItems:{}",
+                response.getStatus(), response.getInitializationErrorString());
+    }
+
+    public static void writeOthersExample() {
+        // The "WriteXXX" api can transfer max to 2000 items at one request
+        // The `topic` is some enums provided by bytedance,
+        // who according to tenant's situation
+        String topic = Constant.TOPIC_USER;
+        WriteDataRequest request = buildWriteOthersRequest(1, topic);
+        Option[] opts = defaultOptions(DEFAULT_WRITE_TIMEOUT);
+        WriteResponse response;
+        try {
+            response = Utils.doWithRetry(client::writeOthers, request, opts, DEFAULT_RETRY_TIMES);
+        } catch (BizException e) {
+            log.error("write other data occur err, msg:{}", e.getMessage());
+            return;
+        }
+        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
+            log.info("write other data success");
+            return;
+        }
+        log.error("write other data find failure info, msg:{} errItems:{}",
+                response.getStatus(), response.getErrorsList());
+    }
+
+    private static WriteDataRequest buildWriteOthersRequest(int count, String topic) {
+        List<DemoUserEvent> userEvents = MockHelper.mockUserEvents(count);
+        WriteDataRequest.Builder requestBuilder = WriteDataRequest.newBuilder();
+        requestBuilder.setProjectId(PROJECT_ID);
+        requestBuilder.setStage(Constant.STAGE_TRIAL);
+        requestBuilder.setTopic(topic);
+        for (DemoUserEvent userEvent : userEvents) {
+            requestBuilder.addData(JSON.toJSONString(userEvent));
+        }
+        return requestBuilder.build();
+    }
+
+    public static void finishWriteOthersExample() {
+        FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_USER);
+        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        WriteResponse response;
+        try {
+            response = Utils.doWithRetry(client::finishWriteOthers, request, opts, DEFAULT_RETRY_TIMES);
+        } catch (BizException e) {
+            log.error("run finish occur error, msg:{}", e.getMessage());
+            return;
+        }
+        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
+            log.info("finish writing data");
+            return;
+        }
+        log.error("fail to finish, msg:{} errItems:{}",
+                response.getStatus(), response.getInitializationErrorString());
     }
 
     public static void recommendExample() {
