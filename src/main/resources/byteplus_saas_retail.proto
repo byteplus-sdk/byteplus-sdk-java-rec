@@ -586,13 +586,14 @@ service BytePlusSaasService {
   rpc WritUsers(WriteDataRequest) returns (WriteResponse);
   rpc WritProducts(WriteDataRequest) returns (WriteResponse);
   rpc WritUserEvents(WriteDataRequest) returns (WriteResponse);
+  // premium only，only saas+service could use this
   rpc WriteOthers(WriteDataRequest) returns (WriteResponse);
 
-  // Done
+  // Finish
   //
   // Pass a date list to mark the completion of data synchronization for these days.
   // Suitable for new data API
-  rpc Done(FinishWriteDataRequest) returns (WriteResponse);
+  rpc Finish(FinishWriteDataRequest) returns (WriteResponse);
 
   // Predict
   //

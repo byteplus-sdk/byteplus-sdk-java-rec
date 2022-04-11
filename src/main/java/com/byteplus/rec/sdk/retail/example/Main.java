@@ -37,7 +37,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.concurrent.Callable;
 
 @Slf4j
 public class Main {
@@ -49,25 +48,25 @@ public class Main {
 
     private final static Duration DEFAULT_PREDICT_TIMEOUT = Duration.ofMillis(800);
 
-    private final static Duration DEFAULT_DONE_TIMEOUT = Duration.ofMillis(1000);
+    private final static Duration DEFAULT_FINISH_TIMEOUT = Duration.ofMillis(800);
 
     private final static Duration DEFAULT_ACK_IMPRESSIONS_TIMEOUT = Duration.ofMillis(800);
 
     // A unique identity assigned by Bytedance.
-    public final static String PROJECT_ID = "1022386166";
+    public final static String PROJECT_ID = "***********";
 
     // Unique id for this model.The saas model id that can be used to get rec results from predict api, which is need to fill in URL.
-    public final static String MODEL_ID = "952795279527";
+    public final static String MODEL_ID = "***********";
 
 
     static {
         try {
             client = new RetailClientBuilder()
-                    .AccountID("3000001729")  // Required
+                    .AccountID("***********")  // Required
                     .ProjectID(PROJECT_ID)
                     .Region(Region.SG)  // Required
-                    .AuthAK("AKAPMzgwYzYzN2EzMjQ2NDc3Zjg1ZmZmZmMwODAzMjg2Njk")  // Required
-                    .AuthSK("TURsbU9EZ3pOekppWkRBM05HVTVZbUl5WXpoaU5tTmhZbUprTkRKbU9HRQ")  // Required
+                    .AuthAK("***********")  // Required
+                    .AuthSK("***********")  // Required
 //                    .Schema("http") // Optional
 //                    .Hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
                     .build();
@@ -146,8 +145,8 @@ public class Main {
     }
 
     public static void finishWriteUsersExample() {
-        ByteplusSaasRetail.FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_USER);
-        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        ByteplusSaasRetail.FinishWriteDataRequest request = buildFinishRequest(Constant.TOPIC_USER);
+        Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
         try {
             response = Utils.doWithRetry(client::finishWriteUsers, request, opts, DEFAULT_RETRY_TIMES);
@@ -163,32 +162,28 @@ public class Main {
                 response.getStatus(), response.getInitializationErrorString());
     }
 
-    private static FinishWriteDataRequest buildDoneRequest(String topic) {
+    private static FinishWriteDataRequest buildFinishRequest(String topic) {
         FinishWriteDataRequest.Builder requestBuilder = FinishWriteDataRequest.newBuilder();
         requestBuilder.setProjectId(PROJECT_ID);
         requestBuilder.setStage(Constant.STAGE_INCREMENTAL_DAILY);
         requestBuilder.setTopic(topic);
 
-        // only user events request should add dates
-        if (!Constant.TOPIC_USER_EVENT.equals(topic)) {
-            return requestBuilder.build();
-        }
         LocalDate date = LocalDate.of(2022, 3, 1);
         List<LocalDate> dateList = Collections.singletonList(date);
 
         List<ByteplusSaasRetail.Date> dates = new ArrayList<>();
         for (LocalDate everyDay : dateList) {
-            addDoneDate(dates, everyDay);
+            addFinishDate(dates, everyDay);
         }
         requestBuilder.addAllDataDates(dates).build();
         return requestBuilder.build();
     }
 
-    private static void addDoneDate(List<ByteplusSaasRetail.Date> dateMapList, LocalDate date) {
-        dateMapList.add(buildDoneDate(date));
+    private static void addFinishDate(List<ByteplusSaasRetail.Date> dateMapList, LocalDate date) {
+        dateMapList.add(buildFinishDate(date));
     }
 
-    private static ByteplusSaasRetail.Date buildDoneDate(LocalDate date) {
+    private static ByteplusSaasRetail.Date buildFinishDate(LocalDate date) {
         return ByteplusSaasRetail.Date.newBuilder().setYear(date.getYear()).setMonth(date.getMonthValue()).
                 setDay(date.getDayOfMonth()).build();
     }
@@ -225,8 +220,8 @@ public class Main {
     }
 
     public static void finishWriteProductsExample() {
-        ByteplusSaasRetail.FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_PRODUCT);
-        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        ByteplusSaasRetail.FinishWriteDataRequest request = buildFinishRequest(Constant.TOPIC_PRODUCT);
+        Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
         try {
             response = Utils.doWithRetry(client::finishWriteProducts, request, opts, DEFAULT_RETRY_TIMES);
@@ -274,8 +269,8 @@ public class Main {
     }
 
     public static void finishWriteUserEventsExample() {
-        FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_USER_EVENT);
-        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        FinishWriteDataRequest request = buildFinishRequest(Constant.TOPIC_USER_EVENT);
+        Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
         try {
             response = Utils.doWithRetry(client::finishWriteUserEvents, request, opts, DEFAULT_RETRY_TIMES);
@@ -326,8 +321,8 @@ public class Main {
     }
 
     public static void finishWriteOthersExample() {
-        FinishWriteDataRequest request = buildDoneRequest(Constant.TOPIC_USER);
-        Option[] opts = defaultOptions(DEFAULT_DONE_TIMEOUT);
+        FinishWriteDataRequest request = buildFinishRequest(Constant.TOPIC_USER);
+        Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
         try {
             response = Utils.doWithRetry(client::finishWriteOthers, request, opts, DEFAULT_RETRY_TIMES);

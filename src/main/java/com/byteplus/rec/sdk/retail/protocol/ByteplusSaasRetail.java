@@ -32892,7 +32892,7 @@ public final class ByteplusSaasRetail {
       "\001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017product_id_hash\030d \001" +
       "(\003\"U\n\034AckServerImpressionsResponse\0225\n\006st" +
       "atus\030\001 \001(\0132%.bytedance.byteplus.rec.reta" +
-      "il.Status2\270\006\n\023BytePlusSaasService\022j\n\tWri" +
+      "il.Status2\272\006\n\023BytePlusSaasService\022j\n\tWri" +
       "tUsers\022/.bytedance.byteplus.rec.retail.W" +
       "riteDataRequest\032,.bytedance.byteplus.rec" +
       ".retail.WriteResponse\022m\n\014WritProducts\022/." +
@@ -32903,19 +32903,19 @@ public final class ByteplusSaasRetail {
       ",.bytedance.byteplus.rec.retail.WriteRes" +
       "ponse\022l\n\013WriteOthers\022/.bytedance.byteplu" +
       "s.rec.retail.WriteDataRequest\032,.bytedanc" +
-      "e.byteplus.rec.retail.WriteResponse\022k\n\004D" +
-      "one\0225.bytedance.byteplus.rec.retail.Fini" +
-      "shWriteDataRequest\032,.bytedance.byteplus." +
-      "rec.retail.WriteResponse\022h\n\007Predict\022-.by" +
-      "tedance.byteplus.rec.retail.PredictReque" +
-      "st\032..bytedance.byteplus.rec.retail.Predi" +
-      "ctResponse\022\217\001\n\024AckServerImpressions\022:.by" +
-      "tedance.byteplus.rec.retail.AckServerImp" +
-      "ressionsRequest\032;.bytedance.byteplus.rec" +
-      ".retail.AckServerImpressionsResponseBc\n$" +
-      "com.byteplus.rec.sdk.retail.protocolZ;gi" +
-      "thub.com/byteplus-sdk/byteplus-sdk-go-re" +
-      "c/retail/protocolb\006proto3"
+      "e.byteplus.rec.retail.WriteResponse\022m\n\006F" +
+      "inish\0225.bytedance.byteplus.rec.retail.Fi" +
+      "nishWriteDataRequest\032,.bytedance.byteplu" +
+      "s.rec.retail.WriteResponse\022h\n\007Predict\022-." +
+      "bytedance.byteplus.rec.retail.PredictReq" +
+      "uest\032..bytedance.byteplus.rec.retail.Pre" +
+      "dictResponse\022\217\001\n\024AckServerImpressions\022:." +
+      "bytedance.byteplus.rec.retail.AckServerI" +
+      "mpressionsRequest\032;.bytedance.byteplus.r" +
+      "ec.retail.AckServerImpressionsResponseBc" +
+      "\n$com.byteplus.rec.sdk.retail.protocolZ;" +
+      "github.com/byteplus-sdk/byteplus-sdk-go-" +
+      "rec/retail/protocolb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -27,7 +27,7 @@ public final class Constant {
     // USER_URI in user topic, url path is end with WriteUsers
     public final static String USER_URI = "/RetailSaaS/WriteUsers";
 
-    // FINISH_USER_URI The URL format of done information
+    // FINISH_USER_URI The URL format of finish information
     public final static String FINISH_USER_URI = "/RetailSaaS/FinishWriteUsers";
 
     public final static String PRODUCT_URI = "/RetailSaaS/WriteProducts";
