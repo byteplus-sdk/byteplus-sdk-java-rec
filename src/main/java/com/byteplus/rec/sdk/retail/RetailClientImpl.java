@@ -123,7 +123,7 @@ public class RetailClientImpl implements RetailClient {
                                    Option... opts) throws NetException, BizException {
         checkPredictRequest(request);
         PredictResponse response = httpClient.doPBRequest(
-                "/RetailSaaS/Predict",
+                Constant.PREDICT_URI,
                 request,
                 PredictResponse.parser(),
                 Option.conv2Options(opts)

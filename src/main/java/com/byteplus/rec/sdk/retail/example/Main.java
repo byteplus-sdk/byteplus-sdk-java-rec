@@ -309,15 +309,15 @@ public class Main {
     }
 
     private static WriteDataRequest buildWriteOthersRequest(int count, String topic) {
-        List<DemoUserEvent> userEvents = MockHelper.mockUserEvents(count);
-        WriteDataRequest.Builder requestBuilder = WriteDataRequest.newBuilder();
-        requestBuilder.setProjectId(PROJECT_ID);
-        requestBuilder.setStage(Constant.STAGE_TRIAL);
-        requestBuilder.setTopic(topic);
-        for (DemoUserEvent userEvent : userEvents) {
-            requestBuilder.addData(JSON.toJSONString(userEvent));
+        switch (topic){
+            case Constant.TOPIC_USER:
+                return buildWriteUsersRequest(count);
+            case Constant.TOPIC_PRODUCT:
+                return buildWriteProductsRequest(count);
+            default:
+                return buildWriteUserEventsRequest(count);
+                // TODO 后期增加了具体writeOthers的topic以及request内容,再在这里修改
         }
-        return requestBuilder.build();
     }
 
     public static void finishWriteOthersExample() {
