@@ -18,16 +18,16 @@ public final class Constant {
     // TOPIC_USER Topic if write users and finish write users
     public final static String TOPIC_USER = "user";
 
-    // TOPIC_USER Topic if write products and finish write products
+    // TOPIC_PRODUCT Topic if write products and finish write products
     public final static String TOPIC_PRODUCT = "goods";
 
-    // TOPIC_USER Topic if write user events and finish write user events
+    // TOPIC_USER_EVENT Topic if write user events and finish write user events
     public final static String TOPIC_USER_EVENT = "behavior";
 
     // USER_URI in user topic, url path is end with WriteUsers
     public final static String USER_URI = "/RetailSaaS/WriteUsers";
 
-    // DONE_USER_URI The URL format of done information
+    // FINISH_USER_URI The URL format of done information
     public final static String FINISH_USER_URI = "/RetailSaaS/FinishWriteUsers";
 
     public final static String PRODUCT_URI = "/RetailSaaS/WriteProducts";
