@@ -27,12 +27,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Slf4j
 public class Main {
@@ -58,13 +53,13 @@ public class Main {
     static {
         try {
             client = new RetailClientBuilder()
-                    .AccountID("*********")  // Required
+                    .accountID("*********")  // Required
                     .projectID(PROJECT_ID)
                     .region(Region.SG)  // Required
                     .authAK("*********")  // Required
                     .authSK("*********")  // Required
-//                    .Schema("http") // Optional
-//                    .Hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
+//                    .schema("http") // Optional
+//                    .hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
                     .build();
         } catch (BizException e) {
             log.error("fail to create byteplus rec client", e);
@@ -303,10 +298,9 @@ public class Main {
     public static void writeOthersExample() {
         // The "WriteXXX" api can transfer max to 2000 items at one request
         // The `topic` is datatype, which specify the type of data users are going to write.
-        String topic = Constant.TOPIC_USER;
-        WriteDataRequest request = buildWriteOthersRequest(1, topic);
+        String topic = Constant.TOPIC_OTHERS;
+        WriteDataRequest request = buildWriteOthersRequest(topic);
         // request must contain topic in WriteDataRequest.
-        request = request.toBuilder().setTopic(topic).build();
         Option[] opts = defaultOptions(DEFAULT_WRITE_TIMEOUT);
         WriteResponse response;
         try {
@@ -324,25 +318,23 @@ public class Main {
                 response.getStatus(), response.getErrorsList());
     }
 
-    private static WriteDataRequest buildWriteOthersRequest(int count, String topic) {
-        switch (topic) {
-            case Constant.TOPIC_USER:
-                return buildWriteUsersRequest(count);
-            case Constant.TOPIC_PRODUCT:
-                return buildWriteProductsRequest(count);
-            default:
-                return buildWriteUserEventsRequest(count);
-            // TODO 这里若后期增加了具体writeOthers的topic以及request内容,再在这里修改
-        }
+    private static WriteDataRequest buildWriteOthersRequest(String topic) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("field1", 1);
+        data.put("field2", "value2");
+
+        return WriteDataRequest.newBuilder()
+                .setStage(Constant.STAGE_TRIAL)
+                .setTopic(topic)
+                .addData(data.toString())
+                .build();
     }
 
     public static void finishWriteOthersExample() {
         // The "FinishXXX" api can mark max to 100 dates at one request
         // The `topic` is datatype, which specify the type of data users are going to write.
-        String topic = Constant.TOPIC_USER;
-        FinishWriteDataRequest request = buildFinishOthersRequest();
-        // request must contain topic in FinishWriteDataRequest.
-        request = request.toBuilder().setTopic(topic).build();
+        String topic = Constant.TOPIC_OTHERS;
+        FinishWriteDataRequest request = buildFinishOthersRequest(topic);
         Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
         try {
@@ -360,11 +352,12 @@ public class Main {
                 response.getStatus(), response.getInitializationErrorString());
     }
 
-    private static FinishWriteDataRequest buildFinishOthersRequest() {
+    private static FinishWriteDataRequest buildFinishOthersRequest(String topic) {
         // dates should be passed when finishing user event
         LocalDate date = LocalDate.of(2022, 2, 1);
         return FinishWriteDataRequest.newBuilder()
                 .setStage(Constant.STAGE_INCREMENTAL_DAILY)
+                .setTopic(topic)
                 .addAllDataDates(buildDateList(date)).build();
     }
 

@@ -1560,11 +1560,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1576,11 +1576,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1861,11 +1861,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1889,11 +1889,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -2600,11 +2600,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2627,11 +2627,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2655,11 +2655,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2681,11 +2681,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2702,11 +2702,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -19725,11 +19725,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -19741,11 +19741,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -20119,11 +20119,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -20147,11 +20147,11 @@ public final class ByteplusSaasRetail {
      * Optional.
      * topic is datatype, which specify the type of data users are going to write.
      * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-     * The acceptable values are "user", "goods", "behavior", and others
+     * The acceptable values are "user", "goods", "behavior", and "others"
      * user: user data
      * goods: product data
      * behavior: user event data
-     * others: the specific value depends on the your needs
+     * others: It is temporarily set to "others", the specific value depends on your need.
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -20989,11 +20989,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -21016,11 +21016,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -21044,11 +21044,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -21070,11 +21070,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -21091,11 +21091,11 @@ public final class ByteplusSaasRetail {
        * Optional.
        * topic is datatype, which specify the type of data users are going to write.
        * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-       * The acceptable values are "user", "goods", "behavior", and others
+       * The acceptable values are "user", "goods", "behavior", and "others"
        * user: user data
        * goods: product data
        * behavior: user event data
-       * others: the specific value depends on the your needs
+       * others: It is temporarily set to "others", the specific value depends on your need.
        * </pre>
        *
        * <code>string topic = 3;</code>

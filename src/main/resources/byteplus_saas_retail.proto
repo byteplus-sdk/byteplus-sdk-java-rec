@@ -66,11 +66,11 @@ message FinishWriteDataRequest{
   // Optional.
   // topic is datatype, which specify the type of data users are going to write.
   // in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-  // The acceptable values are "user", "goods", "behavior", and others
+  // The acceptable values are "user", "goods", "behavior", and "others"
   // user: user data
   // goods: product data
   // behavior: user event data
-  // others: the specific value depends on your need
+  // others: It is temporarily set to "others", the specific value depends on your need.
   string topic = 3;
 
   // Optional.
@@ -403,11 +403,11 @@ message WriteDataRequest{
   // Optional.
   // topic is datatype, which specify the type of data users are going to write.
   // in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
-  // The acceptable values are "user", "goods", "behavior", and others
+  // The acceptable values are "user", "goods", "behavior", and "others"
   // user: user data
   // goods: product data
   // behavior: user event data
-  // others: the specific value depends on your need
+  // others: It is temporarily set to "others", the specific value depends on your need.
   string topic = 3;
 
   // Required

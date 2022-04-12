@@ -31,7 +31,7 @@ public class RetailClientBuilder {
 
     private IRegion region;
 
-    public RetailClientBuilder AccountID(String accountID) {
+    public RetailClientBuilder accountID(String accountID) {
         this.tenantID = accountID;
         return this;
     }
