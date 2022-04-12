@@ -767,6 +767,2346 @@ public final class ByteplusSaasRetail {
 
   }
 
+  public interface DateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bytedance.byteplus.rec.retail.Date)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+     * a year.
+     * </pre>
+     *
+     * <code>int32 year = 1;</code>
+     * @return The year.
+     */
+    int getYear();
+
+    /**
+     * <pre>
+     * Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+     * month and day.
+     * </pre>
+     *
+     * <code>int32 month = 2;</code>
+     * @return The month.
+     */
+    int getMonth();
+
+    /**
+     * <pre>
+     * Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+     * to specify a year by itself or a year and month where the day isn't
+     * significant.
+     * </pre>
+     *
+     * <code>int32 day = 3;</code>
+     * @return The day.
+     */
+    int getDay();
+  }
+  /**
+   * <pre>
+   * Represents a whole or partial calendar date, such as a birthday. The time of
+   * day and time zone are either specified elsewhere or are insignificant. The
+   * date is relative to the Gregorian Calendar. This can represent one of the
+   * following:
+   * * A full date, with non-zero year, month, and day values
+   * * A month and day value, with a zero year, such as an anniversary
+   * * A year on its own, with zero month and day values
+   * * A year and month value, with a zero day, such as a credit card expiration
+   * date
+   * </pre>
+   *
+   * Protobuf type {@code bytedance.byteplus.rec.retail.Date}
+   */
+  public static final class Date extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bytedance.byteplus.rec.retail.Date)
+      DateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Date.newBuilder() to construct.
+    private Date(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Date() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Date();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Date(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              year_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              month_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              day_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_Date_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_Date_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.class, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder.class);
+    }
+
+    public static final int YEAR_FIELD_NUMBER = 1;
+    private int year_;
+    /**
+     * <pre>
+     * Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+     * a year.
+     * </pre>
+     *
+     * <code>int32 year = 1;</code>
+     * @return The year.
+     */
+    @java.lang.Override
+    public int getYear() {
+      return year_;
+    }
+
+    public static final int MONTH_FIELD_NUMBER = 2;
+    private int month_;
+    /**
+     * <pre>
+     * Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+     * month and day.
+     * </pre>
+     *
+     * <code>int32 month = 2;</code>
+     * @return The month.
+     */
+    @java.lang.Override
+    public int getMonth() {
+      return month_;
+    }
+
+    public static final int DAY_FIELD_NUMBER = 3;
+    private int day_;
+    /**
+     * <pre>
+     * Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+     * to specify a year by itself or a year and month where the day isn't
+     * significant.
+     * </pre>
+     *
+     * <code>int32 day = 3;</code>
+     * @return The day.
+     */
+    @java.lang.Override
+    public int getDay() {
+      return day_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (year_ != 0) {
+        output.writeInt32(1, year_);
+      }
+      if (month_ != 0) {
+        output.writeInt32(2, month_);
+      }
+      if (day_ != 0) {
+        output.writeInt32(3, day_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (year_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, year_);
+      }
+      if (month_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, month_);
+      }
+      if (day_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, day_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date)) {
+        return super.equals(obj);
+      }
+      com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date other = (com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date) obj;
+
+      if (getYear()
+          != other.getYear()) return false;
+      if (getMonth()
+          != other.getMonth()) return false;
+      if (getDay()
+          != other.getDay()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + YEAR_FIELD_NUMBER;
+      hash = (53 * hash) + getYear();
+      hash = (37 * hash) + MONTH_FIELD_NUMBER;
+      hash = (53 * hash) + getMonth();
+      hash = (37 * hash) + DAY_FIELD_NUMBER;
+      hash = (53 * hash) + getDay();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Represents a whole or partial calendar date, such as a birthday. The time of
+     * day and time zone are either specified elsewhere or are insignificant. The
+     * date is relative to the Gregorian Calendar. This can represent one of the
+     * following:
+     * * A full date, with non-zero year, month, and day values
+     * * A month and day value, with a zero year, such as an anniversary
+     * * A year on its own, with zero month and day values
+     * * A year and month value, with a zero day, such as a credit card expiration
+     * date
+     * </pre>
+     *
+     * Protobuf type {@code bytedance.byteplus.rec.retail.Date}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bytedance.byteplus.rec.retail.Date)
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_Date_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_Date_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.class, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder.class);
+      }
+
+      // Construct using com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        year_ = 0;
+
+        month_ = 0;
+
+        day_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_Date_descriptor;
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDefaultInstanceForType() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date build() {
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date buildPartial() {
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date result = new com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date(this);
+        result.year_ = year_;
+        result.month_ = month_;
+        result.day_ = day_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date) {
+          return mergeFrom((com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date other) {
+        if (other == com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.getDefaultInstance()) return this;
+        if (other.getYear() != 0) {
+          setYear(other.getYear());
+        }
+        if (other.getMonth() != 0) {
+          setMonth(other.getMonth());
+        }
+        if (other.getDay() != 0) {
+          setDay(other.getDay());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int year_ ;
+      /**
+       * <pre>
+       * Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+       * a year.
+       * </pre>
+       *
+       * <code>int32 year = 1;</code>
+       * @return The year.
+       */
+      @java.lang.Override
+      public int getYear() {
+        return year_;
+      }
+      /**
+       * <pre>
+       * Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+       * a year.
+       * </pre>
+       *
+       * <code>int32 year = 1;</code>
+       * @param value The year to set.
+       * @return This builder for chaining.
+       */
+      public Builder setYear(int value) {
+        
+        year_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+       * a year.
+       * </pre>
+       *
+       * <code>int32 year = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearYear() {
+        
+        year_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int month_ ;
+      /**
+       * <pre>
+       * Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+       * month and day.
+       * </pre>
+       *
+       * <code>int32 month = 2;</code>
+       * @return The month.
+       */
+      @java.lang.Override
+      public int getMonth() {
+        return month_;
+      }
+      /**
+       * <pre>
+       * Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+       * month and day.
+       * </pre>
+       *
+       * <code>int32 month = 2;</code>
+       * @param value The month to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMonth(int value) {
+        
+        month_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+       * month and day.
+       * </pre>
+       *
+       * <code>int32 month = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMonth() {
+        
+        month_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int day_ ;
+      /**
+       * <pre>
+       * Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+       * to specify a year by itself or a year and month where the day isn't
+       * significant.
+       * </pre>
+       *
+       * <code>int32 day = 3;</code>
+       * @return The day.
+       */
+      @java.lang.Override
+      public int getDay() {
+        return day_;
+      }
+      /**
+       * <pre>
+       * Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+       * to specify a year by itself or a year and month where the day isn't
+       * significant.
+       * </pre>
+       *
+       * <code>int32 day = 3;</code>
+       * @param value The day to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDay(int value) {
+        
+        day_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+       * to specify a year by itself or a year and month where the day isn't
+       * significant.
+       * </pre>
+       *
+       * <code>int32 day = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDay() {
+        
+        day_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bytedance.byteplus.rec.retail.Date)
+    }
+
+    // @@protoc_insertion_point(class_scope:bytedance.byteplus.rec.retail.Date)
+    private static final com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date();
+    }
+
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Date>
+        PARSER = new com.google.protobuf.AbstractParser<Date>() {
+      @java.lang.Override
+      public Date parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Date(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Date> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Date> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FinishWriteDataRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bytedance.byteplus.rec.retail.FinishWriteDataRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Required
+     * Id of the recommendation project.
+     * </pre>
+     *
+     * <code>string project_id = 1;</code>
+     * @return The projectId.
+     */
+    java.lang.String getProjectId();
+    /**
+     * <pre>
+     * Required
+     * Id of the recommendation project.
+     * </pre>
+     *
+     * <code>string project_id = 1;</code>
+     * @return The bytes for projectId.
+     */
+    com.google.protobuf.ByteString
+        getProjectIdBytes();
+
+    /**
+     * <pre>
+     * Required
+     * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+     * Possible type values:
+     * "trial":Test data/pre-synchronization stage
+     * "historical":Historical data synchronization stage
+     * "incremental":Incremental real-time data synchronization stage
+     * </pre>
+     *
+     * <code>string stage = 2;</code>
+     * @return The stage.
+     */
+    java.lang.String getStage();
+    /**
+     * <pre>
+     * Required
+     * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+     * Possible type values:
+     * "trial":Test data/pre-synchronization stage
+     * "historical":Historical data synchronization stage
+     * "incremental":Incremental real-time data synchronization stage
+     * </pre>
+     *
+     * <code>string stage = 2;</code>
+     * @return The bytes for stage.
+     */
+    com.google.protobuf.ByteString
+        getStageBytes();
+
+    /**
+     * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The topic.
+     */
+    java.lang.String getTopic();
+    /**
+     * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The bytes for topic.
+     */
+    com.google.protobuf.ByteString
+        getTopicBytes();
+
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> 
+        getDataDatesList();
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDataDates(int index);
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    int getDataDatesCount();
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
+        getDataDatesOrBuilderList();
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder getDataDatesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code bytedance.byteplus.rec.retail.FinishWriteDataRequest}
+   */
+  public static final class FinishWriteDataRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bytedance.byteplus.rec.retail.FinishWriteDataRequest)
+      FinishWriteDataRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FinishWriteDataRequest.newBuilder() to construct.
+    private FinishWriteDataRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FinishWriteDataRequest() {
+      projectId_ = "";
+      stage_ = "";
+      topic_ = "";
+      dataDates_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new FinishWriteDataRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FinishWriteDataRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              projectId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stage_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              topic_ = s;
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                dataDates_ = new java.util.ArrayList<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              dataDates_.add(
+                  input.readMessage(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          dataDates_ = java.util.Collections.unmodifiableList(dataDates_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest.class, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest.Builder.class);
+    }
+
+    public static final int PROJECT_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object projectId_;
+    /**
+     * <pre>
+     * Required
+     * Id of the recommendation project.
+     * </pre>
+     *
+     * <code>string project_id = 1;</code>
+     * @return The projectId.
+     */
+    @java.lang.Override
+    public java.lang.String getProjectId() {
+      java.lang.Object ref = projectId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        projectId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Required
+     * Id of the recommendation project.
+     * </pre>
+     *
+     * <code>string project_id = 1;</code>
+     * @return The bytes for projectId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getProjectIdBytes() {
+      java.lang.Object ref = projectId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        projectId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STAGE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object stage_;
+    /**
+     * <pre>
+     * Required
+     * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+     * Possible type values:
+     * "trial":Test data/pre-synchronization stage
+     * "historical":Historical data synchronization stage
+     * "incremental":Incremental real-time data synchronization stage
+     * </pre>
+     *
+     * <code>string stage = 2;</code>
+     * @return The stage.
+     */
+    @java.lang.Override
+    public java.lang.String getStage() {
+      java.lang.Object ref = stage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stage_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Required
+     * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+     * Possible type values:
+     * "trial":Test data/pre-synchronization stage
+     * "historical":Historical data synchronization stage
+     * "incremental":Incremental real-time data synchronization stage
+     * </pre>
+     *
+     * <code>string stage = 2;</code>
+     * @return The bytes for stage.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStageBytes() {
+      java.lang.Object ref = stage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOPIC_FIELD_NUMBER = 3;
+    private volatile java.lang.Object topic_;
+    /**
+     * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The topic.
+     */
+    @java.lang.Override
+    public java.lang.String getTopic() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        topic_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The bytes for topic.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTopicBytes() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        topic_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DATA_DATES_FIELD_NUMBER = 10;
+    private java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> dataDates_;
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> getDataDatesList() {
+      return dataDates_;
+    }
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
+        getDataDatesOrBuilderList() {
+      return dataDates_;
+    }
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    @java.lang.Override
+    public int getDataDatesCount() {
+      return dataDates_.size();
+    }
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    @java.lang.Override
+    public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDataDates(int index) {
+      return dataDates_.get(index);
+    }
+    /**
+     * <pre>
+     * Optional.
+     * When finish user events, data_dates should not be missing
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+     */
+    @java.lang.Override
+    public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder getDataDatesOrBuilder(
+        int index) {
+      return dataDates_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getProjectIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
+      }
+      if (!getStageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
+      }
+      if (!getTopicBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
+      }
+      for (int i = 0; i < dataDates_.size(); i++) {
+        output.writeMessage(10, dataDates_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getProjectIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
+      }
+      if (!getStageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
+      }
+      if (!getTopicBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
+      }
+      for (int i = 0; i < dataDates_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, dataDates_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest)) {
+        return super.equals(obj);
+      }
+      com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest other = (com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest) obj;
+
+      if (!getProjectId()
+          .equals(other.getProjectId())) return false;
+      if (!getStage()
+          .equals(other.getStage())) return false;
+      if (!getTopic()
+          .equals(other.getTopic())) return false;
+      if (!getDataDatesList()
+          .equals(other.getDataDatesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectId().hashCode();
+      hash = (37 * hash) + STAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getStage().hashCode();
+      hash = (37 * hash) + TOPIC_FIELD_NUMBER;
+      hash = (53 * hash) + getTopic().hashCode();
+      if (getDataDatesCount() > 0) {
+        hash = (37 * hash) + DATA_DATES_FIELD_NUMBER;
+        hash = (53 * hash) + getDataDatesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code bytedance.byteplus.rec.retail.FinishWriteDataRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bytedance.byteplus.rec.retail.FinishWriteDataRequest)
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest.class, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest.Builder.class);
+      }
+
+      // Construct using com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDataDatesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        projectId_ = "";
+
+        stage_ = "";
+
+        topic_ = "";
+
+        if (dataDatesBuilder_ == null) {
+          dataDates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          dataDatesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest getDefaultInstanceForType() {
+        return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest build() {
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest buildPartial() {
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest result = new com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest(this);
+        int from_bitField0_ = bitField0_;
+        result.projectId_ = projectId_;
+        result.stage_ = stage_;
+        result.topic_ = topic_;
+        if (dataDatesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            dataDates_ = java.util.Collections.unmodifiableList(dataDates_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.dataDates_ = dataDates_;
+        } else {
+          result.dataDates_ = dataDatesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest) {
+          return mergeFrom((com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest other) {
+        if (other == com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest.getDefaultInstance()) return this;
+        if (!other.getProjectId().isEmpty()) {
+          projectId_ = other.projectId_;
+          onChanged();
+        }
+        if (!other.getStage().isEmpty()) {
+          stage_ = other.stage_;
+          onChanged();
+        }
+        if (!other.getTopic().isEmpty()) {
+          topic_ = other.topic_;
+          onChanged();
+        }
+        if (dataDatesBuilder_ == null) {
+          if (!other.dataDates_.isEmpty()) {
+            if (dataDates_.isEmpty()) {
+              dataDates_ = other.dataDates_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDataDatesIsMutable();
+              dataDates_.addAll(other.dataDates_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.dataDates_.isEmpty()) {
+            if (dataDatesBuilder_.isEmpty()) {
+              dataDatesBuilder_.dispose();
+              dataDatesBuilder_ = null;
+              dataDates_ = other.dataDates_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              dataDatesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDataDatesFieldBuilder() : null;
+            } else {
+              dataDatesBuilder_.addAllMessages(other.dataDates_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object projectId_ = "";
+      /**
+       * <pre>
+       * Required
+       * Id of the recommendation project.
+       * </pre>
+       *
+       * <code>string project_id = 1;</code>
+       * @return The projectId.
+       */
+      public java.lang.String getProjectId() {
+        java.lang.Object ref = projectId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          projectId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required
+       * Id of the recommendation project.
+       * </pre>
+       *
+       * <code>string project_id = 1;</code>
+       * @return The bytes for projectId.
+       */
+      public com.google.protobuf.ByteString
+          getProjectIdBytes() {
+        java.lang.Object ref = projectId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          projectId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required
+       * Id of the recommendation project.
+       * </pre>
+       *
+       * <code>string project_id = 1;</code>
+       * @param value The projectId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProjectId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        projectId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required
+       * Id of the recommendation project.
+       * </pre>
+       *
+       * <code>string project_id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProjectId() {
+        
+        projectId_ = getDefaultInstance().getProjectId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required
+       * Id of the recommendation project.
+       * </pre>
+       *
+       * <code>string project_id = 1;</code>
+       * @param value The bytes for projectId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProjectIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        projectId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stage_ = "";
+      /**
+       * <pre>
+       * Required
+       * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+       * Possible type values:
+       * "trial":Test data/pre-synchronization stage
+       * "historical":Historical data synchronization stage
+       * "incremental":Incremental real-time data synchronization stage
+       * </pre>
+       *
+       * <code>string stage = 2;</code>
+       * @return The stage.
+       */
+      public java.lang.String getStage() {
+        java.lang.Object ref = stage_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stage_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required
+       * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+       * Possible type values:
+       * "trial":Test data/pre-synchronization stage
+       * "historical":Historical data synchronization stage
+       * "incremental":Incremental real-time data synchronization stage
+       * </pre>
+       *
+       * <code>string stage = 2;</code>
+       * @return The bytes for stage.
+       */
+      public com.google.protobuf.ByteString
+          getStageBytes() {
+        java.lang.Object ref = stage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Required
+       * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+       * Possible type values:
+       * "trial":Test data/pre-synchronization stage
+       * "historical":Historical data synchronization stage
+       * "incremental":Incremental real-time data synchronization stage
+       * </pre>
+       *
+       * <code>string stage = 2;</code>
+       * @param value The stage to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required
+       * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+       * Possible type values:
+       * "trial":Test data/pre-synchronization stage
+       * "historical":Historical data synchronization stage
+       * "incremental":Incremental real-time data synchronization stage
+       * </pre>
+       *
+       * <code>string stage = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStage() {
+        
+        stage_ = getDefaultInstance().getStage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Required
+       * The stage of importing data，Corresponding to the three synchronization stages of the recommendation platform
+       * Possible type values:
+       * "trial":Test data/pre-synchronization stage
+       * "historical":Historical data synchronization stage
+       * "incremental":Incremental real-time data synchronization stage
+       * </pre>
+       *
+       * <code>string stage = 2;</code>
+       * @param value The bytes for stage to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stage_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object topic_ = "";
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @return The topic.
+       */
+      public java.lang.String getTopic() {
+        java.lang.Object ref = topic_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          topic_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @return The bytes for topic.
+       */
+      public com.google.protobuf.ByteString
+          getTopicBytes() {
+        java.lang.Object ref = topic_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          topic_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @param value The topic to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTopic(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        topic_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTopic() {
+        
+        topic_ = getDefaultInstance().getTopic();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @param value The bytes for topic to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTopicBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        topic_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> dataDates_ =
+        java.util.Collections.emptyList();
+      private void ensureDataDatesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          dataDates_ = new java.util.ArrayList<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date>(dataDates_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> dataDatesBuilder_;
+
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> getDataDatesList() {
+        if (dataDatesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(dataDates_);
+        } else {
+          return dataDatesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public int getDataDatesCount() {
+        if (dataDatesBuilder_ == null) {
+          return dataDates_.size();
+        } else {
+          return dataDatesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date getDataDates(int index) {
+        if (dataDatesBuilder_ == null) {
+          return dataDates_.get(index);
+        } else {
+          return dataDatesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder setDataDates(
+          int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date value) {
+        if (dataDatesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataDatesIsMutable();
+          dataDates_.set(index, value);
+          onChanged();
+        } else {
+          dataDatesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder setDataDates(
+          int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder builderForValue) {
+        if (dataDatesBuilder_ == null) {
+          ensureDataDatesIsMutable();
+          dataDates_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataDatesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder addDataDates(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date value) {
+        if (dataDatesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataDatesIsMutable();
+          dataDates_.add(value);
+          onChanged();
+        } else {
+          dataDatesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder addDataDates(
+          int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date value) {
+        if (dataDatesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDataDatesIsMutable();
+          dataDates_.add(index, value);
+          onChanged();
+        } else {
+          dataDatesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder addDataDates(
+          com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder builderForValue) {
+        if (dataDatesBuilder_ == null) {
+          ensureDataDatesIsMutable();
+          dataDates_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dataDatesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder addDataDates(
+          int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder builderForValue) {
+        if (dataDatesBuilder_ == null) {
+          ensureDataDatesIsMutable();
+          dataDates_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dataDatesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder addAllDataDates(
+          java.lang.Iterable<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> values) {
+        if (dataDatesBuilder_ == null) {
+          ensureDataDatesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, dataDates_);
+          onChanged();
+        } else {
+          dataDatesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder clearDataDates() {
+        if (dataDatesBuilder_ == null) {
+          dataDates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          dataDatesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public Builder removeDataDates(int index) {
+        if (dataDatesBuilder_ == null) {
+          ensureDataDatesIsMutable();
+          dataDates_.remove(index);
+          onChanged();
+        } else {
+          dataDatesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder getDataDatesBuilder(
+          int index) {
+        return getDataDatesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder getDataDatesOrBuilder(
+          int index) {
+        if (dataDatesBuilder_ == null) {
+          return dataDates_.get(index);  } else {
+          return dataDatesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
+           getDataDatesOrBuilderList() {
+        if (dataDatesBuilder_ != null) {
+          return dataDatesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(dataDates_);
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder addDataDatesBuilder() {
+        return getDataDatesFieldBuilder().addBuilder(
+            com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder addDataDatesBuilder(
+          int index) {
+        return getDataDatesFieldBuilder().addBuilder(
+            index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Optional.
+       * When finish user events, data_dates should not be missing
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
+       */
+      public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder> 
+           getDataDatesBuilderList() {
+        return getDataDatesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
+          getDataDatesFieldBuilder() {
+        if (dataDatesBuilder_ == null) {
+          dataDatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder>(
+                  dataDates_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          dataDates_ = null;
+        }
+        return dataDatesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bytedance.byteplus.rec.retail.FinishWriteDataRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:bytedance.byteplus.rec.retail.FinishWriteDataRequest)
+    private static final com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest();
+    }
+
+    public static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FinishWriteDataRequest>
+        PARSER = new com.google.protobuf.AbstractParser<FinishWriteDataRequest>() {
+      @java.lang.Override
+      public FinishWriteDataRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FinishWriteDataRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FinishWriteDataRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FinishWriteDataRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ProductOrBuilder extends
       // @@protoc_insertion_point(interface_extends:bytedance.byteplus.rec.retail.Product)
       com.google.protobuf.MessageOrBuilder {
@@ -17382,6 +19722,40 @@ public final class ByteplusSaasRetail {
 
     /**
      * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The topic.
+     */
+    java.lang.String getTopic();
+    /**
+     * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The bytes for topic.
+     */
+    com.google.protobuf.ByteString
+        getTopicBytes();
+
+    /**
+     * <pre>
      * Required
      * Array of json strings.
      * Each element of the array is a json serialized string of customer data.
@@ -17512,6 +19886,7 @@ public final class ByteplusSaasRetail {
     private WriteDataRequest() {
       projectId_ = "";
       stage_ = "";
+      topic_ = "";
       data_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -17556,6 +19931,12 @@ public final class ByteplusSaasRetail {
               java.lang.String s = input.readStringRequireUtf8();
 
               stage_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              topic_ = s;
               break;
             }
             case 82: {
@@ -17725,6 +20106,66 @@ public final class ByteplusSaasRetail {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         stage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOPIC_FIELD_NUMBER = 3;
+    private volatile java.lang.Object topic_;
+    /**
+     * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The topic.
+     */
+    @java.lang.Override
+    public java.lang.String getTopic() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        topic_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Optional.
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
+     * </pre>
+     *
+     * <code>string topic = 3;</code>
+     * @return The bytes for topic.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTopicBytes() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        topic_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -17915,6 +20356,9 @@ public final class ByteplusSaasRetail {
       if (!getStageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
       }
+      if (!getTopicBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
+      }
       for (int i = 0; i < data_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, data_.getRaw(i));
       }
@@ -17938,6 +20382,9 @@ public final class ByteplusSaasRetail {
       }
       if (!getStageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
+      }
+      if (!getTopicBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
       }
       {
         int dataSize = 0;
@@ -17976,6 +20423,8 @@ public final class ByteplusSaasRetail {
           .equals(other.getProjectId())) return false;
       if (!getStage()
           .equals(other.getStage())) return false;
+      if (!getTopic()
+          .equals(other.getTopic())) return false;
       if (!getDataList()
           .equals(other.getDataList())) return false;
       if (!internalGetExtra().equals(
@@ -17995,6 +20444,8 @@ public final class ByteplusSaasRetail {
       hash = (53 * hash) + getProjectId().hashCode();
       hash = (37 * hash) + STAGE_FIELD_NUMBER;
       hash = (53 * hash) + getStage().hashCode();
+      hash = (37 * hash) + TOPIC_FIELD_NUMBER;
+      hash = (53 * hash) + getTopic().hashCode();
       if (getDataCount() > 0) {
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + getDataList().hashCode();
@@ -18166,6 +20617,8 @@ public final class ByteplusSaasRetail {
 
         stage_ = "";
 
+        topic_ = "";
+
         data_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableExtra().clear();
@@ -18198,6 +20651,7 @@ public final class ByteplusSaasRetail {
         int from_bitField0_ = bitField0_;
         result.projectId_ = projectId_;
         result.stage_ = stage_;
+        result.topic_ = topic_;
         if (((bitField0_ & 0x00000001) != 0)) {
           data_ = data_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -18259,6 +20713,10 @@ public final class ByteplusSaasRetail {
         }
         if (!other.getStage().isEmpty()) {
           stage_ = other.stage_;
+          onChanged();
+        }
+        if (!other.getTopic().isEmpty()) {
+          topic_ = other.topic_;
           onChanged();
         }
         if (!other.data_.isEmpty()) {
@@ -18521,6 +20979,137 @@ public final class ByteplusSaasRetail {
   checkByteStringIsUtf8(value);
         
         stage_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object topic_ = "";
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @return The topic.
+       */
+      public java.lang.String getTopic() {
+        java.lang.Object ref = topic_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          topic_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @return The bytes for topic.
+       */
+      public com.google.protobuf.ByteString
+          getTopicBytes() {
+        java.lang.Object ref = topic_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          topic_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @param value The topic to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTopic(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        topic_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTopic() {
+        
+        topic_ = getDefaultInstance().getTopic();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
+       * </pre>
+       *
+       * <code>string topic = 3;</code>
+       * @param value The bytes for topic to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTopicBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        topic_ = value;
         onChanged();
         return this;
       }
@@ -30314,6 +32903,16 @@ public final class ByteplusSaasRetail {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bytedance_byteplus_rec_retail_Status_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_retail_Date_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_retail_Date_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bytedance_byteplus_rec_retail_Product_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -30454,111 +33053,121 @@ public final class ByteplusSaasRetail {
     java.lang.String[] descriptorData = {
       "\n\032byteplus_saas_retail.proto\022\035bytedance." +
       "byteplus.rec.retail\"\'\n\006Status\022\014\n\004code\030\001 " +
-      "\001(\005\022\017\n\007message\030\002 \001(\t\"\301\t\n\007Product\022\022\n\nprod" +
-      "uct_id\030\001 \001(\t\022C\n\ncategories\030\002 \003(\0132/.byted" +
-      "ance.byteplus.rec.retail.Product.Categor" +
-      "y\022<\n\006brands\030\003 \003(\0132,.bytedance.byteplus.r" +
-      "ec.retail.Product.Brand\022;\n\005price\030\004 \001(\0132," +
-      ".bytedance.byteplus.rec.retail.Product.P" +
-      "rice\022\030\n\020is_recommendable\030\005 \001(\005\022\r\n\005title\030" +
-      "\006 \001(\t\022\025\n\rquality_score\030\007 \001(\001\022\014\n\004tags\030\010 \003" +
-      "(\t\022?\n\007display\030\t \001(\0132..bytedance.byteplus" +
-      ".rec.retail.Product.Display\022H\n\014product_s" +
-      "pec\030\n \001(\01322.bytedance.byteplus.rec.retai" +
-      "l.Product.ProductSpec\022=\n\006seller\030\013 \001(\0132-." +
-      "bytedance.byteplus.rec.retail.Product.Se" +
-      "ller\022@\n\005extra\030d \003(\01321.bytedance.byteplus" +
-      ".rec.retail.Product.ExtraEntry\032\234\001\n\010Categ" +
-      "ory\022\026\n\016category_depth\030\001 \001(\005\022T\n\016category_" +
-      "nodes\030\002 \003(\0132<.bytedance.byteplus.rec.ret" +
-      "ail.Product.Category.CategoryNode\032\"\n\014Cat" +
-      "egoryNode\022\022\n\nid_or_name\030\001 \001(\t\0320\n\005Brand\022\023" +
-      "\n\013brand_depth\030\001 \001(\005\022\022\n\nid_or_name\030\002 \001(\t\032" +
-      "4\n\005Price\022\025\n\rcurrent_price\030\001 \001(\003\022\024\n\014origi" +
-      "n_price\030\002 \001(\003\032\217\001\n\007Display\022!\n\031listing_pag" +
-      "e_display_tags\030\001 \003(\t\022 \n\030detail_page_disp" +
-      "lay_tags\030\002 \003(\t\022!\n\031listing_page_display_t" +
-      "ype\030\003 \001(\t\022\034\n\024cover_multimedia_url\030\004 \001(\t\032" +
-      "~\n\013ProductSpec\022\030\n\020product_group_id\030\001 \001(\t" +
-      "\022\023\n\013user_rating\030\002 \001(\001\022\025\n\rcomment_count\030\003" +
-      " \001(\005\022\016\n\006source\030\004 \001(\t\022\031\n\021publish_timestam" +
-      "p\030\005 \001(\003\032A\n\006Seller\022\n\n\002id\030\001 \001(\t\022\024\n\014seller_" +
-      "level\030\002 \001(\t\022\025\n\rseller_rating\030\003 \001(\001\032,\n\nEx" +
-      "traEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"@\n\005Scene\022\022\n\nscene_name\030\001 \001(\t\022\023\n\013page_nu" +
-      "mber\030\002 \001(\005\022\016\n\006offset\030\003 \001(\005\"\273\001\n\006Device\022\020\n" +
-      "\010platform\030\001 \001(\t\022\017\n\007os_type\030\002 \001(\t\022\023\n\013app_" +
-      "version\030\003 \001(\t\022\024\n\014device_model\030\004 \001(\t\022\024\n\014d" +
-      "evice_brand\030\005 \001(\t\022\022\n\nos_version\030\006 \001(\t\022\024\n" +
-      "\014browser_type\030\007 \001(\t\022\022\n\nuser_agent\030\010 \001(\t\022" +
-      "\017\n\007network\030\t \001(\t\"*\n\tDataError\022\017\n\007message" +
-      "\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\200\001\n\rWriteResponse\0225" +
-      "\n\006status\030\001 \001(\0132%.bytedance.byteplus.rec." +
-      "retail.Status\0228\n\006errors\030\002 \003(\0132(.bytedanc" +
-      "e.byteplus.rec.retail.DataError\"\274\001\n\020Writ" +
-      "eDataRequest\022\022\n\nproject_id\030\001 \001(\t\022\r\n\005stag" +
-      "e\030\002 \001(\t\022\014\n\004data\030\n \003(\t\022I\n\005extra\030d \003(\0132:.b" +
-      "ytedance.byteplus.rec.retail.WriteDataRe" +
-      "quest.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\351\003\n\016PredictReques" +
-      "t\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022" +
-      "\017\n\007user_id\030\n \001(\t\022\014\n\004size\030\013 \001(\005\0223\n\005scene\030" +
-      "\014 \001(\0132$.bytedance.byteplus.rec.retail.Sc" +
-      "ene\022F\n\007context\030\r \001(\01325.bytedance.byteplu" +
-      "s.rec.retail.PredictRequest.Context\022G\n\005e" +
-      "xtra\030d \003(\01328.bytedance.byteplus.rec.reta" +
-      "il.PredictRequest.ExtraEntry\032\235\001\n\007Context" +
-      "\022<\n\014root_product\030\001 \001(\0132&.bytedance.bytep" +
-      "lus.rec.retail.Product\0225\n\006device\030\002 \001(\0132%" +
-      ".bytedance.byteplus.rec.retail.Device\022\035\n" +
-      "\025candidate_product_ids\030\003 \003(\t\032,\n\nExtraEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n\rP" +
-      "redictResult\022W\n\021response_products\030\001 \003(\0132" +
-      "<.bytedance.byteplus.rec.retail.PredictR" +
-      "esult.ResponseProduct\022F\n\005extra\030d \003(\01327.b" +
-      "ytedance.byteplus.rec.retail.PredictResu" +
-      "lt.ExtraEntry\032\347\001\n\017ResponseProduct\022\022\n\npro" +
-      "duct_id\030\001 \001(\t\022\014\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(" +
-      "\001\022\014\n\004pcvr\030\004 \001(\001\022\020\n\010rec_info\030\005 \001(\t\022V\n\005ext" +
-      "ra\030d \003(\0132G.bytedance.byteplus.rec.retail" +
-      ".PredictResult.ResponseProduct.ExtraEntr" +
-      "y\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\"\231\001\n\017PredictResponse\0225\n\006sta" +
-      "tus\030\001 \001(\0132%.bytedance.byteplus.rec.retai" +
-      "l.Status\022\022\n\nrequest_id\030\002 \001(\t\022;\n\005value\030\003 " +
-      "\001(\0132,.bytedance.byteplus.rec.retail.Pred" +
-      "ictResult\"\207\003\n\033AckServerImpressionsReques" +
-      "t\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022" +
-      "\032\n\022predict_request_id\030\n \001(\t\022\017\n\007user_id\030\013" +
-      " \001(\t\022\026\n\016traffic_source\030\014 \001(\t\0223\n\005scene\030\r " +
-      "\001(\0132$.bytedance.byteplus.rec.retail.Scen" +
-      "e\022c\n\020altered_products\030\016 \003(\0132I.bytedance." +
-      "byteplus.rec.retail.AckServerImpressions" +
-      "Request.AlteredProduct\032c\n\016AlteredProduct" +
-      "\022\022\n\nproduct_id\030\001 \001(\t\022\026\n\016altered_reason\030\002" +
-      " \001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017product_id_hash\030d " +
-      "\001(\003\"U\n\034AckServerImpressionsResponse\0225\n\006s" +
-      "tatus\030\001 \001(\0132%.bytedance.byteplus.rec.ret" +
-      "ail.Status2\335\004\n\023BytePlusSaasService\022j\n\tWr" +
-      "itUsers\022/.bytedance.byteplus.rec.retail." +
-      "WriteDataRequest\032,.bytedance.byteplus.re" +
-      "c.retail.WriteResponse\022m\n\014WritProducts\022/" +
-      ".bytedance.byteplus.rec.retail.WriteData" +
-      "Request\032,.bytedance.byteplus.rec.retail." +
-      "WriteResponse\022o\n\016WritUserEvents\022/.byteda" +
-      "nce.byteplus.rec.retail.WriteDataRequest" +
-      "\032,.bytedance.byteplus.rec.retail.WriteRe" +
-      "sponse\022h\n\007Predict\022-.bytedance.byteplus.r" +
-      "ec.retail.PredictRequest\032..bytedance.byt" +
-      "eplus.rec.retail.PredictResponse\022\217\001\n\024Ack" +
-      "ServerImpressions\022:.bytedance.byteplus.r" +
-      "ec.retail.AckServerImpressionsRequest\032;." +
+      "\001(\005\022\017\n\007message\030\002 \001(\t\"0\n\004Date\022\014\n\004year\030\001 \001" +
+      "(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\"\203\001\n\026Finis" +
+      "hWriteDataRequest\022\022\n\nproject_id\030\001 \001(\t\022\r\n" +
+      "\005stage\030\002 \001(\t\022\r\n\005topic\030\003 \001(\t\0227\n\ndata_date" +
+      "s\030\n \003(\0132#.bytedance.byteplus.rec.retail." +
+      "Date\"\301\t\n\007Product\022\022\n\nproduct_id\030\001 \001(\t\022C\n\n" +
+      "categories\030\002 \003(\0132/.bytedance.byteplus.re" +
+      "c.retail.Product.Category\022<\n\006brands\030\003 \003(" +
+      "\0132,.bytedance.byteplus.rec.retail.Produc" +
+      "t.Brand\022;\n\005price\030\004 \001(\0132,.bytedance.bytep" +
+      "lus.rec.retail.Product.Price\022\030\n\020is_recom" +
+      "mendable\030\005 \001(\005\022\r\n\005title\030\006 \001(\t\022\025\n\rquality" +
+      "_score\030\007 \001(\001\022\014\n\004tags\030\010 \003(\t\022?\n\007display\030\t " +
+      "\001(\0132..bytedance.byteplus.rec.retail.Prod" +
+      "uct.Display\022H\n\014product_spec\030\n \001(\01322.byte" +
+      "dance.byteplus.rec.retail.Product.Produc" +
+      "tSpec\022=\n\006seller\030\013 \001(\0132-.bytedance.bytepl" +
+      "us.rec.retail.Product.Seller\022@\n\005extra\030d " +
+      "\003(\01321.bytedance.byteplus.rec.retail.Prod" +
+      "uct.ExtraEntry\032\234\001\n\010Category\022\026\n\016category_" +
+      "depth\030\001 \001(\005\022T\n\016category_nodes\030\002 \003(\0132<.by" +
+      "tedance.byteplus.rec.retail.Product.Cate" +
+      "gory.CategoryNode\032\"\n\014CategoryNode\022\022\n\nid_" +
+      "or_name\030\001 \001(\t\0320\n\005Brand\022\023\n\013brand_depth\030\001 " +
+      "\001(\005\022\022\n\nid_or_name\030\002 \001(\t\0324\n\005Price\022\025\n\rcurr" +
+      "ent_price\030\001 \001(\003\022\024\n\014origin_price\030\002 \001(\003\032\217\001" +
+      "\n\007Display\022!\n\031listing_page_display_tags\030\001" +
+      " \003(\t\022 \n\030detail_page_display_tags\030\002 \003(\t\022!" +
+      "\n\031listing_page_display_type\030\003 \001(\t\022\034\n\024cov" +
+      "er_multimedia_url\030\004 \001(\t\032~\n\013ProductSpec\022\030" +
+      "\n\020product_group_id\030\001 \001(\t\022\023\n\013user_rating\030" +
+      "\002 \001(\001\022\025\n\rcomment_count\030\003 \001(\005\022\016\n\006source\030\004" +
+      " \001(\t\022\031\n\021publish_timestamp\030\005 \001(\003\032A\n\006Selle" +
+      "r\022\n\n\002id\030\001 \001(\t\022\024\n\014seller_level\030\002 \001(\t\022\025\n\rs" +
+      "eller_rating\030\003 \001(\001\032,\n\nExtraEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\005Scene\022\022\n\nsce" +
+      "ne_name\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005\022\016\n\006of" +
+      "fset\030\003 \001(\005\"\273\001\n\006Device\022\020\n\010platform\030\001 \001(\t\022" +
+      "\017\n\007os_type\030\002 \001(\t\022\023\n\013app_version\030\003 \001(\t\022\024\n" +
+      "\014device_model\030\004 \001(\t\022\024\n\014device_brand\030\005 \001(" +
+      "\t\022\022\n\nos_version\030\006 \001(\t\022\024\n\014browser_type\030\007 " +
+      "\001(\t\022\022\n\nuser_agent\030\010 \001(\t\022\017\n\007network\030\t \001(\t" +
+      "\"*\n\tDataError\022\017\n\007message\030\001 \001(\t\022\014\n\004data\030\002" +
+      " \001(\t\"\200\001\n\rWriteResponse\0225\n\006status\030\001 \001(\0132%" +
+      ".bytedance.byteplus.rec.retail.Status\0228\n" +
+      "\006errors\030\002 \003(\0132(.bytedance.byteplus.rec.r" +
+      "etail.DataError\"\313\001\n\020WriteDataRequest\022\022\n\n" +
+      "project_id\030\001 \001(\t\022\r\n\005stage\030\002 \001(\t\022\r\n\005topic" +
+      "\030\003 \001(\t\022\014\n\004data\030\n \003(\t\022I\n\005extra\030d \003(\0132:.by" +
+      "tedance.byteplus.rec.retail.WriteDataReq" +
+      "uest.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\351\003\n\016PredictRequest" +
+      "\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\017" +
+      "\n\007user_id\030\n \001(\t\022\014\n\004size\030\013 \001(\005\0223\n\005scene\030\014" +
+      " \001(\0132$.bytedance.byteplus.rec.retail.Sce" +
+      "ne\022F\n\007context\030\r \001(\01325.bytedance.byteplus" +
+      ".rec.retail.PredictRequest.Context\022G\n\005ex" +
+      "tra\030d \003(\01328.bytedance.byteplus.rec.retai" +
+      "l.PredictRequest.ExtraEntry\032\235\001\n\007Context\022" +
+      "<\n\014root_product\030\001 \001(\0132&.bytedance.bytepl" +
+      "us.rec.retail.Product\0225\n\006device\030\002 \001(\0132%." +
+      "bytedance.byteplus.rec.retail.Device\022\035\n\025" +
+      "candidate_product_ids\030\003 \003(\t\032,\n\nExtraEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n\rPr" +
+      "edictResult\022W\n\021response_products\030\001 \003(\0132<" +
+      ".bytedance.byteplus.rec.retail.PredictRe" +
+      "sult.ResponseProduct\022F\n\005extra\030d \003(\01327.by" +
+      "tedance.byteplus.rec.retail.PredictResul" +
+      "t.ExtraEntry\032\347\001\n\017ResponseProduct\022\022\n\nprod" +
+      "uct_id\030\001 \001(\t\022\014\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(\001" +
+      "\022\014\n\004pcvr\030\004 \001(\001\022\020\n\010rec_info\030\005 \001(\t\022V\n\005extr" +
+      "a\030d \003(\0132G.bytedance.byteplus.rec.retail." +
+      "PredictResult.ResponseProduct.ExtraEntry" +
+      "\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"\231\001\n\017PredictResponse\0225\n\006stat" +
+      "us\030\001 \001(\0132%.bytedance.byteplus.rec.retail" +
+      ".Status\022\022\n\nrequest_id\030\002 \001(\t\022;\n\005value\030\003 \001" +
+      "(\0132,.bytedance.byteplus.rec.retail.Predi" +
+      "ctResult\"\207\003\n\033AckServerImpressionsRequest" +
+      "\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032" +
+      "\n\022predict_request_id\030\n \001(\t\022\017\n\007user_id\030\013 " +
+      "\001(\t\022\026\n\016traffic_source\030\014 \001(\t\0223\n\005scene\030\r \001" +
+      "(\0132$.bytedance.byteplus.rec.retail.Scene" +
+      "\022c\n\020altered_products\030\016 \003(\0132I.bytedance.b" +
+      "yteplus.rec.retail.AckServerImpressionsR" +
+      "equest.AlteredProduct\032c\n\016AlteredProduct\022" +
+      "\022\n\nproduct_id\030\001 \001(\t\022\026\n\016altered_reason\030\002 " +
+      "\001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017product_id_hash\030d \001" +
+      "(\003\"U\n\034AckServerImpressionsResponse\0225\n\006st" +
+      "atus\030\001 \001(\0132%.bytedance.byteplus.rec.reta" +
+      "il.Status2\272\006\n\023BytePlusSaasService\022j\n\tWri" +
+      "tUsers\022/.bytedance.byteplus.rec.retail.W" +
+      "riteDataRequest\032,.bytedance.byteplus.rec" +
+      ".retail.WriteResponse\022m\n\014WritProducts\022/." +
+      "bytedance.byteplus.rec.retail.WriteDataR" +
+      "equest\032,.bytedance.byteplus.rec.retail.W" +
+      "riteResponse\022o\n\016WritUserEvents\022/.bytedan" +
+      "ce.byteplus.rec.retail.WriteDataRequest\032" +
+      ",.bytedance.byteplus.rec.retail.WriteRes" +
+      "ponse\022l\n\013WriteOthers\022/.bytedance.byteplu" +
+      "s.rec.retail.WriteDataRequest\032,.bytedanc" +
+      "e.byteplus.rec.retail.WriteResponse\022m\n\006F" +
+      "inish\0225.bytedance.byteplus.rec.retail.Fi" +
+      "nishWriteDataRequest\032,.bytedance.byteplu" +
+      "s.rec.retail.WriteResponse\022h\n\007Predict\022-." +
+      "bytedance.byteplus.rec.retail.PredictReq" +
+      "uest\032..bytedance.byteplus.rec.retail.Pre" +
+      "dictResponse\022\217\001\n\024AckServerImpressions\022:." +
       "bytedance.byteplus.rec.retail.AckServerI" +
-      "mpressionsResponseBc\n$com.byteplus.rec.s" +
-      "dk.retail.protocolZ;github.com/byteplus-" +
-      "sdk/byteplus-sdk-go-rec/retail/protocolb" +
-      "\006proto3"
+      "mpressionsRequest\032;.bytedance.byteplus.r" +
+      "ec.retail.AckServerImpressionsResponseBc" +
+      "\n$com.byteplus.rec.sdk.retail.protocolZ;" +
+      "github.com/byteplus-sdk/byteplus-sdk-go-" +
+      "rec/retail/protocolb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -30570,8 +33179,20 @@ public final class ByteplusSaasRetail {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_Status_descriptor,
         new java.lang.String[] { "Code", "Message", });
-    internal_static_bytedance_byteplus_rec_retail_Product_descriptor =
+    internal_static_bytedance_byteplus_rec_retail_Date_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_bytedance_byteplus_rec_retail_Date_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_retail_Date_descriptor,
+        new java.lang.String[] { "Year", "Month", "Day", });
+    internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor,
+        new java.lang.String[] { "ProjectId", "Stage", "Topic", "DataDates", });
+    internal_static_bytedance_byteplus_rec_retail_Product_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_bytedance_byteplus_rec_retail_Product_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_Product_descriptor,
@@ -30625,35 +33246,35 @@ public final class ByteplusSaasRetail {
         internal_static_bytedance_byteplus_rec_retail_Product_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_retail_Scene_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_bytedance_byteplus_rec_retail_Scene_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_Scene_descriptor,
         new java.lang.String[] { "SceneName", "PageNumber", "Offset", });
     internal_static_bytedance_byteplus_rec_retail_Device_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_bytedance_byteplus_rec_retail_Device_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_Device_descriptor,
         new java.lang.String[] { "Platform", "OsType", "AppVersion", "DeviceModel", "DeviceBrand", "OsVersion", "BrowserType", "UserAgent", "Network", });
     internal_static_bytedance_byteplus_rec_retail_DataError_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_bytedance_byteplus_rec_retail_DataError_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_DataError_descriptor,
         new java.lang.String[] { "Message", "Data", });
     internal_static_bytedance_byteplus_rec_retail_WriteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_bytedance_byteplus_rec_retail_WriteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_WriteResponse_descriptor,
         new java.lang.String[] { "Status", "Errors", });
     internal_static_bytedance_byteplus_rec_retail_WriteDataRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_bytedance_byteplus_rec_retail_WriteDataRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_WriteDataRequest_descriptor,
-        new java.lang.String[] { "ProjectId", "Stage", "Data", "Extra", });
+        new java.lang.String[] { "ProjectId", "Stage", "Topic", "Data", "Extra", });
     internal_static_bytedance_byteplus_rec_retail_WriteDataRequest_ExtraEntry_descriptor =
       internal_static_bytedance_byteplus_rec_retail_WriteDataRequest_descriptor.getNestedTypes().get(0);
     internal_static_bytedance_byteplus_rec_retail_WriteDataRequest_ExtraEntry_fieldAccessorTable = new
@@ -30661,7 +33282,7 @@ public final class ByteplusSaasRetail {
         internal_static_bytedance_byteplus_rec_retail_WriteDataRequest_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_retail_PredictRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_bytedance_byteplus_rec_retail_PredictRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_PredictRequest_descriptor,
@@ -30679,7 +33300,7 @@ public final class ByteplusSaasRetail {
         internal_static_bytedance_byteplus_rec_retail_PredictRequest_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_retail_PredictResult_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_bytedance_byteplus_rec_retail_PredictResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_PredictResult_descriptor,
@@ -30703,13 +33324,13 @@ public final class ByteplusSaasRetail {
         internal_static_bytedance_byteplus_rec_retail_PredictResult_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_retail_PredictResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_bytedance_byteplus_rec_retail_PredictResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_PredictResponse_descriptor,
         new java.lang.String[] { "Status", "RequestId", "Value", });
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_descriptor,
@@ -30721,7 +33342,7 @@ public final class ByteplusSaasRetail {
         internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_descriptor,
         new java.lang.String[] { "ProductId", "AlteredReason", "Rank", "ProductIdHash", });
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_descriptor,

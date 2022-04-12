@@ -31,6 +31,11 @@ public class RetailClientBuilder {
 
     private IRegion region;
 
+    public RetailClientBuilder AccountID(String accountID) {
+        this.tenantID = accountID;
+        return this;
+    }
+
     public RetailClientImpl build() throws BizException {
         checkRequiredField();
         HTTPClient httpClient = HTTPClient.builder()
@@ -45,7 +50,7 @@ public class RetailClientBuilder {
                 .useAirAuth(isUseAirAuth())
                 .authService(BYTEPLUS_AUTH_SERVICE)
                 .build();
-        return new RetailClientImpl(httpClient);
+        return new RetailClientImpl(httpClient, projectID);
     }
 
     private boolean isUseAirAuth() {
