@@ -24,10 +24,6 @@ public final class Constant {
     // TOPIC_USER_EVENT is the type of data when WriteUserEvents or FinishWriteUserEvents
     public final static String TOPIC_USER_EVENT = "behavior";
 
-    // TOPIC_OTHERS is the type of data when WriteOthers or FinishOthers.
-    // It is temporarily set to "others", the specific value depends on your need.
-    public final static String TOPIC_OTHERS = "others";
-
     // USER_URI in user topic, url path is end with WriteUsers
     public final static String USER_URI = "/RetailSaaS/WriteUsers";
 

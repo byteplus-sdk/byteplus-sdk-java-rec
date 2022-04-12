@@ -298,7 +298,8 @@ public class Main {
     public static void writeOthersExample() {
         // The "WriteXXX" api can transfer max to 2000 items at one request
         // The `topic` is datatype, which specify the type of data users are going to write.
-        String topic = Constant.TOPIC_OTHERS;
+        // It is temporarily set to "video", the specific value depends on your need.
+        String topic = "video";
         WriteDataRequest request = buildWriteOthersRequest(topic);
         // request must contain topic in WriteDataRequest.
         Option[] opts = defaultOptions(DEFAULT_WRITE_TIMEOUT);
@@ -332,8 +333,9 @@ public class Main {
 
     public static void finishWriteOthersExample() {
         // The "FinishXXX" api can mark max to 100 dates at one request
-        // The `topic` is datatype, which specify the type of data users are going to write.
-        String topic = Constant.TOPIC_OTHERS;
+        // The `topic` is datatype, which specify the type of data users are going to finish writing
+        // It is temporarily set to "video", the specific value depends on your need.
+        String topic = "video";
         FinishWriteDataRequest request = buildFinishOthersRequest(topic);
         Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
