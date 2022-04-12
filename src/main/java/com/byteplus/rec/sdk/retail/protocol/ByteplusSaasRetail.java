@@ -1331,7 +1331,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder setYear(int value) {
-
+        
         year_ = value;
         onChanged();
         return this;
@@ -1346,7 +1346,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder clearYear() {
-
+        
         year_ = 0;
         onChanged();
         return this;
@@ -1377,7 +1377,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder setMonth(int value) {
-
+        
         month_ = value;
         onChanged();
         return this;
@@ -1392,7 +1392,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder clearMonth() {
-
+        
         month_ = 0;
         onChanged();
         return this;
@@ -1425,7 +1425,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder setDay(int value) {
-
+        
         day_ = value;
         onChanged();
         return this;
@@ -1441,7 +1441,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder clearDay() {
-
+        
         day_ = 0;
         onChanged();
         return this;
@@ -1558,8 +1558,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific.
-     * When finish others, topic should not be missing
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1569,8 +1574,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific.
-     * When finish others, topic should not be missing
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1587,7 +1597,7 @@ public final class ByteplusSaasRetail {
      *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
-    java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date>
+    java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date> 
         getDataDatesList();
     /**
      * <pre>
@@ -1615,7 +1625,7 @@ public final class ByteplusSaasRetail {
      *
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
-    java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder>
+    java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
         getDataDatesOrBuilderList();
     /**
      * <pre>
@@ -1757,7 +1767,7 @@ public final class ByteplusSaasRetail {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         projectId_ = s;
@@ -1778,7 +1788,7 @@ public final class ByteplusSaasRetail {
         getProjectIdBytes() {
       java.lang.Object ref = projectId_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         projectId_ = b;
@@ -1809,7 +1819,7 @@ public final class ByteplusSaasRetail {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         stage_ = s;
@@ -1834,7 +1844,7 @@ public final class ByteplusSaasRetail {
         getStageBytes() {
       java.lang.Object ref = stage_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         stage_ = b;
@@ -1849,8 +1859,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific.
-     * When finish others, topic should not be missing
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1862,7 +1877,7 @@ public final class ByteplusSaasRetail {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         topic_ = s;
@@ -1872,8 +1887,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * upload the data that topic of which is not specific.
-     * When finish others, topic should not be missing
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -1884,7 +1904,7 @@ public final class ByteplusSaasRetail {
         getTopicBytes() {
       java.lang.Object ref = topic_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         topic_ = b;
@@ -1917,7 +1937,7 @@ public final class ByteplusSaasRetail {
      * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
      */
     @java.lang.Override
-    public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder>
+    public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
         getDataDatesOrBuilderList() {
       return dataDates_;
     }
@@ -2314,7 +2334,7 @@ public final class ByteplusSaasRetail {
               dataDatesBuilder_ = null;
               dataDates_ = other.dataDates_;
               bitField0_ = (bitField0_ & ~0x00000001);
-              dataDatesBuilder_ =
+              dataDatesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDataDatesFieldBuilder() : null;
             } else {
@@ -2387,7 +2407,7 @@ public final class ByteplusSaasRetail {
           getProjectIdBytes() {
         java.lang.Object ref = projectId_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           projectId_ = b;
@@ -2411,7 +2431,7 @@ public final class ByteplusSaasRetail {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         projectId_ = value;
         onChanged();
         return this;
@@ -2426,7 +2446,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder clearProjectId() {
-
+        
         projectId_ = getDefaultInstance().getProjectId();
         onChanged();
         return this;
@@ -2447,7 +2467,7 @@ public final class ByteplusSaasRetail {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         projectId_ = value;
         onChanged();
         return this;
@@ -2496,7 +2516,7 @@ public final class ByteplusSaasRetail {
           getStageBytes() {
         java.lang.Object ref = stage_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           stage_ = b;
@@ -2524,7 +2544,7 @@ public final class ByteplusSaasRetail {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         stage_ = value;
         onChanged();
         return this;
@@ -2543,7 +2563,7 @@ public final class ByteplusSaasRetail {
        * @return This builder for chaining.
        */
       public Builder clearStage() {
-
+        
         stage_ = getDefaultInstance().getStage();
         onChanged();
         return this;
@@ -2568,7 +2588,7 @@ public final class ByteplusSaasRetail {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         stage_ = value;
         onChanged();
         return this;
@@ -2578,8 +2598,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific.
-       * When finish others, topic should not be missing
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2600,8 +2625,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific.
-       * When finish others, topic should not be missing
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2611,7 +2641,7 @@ public final class ByteplusSaasRetail {
           getTopicBytes() {
         java.lang.Object ref = topic_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           topic_ = b;
@@ -2623,8 +2653,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific.
-       * When finish others, topic should not be missing
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2636,7 +2671,7 @@ public final class ByteplusSaasRetail {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         topic_ = value;
         onChanged();
         return this;
@@ -2644,15 +2679,20 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific.
-       * When finish others, topic should not be missing
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearTopic() {
-
+        
         topic_ = getDefaultInstance().getTopic();
         onChanged();
         return this;
@@ -2660,8 +2700,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * upload the data that topic of which is not specific.
-       * When finish others, topic should not be missing
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -2674,7 +2719,7 @@ public final class ByteplusSaasRetail {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         topic_ = value;
         onChanged();
         return this;
@@ -2950,7 +2995,7 @@ public final class ByteplusSaasRetail {
        *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
-      public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder>
+      public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
            getDataDatesOrBuilderList() {
         if (dataDatesBuilder_ != null) {
           return dataDatesBuilder_.getMessageOrBuilderList();
@@ -2991,12 +3036,12 @@ public final class ByteplusSaasRetail {
        *
        * <code>repeated .bytedance.byteplus.rec.retail.Date data_dates = 10;</code>
        */
-      public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder>
+      public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder> 
            getDataDatesBuilderList() {
         return getDataDatesFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder>
+          com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Date.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.DateOrBuilder> 
           getDataDatesFieldBuilder() {
         if (dataDatesBuilder_ == null) {
           dataDatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
@@ -19678,7 +19723,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * topic of data
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -19688,7 +19739,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * topic of data
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -20060,7 +20117,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * topic of data
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -20072,7 +20135,7 @@ public final class ByteplusSaasRetail {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         topic_ = s;
@@ -20082,7 +20145,13 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Optional.
-     * topic of data
+     * topic is datatype, which specify the type of data users are going to write.
+     * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+     * The acceptable values are "user", "goods", "behavior", and others
+     * user: user data
+     * goods: product data
+     * behavior: user event data
+     * others: the specific value depends on the your needs
      * </pre>
      *
      * <code>string topic = 3;</code>
@@ -20093,7 +20162,7 @@ public final class ByteplusSaasRetail {
         getTopicBytes() {
       java.lang.Object ref = topic_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         topic_ = b;
@@ -20918,7 +20987,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * topic of data
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -20939,7 +21014,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * topic of data
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -20949,7 +21030,7 @@ public final class ByteplusSaasRetail {
           getTopicBytes() {
         java.lang.Object ref = topic_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           topic_ = b;
@@ -20961,7 +21042,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * topic of data
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -20973,7 +21060,7 @@ public final class ByteplusSaasRetail {
         if (value == null) {
     throw new NullPointerException();
   }
-
+  
         topic_ = value;
         onChanged();
         return this;
@@ -20981,14 +21068,20 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * topic of data
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearTopic() {
-
+        
         topic_ = getDefaultInstance().getTopic();
         onChanged();
         return this;
@@ -20996,7 +21089,13 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Optional.
-       * topic of data
+       * topic is datatype, which specify the type of data users are going to write.
+       * in WriteOthers, topic should not be missing in request, In other cases, the topic can be omitted.
+       * The acceptable values are "user", "goods", "behavior", and others
+       * user: user data
+       * goods: product data
+       * behavior: user event data
+       * others: the specific value depends on the your needs
        * </pre>
        *
        * <code>string topic = 3;</code>
@@ -21009,7 +21108,7 @@ public final class ByteplusSaasRetail {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-
+        
         topic_ = value;
         onChanged();
         return this;
@@ -32804,6 +32903,16 @@ public final class ByteplusSaasRetail {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bytedance_byteplus_rec_retail_Status_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_retail_Date_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_retail_Date_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bytedance_byteplus_rec_retail_Product_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -32944,111 +33053,121 @@ public final class ByteplusSaasRetail {
     java.lang.String[] descriptorData = {
       "\n\032byteplus_saas_retail.proto\022\035bytedance." +
       "byteplus.rec.retail\"\'\n\006Status\022\014\n\004code\030\001 " +
-      "\001(\005\022\017\n\007message\030\002 \001(\t\"\301\t\n\007Product\022\022\n\nprod" +
-      "uct_id\030\001 \001(\t\022C\n\ncategories\030\002 \003(\0132/.byted" +
-      "ance.byteplus.rec.retail.Product.Categor" +
-      "y\022<\n\006brands\030\003 \003(\0132,.bytedance.byteplus.r" +
-      "ec.retail.Product.Brand\022;\n\005price\030\004 \001(\0132," +
-      ".bytedance.byteplus.rec.retail.Product.P" +
-      "rice\022\030\n\020is_recommendable\030\005 \001(\010\022\r\n\005title\030" +
-      "\006 \001(\t\022\025\n\rquality_score\030\007 \001(\001\022\014\n\004tags\030\010 \003" +
-      "(\t\022?\n\007display\030\t \001(\0132..bytedance.byteplus" +
-      ".rec.retail.Product.Display\022H\n\014product_s" +
-      "pec\030\n \001(\01322.bytedance.byteplus.rec.retai" +
-      "l.Product.ProductSpec\022=\n\006seller\030\013 \001(\0132-." +
-      "bytedance.byteplus.rec.retail.Product.Se" +
-      "ller\022@\n\005extra\030d \003(\01321.bytedance.byteplus" +
-      ".rec.retail.Product.ExtraEntry\032\234\001\n\010Categ" +
-      "ory\022\026\n\016category_depth\030\001 \001(\005\022T\n\016category_" +
-      "nodes\030\002 \003(\0132<.bytedance.byteplus.rec.ret" +
-      "ail.Product.Category.CategoryNode\032\"\n\014Cat" +
-      "egoryNode\022\022\n\nid_or_name\030\001 \001(\t\0320\n\005Brand\022\023" +
-      "\n\013brand_depth\030\001 \001(\005\022\022\n\nid_or_name\030\002 \001(\t\032" +
-      "4\n\005Price\022\025\n\rcurrent_price\030\001 \001(\003\022\024\n\014origi" +
-      "n_price\030\002 \001(\003\032\217\001\n\007Display\022!\n\031listing_pag" +
-      "e_display_tags\030\001 \003(\t\022 \n\030detail_page_disp" +
-      "lay_tags\030\002 \003(\t\022!\n\031listing_page_display_t" +
-      "ype\030\003 \001(\t\022\034\n\024cover_multimedia_url\030\004 \001(\t\032" +
-      "~\n\013ProductSpec\022\030\n\020product_group_id\030\001 \001(\t" +
-      "\022\023\n\013user_rating\030\002 \001(\001\022\025\n\rcomment_count\030\003" +
-      " \001(\005\022\016\n\006source\030\004 \001(\t\022\031\n\021publish_timestam" +
-      "p\030\005 \001(\003\032A\n\006Seller\022\n\n\002id\030\001 \001(\t\022\024\n\014seller_" +
-      "level\030\002 \001(\t\022\025\n\rseller_rating\030\003 \001(\001\032,\n\nEx" +
-      "traEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001" +
-      "\"@\n\005Scene\022\022\n\nscene_name\030\001 \001(\t\022\023\n\013page_nu" +
-      "mber\030\002 \001(\005\022\016\n\006offset\030\003 \001(\005\"\273\001\n\006Device\022\020\n" +
-      "\010platform\030\001 \001(\t\022\017\n\007os_type\030\002 \001(\t\022\023\n\013app_" +
-      "version\030\003 \001(\t\022\024\n\014device_model\030\004 \001(\t\022\024\n\014d" +
-      "evice_brand\030\005 \001(\t\022\022\n\nos_version\030\006 \001(\t\022\024\n" +
-      "\014browser_type\030\007 \001(\t\022\022\n\nuser_agent\030\010 \001(\t\022" +
-      "\017\n\007network\030\t \001(\t\"*\n\tDataError\022\017\n\007message" +
-      "\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\200\001\n\rWriteResponse\0225" +
-      "\n\006status\030\001 \001(\0132%.bytedance.byteplus.rec." +
-      "retail.Status\0228\n\006errors\030\002 \003(\0132(.bytedanc" +
-      "e.byteplus.rec.retail.DataError\"\274\001\n\020Writ" +
-      "eDataRequest\022\022\n\nproject_id\030\001 \001(\t\022\r\n\005stag" +
-      "e\030\002 \001(\t\022\014\n\004data\030\n \003(\t\022I\n\005extra\030d \003(\0132:.b" +
-      "ytedance.byteplus.rec.retail.WriteDataRe" +
-      "quest.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\351\003\n\016PredictReques" +
-      "t\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022" +
-      "\017\n\007user_id\030\n \001(\t\022\014\n\004size\030\013 \001(\005\0223\n\005scene\030" +
-      "\014 \001(\0132$.bytedance.byteplus.rec.retail.Sc" +
-      "ene\022F\n\007context\030\r \001(\01325.bytedance.byteplu" +
-      "s.rec.retail.PredictRequest.Context\022G\n\005e" +
-      "xtra\030d \003(\01328.bytedance.byteplus.rec.reta" +
-      "il.PredictRequest.ExtraEntry\032\235\001\n\007Context" +
-      "\022<\n\014root_product\030\001 \001(\0132&.bytedance.bytep" +
-      "lus.rec.retail.Product\0225\n\006device\030\002 \001(\0132%" +
-      ".bytedance.byteplus.rec.retail.Device\022\035\n" +
-      "\025candidate_product_ids\030\003 \003(\t\032,\n\nExtraEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n\rP" +
-      "redictResult\022W\n\021response_products\030\001 \003(\0132" +
-      "<.bytedance.byteplus.rec.retail.PredictR" +
-      "esult.ResponseProduct\022F\n\005extra\030d \003(\01327.b" +
-      "ytedance.byteplus.rec.retail.PredictResu" +
-      "lt.ExtraEntry\032\347\001\n\017ResponseProduct\022\022\n\npro" +
-      "duct_id\030\001 \001(\t\022\014\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(" +
-      "\001\022\014\n\004pcvr\030\004 \001(\001\022\020\n\010rec_info\030\005 \001(\t\022V\n\005ext" +
-      "ra\030d \003(\0132G.bytedance.byteplus.rec.retail" +
-      ".PredictResult.ResponseProduct.ExtraEntr" +
-      "y\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t:\0028\001\"\231\001\n\017PredictResponse\0225\n\006sta" +
-      "tus\030\001 \001(\0132%.bytedance.byteplus.rec.retai" +
-      "l.Status\022\022\n\nrequest_id\030\002 \001(\t\022;\n\005value\030\003 " +
-      "\001(\0132,.bytedance.byteplus.rec.retail.Pred" +
-      "ictResult\"\207\003\n\033AckServerImpressionsReques" +
-      "t\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022" +
-      "\032\n\022predict_request_id\030\n \001(\t\022\017\n\007user_id\030\013" +
-      " \001(\t\022\026\n\016traffic_source\030\014 \001(\t\0223\n\005scene\030\r " +
-      "\001(\0132$.bytedance.byteplus.rec.retail.Scen" +
-      "e\022c\n\020altered_products\030\016 \003(\0132I.bytedance." +
-      "byteplus.rec.retail.AckServerImpressions" +
-      "Request.AlteredProduct\032c\n\016AlteredProduct" +
-      "\022\022\n\nproduct_id\030\001 \001(\t\022\026\n\016altered_reason\030\002" +
-      " \001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017product_id_hash\030d " +
-      "\001(\003\"U\n\034AckServerImpressionsResponse\0225\n\006s" +
-      "tatus\030\001 \001(\0132%.bytedance.byteplus.rec.ret" +
-      "ail.Status2\335\004\n\023BytePlusSaasService\022j\n\tWr" +
-      "itUsers\022/.bytedance.byteplus.rec.retail." +
-      "WriteDataRequest\032,.bytedance.byteplus.re" +
-      "c.retail.WriteResponse\022m\n\014WritProducts\022/" +
-      ".bytedance.byteplus.rec.retail.WriteData" +
-      "Request\032,.bytedance.byteplus.rec.retail." +
-      "WriteResponse\022o\n\016WritUserEvents\022/.byteda" +
-      "nce.byteplus.rec.retail.WriteDataRequest" +
-      "\032,.bytedance.byteplus.rec.retail.WriteRe" +
-      "sponse\022h\n\007Predict\022-.bytedance.byteplus.r" +
-      "ec.retail.PredictRequest\032..bytedance.byt" +
-      "eplus.rec.retail.PredictResponse\022\217\001\n\024Ack" +
-      "ServerImpressions\022:.bytedance.byteplus.r" +
-      "ec.retail.AckServerImpressionsRequest\032;." +
+      "\001(\005\022\017\n\007message\030\002 \001(\t\"0\n\004Date\022\014\n\004year\030\001 \001" +
+      "(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\"\203\001\n\026Finis" +
+      "hWriteDataRequest\022\022\n\nproject_id\030\001 \001(\t\022\r\n" +
+      "\005stage\030\002 \001(\t\022\r\n\005topic\030\003 \001(\t\0227\n\ndata_date" +
+      "s\030\n \003(\0132#.bytedance.byteplus.rec.retail." +
+      "Date\"\301\t\n\007Product\022\022\n\nproduct_id\030\001 \001(\t\022C\n\n" +
+      "categories\030\002 \003(\0132/.bytedance.byteplus.re" +
+      "c.retail.Product.Category\022<\n\006brands\030\003 \003(" +
+      "\0132,.bytedance.byteplus.rec.retail.Produc" +
+      "t.Brand\022;\n\005price\030\004 \001(\0132,.bytedance.bytep" +
+      "lus.rec.retail.Product.Price\022\030\n\020is_recom" +
+      "mendable\030\005 \001(\005\022\r\n\005title\030\006 \001(\t\022\025\n\rquality" +
+      "_score\030\007 \001(\001\022\014\n\004tags\030\010 \003(\t\022?\n\007display\030\t " +
+      "\001(\0132..bytedance.byteplus.rec.retail.Prod" +
+      "uct.Display\022H\n\014product_spec\030\n \001(\01322.byte" +
+      "dance.byteplus.rec.retail.Product.Produc" +
+      "tSpec\022=\n\006seller\030\013 \001(\0132-.bytedance.bytepl" +
+      "us.rec.retail.Product.Seller\022@\n\005extra\030d " +
+      "\003(\01321.bytedance.byteplus.rec.retail.Prod" +
+      "uct.ExtraEntry\032\234\001\n\010Category\022\026\n\016category_" +
+      "depth\030\001 \001(\005\022T\n\016category_nodes\030\002 \003(\0132<.by" +
+      "tedance.byteplus.rec.retail.Product.Cate" +
+      "gory.CategoryNode\032\"\n\014CategoryNode\022\022\n\nid_" +
+      "or_name\030\001 \001(\t\0320\n\005Brand\022\023\n\013brand_depth\030\001 " +
+      "\001(\005\022\022\n\nid_or_name\030\002 \001(\t\0324\n\005Price\022\025\n\rcurr" +
+      "ent_price\030\001 \001(\003\022\024\n\014origin_price\030\002 \001(\003\032\217\001" +
+      "\n\007Display\022!\n\031listing_page_display_tags\030\001" +
+      " \003(\t\022 \n\030detail_page_display_tags\030\002 \003(\t\022!" +
+      "\n\031listing_page_display_type\030\003 \001(\t\022\034\n\024cov" +
+      "er_multimedia_url\030\004 \001(\t\032~\n\013ProductSpec\022\030" +
+      "\n\020product_group_id\030\001 \001(\t\022\023\n\013user_rating\030" +
+      "\002 \001(\001\022\025\n\rcomment_count\030\003 \001(\005\022\016\n\006source\030\004" +
+      " \001(\t\022\031\n\021publish_timestamp\030\005 \001(\003\032A\n\006Selle" +
+      "r\022\n\n\002id\030\001 \001(\t\022\024\n\014seller_level\030\002 \001(\t\022\025\n\rs" +
+      "eller_rating\030\003 \001(\001\032,\n\nExtraEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\005Scene\022\022\n\nsce" +
+      "ne_name\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005\022\016\n\006of" +
+      "fset\030\003 \001(\005\"\273\001\n\006Device\022\020\n\010platform\030\001 \001(\t\022" +
+      "\017\n\007os_type\030\002 \001(\t\022\023\n\013app_version\030\003 \001(\t\022\024\n" +
+      "\014device_model\030\004 \001(\t\022\024\n\014device_brand\030\005 \001(" +
+      "\t\022\022\n\nos_version\030\006 \001(\t\022\024\n\014browser_type\030\007 " +
+      "\001(\t\022\022\n\nuser_agent\030\010 \001(\t\022\017\n\007network\030\t \001(\t" +
+      "\"*\n\tDataError\022\017\n\007message\030\001 \001(\t\022\014\n\004data\030\002" +
+      " \001(\t\"\200\001\n\rWriteResponse\0225\n\006status\030\001 \001(\0132%" +
+      ".bytedance.byteplus.rec.retail.Status\0228\n" +
+      "\006errors\030\002 \003(\0132(.bytedance.byteplus.rec.r" +
+      "etail.DataError\"\313\001\n\020WriteDataRequest\022\022\n\n" +
+      "project_id\030\001 \001(\t\022\r\n\005stage\030\002 \001(\t\022\r\n\005topic" +
+      "\030\003 \001(\t\022\014\n\004data\030\n \003(\t\022I\n\005extra\030d \003(\0132:.by" +
+      "tedance.byteplus.rec.retail.WriteDataReq" +
+      "uest.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\351\003\n\016PredictRequest" +
+      "\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\017" +
+      "\n\007user_id\030\n \001(\t\022\014\n\004size\030\013 \001(\005\0223\n\005scene\030\014" +
+      " \001(\0132$.bytedance.byteplus.rec.retail.Sce" +
+      "ne\022F\n\007context\030\r \001(\01325.bytedance.byteplus" +
+      ".rec.retail.PredictRequest.Context\022G\n\005ex" +
+      "tra\030d \003(\01328.bytedance.byteplus.rec.retai" +
+      "l.PredictRequest.ExtraEntry\032\235\001\n\007Context\022" +
+      "<\n\014root_product\030\001 \001(\0132&.bytedance.bytepl" +
+      "us.rec.retail.Product\0225\n\006device\030\002 \001(\0132%." +
+      "bytedance.byteplus.rec.retail.Device\022\035\n\025" +
+      "candidate_product_ids\030\003 \003(\t\032,\n\nExtraEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n\rPr" +
+      "edictResult\022W\n\021response_products\030\001 \003(\0132<" +
+      ".bytedance.byteplus.rec.retail.PredictRe" +
+      "sult.ResponseProduct\022F\n\005extra\030d \003(\01327.by" +
+      "tedance.byteplus.rec.retail.PredictResul" +
+      "t.ExtraEntry\032\347\001\n\017ResponseProduct\022\022\n\nprod" +
+      "uct_id\030\001 \001(\t\022\014\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(\001" +
+      "\022\014\n\004pcvr\030\004 \001(\001\022\020\n\010rec_info\030\005 \001(\t\022V\n\005extr" +
+      "a\030d \003(\0132G.bytedance.byteplus.rec.retail." +
+      "PredictResult.ResponseProduct.ExtraEntry" +
+      "\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
+      "ue\030\002 \001(\t:\0028\001\"\231\001\n\017PredictResponse\0225\n\006stat" +
+      "us\030\001 \001(\0132%.bytedance.byteplus.rec.retail" +
+      ".Status\022\022\n\nrequest_id\030\002 \001(\t\022;\n\005value\030\003 \001" +
+      "(\0132,.bytedance.byteplus.rec.retail.Predi" +
+      "ctResult\"\207\003\n\033AckServerImpressionsRequest" +
+      "\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032" +
+      "\n\022predict_request_id\030\n \001(\t\022\017\n\007user_id\030\013 " +
+      "\001(\t\022\026\n\016traffic_source\030\014 \001(\t\0223\n\005scene\030\r \001" +
+      "(\0132$.bytedance.byteplus.rec.retail.Scene" +
+      "\022c\n\020altered_products\030\016 \003(\0132I.bytedance.b" +
+      "yteplus.rec.retail.AckServerImpressionsR" +
+      "equest.AlteredProduct\032c\n\016AlteredProduct\022" +
+      "\022\n\nproduct_id\030\001 \001(\t\022\026\n\016altered_reason\030\002 " +
+      "\001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017product_id_hash\030d \001" +
+      "(\003\"U\n\034AckServerImpressionsResponse\0225\n\006st" +
+      "atus\030\001 \001(\0132%.bytedance.byteplus.rec.reta" +
+      "il.Status2\272\006\n\023BytePlusSaasService\022j\n\tWri" +
+      "tUsers\022/.bytedance.byteplus.rec.retail.W" +
+      "riteDataRequest\032,.bytedance.byteplus.rec" +
+      ".retail.WriteResponse\022m\n\014WritProducts\022/." +
+      "bytedance.byteplus.rec.retail.WriteDataR" +
+      "equest\032,.bytedance.byteplus.rec.retail.W" +
+      "riteResponse\022o\n\016WritUserEvents\022/.bytedan" +
+      "ce.byteplus.rec.retail.WriteDataRequest\032" +
+      ",.bytedance.byteplus.rec.retail.WriteRes" +
+      "ponse\022l\n\013WriteOthers\022/.bytedance.byteplu" +
+      "s.rec.retail.WriteDataRequest\032,.bytedanc" +
+      "e.byteplus.rec.retail.WriteResponse\022m\n\006F" +
+      "inish\0225.bytedance.byteplus.rec.retail.Fi" +
+      "nishWriteDataRequest\032,.bytedance.byteplu" +
+      "s.rec.retail.WriteResponse\022h\n\007Predict\022-." +
+      "bytedance.byteplus.rec.retail.PredictReq" +
+      "uest\032..bytedance.byteplus.rec.retail.Pre" +
+      "dictResponse\022\217\001\n\024AckServerImpressions\022:." +
       "bytedance.byteplus.rec.retail.AckServerI" +
-      "mpressionsResponseBc\n$com.byteplus.rec.s" +
-      "dk.retail.protocolZ;github.com/byteplus-" +
-      "sdk/byteplus-sdk-go-rec/retail/protocolb" +
-      "\006proto3"
+      "mpressionsRequest\032;.bytedance.byteplus.r" +
+      "ec.retail.AckServerImpressionsResponseBc" +
+      "\n$com.byteplus.rec.sdk.retail.protocolZ;" +
+      "github.com/byteplus-sdk/byteplus-sdk-go-" +
+      "rec/retail/protocolb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -33060,8 +33179,20 @@ public final class ByteplusSaasRetail {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_Status_descriptor,
         new java.lang.String[] { "Code", "Message", });
-    internal_static_bytedance_byteplus_rec_retail_Product_descriptor =
+    internal_static_bytedance_byteplus_rec_retail_Date_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_bytedance_byteplus_rec_retail_Date_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_retail_Date_descriptor,
+        new java.lang.String[] { "Year", "Month", "Day", });
+    internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_retail_FinishWriteDataRequest_descriptor,
+        new java.lang.String[] { "ProjectId", "Stage", "Topic", "DataDates", });
+    internal_static_bytedance_byteplus_rec_retail_Product_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_bytedance_byteplus_rec_retail_Product_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_Product_descriptor,

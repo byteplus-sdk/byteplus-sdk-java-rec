@@ -14,6 +14,8 @@ import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Objects;
+
 @Slf4j
 public class RetailClientImpl implements RetailClient {
     private final static String ERR_MSG_TOO_MANY_WRITE_ITEMS =
@@ -30,7 +32,8 @@ public class RetailClientImpl implements RetailClient {
 
     @Override
     public WriteResponse writeUsers(WriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doWriteData(request, Constant.USER_URI, opts);
+        WriteDataRequest writeRequest = request.toBuilder().setTopic(Constant.TOPIC_USER).build();
+        return doWriteData(writeRequest, Constant.USER_URI, opts);
     }
 
     @Override
@@ -41,7 +44,8 @@ public class RetailClientImpl implements RetailClient {
 
     @Override
     public WriteResponse writeProducts(WriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doWriteData(request, Constant.PRODUCT_URI, opts);
+        WriteDataRequest writeRequest = request.toBuilder().setTopic(Constant.TOPIC_PRODUCT).build();
+        return doWriteData(writeRequest, Constant.PRODUCT_URI, opts);
     }
 
     @Override
@@ -52,7 +56,8 @@ public class RetailClientImpl implements RetailClient {
 
     @Override
     public WriteResponse writeUserEvents(WriteDataRequest request, Option... opts) throws NetException, BizException {
-        return doWriteData(request, Constant.USER_EVENT_URI, opts);
+        WriteDataRequest writeRequest = request.toBuilder().setTopic(Constant.TOPIC_USER_EVENT).build();
+        return doWriteData(writeRequest, Constant.USER_EVENT_URI, opts);
     }
 
     @Override
@@ -73,13 +78,10 @@ public class RetailClientImpl implements RetailClient {
 
     private WriteResponse doWriteData(WriteDataRequest request,
                                       String path, Option... opts) throws NetException, BizException {
-        if (projectID.length() > 0 && request.getProjectId().length() == 0) {
+        if (Objects.nonNull(projectID) && request.getProjectId().length() == 0) {
             request = request.toBuilder().setProjectId(projectID).build();
         }
-        checkUploadDataRequest(request);
-        if (request.getDataCount() > Constant.MAX_WRITE_COUNT) {
-            throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
-        }
+        checkWriteDataRequest(request);
         WriteResponse response = httpClient.doPBRequest(
                 path,
                 request,
@@ -90,24 +92,24 @@ public class RetailClientImpl implements RetailClient {
         return response;
     }
 
-    private void checkUploadDataRequest(WriteDataRequest request) throws BizException {
+    private void checkWriteDataRequest(WriteDataRequest request) throws BizException {
         if (Utils.isEmptyString(request.getProjectId())) {
             throw new BizException("project id is empty");
         }
         if (Utils.isEmptyString(request.getStage())) {
             throw new BizException("stage is empty");
         }
+        if (request.getDataCount() > Constant.MAX_WRITE_COUNT) {
+            throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
+        }
     }
 
     private WriteResponse doFinishData(FinishWriteDataRequest request,
                                        String path, Option... opts) throws NetException, BizException {
-        if (projectID.length() > 0 && request.getProjectId().length() == 0) {
+        if (Objects.nonNull(projectID) && request.getProjectId().length() == 0) {
             request = request.toBuilder().setProjectId(projectID).build();
         }
-        checkFinishUploadRequest(request);
-        if (request.getDataDatesCount() > Constant.MAX_WRITE_COUNT) {
-            throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
-        }
+        checkFinishWriteRequest(request);
         WriteResponse response = httpClient.doPBRequest(
                 path,
                 request,
@@ -118,7 +120,7 @@ public class RetailClientImpl implements RetailClient {
         return response;
     }
 
-    private void checkFinishUploadRequest(FinishWriteDataRequest request) throws BizException {
+    private void checkFinishWriteRequest(FinishWriteDataRequest request) throws BizException {
         if (Utils.isEmptyString(request.getProjectId())) {
             throw new BizException("project id is empty");
         }
@@ -127,6 +129,9 @@ public class RetailClientImpl implements RetailClient {
         }
         if (Utils.isEmptyString(request.getTopic())) {
             throw new BizException("topic is empty");
+        }
+        if (request.getDataDatesCount() > Constant.MAX_WRITE_COUNT) {
+            throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
         }
     }
 
@@ -156,7 +161,7 @@ public class RetailClientImpl implements RetailClient {
     @Override
     public AckServerImpressionsResponse ackServerImpressions(AckServerImpressionsRequest request,
                                                              Option... opts) throws NetException, BizException {
-        if (projectID.length() > 0 && request.getProjectId().length() == 0) {
+        if (Objects.nonNull(projectID) && request.getProjectId().length() == 0) {
             request = request.toBuilder().setProjectId(projectID).build();
         }
         checkAckRequest(request);
