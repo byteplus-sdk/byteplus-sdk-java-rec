@@ -15,13 +15,13 @@ public final class Constant {
     // STAGE_INCREMENTAL_DAILY In this stage, data will be used to daily update model
     public final static String STAGE_INCREMENTAL_DAILY = "incremental_sync_daily";
 
-    // TOPIC_USER Topic if write users and finish write users
+    // TOPIC_USER is the type of data when writeUsers or FinishWriteUsers
     public final static String TOPIC_USER = "user";
 
-    // TOPIC_PRODUCT Topic if write products and finish write products
+    // TOPIC_PRODUCT is the type of data when WriteProducts or FinishWriteProducts
     public final static String TOPIC_PRODUCT = "goods";
 
-    // TOPIC_USER_EVENT Topic if write user events and finish write user events
+    // TOPIC_USER_EVENT is the type of data when WriteUserEvents or FinishWriteUserEvents
     public final static String TOPIC_USER_EVENT = "behavior";
 
     // USER_URI in user topic, url path is end with WriteUsers
