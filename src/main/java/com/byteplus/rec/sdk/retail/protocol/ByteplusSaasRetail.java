@@ -19757,7 +19757,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -19769,7 +19769,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -19780,7 +19780,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -19792,7 +19792,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -20177,7 +20177,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -20191,7 +20191,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -20204,7 +20204,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -20218,7 +20218,7 @@ public final class ByteplusSaasRetail {
     /**
      * <pre>
      * Required
-     * Array of json strings.
+     * Array of json strings. The array size is max to 2000.
      * Each element of the array is a json serialized string of customer data.
      * </pre>
      *
@@ -21124,7 +21124,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21138,7 +21138,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21151,7 +21151,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21165,7 +21165,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21180,7 +21180,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21202,7 +21202,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21223,7 +21223,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21242,7 +21242,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21258,7 +21258,7 @@ public final class ByteplusSaasRetail {
       /**
        * <pre>
        * Required
-       * Array of json strings.
+       * Array of json strings. The array size is max to 2000.
        * Each element of the array is a json serialized string of customer data.
        * </pre>
        *
@@ -21934,52 +21934,57 @@ public final class ByteplusSaasRetail {
 
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @return A list containing the candidateProductIds.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      java.util.List<java.lang.String>
-          getCandidateProductIdsList();
+      java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product> 
+          getCandidateProductsList();
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @return The count of candidateProductIds.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      int getCandidateProductIdsCount();
+      com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product getCandidateProducts(int index);
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @param index The index of the element to return.
-       * @return The candidateProductIds at the given index.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      java.lang.String getCandidateProductIds(int index);
+      int getCandidateProductsCount();
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the candidateProductIds at the given index.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      com.google.protobuf.ByteString
-          getCandidateProductIdsBytes(int index);
+      java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder> 
+          getCandidateProductsOrBuilderList();
+      /**
+       * <pre>
+       * Optional
+       * The list of candidates for the recommendation.
+       * If this is empty, all products are the candidates.
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+       */
+      com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder getCandidateProductsOrBuilder(
+          int index);
     }
     /**
      * <pre>
@@ -21998,7 +22003,7 @@ public final class ByteplusSaasRetail {
         super(builder);
       }
       private Context() {
-        candidateProductIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        candidateProducts_ = java.util.Collections.emptyList();
       }
 
       @java.lang.Override
@@ -22058,13 +22063,13 @@ public final class ByteplusSaasRetail {
 
                 break;
               }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
+              case 34: {
                 if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  candidateProductIds_ = new com.google.protobuf.LazyStringArrayList();
+                  candidateProducts_ = new java.util.ArrayList<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product>();
                   mutable_bitField0_ |= 0x00000001;
                 }
-                candidateProductIds_.add(s);
+                candidateProducts_.add(
+                    input.readMessage(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.parser(), extensionRegistry));
                 break;
               }
               default: {
@@ -22083,7 +22088,7 @@ public final class ByteplusSaasRetail {
               e).setUnfinishedMessage(this);
         } finally {
           if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            candidateProductIds_ = candidateProductIds_.getUnmodifiableView();
+            candidateProducts_ = java.util.Collections.unmodifiableList(candidateProducts_);
           }
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -22184,63 +22189,74 @@ public final class ByteplusSaasRetail {
         return getDevice();
       }
 
-      public static final int CANDIDATE_PRODUCT_IDS_FIELD_NUMBER = 3;
-      private com.google.protobuf.LazyStringList candidateProductIds_;
+      public static final int CANDIDATE_PRODUCTS_FIELD_NUMBER = 4;
+      private java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product> candidateProducts_;
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @return A list containing the candidateProductIds.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      public com.google.protobuf.ProtocolStringList
-          getCandidateProductIdsList() {
-        return candidateProductIds_;
+      @java.lang.Override
+      public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product> getCandidateProductsList() {
+        return candidateProducts_;
       }
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @return The count of candidateProductIds.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      public int getCandidateProductIdsCount() {
-        return candidateProductIds_.size();
+      @java.lang.Override
+      public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder> 
+          getCandidateProductsOrBuilderList() {
+        return candidateProducts_;
       }
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @param index The index of the element to return.
-       * @return The candidateProductIds at the given index.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      public java.lang.String getCandidateProductIds(int index) {
-        return candidateProductIds_.get(index);
+      @java.lang.Override
+      public int getCandidateProductsCount() {
+        return candidateProducts_.size();
       }
       /**
        * <pre>
-       * Optional.
+       * Optional
        * The list of candidates for the recommendation.
        * If this is empty, all products are the candidates.
        * </pre>
        *
-       * <code>repeated string candidate_product_ids = 3;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the candidateProductIds at the given index.
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
        */
-      public com.google.protobuf.ByteString
-          getCandidateProductIdsBytes(int index) {
-        return candidateProductIds_.getByteString(index);
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product getCandidateProducts(int index) {
+        return candidateProducts_.get(index);
+      }
+      /**
+       * <pre>
+       * Optional
+       * The list of candidates for the recommendation.
+       * If this is empty, all products are the candidates.
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+       */
+      @java.lang.Override
+      public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder getCandidateProductsOrBuilder(
+          int index) {
+        return candidateProducts_.get(index);
       }
 
       private byte memoizedIsInitialized = -1;
@@ -22263,8 +22279,8 @@ public final class ByteplusSaasRetail {
         if (device_ != null) {
           output.writeMessage(2, getDevice());
         }
-        for (int i = 0; i < candidateProductIds_.size(); i++) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, candidateProductIds_.getRaw(i));
+        for (int i = 0; i < candidateProducts_.size(); i++) {
+          output.writeMessage(4, candidateProducts_.get(i));
         }
         unknownFields.writeTo(output);
       }
@@ -22283,13 +22299,9 @@ public final class ByteplusSaasRetail {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getDevice());
         }
-        {
-          int dataSize = 0;
-          for (int i = 0; i < candidateProductIds_.size(); i++) {
-            dataSize += computeStringSizeNoTag(candidateProductIds_.getRaw(i));
-          }
-          size += dataSize;
-          size += 1 * getCandidateProductIdsList().size();
+        for (int i = 0; i < candidateProducts_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(4, candidateProducts_.get(i));
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -22316,8 +22328,8 @@ public final class ByteplusSaasRetail {
           if (!getDevice()
               .equals(other.getDevice())) return false;
         }
-        if (!getCandidateProductIdsList()
-            .equals(other.getCandidateProductIdsList())) return false;
+        if (!getCandidateProductsList()
+            .equals(other.getCandidateProductsList())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -22337,9 +22349,9 @@ public final class ByteplusSaasRetail {
           hash = (37 * hash) + DEVICE_FIELD_NUMBER;
           hash = (53 * hash) + getDevice().hashCode();
         }
-        if (getCandidateProductIdsCount() > 0) {
-          hash = (37 * hash) + CANDIDATE_PRODUCT_IDS_FIELD_NUMBER;
-          hash = (53 * hash) + getCandidateProductIdsList().hashCode();
+        if (getCandidateProductsCount() > 0) {
+          hash = (37 * hash) + CANDIDATE_PRODUCTS_FIELD_NUMBER;
+          hash = (53 * hash) + getCandidateProductsList().hashCode();
         }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
@@ -22473,6 +22485,7 @@ public final class ByteplusSaasRetail {
         private void maybeForceBuilderInitialization() {
           if (com.google.protobuf.GeneratedMessageV3
                   .alwaysUseFieldBuilders) {
+            getCandidateProductsFieldBuilder();
           }
         }
         @java.lang.Override
@@ -22490,8 +22503,12 @@ public final class ByteplusSaasRetail {
             device_ = null;
             deviceBuilder_ = null;
           }
-          candidateProductIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          if (candidateProductsBuilder_ == null) {
+            candidateProducts_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            candidateProductsBuilder_.clear();
+          }
           return this;
         }
 
@@ -22529,11 +22546,15 @@ public final class ByteplusSaasRetail {
           } else {
             result.device_ = deviceBuilder_.build();
           }
-          if (((bitField0_ & 0x00000001) != 0)) {
-            candidateProductIds_ = candidateProductIds_.getUnmodifiableView();
-            bitField0_ = (bitField0_ & ~0x00000001);
+          if (candidateProductsBuilder_ == null) {
+            if (((bitField0_ & 0x00000001) != 0)) {
+              candidateProducts_ = java.util.Collections.unmodifiableList(candidateProducts_);
+              bitField0_ = (bitField0_ & ~0x00000001);
+            }
+            result.candidateProducts_ = candidateProducts_;
+          } else {
+            result.candidateProducts_ = candidateProductsBuilder_.build();
           }
-          result.candidateProductIds_ = candidateProductIds_;
           onBuilt();
           return result;
         }
@@ -22588,15 +22609,31 @@ public final class ByteplusSaasRetail {
           if (other.hasDevice()) {
             mergeDevice(other.getDevice());
           }
-          if (!other.candidateProductIds_.isEmpty()) {
-            if (candidateProductIds_.isEmpty()) {
-              candidateProductIds_ = other.candidateProductIds_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureCandidateProductIdsIsMutable();
-              candidateProductIds_.addAll(other.candidateProductIds_);
+          if (candidateProductsBuilder_ == null) {
+            if (!other.candidateProducts_.isEmpty()) {
+              if (candidateProducts_.isEmpty()) {
+                candidateProducts_ = other.candidateProducts_;
+                bitField0_ = (bitField0_ & ~0x00000001);
+              } else {
+                ensureCandidateProductsIsMutable();
+                candidateProducts_.addAll(other.candidateProducts_);
+              }
+              onChanged();
             }
-            onChanged();
+          } else {
+            if (!other.candidateProducts_.isEmpty()) {
+              if (candidateProductsBuilder_.isEmpty()) {
+                candidateProductsBuilder_.dispose();
+                candidateProductsBuilder_ = null;
+                candidateProducts_ = other.candidateProducts_;
+                bitField0_ = (bitField0_ & ~0x00000001);
+                candidateProductsBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getCandidateProductsFieldBuilder() : null;
+              } else {
+                candidateProductsBuilder_.addAllMessages(other.candidateProducts_);
+              }
+            }
           }
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
@@ -22956,168 +22993,352 @@ public final class ByteplusSaasRetail {
           return deviceBuilder_;
         }
 
-        private com.google.protobuf.LazyStringList candidateProductIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        private void ensureCandidateProductIdsIsMutable() {
+        private java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product> candidateProducts_ =
+          java.util.Collections.emptyList();
+        private void ensureCandidateProductsIsMutable() {
           if (!((bitField0_ & 0x00000001) != 0)) {
-            candidateProductIds_ = new com.google.protobuf.LazyStringArrayList(candidateProductIds_);
+            candidateProducts_ = new java.util.ArrayList<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product>(candidateProducts_);
             bitField0_ |= 0x00000001;
            }
         }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder> candidateProductsBuilder_;
+
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @return A list containing the candidateProductIds.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public com.google.protobuf.ProtocolStringList
-            getCandidateProductIdsList() {
-          return candidateProductIds_.getUnmodifiableView();
+        public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product> getCandidateProductsList() {
+          if (candidateProductsBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(candidateProducts_);
+          } else {
+            return candidateProductsBuilder_.getMessageList();
+          }
         }
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @return The count of candidateProductIds.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public int getCandidateProductIdsCount() {
-          return candidateProductIds_.size();
+        public int getCandidateProductsCount() {
+          if (candidateProductsBuilder_ == null) {
+            return candidateProducts_.size();
+          } else {
+            return candidateProductsBuilder_.getCount();
+          }
         }
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @param index The index of the element to return.
-         * @return The candidateProductIds at the given index.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public java.lang.String getCandidateProductIds(int index) {
-          return candidateProductIds_.get(index);
+        public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product getCandidateProducts(int index) {
+          if (candidateProductsBuilder_ == null) {
+            return candidateProducts_.get(index);
+          } else {
+            return candidateProductsBuilder_.getMessage(index);
+          }
         }
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @param index The index of the value to return.
-         * @return The bytes of the candidateProductIds at the given index.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public com.google.protobuf.ByteString
-            getCandidateProductIdsBytes(int index) {
-          return candidateProductIds_.getByteString(index);
-        }
-        /**
-         * <pre>
-         * Optional.
-         * The list of candidates for the recommendation.
-         * If this is empty, all products are the candidates.
-         * </pre>
-         *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @param index The index to set the value at.
-         * @param value The candidateProductIds to set.
-         * @return This builder for chaining.
-         */
-        public Builder setCandidateProductIds(
-            int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCandidateProductIdsIsMutable();
-          candidateProductIds_.set(index, value);
-          onChanged();
+        public Builder setCandidateProducts(
+            int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product value) {
+          if (candidateProductsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureCandidateProductsIsMutable();
+            candidateProducts_.set(index, value);
+            onChanged();
+          } else {
+            candidateProductsBuilder_.setMessage(index, value);
+          }
           return this;
         }
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @param value The candidateProductIds to add.
-         * @return This builder for chaining.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public Builder addCandidateProductIds(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCandidateProductIdsIsMutable();
-          candidateProductIds_.add(value);
-          onChanged();
+        public Builder setCandidateProducts(
+            int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder builderForValue) {
+          if (candidateProductsBuilder_ == null) {
+            ensureCandidateProductsIsMutable();
+            candidateProducts_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            candidateProductsBuilder_.setMessage(index, builderForValue.build());
+          }
           return this;
         }
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @param values The candidateProductIds to add.
-         * @return This builder for chaining.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public Builder addAllCandidateProductIds(
-            java.lang.Iterable<java.lang.String> values) {
-          ensureCandidateProductIdsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, candidateProductIds_);
-          onChanged();
+        public Builder addCandidateProducts(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product value) {
+          if (candidateProductsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureCandidateProductsIsMutable();
+            candidateProducts_.add(value);
+            onChanged();
+          } else {
+            candidateProductsBuilder_.addMessage(value);
+          }
           return this;
         }
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @return This builder for chaining.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public Builder clearCandidateProductIds() {
-          candidateProductIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
+        public Builder addCandidateProducts(
+            int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product value) {
+          if (candidateProductsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureCandidateProductsIsMutable();
+            candidateProducts_.add(index, value);
+            onChanged();
+          } else {
+            candidateProductsBuilder_.addMessage(index, value);
+          }
           return this;
         }
         /**
          * <pre>
-         * Optional.
+         * Optional
          * The list of candidates for the recommendation.
          * If this is empty, all products are the candidates.
          * </pre>
          *
-         * <code>repeated string candidate_product_ids = 3;</code>
-         * @param value The bytes of the candidateProductIds to add.
-         * @return This builder for chaining.
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
          */
-        public Builder addCandidateProductIdsBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          ensureCandidateProductIdsIsMutable();
-          candidateProductIds_.add(value);
-          onChanged();
+        public Builder addCandidateProducts(
+            com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder builderForValue) {
+          if (candidateProductsBuilder_ == null) {
+            ensureCandidateProductsIsMutable();
+            candidateProducts_.add(builderForValue.build());
+            onChanged();
+          } else {
+            candidateProductsBuilder_.addMessage(builderForValue.build());
+          }
           return this;
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public Builder addCandidateProducts(
+            int index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder builderForValue) {
+          if (candidateProductsBuilder_ == null) {
+            ensureCandidateProductsIsMutable();
+            candidateProducts_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            candidateProductsBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public Builder addAllCandidateProducts(
+            java.lang.Iterable<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product> values) {
+          if (candidateProductsBuilder_ == null) {
+            ensureCandidateProductsIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, candidateProducts_);
+            onChanged();
+          } else {
+            candidateProductsBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public Builder clearCandidateProducts() {
+          if (candidateProductsBuilder_ == null) {
+            candidateProducts_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000001);
+            onChanged();
+          } else {
+            candidateProductsBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public Builder removeCandidateProducts(int index) {
+          if (candidateProductsBuilder_ == null) {
+            ensureCandidateProductsIsMutable();
+            candidateProducts_.remove(index);
+            onChanged();
+          } else {
+            candidateProductsBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder getCandidateProductsBuilder(
+            int index) {
+          return getCandidateProductsFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder getCandidateProductsOrBuilder(
+            int index) {
+          if (candidateProductsBuilder_ == null) {
+            return candidateProducts_.get(index);  } else {
+            return candidateProductsBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public java.util.List<? extends com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder> 
+             getCandidateProductsOrBuilderList() {
+          if (candidateProductsBuilder_ != null) {
+            return candidateProductsBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(candidateProducts_);
+          }
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder addCandidateProductsBuilder() {
+          return getCandidateProductsFieldBuilder().addBuilder(
+              com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.getDefaultInstance());
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder addCandidateProductsBuilder(
+            int index) {
+          return getCandidateProductsFieldBuilder().addBuilder(
+              index, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.getDefaultInstance());
+        }
+        /**
+         * <pre>
+         * Optional
+         * The list of candidates for the recommendation.
+         * If this is empty, all products are the candidates.
+         * </pre>
+         *
+         * <code>repeated .bytedance.byteplus.rec.retail.Product candidate_products = 4;</code>
+         */
+        public java.util.List<com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder> 
+             getCandidateProductsBuilderList() {
+          return getCandidateProductsFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder> 
+            getCandidateProductsFieldBuilder() {
+          if (candidateProductsBuilder_ == null) {
+            candidateProductsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Builder, com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.ProductOrBuilder>(
+                    candidateProducts_,
+                    ((bitField0_ & 0x00000001) != 0),
+                    getParentForChildren(),
+                    isClean());
+            candidateProducts_ = null;
+          }
+          return candidateProductsBuilder_;
         }
         @java.lang.Override
         public final Builder setUnknownFields(
@@ -29349,6 +29570,70 @@ public final class ByteplusSaasRetail {
        * @return The productIdHash.
        */
       long getProductIdHash();
+
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+      int getExtraCount();
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+      boolean containsExtra(
+          java.lang.String key);
+      /**
+       * Use {@link #getExtraMap()} instead.
+       */
+      @java.lang.Deprecated
+      java.util.Map<java.lang.String, java.lang.String>
+      getExtra();
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+      java.util.Map<java.lang.String, java.lang.String>
+      getExtraMap();
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+
+      java.lang.String getExtraOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue);
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+
+      java.lang.String getExtraOrThrow(
+          java.lang.String key);
     }
     /**
      * <pre>
@@ -29391,6 +29676,7 @@ public final class ByteplusSaasRetail {
         if (extensionRegistry == null) {
           throw new java.lang.NullPointerException();
         }
+        int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
@@ -29423,6 +29709,19 @@ public final class ByteplusSaasRetail {
                 productIdHash_ = input.readInt64();
                 break;
               }
+              case 810: {
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  extra_ = com.google.protobuf.MapField.newMapField(
+                      ExtraDefaultEntryHolder.defaultEntry);
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                extra__ = input.readMessage(
+                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                extra_.getMutableMap().put(
+                    extra__.getKey(), extra__.getValue());
+                break;
+              }
               default: {
                 if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
@@ -29447,6 +29746,18 @@ public final class ByteplusSaasRetail {
         return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      @java.lang.Override
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 101:
+            return internalGetExtra();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -29593,6 +29904,111 @@ public final class ByteplusSaasRetail {
         return productIdHash_;
       }
 
+      public static final int EXTRA_FIELD_NUMBER = 101;
+      private static final class ExtraDefaultEntryHolder {
+        static final com.google.protobuf.MapEntry<
+            java.lang.String, java.lang.String> defaultEntry =
+                com.google.protobuf.MapEntry
+                .<java.lang.String, java.lang.String>newDefaultInstance(
+                    com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_descriptor, 
+                    com.google.protobuf.WireFormat.FieldType.STRING,
+                    "",
+                    com.google.protobuf.WireFormat.FieldType.STRING,
+                    "");
+      }
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> extra_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetExtra() {
+        if (extra_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ExtraDefaultEntryHolder.defaultEntry);
+        }
+        return extra_;
+      }
+
+      public int getExtraCount() {
+        return internalGetExtra().getMap().size();
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsExtra(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetExtra().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getExtraMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getExtra() {
+        return getExtraMap();
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getExtraMap() {
+        return internalGetExtra().getMap();
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtraOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtra().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 101;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtraOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtra().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
       private byte memoizedIsInitialized = -1;
       @java.lang.Override
       public final boolean isInitialized() {
@@ -29619,6 +30035,12 @@ public final class ByteplusSaasRetail {
         if (productIdHash_ != 0L) {
           output.writeInt64(100, productIdHash_);
         }
+        com.google.protobuf.GeneratedMessageV3
+          .serializeStringMapTo(
+            output,
+            internalGetExtra(),
+            ExtraDefaultEntryHolder.defaultEntry,
+            101);
         unknownFields.writeTo(output);
       }
 
@@ -29641,6 +30063,16 @@ public final class ByteplusSaasRetail {
         if (productIdHash_ != 0L) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt64Size(100, productIdHash_);
+        }
+        for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+             : internalGetExtra().getMap().entrySet()) {
+          com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+          extra__ = ExtraDefaultEntryHolder.defaultEntry.newBuilderForType()
+              .setKey(entry.getKey())
+              .setValue(entry.getValue())
+              .build();
+          size += com.google.protobuf.CodedOutputStream
+              .computeMessageSize(101, extra__);
         }
         size += unknownFields.getSerializedSize();
         memoizedSize = size;
@@ -29665,6 +30097,8 @@ public final class ByteplusSaasRetail {
             != other.getRank()) return false;
         if (getProductIdHash()
             != other.getProductIdHash()) return false;
+        if (!internalGetExtra().equals(
+            other.internalGetExtra())) return false;
         if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
@@ -29685,6 +30119,10 @@ public final class ByteplusSaasRetail {
         hash = (37 * hash) + PRODUCT_ID_HASH_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getProductIdHash());
+        if (!internalGetExtra().getMap().isEmpty()) {
+          hash = (37 * hash) + EXTRA_FIELD_NUMBER;
+          hash = (53 * hash) + internalGetExtra().hashCode();
+        }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -29796,6 +30234,28 @@ public final class ByteplusSaasRetail {
           return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_descriptor;
         }
 
+        @SuppressWarnings({"rawtypes"})
+        protected com.google.protobuf.MapField internalGetMapField(
+            int number) {
+          switch (number) {
+            case 101:
+              return internalGetExtra();
+            default:
+              throw new RuntimeException(
+                  "Invalid map field number: " + number);
+          }
+        }
+        @SuppressWarnings({"rawtypes"})
+        protected com.google.protobuf.MapField internalGetMutableMapField(
+            int number) {
+          switch (number) {
+            case 101:
+              return internalGetMutableExtra();
+            default:
+              throw new RuntimeException(
+                  "Invalid map field number: " + number);
+          }
+        }
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
@@ -29830,6 +30290,7 @@ public final class ByteplusSaasRetail {
 
           productIdHash_ = 0L;
 
+          internalGetMutableExtra().clear();
           return this;
         }
 
@@ -29856,10 +30317,13 @@ public final class ByteplusSaasRetail {
         @java.lang.Override
         public com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProduct buildPartial() {
           com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProduct result = new com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProduct(this);
+          int from_bitField0_ = bitField0_;
           result.productId_ = productId_;
           result.alteredReason_ = alteredReason_;
           result.rank_ = rank_;
           result.productIdHash_ = productIdHash_;
+          result.extra_ = internalGetExtra();
+          result.extra_.makeImmutable();
           onBuilt();
           return result;
         }
@@ -29922,6 +30386,8 @@ public final class ByteplusSaasRetail {
           if (other.getProductIdHash() != 0L) {
             setProductIdHash(other.getProductIdHash());
           }
+          internalGetMutableExtra().mergeFrom(
+              other.internalGetExtra());
           this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
@@ -29950,6 +30416,7 @@ public final class ByteplusSaasRetail {
           }
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object productId_ = "";
         /**
@@ -30268,6 +30735,176 @@ public final class ByteplusSaasRetail {
           
           productIdHash_ = 0L;
           onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.MapField<
+            java.lang.String, java.lang.String> extra_;
+        private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetExtra() {
+          if (extra_ == null) {
+            return com.google.protobuf.MapField.emptyMapField(
+                ExtraDefaultEntryHolder.defaultEntry);
+          }
+          return extra_;
+        }
+        private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableExtra() {
+          onChanged();;
+          if (extra_ == null) {
+            extra_ = com.google.protobuf.MapField.newMapField(
+                ExtraDefaultEntryHolder.defaultEntry);
+          }
+          if (!extra_.isMutable()) {
+            extra_ = extra_.copy();
+          }
+          return extra_;
+        }
+
+        public int getExtraCount() {
+          return internalGetExtra().getMap().size();
+        }
+        /**
+         * <pre>
+         * Optional.
+         * This is a catch-all field to pass all the additional information.
+         * Please provide as much information as possible.
+         * </pre>
+         *
+         * <code>map&lt;string, string&gt; extra = 101;</code>
+         */
+
+        @java.lang.Override
+        public boolean containsExtra(
+            java.lang.String key) {
+          if (key == null) { throw new java.lang.NullPointerException(); }
+          return internalGetExtra().getMap().containsKey(key);
+        }
+        /**
+         * Use {@link #getExtraMap()} instead.
+         */
+        @java.lang.Override
+        @java.lang.Deprecated
+        public java.util.Map<java.lang.String, java.lang.String> getExtra() {
+          return getExtraMap();
+        }
+        /**
+         * <pre>
+         * Optional.
+         * This is a catch-all field to pass all the additional information.
+         * Please provide as much information as possible.
+         * </pre>
+         *
+         * <code>map&lt;string, string&gt; extra = 101;</code>
+         */
+        @java.lang.Override
+
+        public java.util.Map<java.lang.String, java.lang.String> getExtraMap() {
+          return internalGetExtra().getMap();
+        }
+        /**
+         * <pre>
+         * Optional.
+         * This is a catch-all field to pass all the additional information.
+         * Please provide as much information as possible.
+         * </pre>
+         *
+         * <code>map&lt;string, string&gt; extra = 101;</code>
+         */
+        @java.lang.Override
+
+        public java.lang.String getExtraOrDefault(
+            java.lang.String key,
+            java.lang.String defaultValue) {
+          if (key == null) { throw new java.lang.NullPointerException(); }
+          java.util.Map<java.lang.String, java.lang.String> map =
+              internalGetExtra().getMap();
+          return map.containsKey(key) ? map.get(key) : defaultValue;
+        }
+        /**
+         * <pre>
+         * Optional.
+         * This is a catch-all field to pass all the additional information.
+         * Please provide as much information as possible.
+         * </pre>
+         *
+         * <code>map&lt;string, string&gt; extra = 101;</code>
+         */
+        @java.lang.Override
+
+        public java.lang.String getExtraOrThrow(
+            java.lang.String key) {
+          if (key == null) { throw new java.lang.NullPointerException(); }
+          java.util.Map<java.lang.String, java.lang.String> map =
+              internalGetExtra().getMap();
+          if (!map.containsKey(key)) {
+            throw new java.lang.IllegalArgumentException();
+          }
+          return map.get(key);
+        }
+
+        public Builder clearExtra() {
+          internalGetMutableExtra().getMutableMap()
+              .clear();
+          return this;
+        }
+        /**
+         * <pre>
+         * Optional.
+         * This is a catch-all field to pass all the additional information.
+         * Please provide as much information as possible.
+         * </pre>
+         *
+         * <code>map&lt;string, string&gt; extra = 101;</code>
+         */
+
+        public Builder removeExtra(
+            java.lang.String key) {
+          if (key == null) { throw new java.lang.NullPointerException(); }
+          internalGetMutableExtra().getMutableMap()
+              .remove(key);
+          return this;
+        }
+        /**
+         * Use alternate mutation accessors instead.
+         */
+        @java.lang.Deprecated
+        public java.util.Map<java.lang.String, java.lang.String>
+        getMutableExtra() {
+          return internalGetMutableExtra().getMutableMap();
+        }
+        /**
+         * <pre>
+         * Optional.
+         * This is a catch-all field to pass all the additional information.
+         * Please provide as much information as possible.
+         * </pre>
+         *
+         * <code>map&lt;string, string&gt; extra = 101;</code>
+         */
+        public Builder putExtra(
+            java.lang.String key,
+            java.lang.String value) {
+          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (value == null) { throw new java.lang.NullPointerException(); }
+          internalGetMutableExtra().getMutableMap()
+              .put(key, value);
+          return this;
+        }
+        /**
+         * <pre>
+         * Optional.
+         * This is a catch-all field to pass all the additional information.
+         * Please provide as much information as possible.
+         * </pre>
+         *
+         * <code>map&lt;string, string&gt; extra = 101;</code>
+         */
+
+        public Builder putAllExtra(
+            java.util.Map<java.lang.String, java.lang.String> values) {
+          internalGetMutableExtra().getMutableMap()
+              .putAll(values);
           return this;
         }
         @java.lang.Override
@@ -33038,6 +33675,11 @@ public final class ByteplusSaasRetail {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -33104,70 +33746,76 @@ public final class ByteplusSaasRetail {
       "\030\003 \001(\t\022\014\n\004data\030\n \003(\t\022I\n\005extra\030d \003(\0132:.by" +
       "tedance.byteplus.rec.retail.WriteDataReq" +
       "uest.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\351\003\n\016PredictRequest" +
+      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\253\004\n\016PredictRequest" +
       "\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\017" +
       "\n\007user_id\030\n \001(\t\022\014\n\004size\030\013 \001(\005\0223\n\005scene\030\014" +
       " \001(\0132$.bytedance.byteplus.rec.retail.Sce" +
       "ne\022F\n\007context\030\r \001(\01325.bytedance.byteplus" +
       ".rec.retail.PredictRequest.Context\022G\n\005ex" +
       "tra\030d \003(\01328.bytedance.byteplus.rec.retai" +
-      "l.PredictRequest.ExtraEntry\032\235\001\n\007Context\022" +
+      "l.PredictRequest.ExtraEntry\032\337\001\n\007Context\022" +
       "<\n\014root_product\030\001 \001(\0132&.bytedance.bytepl" +
       "us.rec.retail.Product\0225\n\006device\030\002 \001(\0132%." +
-      "bytedance.byteplus.rec.retail.Device\022\035\n\025" +
-      "candidate_product_ids\030\003 \003(\t\032,\n\nExtraEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n\rPr" +
-      "edictResult\022W\n\021response_products\030\001 \003(\0132<" +
-      ".bytedance.byteplus.rec.retail.PredictRe" +
-      "sult.ResponseProduct\022F\n\005extra\030d \003(\01327.by" +
-      "tedance.byteplus.rec.retail.PredictResul" +
-      "t.ExtraEntry\032\347\001\n\017ResponseProduct\022\022\n\nprod" +
-      "uct_id\030\001 \001(\t\022\014\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(\001" +
-      "\022\014\n\004pcvr\030\004 \001(\001\022\020\n\010rec_info\030\005 \001(\t\022V\n\005extr" +
-      "a\030d \003(\0132G.bytedance.byteplus.rec.retail." +
-      "PredictResult.ResponseProduct.ExtraEntry" +
-      "\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001\"\231\001\n\017PredictResponse\0225\n\006stat" +
-      "us\030\001 \001(\0132%.bytedance.byteplus.rec.retail" +
-      ".Status\022\022\n\nrequest_id\030\002 \001(\t\022;\n\005value\030\003 \001" +
-      "(\0132,.bytedance.byteplus.rec.retail.Predi" +
-      "ctResult\"\207\003\n\033AckServerImpressionsRequest" +
-      "\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032" +
-      "\n\022predict_request_id\030\n \001(\t\022\017\n\007user_id\030\013 " +
-      "\001(\t\022\026\n\016traffic_source\030\014 \001(\t\0223\n\005scene\030\r \001" +
-      "(\0132$.bytedance.byteplus.rec.retail.Scene" +
-      "\022c\n\020altered_products\030\016 \003(\0132I.bytedance.b" +
-      "yteplus.rec.retail.AckServerImpressionsR" +
-      "equest.AlteredProduct\032c\n\016AlteredProduct\022" +
-      "\022\n\nproduct_id\030\001 \001(\t\022\026\n\016altered_reason\030\002 " +
-      "\001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017product_id_hash\030d \001" +
-      "(\003\"U\n\034AckServerImpressionsResponse\0225\n\006st" +
-      "atus\030\001 \001(\0132%.bytedance.byteplus.rec.reta" +
-      "il.Status2\272\006\n\023BytePlusSaasService\022j\n\tWri" +
-      "tUsers\022/.bytedance.byteplus.rec.retail.W" +
-      "riteDataRequest\032,.bytedance.byteplus.rec" +
-      ".retail.WriteResponse\022m\n\014WritProducts\022/." +
-      "bytedance.byteplus.rec.retail.WriteDataR" +
-      "equest\032,.bytedance.byteplus.rec.retail.W" +
-      "riteResponse\022o\n\016WritUserEvents\022/.bytedan" +
-      "ce.byteplus.rec.retail.WriteDataRequest\032" +
-      ",.bytedance.byteplus.rec.retail.WriteRes" +
-      "ponse\022l\n\013WriteOthers\022/.bytedance.byteplu" +
+      "bytedance.byteplus.rec.retail.Device\022B\n\022" +
+      "candidate_products\030\004 \003(\0132&.bytedance.byt" +
+      "eplus.rec.retail.ProductJ\004\010\003\020\004R\025candidat" +
+      "e_product_ids\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n\rPredictResult\022W\n" +
+      "\021response_products\030\001 \003(\0132<.bytedance.byt" +
+      "eplus.rec.retail.PredictResult.ResponseP" +
+      "roduct\022F\n\005extra\030d \003(\01327.bytedance.bytepl" +
+      "us.rec.retail.PredictResult.ExtraEntry\032\347" +
+      "\001\n\017ResponseProduct\022\022\n\nproduct_id\030\001 \001(\t\022\014" +
+      "\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(\001\022\014\n\004pcvr\030\004 \001(\001" +
+      "\022\020\n\010rec_info\030\005 \001(\t\022V\n\005extra\030d \003(\0132G.byte" +
+      "dance.byteplus.rec.retail.PredictResult." +
+      "ResponseProduct.ExtraEntry\032,\n\nExtraEntry" +
+      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nExtr" +
+      "aEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\231" +
+      "\001\n\017PredictResponse\0225\n\006status\030\001 \001(\0132%.byt" +
+      "edance.byteplus.rec.retail.Status\022\022\n\nreq" +
+      "uest_id\030\002 \001(\t\022;\n\005value\030\003 \001(\0132,.bytedance" +
+      ".byteplus.rec.retail.PredictResult\"\233\004\n\033A" +
+      "ckServerImpressionsRequest\022\022\n\nproject_id" +
+      "\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032\n\022predict_requ" +
+      "est_id\030\n \001(\t\022\017\n\007user_id\030\013 \001(\t\022\026\n\016traffic" +
+      "_source\030\014 \001(\t\0223\n\005scene\030\r \001(\0132$.bytedance" +
+      ".byteplus.rec.retail.Scene\022c\n\020altered_pr" +
+      "oducts\030\016 \003(\0132I.bytedance.byteplus.rec.re" +
+      "tail.AckServerImpressionsRequest.Altered" +
+      "Product\032\366\001\n\016AlteredProduct\022\022\n\nproduct_id" +
+      "\030\001 \001(\t\022\026\n\016altered_reason\030\002 \001(\t\022\014\n\004rank\030\003" +
+      " \001(\005\022\027\n\017product_id_hash\030d \001(\003\022c\n\005extra\030e" +
+      " \003(\0132T.bytedance.byteplus.rec.retail.Ack" +
+      "ServerImpressionsRequest.AlteredProduct." +
+      "ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
+      "\005value\030\002 \001(\t:\0028\001\"U\n\034AckServerImpressions" +
+      "Response\0225\n\006status\030\001 \001(\0132%.bytedance.byt" +
+      "eplus.rec.retail.Status2\272\006\n\023BytePlusSaas" +
+      "Service\022j\n\tWritUsers\022/.bytedance.byteplu" +
       "s.rec.retail.WriteDataRequest\032,.bytedanc" +
-      "e.byteplus.rec.retail.WriteResponse\022m\n\006F" +
-      "inish\0225.bytedance.byteplus.rec.retail.Fi" +
-      "nishWriteDataRequest\032,.bytedance.byteplu" +
-      "s.rec.retail.WriteResponse\022h\n\007Predict\022-." +
-      "bytedance.byteplus.rec.retail.PredictReq" +
-      "uest\032..bytedance.byteplus.rec.retail.Pre" +
-      "dictResponse\022\217\001\n\024AckServerImpressions\022:." +
-      "bytedance.byteplus.rec.retail.AckServerI" +
-      "mpressionsRequest\032;.bytedance.byteplus.r" +
-      "ec.retail.AckServerImpressionsResponseBc" +
-      "\n$com.byteplus.rec.sdk.retail.protocolZ;" +
-      "github.com/byteplus-sdk/byteplus-sdk-go-" +
-      "rec/retail/protocolb\006proto3"
+      "e.byteplus.rec.retail.WriteResponse\022m\n\014W" +
+      "ritProducts\022/.bytedance.byteplus.rec.ret" +
+      "ail.WriteDataRequest\032,.bytedance.byteplu" +
+      "s.rec.retail.WriteResponse\022o\n\016WritUserEv" +
+      "ents\022/.bytedance.byteplus.rec.retail.Wri" +
+      "teDataRequest\032,.bytedance.byteplus.rec.r" +
+      "etail.WriteResponse\022l\n\013WriteOthers\022/.byt" +
+      "edance.byteplus.rec.retail.WriteDataRequ" +
+      "est\032,.bytedance.byteplus.rec.retail.Writ" +
+      "eResponse\022m\n\006Finish\0225.bytedance.byteplus" +
+      ".rec.retail.FinishWriteDataRequest\032,.byt" +
+      "edance.byteplus.rec.retail.WriteResponse" +
+      "\022h\n\007Predict\022-.bytedance.byteplus.rec.ret" +
+      "ail.PredictRequest\032..bytedance.byteplus." +
+      "rec.retail.PredictResponse\022\217\001\n\024AckServer" +
+      "Impressions\022:.bytedance.byteplus.rec.ret" +
+      "ail.AckServerImpressionsRequest\032;.byteda" +
+      "nce.byteplus.rec.retail.AckServerImpress" +
+      "ionsResponseBc\n$com.byteplus.rec.sdk.ret" +
+      "ail.protocolZ;github.com/byteplus-sdk/by" +
+      "teplus-sdk-go-rec/retail/protocolb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -33292,7 +33940,7 @@ public final class ByteplusSaasRetail {
     internal_static_bytedance_byteplus_rec_retail_PredictRequest_Context_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_PredictRequest_Context_descriptor,
-        new java.lang.String[] { "RootProduct", "Device", "CandidateProductIds", });
+        new java.lang.String[] { "RootProduct", "Device", "CandidateProducts", });
     internal_static_bytedance_byteplus_rec_retail_PredictRequest_ExtraEntry_descriptor =
       internal_static_bytedance_byteplus_rec_retail_PredictRequest_descriptor.getNestedTypes().get(1);
     internal_static_bytedance_byteplus_rec_retail_PredictRequest_ExtraEntry_fieldAccessorTable = new
@@ -33340,7 +33988,13 @@ public final class ByteplusSaasRetail {
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_descriptor,
-        new java.lang.String[] { "ProductId", "AlteredReason", "Rank", "ProductIdHash", });
+        new java.lang.String[] { "ProductId", "AlteredReason", "Rank", "ProductIdHash", "Extra", });
+    internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_descriptor =
+      internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_descriptor.getNestedTypes().get(0);
+    internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_fieldAccessorTable = new

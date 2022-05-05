@@ -138,6 +138,9 @@ public class RetailClientImpl implements RetailClient {
     @Override
     public PredictResponse predict(PredictRequest request,
                                    Option... opts) throws NetException, BizException {
+        if (Objects.nonNull(projectID) && request.getProjectId().length() == 0) {
+            request = request.toBuilder().setProjectId(projectID).build();
+        }
         checkPredictRequest(request);
         PredictResponse response = httpClient.doPBRequest(
                 Constant.PREDICT_URI,

@@ -9,10 +9,15 @@ public final class Constant {
     // STAGE_PRODUCTION In this stage, data will be used to train model
     public final static String STAGE_PRODUCTION = "production";
 
+    // STAGE_INCREMENTAL In this stage, data will be used to update model
+    public final static String STAGE_INCREMENTAL = "incremental_sync_streaming";
+
     // STAGE_INCREMENTAL_REALTIME In this stage, data will be used to realtime update model
+    // Please use `STAGE_INCREMENTAL` instead `STAGE_INCREMENTAL_REALTIME` in most cases
     public final static String STAGE_INCREMENTAL_REALTIME = "incremental_sync_streaming";
 
     // STAGE_INCREMENTAL_DAILY In this stage, data will be used to daily update model
+    // Please use `STAGE_INCREMENTAL` instead `STAGE_INCREMENTAL_DAILY` in most cases
     public final static String STAGE_INCREMENTAL_DAILY = "incremental_sync_daily";
 
     // TOPIC_USER is the type of data when writeUsers or FinishWriteUsers

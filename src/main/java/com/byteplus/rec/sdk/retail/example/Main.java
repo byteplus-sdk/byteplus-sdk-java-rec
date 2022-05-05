@@ -128,7 +128,7 @@ public class Main {
     private static WriteDataRequest buildWriteUsersRequest(int count) {
         List<DemoUser> users = MockHelper.mockUsers(count);
         WriteDataRequest.Builder requestBuilder = WriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_TRIAL);
+                .setStage(Constant.STAGE_INCREMENTAL);
         for (DemoUser user : users) {
             requestBuilder.addData(JSON.toJSONString(user));
         }
@@ -156,7 +156,7 @@ public class Main {
 
     private static FinishWriteDataRequest buildFinishUserRequest() {
         return FinishWriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_INCREMENTAL_DAILY)
+                .setStage(Constant.STAGE_INCREMENTAL)
                 .build();
     }
 
@@ -224,7 +224,7 @@ public class Main {
 
     private static FinishWriteDataRequest buildFinishProductRequest() {
         return FinishWriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_INCREMENTAL_DAILY)
+                .setStage(Constant.STAGE_INCREMENTAL)
                 .build();
     }
 
@@ -282,7 +282,7 @@ public class Main {
         // dates should be passed when finishing user event
         LocalDate date = LocalDate.of(2022, 3, 1);
         return FinishWriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_INCREMENTAL_DAILY)
+                .setStage(Constant.STAGE_INCREMENTAL)
                 .addAllDataDates(buildDateList(date)).build();
     }
 
@@ -358,7 +358,7 @@ public class Main {
         // dates should be passed when finishing user event
         LocalDate date = LocalDate.of(2022, 2, 1);
         return FinishWriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_INCREMENTAL_DAILY)
+                .setStage(Constant.STAGE_INCREMENTAL)
                 .setTopic(topic)
                 .addAllDataDates(buildDateList(date)).build();
     }
@@ -401,10 +401,15 @@ public class Main {
         Product rootProduct = MockHelper.mockPredictProduct();
         Device device = MockHelper.mockDevice();
 
+        List<Product> candidateProducts = Arrays.asList(
+                MockHelper.mockPredictProduct(),
+                MockHelper.mockPredictProduct()
+        );
+
         PredictRequest.Context context = PredictRequest.Context.newBuilder()
                 .setRootProduct(rootProduct)
                 .setDevice(device)
-                .addAllCandidateProductIds(Arrays.asList("632462", "632463"))
+                .addAllCandidateProducts(candidateProducts)
                 .build();
 
         return PredictRequest.newBuilder()
