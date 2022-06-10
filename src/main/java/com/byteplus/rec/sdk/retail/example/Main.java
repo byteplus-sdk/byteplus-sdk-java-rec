@@ -459,7 +459,11 @@ public class Main {
                 .setPredictRequestId(predictRequestId)
                 .setUserId(predictRequest.getUserId())
                 .setScene(predictRequest.getScene())
+                // If it is the recommendation result from byteplus, traffic_source is byteplus,
+                // if it is the customer's own recommendation result, traffic_source is self.
+                .setTrafficSource("byteplus")
                 .addAllAlteredProducts(alteredProducts)
+                //.putExtra("ip", "127.0.0.1")
                 .build();
     }
 
