@@ -29248,6 +29248,9 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
+     * The acceptable values are "kept", "filtered", "inserted".
+     * Please refer to
+     * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
      *
      * <code>string traffic_source = 12;</code>
@@ -29258,6 +29261,9 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
+     * The acceptable values are "kept", "filtered", "inserted".
+     * Please refer to
+     * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
      *
      * <code>string traffic_source = 12;</code>
@@ -29347,6 +29353,70 @@ public final class ByteplusSaasRetail {
      */
     com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProductOrBuilder getAlteredProductsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    int getExtraCount();
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    boolean containsExtra(
+        java.lang.String key);
+    /**
+     * Use {@link #getExtraMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getExtra();
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getExtraMap();
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+
+    java.lang.String getExtraOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+
+    java.lang.String getExtraOrThrow(
+        java.lang.String key);
   }
   /**
    * <pre>
@@ -29456,6 +29526,19 @@ public final class ByteplusSaasRetail {
                   input.readMessage(com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProduct.parser(), extensionRegistry));
               break;
             }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                extra_ = com.google.protobuf.MapField.newMapField(
+                    ExtraDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extra__ = input.readMessage(
+                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extra_.getMutableMap().put(
+                  extra__.getKey(), extra__.getValue());
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -29483,6 +29566,18 @@ public final class ByteplusSaasRetail {
       return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 100:
+          return internalGetExtra();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -31158,6 +31253,9 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
+     * The acceptable values are "kept", "filtered", "inserted".
+     * Please refer to
+     * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
      *
      * <code>string traffic_source = 12;</code>
@@ -31180,6 +31278,9 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
+     * The acceptable values are "kept", "filtered", "inserted".
+     * Please refer to
+     * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
      *
      * <code>string traffic_source = 12;</code>
@@ -31309,6 +31410,111 @@ public final class ByteplusSaasRetail {
       return alteredProducts_.get(index);
     }
 
+    public static final int EXTRA_FIELD_NUMBER = 100;
+    private static final class ExtraDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_ExtraEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> extra_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetExtra() {
+      if (extra_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ExtraDefaultEntryHolder.defaultEntry);
+      }
+      return extra_;
+    }
+
+    public int getExtraCount() {
+      return internalGetExtra().getMap().size();
+    }
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsExtra(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetExtra().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getExtraMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getExtra() {
+      return getExtraMap();
+    }
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getExtraMap() {
+      return internalGetExtra().getMap();
+    }
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getExtraOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetExtra().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Optional.
+     * This is a catch-all field to pass all the additional information.
+     * Please provide as much information as possible.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getExtraOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetExtra().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -31344,6 +31550,12 @@ public final class ByteplusSaasRetail {
       for (int i = 0; i < alteredProducts_.size(); i++) {
         output.writeMessage(14, alteredProducts_.get(i));
       }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetExtra(),
+          ExtraDefaultEntryHolder.defaultEntry,
+          100);
       unknownFields.writeTo(output);
     }
 
@@ -31375,6 +31587,16 @@ public final class ByteplusSaasRetail {
       for (int i = 0; i < alteredProducts_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, alteredProducts_.get(i));
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetExtra().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        extra__ = ExtraDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(100, extra__);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -31408,6 +31630,8 @@ public final class ByteplusSaasRetail {
       }
       if (!getAlteredProductsList()
           .equals(other.getAlteredProductsList())) return false;
+      if (!internalGetExtra().equals(
+          other.internalGetExtra())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -31436,6 +31660,10 @@ public final class ByteplusSaasRetail {
       if (getAlteredProductsCount() > 0) {
         hash = (37 * hash) + ALTERED_PRODUCTS_FIELD_NUMBER;
         hash = (53 * hash) + getAlteredProductsList().hashCode();
+      }
+      if (!internalGetExtra().getMap().isEmpty()) {
+        hash = (37 * hash) + EXTRA_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetExtra().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -31548,6 +31776,28 @@ public final class ByteplusSaasRetail {
         return com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_descriptor;
       }
 
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 100:
+            return internalGetExtra();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 100:
+            return internalGetMutableExtra();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
@@ -31597,6 +31847,7 @@ public final class ByteplusSaasRetail {
         } else {
           alteredProductsBuilder_.clear();
         }
+        internalGetMutableExtra().clear();
         return this;
       }
 
@@ -31643,6 +31894,8 @@ public final class ByteplusSaasRetail {
         } else {
           result.alteredProducts_ = alteredProductsBuilder_.build();
         }
+        result.extra_ = internalGetExtra();
+        result.extra_.makeImmutable();
         onBuilt();
         return result;
       }
@@ -31740,6 +31993,8 @@ public final class ByteplusSaasRetail {
             }
           }
         }
+        internalGetMutableExtra().mergeFrom(
+            other.internalGetExtra());
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -32179,6 +32434,9 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
+       * The acceptable values are "kept", "filtered", "inserted".
+       * Please refer to
+       * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
        *
        * <code>string traffic_source = 12;</code>
@@ -32200,6 +32458,9 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
+       * The acceptable values are "kept", "filtered", "inserted".
+       * Please refer to
+       * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
        *
        * <code>string traffic_source = 12;</code>
@@ -32222,6 +32483,9 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
+       * The acceptable values are "kept", "filtered", "inserted".
+       * Please refer to
+       * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
        *
        * <code>string traffic_source = 12;</code>
@@ -32242,6 +32506,9 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
+       * The acceptable values are "kept", "filtered", "inserted".
+       * Please refer to
+       * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
        *
        * <code>string traffic_source = 12;</code>
@@ -32257,6 +32524,9 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
+       * The acceptable values are "kept", "filtered", "inserted".
+       * Please refer to
+       * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
        *
        * <code>string traffic_source = 12;</code>
@@ -32776,6 +33046,176 @@ public final class ByteplusSaasRetail {
           alteredProducts_ = null;
         }
         return alteredProductsBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> extra_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetExtra() {
+        if (extra_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ExtraDefaultEntryHolder.defaultEntry);
+        }
+        return extra_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableExtra() {
+        onChanged();;
+        if (extra_ == null) {
+          extra_ = com.google.protobuf.MapField.newMapField(
+              ExtraDefaultEntryHolder.defaultEntry);
+        }
+        if (!extra_.isMutable()) {
+          extra_ = extra_.copy();
+        }
+        return extra_;
+      }
+
+      public int getExtraCount() {
+        return internalGetExtra().getMap().size();
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsExtra(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetExtra().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getExtraMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getExtra() {
+        return getExtraMap();
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getExtraMap() {
+        return internalGetExtra().getMap();
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtraOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtra().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtraOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtra().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearExtra() {
+        internalGetMutableExtra().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+
+      public Builder removeExtra(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableExtra().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableExtra() {
+        return internalGetMutableExtra().getMutableMap();
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      public Builder putExtra(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableExtra().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * This is a catch-all field to pass all the additional information.
+       * Please provide as much information as possible.
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+
+      public Builder putAllExtra(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableExtra().getMutableMap()
+            .putAll(values);
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -33680,6 +34120,11 @@ public final class ByteplusSaasRetail {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_ExtraEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_ExtraEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -33775,7 +34220,7 @@ public final class ByteplusSaasRetail {
       "\001\n\017PredictResponse\0225\n\006status\030\001 \001(\0132%.byt" +
       "edance.byteplus.rec.retail.Status\022\022\n\nreq" +
       "uest_id\030\002 \001(\t\022;\n\005value\030\003 \001(\0132,.bytedance" +
-      ".byteplus.rec.retail.PredictResult\"\233\004\n\033A" +
+      ".byteplus.rec.retail.PredictResult\"\237\005\n\033A" +
       "ckServerImpressionsRequest\022\022\n\nproject_id" +
       "\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032\n\022predict_requ" +
       "est_id\030\n \001(\t\022\017\n\007user_id\030\013 \001(\t\022\026\n\016traffic" +
@@ -33783,39 +34228,42 @@ public final class ByteplusSaasRetail {
       ".byteplus.rec.retail.Scene\022c\n\020altered_pr" +
       "oducts\030\016 \003(\0132I.bytedance.byteplus.rec.re" +
       "tail.AckServerImpressionsRequest.Altered" +
-      "Product\032\366\001\n\016AlteredProduct\022\022\n\nproduct_id" +
-      "\030\001 \001(\t\022\026\n\016altered_reason\030\002 \001(\t\022\014\n\004rank\030\003" +
-      " \001(\005\022\027\n\017product_id_hash\030d \001(\003\022c\n\005extra\030e" +
-      " \003(\0132T.bytedance.byteplus.rec.retail.Ack" +
-      "ServerImpressionsRequest.AlteredProduct." +
-      "ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t:\0028\001\"U\n\034AckServerImpressions" +
-      "Response\0225\n\006status\030\001 \001(\0132%.bytedance.byt" +
-      "eplus.rec.retail.Status2\272\006\n\023BytePlusSaas" +
-      "Service\022j\n\tWritUsers\022/.bytedance.byteplu" +
-      "s.rec.retail.WriteDataRequest\032,.bytedanc" +
-      "e.byteplus.rec.retail.WriteResponse\022m\n\014W" +
-      "ritProducts\022/.bytedance.byteplus.rec.ret" +
-      "ail.WriteDataRequest\032,.bytedance.byteplu" +
-      "s.rec.retail.WriteResponse\022o\n\016WritUserEv" +
-      "ents\022/.bytedance.byteplus.rec.retail.Wri" +
-      "teDataRequest\032,.bytedance.byteplus.rec.r" +
-      "etail.WriteResponse\022l\n\013WriteOthers\022/.byt" +
-      "edance.byteplus.rec.retail.WriteDataRequ" +
-      "est\032,.bytedance.byteplus.rec.retail.Writ" +
-      "eResponse\022m\n\006Finish\0225.bytedance.byteplus" +
-      ".rec.retail.FinishWriteDataRequest\032,.byt" +
-      "edance.byteplus.rec.retail.WriteResponse" +
-      "\022h\n\007Predict\022-.bytedance.byteplus.rec.ret" +
-      "ail.PredictRequest\032..bytedance.byteplus." +
-      "rec.retail.PredictResponse\022\217\001\n\024AckServer" +
-      "Impressions\022:.bytedance.byteplus.rec.ret" +
-      "ail.AckServerImpressionsRequest\032;.byteda" +
-      "nce.byteplus.rec.retail.AckServerImpress" +
-      "ionsResponseBc\n$com.byteplus.rec.sdk.ret" +
-      "ail.protocolZ;github.com/byteplus-sdk/by" +
-      "teplus-sdk-go-rec/retail/protocolb\006proto" +
-      "3"
+      "Product\022T\n\005extra\030d \003(\0132E.bytedance.bytep" +
+      "lus.rec.retail.AckServerImpressionsReque" +
+      "st.ExtraEntry\032\366\001\n\016AlteredProduct\022\022\n\nprod" +
+      "uct_id\030\001 \001(\t\022\026\n\016altered_reason\030\002 \001(\t\022\014\n\004" +
+      "rank\030\003 \001(\005\022\027\n\017product_id_hash\030d \001(\003\022c\n\005e" +
+      "xtra\030e \003(\0132T.bytedance.byteplus.rec.reta" +
+      "il.AckServerImpressionsRequest.AlteredPr" +
+      "oduct.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 " +
+      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003" +
+      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\034AckServe" +
+      "rImpressionsResponse\0225\n\006status\030\001 \001(\0132%.b" +
+      "ytedance.byteplus.rec.retail.Status2\272\006\n\023" +
+      "BytePlusSaasService\022j\n\tWritUsers\022/.byted" +
+      "ance.byteplus.rec.retail.WriteDataReques" +
+      "t\032,.bytedance.byteplus.rec.retail.WriteR" +
+      "esponse\022m\n\014WritProducts\022/.bytedance.byte" +
+      "plus.rec.retail.WriteDataRequest\032,.byted" +
+      "ance.byteplus.rec.retail.WriteResponse\022o" +
+      "\n\016WritUserEvents\022/.bytedance.byteplus.re" +
+      "c.retail.WriteDataRequest\032,.bytedance.by" +
+      "teplus.rec.retail.WriteResponse\022l\n\013Write" +
+      "Others\022/.bytedance.byteplus.rec.retail.W" +
+      "riteDataRequest\032,.bytedance.byteplus.rec" +
+      ".retail.WriteResponse\022m\n\006Finish\0225.byteda" +
+      "nce.byteplus.rec.retail.FinishWriteDataR" +
+      "equest\032,.bytedance.byteplus.rec.retail.W" +
+      "riteResponse\022h\n\007Predict\022-.bytedance.byte" +
+      "plus.rec.retail.PredictRequest\032..bytedan" +
+      "ce.byteplus.rec.retail.PredictResponse\022\217" +
+      "\001\n\024AckServerImpressions\022:.bytedance.byte" +
+      "plus.rec.retail.AckServerImpressionsRequ" +
+      "est\032;.bytedance.byteplus.rec.retail.AckS" +
+      "erverImpressionsResponseBc\n$com.byteplus" +
+      ".rec.sdk.retail.protocolZ;github.com/byt" +
+      "eplus-sdk/byteplus-sdk-go-rec/retail/pro" +
+      "tocolb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -33982,7 +34430,7 @@ public final class ByteplusSaasRetail {
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_descriptor,
-        new java.lang.String[] { "ProjectId", "ModelId", "PredictRequestId", "UserId", "TrafficSource", "Scene", "AlteredProducts", });
+        new java.lang.String[] { "ProjectId", "ModelId", "PredictRequestId", "UserId", "TrafficSource", "Scene", "AlteredProducts", "Extra", });
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_descriptor =
       internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_descriptor.getNestedTypes().get(0);
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_fieldAccessorTable = new
@@ -33994,6 +34442,12 @@ public final class ByteplusSaasRetail {
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_AlteredProduct_ExtraEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_ExtraEntry_descriptor =
+      internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_descriptor.getNestedTypes().get(1);
+    internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_ExtraEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsRequest_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_retail_AckServerImpressionsResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
