@@ -23,11 +23,14 @@ import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.ConnectionPool;
+import okhttp3.OkHttpClient;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class Main {
@@ -51,6 +54,15 @@ public class Main {
 
 
     static {
+        // Optional. custom caller client.
+        // The default connectionPool in maxIdleConnections is 32, keepAliveDuration is 10 seconds.
+        // The default callerClient's pingInterval is 5 seconds.
+        // If you need to customize the callerClient, you need to ensure that the value of
+        // pingInterval is less than keepAliveDuration, otherwise keepAlive will not take effect.
+//        OkHttpClient callerClient = new OkHttpClient.Builder()
+//                    .connectionPool(new ConnectionPool(64, 10, TimeUnit.SECONDS))
+//                    .pingInterval(Duration.ofSeconds(10))
+//                    .build();
         try {
             client = new RetailClientBuilder()
                     .accountID("*********")  // Required
@@ -58,6 +70,8 @@ public class Main {
                     .region(Region.SG)  // Required
                     .authAK("*********")  // Required
                     .authSK("*********")  // Required
+//                    .keepAlive(true) // Optional
+//                    .callerClient(callerClient) // Optional. subsequent requests will apply the client's configuration.
 //                    .schema("http") // Optional
 //                    .hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
                     .build();
@@ -195,7 +209,7 @@ public class Main {
     private static WriteDataRequest buildWriteProductsRequest(int count) {
         List<DemoProduct> products = MockHelper.mockProducts(count);
         WriteDataRequest.Builder requestBuilder = WriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_TRIAL);
+                .setStage(Constant.STAGE_INCREMENTAL);
         for (DemoProduct product : products) {
             requestBuilder.addData(JSON.toJSONString(product));
         }

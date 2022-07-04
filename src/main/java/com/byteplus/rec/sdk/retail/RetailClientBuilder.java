@@ -6,6 +6,7 @@ import com.byteplus.rec.core.IRegion;
 import com.byteplus.rec.core.Utils;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import okhttp3.OkHttpClient;
 
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +32,10 @@ public class RetailClientBuilder {
 
     private IRegion region;
 
+    private boolean keepAlive;
+
+    private OkHttpClient callerClient;
+
     public RetailClientBuilder accountID(String accountID) {
         this.tenantID = accountID;
         return this;
@@ -49,6 +54,8 @@ public class RetailClientBuilder {
                 .region(region)
                 .useAirAuth(isUseAirAuth())
                 .authService(BYTEPLUS_AUTH_SERVICE)
+                .keepAlive(keepAlive)
+                .callerClient(callerClient)
                 .build();
         return new RetailClientImpl(httpClient, projectID);
     }
