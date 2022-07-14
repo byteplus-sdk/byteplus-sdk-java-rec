@@ -5,10 +5,12 @@ import com.byteplus.rec.core.HTTPClient;
 import com.byteplus.rec.core.NetException;
 import com.byteplus.rec.core.Option;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Slf4j
 public class RetailClientPool implements RetailClient {
     private final List<RetailClient> retailClients;
 
@@ -21,70 +23,60 @@ public class RetailClientPool implements RetailClient {
         this.retailClients = retailClients;
     }
 
+    public RetailClient getClient() {
+        int index = globalCallCount.getAndIncrement() % clientCount;
+        log.info("[ByteplusSDK] use retailClient {}", index);
+        return retailClients.get(index);
+    }
+
     @Override
     public ByteplusSaasRetail.WriteResponse writeUsers(ByteplusSaasRetail.WriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.writeUsers(request, opts);
+        return getClient().writeUsers(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.WriteResponse finishWriteUsers(ByteplusSaasRetail.FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.finishWriteUsers(request, opts);
+        return getClient().finishWriteUsers(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.WriteResponse writeProducts(ByteplusSaasRetail.WriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.writeProducts(request, opts);
+        return getClient().writeProducts(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.WriteResponse finishWriteProducts(ByteplusSaasRetail.FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.finishWriteProducts(request, opts);
+        return getClient().finishWriteProducts(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.WriteResponse writeUserEvents(ByteplusSaasRetail.WriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.writeUserEvents(request, opts);
+        return getClient().writeUserEvents(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.WriteResponse finishWriteUserEvents(ByteplusSaasRetail.FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.finishWriteUserEvents(request, opts);
+        return getClient().finishWriteUserEvents(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.WriteResponse writeOthers(ByteplusSaasRetail.WriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.writeOthers(request, opts);
+        return getClient().writeOthers(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.WriteResponse finishWriteOthers(ByteplusSaasRetail.FinishWriteDataRequest request, Option... opts) throws NetException, BizException {
-        RetailClient retailClient = retailClients.get(globalCallCount.getAndIncrement() % clientCount);
-        return retailClient.finishWriteUserEvents(request, opts);
+        return getClient().finishWriteUserEvents(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.PredictResponse predict(ByteplusSaasRetail.PredictRequest request, Option... opts) throws NetException, BizException {
-        int index = globalCallCount.getAndIncrement();
-        System.out.println(index % clientCount);
-        RetailClient retailClient = retailClients.get(index % clientCount);
-        System.out.println(retailClient);
-        return retailClient.predict(request, opts);
+        return getClient().predict(request, opts);
     }
 
     @Override
     public ByteplusSaasRetail.AckServerImpressionsResponse ackServerImpressions(ByteplusSaasRetail.AckServerImpressionsRequest request, Option... opts) throws NetException, BizException {
-        int index = globalCallCount.getAndIncrement();
-        System.out.println(index % clientCount);
-        RetailClient retailClient = retailClients.get(index % clientCount);
-        System.out.println(retailClient);
-        return retailClient.ackServerImpressions(request, opts);
+        return getClient().ackServerImpressions(request, opts);
     }
 
     @Override
