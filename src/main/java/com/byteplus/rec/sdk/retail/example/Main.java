@@ -70,6 +70,7 @@ public class Main {
                     .region(Region.SG)  // Required
                     .authAK("*********")  // Required
                     .authSK("*********")  // Required
+//                    .clientCount(3) // Optional. The number of retailClients, if greater than 1 the client pool will be used.
 //                    .keepAlive(true) // Optional
 //                    .callerClient(callerClient) // Optional. subsequent requests will apply the client's configuration.
 //                    .schema("http") // Optional

@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import okhttp3.OkHttpClient;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,13 +37,18 @@ public class RetailClientBuilder {
 
     private OkHttpClient callerClient;
 
+    private int clientCount;
+
     public RetailClientBuilder accountID(String accountID) {
         this.tenantID = accountID;
         return this;
     }
 
-    public RetailClientImpl build() throws BizException {
+    public RetailClient build() throws BizException {
         checkRequiredField();
+        if (clientCount > 1) {
+            return buildRetailClientPool();
+        }
         HTTPClient httpClient = HTTPClient.builder()
                 .tenantID(tenantID)
                 .projectID(projectID)
@@ -68,5 +74,27 @@ public class RetailClientBuilder {
         if (Objects.isNull(projectID)) {
             throw new BizException("project id is empty");
         }
+    }
+
+    private RetailClient buildRetailClientPool() throws BizException {
+        List<RetailClient> retailClients = new ArrayList<>();
+        for (int i = 0; i < clientCount; i++) {
+            HTTPClient httpClient = HTTPClient.builder()
+                    .tenantID(tenantID)
+                    .projectID(projectID)
+                    .airAuthToken(airAuthToken)
+                    .authAK(authAK)
+                    .authSK(authSK)
+                    .schema(schema)
+                    .hosts(hosts)
+                    .region(region)
+                    .useAirAuth(isUseAirAuth())
+                    .authService(BYTEPLUS_AUTH_SERVICE)
+                    .keepAlive(keepAlive)
+                    .callerClient(callerClient)
+                    .build();
+            retailClients.add(new RetailClientImpl(httpClient, projectID));
+        }
+        return new RetailClientPool(retailClients);
     }
 }
