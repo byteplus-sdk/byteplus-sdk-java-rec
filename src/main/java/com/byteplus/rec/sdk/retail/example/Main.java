@@ -2,6 +2,9 @@ package com.byteplus.rec.sdk.retail.example;
 
 import com.alibaba.fastjson.JSON;
 import com.byteplus.rec.core.*;
+import com.byteplus.rec.core.HTTPCaller.Config;
+import com.byteplus.rec.core.metrics.MetricsCollector.MetricsCfg;
+import com.byteplus.rec.core.metrics.MetricsCollector;
 import com.byteplus.rec.sdk.region.Region;
 import com.byteplus.rec.sdk.retail.Constant;
 import com.byteplus.rec.sdk.retail.RetailClient;
@@ -54,15 +57,26 @@ public class Main {
 
 
     static {
-        // Optional. custom caller client.
-        // The default connectionPool in maxIdleConnections is 32, keepAliveDuration is 10 seconds.
-        // The default callerClient's pingInterval is 5 seconds.
-        // If you need to customize the callerClient, you need to ensure that the value of
-        // pingInterval is less than keepAliveDuration, otherwise keepAlive will not take effect.
-//        OkHttpClient callerClient = new OkHttpClient.Builder()
-//                    .connectionPool(new ConnectionPool(64, 10, TimeUnit.SECONDS))
-//                    .pingInterval(Duration.ofSeconds(10))
-//                    .build();
+//        // Customize the caller config, the parameters in Example are the parameters currently used by default,
+//        // you can customize them according to your own needs.
+//        Config callerConfig = new Config().toBuilder()
+//                .maxIdleConnections(32) // OKHttpClient maxIdleConnections param.
+//                .keepAliveDuration(Duration.ofSeconds(60)) // OKHttpClient keepAliveDuration param.
+//                .keepAlivePingInterval(Duration.ofSeconds(45)) // Only takes effect when retailClient.keepAlive(true), heartbeat packet sending interval.
+//                .build();
+
+
+//        // Metrics configuration, when Metrics and Metrics Log are turned on,
+//        // the metrics and logs at runtime will be collected and sent to the byteplus server.
+//        // During debugging, byteplus can help customers troubleshoot problems.
+//        MetricsCfg metricsCfg = new MetricsCfg().toBuilder()
+//                .enableMetrics(true) // enable metrics, default is false.
+//                .enableMetricsLog(true) // enable metrics log, default is false.
+//                // The time interval for reporting metrics to the byteplus server, the default is 15s.
+//                // When the QPS is high, the value of the reporting interval can be reduced to prevent
+//                // loss of metrics.
+//                .reportInterval(Duration.ofSeconds(15))
+//                .build();
         try {
             client = new RetailClientBuilder()
                     .accountID("*********")  // Required
@@ -70,8 +84,10 @@ public class Main {
                     .region(Region.SG)  // Required
                     .authAK("*********")  // Required
                     .authSK("*********")  // Required
+//                    .metricsConfig(metricsCfg)
 //                    .keepAlive(true) // Optional
-//                    .callerClient(callerClient) // Optional. subsequent requests will apply the client's configuration.
+//                    .callerConfig(callerConfig) // Optional.
+//                    .metricsConfig()
 //                    .schema("http") // Optional
 //                    .hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
                     .build();
