@@ -4,6 +4,9 @@ import com.byteplus.rec.core.BizException;
 import com.byteplus.rec.core.HTTPClient;
 import com.byteplus.rec.core.IRegion;
 import com.byteplus.rec.core.Utils;
+import com.byteplus.rec.core.HostAvailablerFactory;
+import com.byteplus.rec.core.HTTPCaller.Config;
+import com.byteplus.rec.core.metrics.MetricsCollector.MetricsCfg;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import okhttp3.OkHttpClient;
@@ -37,6 +40,12 @@ public class RetailClientBuilder {
 
     private OkHttpClient callerClient;
 
+    private Config callerConfig;
+
+    private HostAvailablerFactory hostAvailablerFactory;
+
+    private MetricsCfg metricsConfig;
+
     private int clientCount;
 
     public RetailClientBuilder accountID(String accountID) {
@@ -60,6 +69,9 @@ public class RetailClientBuilder {
                 .region(region)
                 .useAirAuth(isUseAirAuth())
                 .authService(BYTEPLUS_AUTH_SERVICE)
+                .callerConfig(callerConfig)
+                .hostAvailablerFactory(hostAvailablerFactory)
+                .metricsCfg(metricsConfig)
                 .keepAlive(keepAlive)
                 .callerClient(callerClient)
                 .build();
@@ -90,6 +102,9 @@ public class RetailClientBuilder {
                     .region(region)
                     .useAirAuth(isUseAirAuth())
                     .authService(BYTEPLUS_AUTH_SERVICE)
+                    .callerConfig(callerConfig)
+                    .hostAvailablerFactory(hostAvailablerFactory)
+                    .metricsCfg(metricsConfig)
                     .keepAlive(keepAlive)
                     .callerClient(callerClient)
                     .build();
