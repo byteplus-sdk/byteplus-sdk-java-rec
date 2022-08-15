@@ -1,4 +1,4 @@
-package com.byteplus.rec.sdk.retail;
+package com.byteplus.rec.sdk.content;
 
 public final class Constant {
     public final static int MAX_WRITE_COUNT = 2000;
@@ -25,31 +25,32 @@ public final class Constant {
     // TOPIC_USER is the type of data when writeUsers or FinishWriteUsers
     public final static String TOPIC_USER = "user";
 
-    // TOPIC_PRODUCT is the type of data when WriteProducts or FinishWriteProducts
-    public final static String TOPIC_PRODUCT = "goods";
+    // TOPIC_CONTENT is the type of data when WriteContents or FinishWriteContents
+    public final static String TOPIC_CONTENT = "content";
 
     // TOPIC_USER_EVENT is the type of data when WriteUserEvents or FinishWriteUserEvents
     public final static String TOPIC_USER_EVENT = "behavior";
 
     // USER_URI in user topic, url path is end with WriteUsers
-    public final static String USER_URI = "/RetailSaaS/WriteUsers";
+    public final static String USER_URI = "/ContentSaaS/WriteUsers";
 
     // FINISH_USER_URI The URL format of finish information
-    public final static String FINISH_USER_URI = "/RetailSaaS/FinishWriteUsers";
+    public final static String FINISH_USER_URI = "/ContentSaaS/FinishWriteUsers";
 
-    public final static String PRODUCT_URI = "/RetailSaaS/WriteProducts";
+    public final static String CONTENT_URI = "/ContentSaaS/WriteContents";
 
-    public final static String FINISH_PRODUCT_URI = "/RetailSaaS/FinishWriteProducts";
+    public final static String FINISH_CONTENT_URI = "/ContentSaaS/FinishWriteContents";
 
-    public final static String USER_EVENT_URI = "/RetailSaaS/WriteUserEvents";
+    public final static String USER_EVENT_URI = "/ContentSaaS/WriteUserEvents";
 
-    public final static String FINISH_USER_EVENT_URI = "/RetailSaaS/FinishWriteUserEvents";
+    public final static String FINISH_USER_EVENT_URI = "/ContentSaaS/FinishWriteUserEvents";
 
-    public final static String OTHERS_URI = "/RetailSaaS/WriteOthers";
+    public final static String OTHERS_URI = "/ContentSaaS/WriteOthers";
 
-    public final static String FINISH_OTHERS_URI = "/RetailSaaS/FinishWriteOthers";
+    public final static String FINISH_OTHERS_URI = "/ContentSaaS/FinishWriteOthers";
 
-    public final static String PREDICT_URI = "/RetailSaaS/Predict";
+    public final static String PREDICT_URI = "/ContentSaaS/Predict";
 
-    public final static String ACK_SERVER_IMPRESSIONS_URI = "/RetailSaaS/AckServerImpressions";
+    public final static String ACK_SERVER_IMPRESSIONS_URI = "/ContentSaaS/AckServerImpressions";
 }
+
