@@ -14,7 +14,7 @@ public class DemoProduct {
     private String brands;
 
     @JSONField(name = "is_recommendable")
-    private boolean isRecommendable;
+    private int isRecommendable;
 
     private String title;
 

@@ -65,7 +65,7 @@ public class MockHelper {
         product.setBrands("Adidas");
         product.setPriceCurrentPrice(49900);
         product.setPriceOriginPrice(69900);
-        product.setRecommendable(true);
+        product.setIsRecommendable(1);
         product.setTitle("adidas Men's Yeezy Boost 350 V2 Grey/Borang/Dgsogr");
         product.setQualityScore(4.4);
         product.setTags("[\"New Product\",\"Summer Product\"]");

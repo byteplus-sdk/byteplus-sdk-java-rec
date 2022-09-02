@@ -56,6 +56,16 @@ public final class ByteplusSaasContent {
      */
     com.google.protobuf.ByteString
         getMessageBytes();
+
+    /**
+     * <pre>
+     * Output only. success mark
+     * </pre>
+     *
+     * <code>bool success = 3;</code>
+     * @return The success.
+     */
+    boolean getSuccess();
   }
   /**
    * <pre>
@@ -121,6 +131,11 @@ public final class ByteplusSaasContent {
               message_ = s;
               break;
             }
+            case 24: {
+
+              success_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -132,6 +147,8 @@ public final class ByteplusSaasContent {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -223,6 +240,21 @@ public final class ByteplusSaasContent {
       }
     }
 
+    public static final int SUCCESS_FIELD_NUMBER = 3;
+    private boolean success_;
+    /**
+     * <pre>
+     * Output only. success mark
+     * </pre>
+     *
+     * <code>bool success = 3;</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -240,8 +272,11 @@ public final class ByteplusSaasContent {
       if (code_ != 0) {
         output.writeInt32(1, code_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+      }
+      if (success_ != false) {
+        output.writeBool(3, success_);
       }
       unknownFields.writeTo(output);
     }
@@ -256,8 +291,12 @@ public final class ByteplusSaasContent {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, code_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+      }
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, success_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -278,6 +317,8 @@ public final class ByteplusSaasContent {
           != other.getCode()) return false;
       if (!getMessage()
           .equals(other.getMessage())) return false;
+      if (getSuccess()
+          != other.getSuccess()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -293,6 +334,9 @@ public final class ByteplusSaasContent {
       hash = (53 * hash) + getCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -437,6 +481,8 @@ public final class ByteplusSaasContent {
 
         message_ = "";
 
+        success_ = false;
+
         return this;
       }
 
@@ -465,6 +511,7 @@ public final class ByteplusSaasContent {
         com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status result = new com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status(this);
         result.code_ = code_;
         result.message_ = message_;
+        result.success_ = success_;
         onBuilt();
         return result;
       }
@@ -519,6 +566,9 @@ public final class ByteplusSaasContent {
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
           onChanged();
+        }
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -714,6 +764,49 @@ public final class ByteplusSaasContent {
         onChanged();
         return this;
       }
+
+      private boolean success_ ;
+      /**
+       * <pre>
+       * Output only. success mark
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
+       * @return The success.
+       */
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <pre>
+       * Output only. success mark
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
+       * @param value The success to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. success mark
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -888,6 +981,8 @@ public final class ByteplusSaasContent {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1726,6 +1821,8 @@ public final class ByteplusSaasContent {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1993,13 +2090,13 @@ public final class ByteplusSaasContent {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
       }
       for (int i = 0; i < dataDates_.size(); i++) {
@@ -2014,13 +2111,13 @@ public final class ByteplusSaasContent {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
       }
       for (int i = 0; i < dataDates_.size(); i++) {
@@ -3227,6 +3324,8 @@ public final class ByteplusSaasContent {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -3356,10 +3455,10 @@ public final class ByteplusSaasContent {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
-      if (!getDataBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, data_);
       }
       unknownFields.writeTo(output);
@@ -3371,10 +3470,10 @@ public final class ByteplusSaasContent {
       if (size != -1) return size;
 
       size = 0;
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
-      if (!getDataBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, data_);
       }
       size += unknownFields.getSerializedSize();
@@ -4082,6 +4181,8 @@ public final class ByteplusSaasContent {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -5340,9 +5441,11 @@ public final class ByteplusSaasContent {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -5461,6 +5564,8 @@ public final class ByteplusSaasContent {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -5759,7 +5864,7 @@ public final class ByteplusSaasContent {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -5798,7 +5903,7 @@ public final class ByteplusSaasContent {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -5816,7 +5921,7 @@ public final class ByteplusSaasContent {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -5839,13 +5944,13 @@ public final class ByteplusSaasContent {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
       }
       for (int i = 0; i < data_.size(); i++) {
@@ -5866,13 +5971,13 @@ public final class ByteplusSaasContent {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
       }
       {
@@ -6806,7 +6911,7 @@ public final class ByteplusSaasContent {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -6845,7 +6950,7 @@ public final class ByteplusSaasContent {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -6863,7 +6968,7 @@ public final class ByteplusSaasContent {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -6889,7 +6994,7 @@ public final class ByteplusSaasContent {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -6914,8 +7019,11 @@ public final class ByteplusSaasContent {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -7034,40 +7142,40 @@ public final class ByteplusSaasContent {
   static {
     java.lang.String[] descriptorData = {
       "\n\033byteplus_saas_content.proto\022\036bytedance" +
-      ".byteplus.rec.content\"\'\n\006Status\022\014\n\004code\030" +
-      "\001 \001(\005\022\017\n\007message\030\002 \001(\t\"0\n\004Date\022\014\n\004year\030\001" +
-      " \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\"\204\001\n\026Fin" +
-      "ishWriteDataRequest\022\022\n\nproject_id\030\001 \001(\t\022" +
-      "\r\n\005stage\030\002 \001(\t\022\r\n\005topic\030\003 \001(\t\0228\n\ndata_da" +
-      "tes\030\n \003(\0132$.bytedance.byteplus.rec.conte" +
-      "nt.Date\"*\n\tDataError\022\017\n\007message\030\001 \001(\t\022\014\n" +
-      "\004data\030\002 \001(\t\"\202\001\n\rWriteResponse\0226\n\006status\030" +
-      "\001 \001(\0132&.bytedance.byteplus.rec.content.S" +
-      "tatus\0229\n\006errors\030\002 \003(\0132).bytedance.bytepl" +
-      "us.rec.content.DataError\"\314\001\n\020WriteDataRe" +
-      "quest\022\022\n\nproject_id\030\001 \001(\t\022\r\n\005stage\030\002 \001(\t" +
-      "\022\r\n\005topic\030\003 \001(\t\022\014\n\004data\030\n \003(\t\022J\n\005extra\030d" +
-      " \003(\0132;.bytedance.byteplus.rec.content.Wr" +
-      "iteDataRequest.ExtraEntry\032,\n\nExtraEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\0012\310\004\n\023Byte" +
-      "PlusSaasService\022l\n\tWritUsers\0220.bytedance" +
-      ".byteplus.rec.content.WriteDataRequest\032-" +
-      ".bytedance.byteplus.rec.content.WriteRes" +
-      "ponse\022o\n\014WritContents\0220.bytedance.bytepl" +
-      "us.rec.content.WriteDataRequest\032-.byteda" +
-      "nce.byteplus.rec.content.WriteResponse\022q" +
-      "\n\016WritUserEvents\0220.bytedance.byteplus.re" +
-      "c.content.WriteDataRequest\032-.bytedance.b" +
-      "yteplus.rec.content.WriteResponse\022n\n\013Wri" +
-      "teOthers\0220.bytedance.byteplus.rec.conten" +
-      "t.WriteDataRequest\032-.bytedance.byteplus." +
-      "rec.content.WriteResponse\022o\n\006Finish\0226.by" +
-      "tedance.byteplus.rec.content.FinishWrite" +
-      "DataRequest\032-.bytedance.byteplus.rec.con" +
-      "tent.WriteResponseBe\n%com.byteplus.rec.s" +
-      "dk.content.protocolZ<github.com/byteplus" +
-      "-sdk/byteplus-sdk-go-rec/content/protoco" +
-      "lb\006proto3"
+      ".byteplus.rec.content\"8\n\006Status\022\014\n\004code\030" +
+      "\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"" +
+      "0\n\004Date\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003" +
+      "day\030\003 \001(\005\"\204\001\n\026FinishWriteDataRequest\022\022\n\n" +
+      "project_id\030\001 \001(\t\022\r\n\005stage\030\002 \001(\t\022\r\n\005topic" +
+      "\030\003 \001(\t\0228\n\ndata_dates\030\n \003(\0132$.bytedance.b" +
+      "yteplus.rec.content.Date\"*\n\tDataError\022\017\n" +
+      "\007message\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\202\001\n\rWriteRe" +
+      "sponse\0226\n\006status\030\001 \001(\0132&.bytedance.bytep" +
+      "lus.rec.content.Status\0229\n\006errors\030\002 \003(\0132)" +
+      ".bytedance.byteplus.rec.content.DataErro" +
+      "r\"\314\001\n\020WriteDataRequest\022\022\n\nproject_id\030\001 \001" +
+      "(\t\022\r\n\005stage\030\002 \001(\t\022\r\n\005topic\030\003 \001(\t\022\014\n\004data" +
+      "\030\n \003(\t\022J\n\005extra\030d \003(\0132;.bytedance.bytepl" +
+      "us.rec.content.WriteDataRequest.ExtraEnt" +
+      "ry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\0012\310\004\n\023BytePlusSaasService\022l\n\tWrit" +
+      "Users\0220.bytedance.byteplus.rec.content.W" +
+      "riteDataRequest\032-.bytedance.byteplus.rec" +
+      ".content.WriteResponse\022o\n\014WritContents\0220" +
+      ".bytedance.byteplus.rec.content.WriteDat" +
+      "aRequest\032-.bytedance.byteplus.rec.conten" +
+      "t.WriteResponse\022q\n\016WritUserEvents\0220.byte" +
+      "dance.byteplus.rec.content.WriteDataRequ" +
+      "est\032-.bytedance.byteplus.rec.content.Wri" +
+      "teResponse\022n\n\013WriteOthers\0220.bytedance.by" +
+      "teplus.rec.content.WriteDataRequest\032-.by" +
+      "tedance.byteplus.rec.content.WriteRespon" +
+      "se\022o\n\006Finish\0226.bytedance.byteplus.rec.co" +
+      "ntent.FinishWriteDataRequest\032-.bytedance" +
+      ".byteplus.rec.content.WriteResponseBe\n%c" +
+      "om.byteplus.rec.sdk.content.protocolZ<gi" +
+      "thub.com/byteplus-sdk/byteplus-sdk-go-re" +
+      "c/content/protocolb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7078,7 +7186,7 @@ public final class ByteplusSaasContent {
     internal_static_bytedance_byteplus_rec_content_Status_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_Status_descriptor,
-        new java.lang.String[] { "Code", "Message", });
+        new java.lang.String[] { "Code", "Message", "Success", });
     internal_static_bytedance_byteplus_rec_content_Date_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_bytedance_byteplus_rec_content_Date_fieldAccessorTable = new

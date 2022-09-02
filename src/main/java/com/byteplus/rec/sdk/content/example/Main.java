@@ -28,7 +28,7 @@ public class Main {
 
     private final static int DEFAULT_RETRY_TIMES = 2;
 
-    private final static Duration DEFAULT_WRITE_TIMEOUT = Duration.ofMillis(800);
+    private final static Duration DEFAULT_WRITE_TIMEOUT = Duration.ofMillis(8000);
 
     private final static Duration DEFAULT_FINISH_TIMEOUT = Duration.ofMillis(800);
 
@@ -85,7 +85,7 @@ public class Main {
         // Write real-time content data
         writeContentsExample();
 
-        // Finish write real-time product data
+        // Finish write real-time content data
 //        finishWriteContentsExample();
 
         // Write real-time user event data
@@ -375,6 +375,7 @@ public class Main {
                 Option.withRequestID(UUID.randomUUID().toString()),
                 // Optional. request timeout
                 Option.withTimeout(timeout),
+                Option.withHTTPHeader("X-TT-ENV", "preview_prod")
                 // Optional. Add a header to a custom header collection.
                 // Option.withHTTPHeader("key", "value"),
                 // Optional. Add a query to a custom query collection.
