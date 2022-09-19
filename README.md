@@ -93,3 +93,4 @@ cd byteplus-sdk-java-rec/src/main/java/com/byteplus/rec/sdk/retail/example
 #### For more details:
 * [Saas E-Commerce Code Sample](https://docs.byteplus.com/recommend/docs/code-samples)
 * [Saas E-Commerce API Reference](https://docs.byteplus.com/recommend/reference/byteplussaasservice_writusers-2)
+* [Saas Content API Reference](https://docs.byteplus.com/recommend/reference/byteplussaasservice_writusers)
