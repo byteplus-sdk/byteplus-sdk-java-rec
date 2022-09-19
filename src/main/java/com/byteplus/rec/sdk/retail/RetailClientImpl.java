@@ -21,6 +21,9 @@ public class RetailClientImpl implements RetailClient {
     private final static String ERR_MSG_TOO_MANY_WRITE_ITEMS =
             String.format("Only can receive max to %d items in one write request", Constant.MAX_WRITE_COUNT);
 
+    private final static String ERR_MSG_TOO_MANY_FINISH_DATES =
+            String.format("Only can receive max to %d dates in one finish request", Constant.MAX_FINISH_DATE_COUNT);
+
     private final HTTPClient httpClient;
 
     private final String projectID;
@@ -130,8 +133,8 @@ public class RetailClientImpl implements RetailClient {
         if (Utils.isEmptyString(request.getTopic())) {
             throw new BizException("topic is empty");
         }
-        if (request.getDataDatesCount() > Constant.MAX_WRITE_COUNT) {
-            throw new BizException(ERR_MSG_TOO_MANY_WRITE_ITEMS);
+        if (request.getDataDatesCount() > Constant.MAX_FINISH_DATE_COUNT) {
+            throw new BizException(ERR_MSG_TOO_MANY_FINISH_DATES);
         }
     }
 
@@ -169,7 +172,7 @@ public class RetailClientImpl implements RetailClient {
         }
         checkAckRequest(request);
         AckServerImpressionsResponse response = httpClient.doPBRequest(
-                "/RetailSaaS/AckServerImpressions",
+                Constant.ACK_SERVER_IMPRESSIONS_URI,
                 request,
                 AckServerImpressionsResponse.parser(),
                 Option.conv2Options(opts)

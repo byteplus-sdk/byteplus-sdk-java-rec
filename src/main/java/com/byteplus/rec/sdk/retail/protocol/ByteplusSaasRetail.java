@@ -56,6 +56,16 @@ public final class ByteplusSaasRetail {
      */
     com.google.protobuf.ByteString
         getMessageBytes();
+
+    /**
+     * <pre>
+     * Output only. success mark
+     * </pre>
+     *
+     * <code>bool success = 3;</code>
+     * @return The success.
+     */
+    boolean getSuccess();
   }
   /**
    * <pre>
@@ -121,6 +131,11 @@ public final class ByteplusSaasRetail {
               message_ = s;
               break;
             }
+            case 24: {
+
+              success_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -132,6 +147,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -223,6 +240,21 @@ public final class ByteplusSaasRetail {
       }
     }
 
+    public static final int SUCCESS_FIELD_NUMBER = 3;
+    private boolean success_;
+    /**
+     * <pre>
+     * Output only. success mark
+     * </pre>
+     *
+     * <code>bool success = 3;</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -240,8 +272,11 @@ public final class ByteplusSaasRetail {
       if (code_ != 0) {
         output.writeInt32(1, code_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+      }
+      if (success_ != false) {
+        output.writeBool(3, success_);
       }
       unknownFields.writeTo(output);
     }
@@ -256,8 +291,12 @@ public final class ByteplusSaasRetail {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, code_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+      }
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, success_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -278,6 +317,8 @@ public final class ByteplusSaasRetail {
           != other.getCode()) return false;
       if (!getMessage()
           .equals(other.getMessage())) return false;
+      if (getSuccess()
+          != other.getSuccess()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -293,6 +334,9 @@ public final class ByteplusSaasRetail {
       hash = (53 * hash) + getCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -437,6 +481,8 @@ public final class ByteplusSaasRetail {
 
         message_ = "";
 
+        success_ = false;
+
         return this;
       }
 
@@ -465,6 +511,7 @@ public final class ByteplusSaasRetail {
         com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Status result = new com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Status(this);
         result.code_ = code_;
         result.message_ = message_;
+        result.success_ = success_;
         onBuilt();
         return result;
       }
@@ -519,6 +566,9 @@ public final class ByteplusSaasRetail {
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
           onChanged();
+        }
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -714,6 +764,49 @@ public final class ByteplusSaasRetail {
         onChanged();
         return this;
       }
+
+      private boolean success_ ;
+      /**
+       * <pre>
+       * Output only. success mark
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
+       * @return The success.
+       */
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <pre>
+       * Output only. success mark
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
+       * @param value The success to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. success mark
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -888,6 +981,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1726,6 +1821,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -1993,13 +2090,13 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
       }
       for (int i = 0; i < dataDates_.size(); i++) {
@@ -2014,13 +2111,13 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
       }
       for (int i = 0; i < dataDates_.size(); i++) {
@@ -3655,9 +3752,11 @@ public final class ByteplusSaasRetail {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -3851,6 +3950,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -4034,6 +4135,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -4151,6 +4254,8 @@ public final class ByteplusSaasRetail {
             }
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             throw e.setUnfinishedMessage(this);
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
           } catch (java.io.IOException e) {
             throw new com.google.protobuf.InvalidProtocolBufferException(
                 e).setUnfinishedMessage(this);
@@ -4234,7 +4339,7 @@ public final class ByteplusSaasRetail {
         @java.lang.Override
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                             throws java.io.IOException {
-          if (!getIdOrNameBytes().isEmpty()) {
+          if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idOrName_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 1, idOrName_);
           }
           unknownFields.writeTo(output);
@@ -4246,7 +4351,7 @@ public final class ByteplusSaasRetail {
           if (size != -1) return size;
 
           size = 0;
-          if (!getIdOrNameBytes().isEmpty()) {
+          if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idOrName_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, idOrName_);
           }
           size += unknownFields.getSerializedSize();
@@ -5664,6 +5769,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -5766,7 +5873,7 @@ public final class ByteplusSaasRetail {
         if (brandDepth_ != 0) {
           output.writeInt32(1, brandDepth_);
         }
-        if (!getIdOrNameBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idOrName_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, idOrName_);
         }
         unknownFields.writeTo(output);
@@ -5782,7 +5889,7 @@ public final class ByteplusSaasRetail {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(1, brandDepth_);
         }
-        if (!getIdOrNameBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(idOrName_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, idOrName_);
         }
         size += unknownFields.getSerializedSize();
@@ -6371,6 +6478,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -7156,6 +7265,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -7429,10 +7540,10 @@ public final class ByteplusSaasRetail {
         for (int i = 0; i < detailPageDisplayTags_.size(); i++) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, detailPageDisplayTags_.getRaw(i));
         }
-        if (!getListingPageDisplayTypeBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(listingPageDisplayType_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 3, listingPageDisplayType_);
         }
-        if (!getCoverMultimediaUrlBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverMultimediaUrl_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 4, coverMultimediaUrl_);
         }
         unknownFields.writeTo(output);
@@ -7460,10 +7571,10 @@ public final class ByteplusSaasRetail {
           size += dataSize;
           size += 1 * getDetailPageDisplayTagsList().size();
         }
-        if (!getListingPageDisplayTypeBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(listingPageDisplayType_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, listingPageDisplayType_);
         }
-        if (!getCoverMultimediaUrlBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(coverMultimediaUrl_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, coverMultimediaUrl_);
         }
         size += unknownFields.getSerializedSize();
@@ -8591,6 +8702,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -8779,16 +8892,16 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getProductGroupIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productGroupId_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, productGroupId_);
         }
-        if (userRating_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(userRating_) != 0) {
           output.writeDouble(2, userRating_);
         }
         if (commentCount_ != 0) {
           output.writeInt32(3, commentCount_);
         }
-        if (!getSourceBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 4, source_);
         }
         if (publishTimestamp_ != 0L) {
@@ -8803,10 +8916,10 @@ public final class ByteplusSaasRetail {
         if (size != -1) return size;
 
         size = 0;
-        if (!getProductGroupIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productGroupId_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, productGroupId_);
         }
-        if (userRating_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(userRating_) != 0) {
           size += com.google.protobuf.CodedOutputStream
             .computeDoubleSize(2, userRating_);
         }
@@ -8814,7 +8927,7 @@ public final class ByteplusSaasRetail {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(3, commentCount_);
         }
-        if (!getSourceBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, source_);
         }
         if (publishTimestamp_ != 0L) {
@@ -9698,6 +9811,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -9848,13 +9963,13 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
         }
-        if (!getSellerLevelBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sellerLevel_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sellerLevel_);
         }
-        if (sellerRating_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(sellerRating_) != 0) {
           output.writeDouble(3, sellerRating_);
         }
         unknownFields.writeTo(output);
@@ -9866,13 +9981,13 @@ public final class ByteplusSaasRetail {
         if (size != -1) return size;
 
         size = 0;
-        if (!getIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
         }
-        if (!getSellerLevelBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sellerLevel_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sellerLevel_);
         }
-        if (sellerRating_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(sellerRating_) != 0) {
           size += com.google.protobuf.CodedOutputStream
             .computeDoubleSize(3, sellerRating_);
         }
@@ -11167,7 +11282,7 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -11206,7 +11321,7 @@ public final class ByteplusSaasRetail {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -11224,7 +11339,7 @@ public final class ByteplusSaasRetail {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -11247,7 +11362,7 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProductIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, productId_);
       }
       for (int i = 0; i < categories_.size(); i++) {
@@ -11262,10 +11377,10 @@ public final class ByteplusSaasRetail {
       if (isRecommendable_ != 0) {
         output.writeInt32(5, isRecommendable_);
       }
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, title_);
       }
-      if (qualityScore_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(qualityScore_) != 0) {
         output.writeDouble(7, qualityScore_);
       }
       for (int i = 0; i < tags_.size(); i++) {
@@ -11295,7 +11410,7 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProductIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, productId_);
       }
       for (int i = 0; i < categories_.size(); i++) {
@@ -11314,10 +11429,10 @@ public final class ByteplusSaasRetail {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, isRecommendable_);
       }
-      if (!getTitleBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(title_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, title_);
       }
-      if (qualityScore_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(qualityScore_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(7, qualityScore_);
       }
@@ -14292,7 +14407,7 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -14331,7 +14446,7 @@ public final class ByteplusSaasRetail {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -14349,7 +14464,7 @@ public final class ByteplusSaasRetail {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -14375,7 +14490,7 @@ public final class ByteplusSaasRetail {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -14400,8 +14515,11 @@ public final class ByteplusSaasRetail {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -14609,6 +14727,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -14733,7 +14853,7 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getSceneNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sceneName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sceneName_);
       }
       if (pageNumber_ != 0) {
@@ -14751,7 +14871,7 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getSceneNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sceneName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sceneName_);
       }
       if (pageNumber_ != 0) {
@@ -15678,6 +15798,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -16169,31 +16291,31 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getPlatformBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, platform_);
       }
-      if (!getOsTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osType_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, osType_);
       }
-      if (!getAppVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, appVersion_);
       }
-      if (!getDeviceModelBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceModel_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, deviceModel_);
       }
-      if (!getDeviceBrandBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceBrand_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, deviceBrand_);
       }
-      if (!getOsVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osVersion_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, osVersion_);
       }
-      if (!getBrowserTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(browserType_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, browserType_);
       }
-      if (!getUserAgentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userAgent_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, userAgent_);
       }
-      if (!getNetworkBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(network_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, network_);
       }
       unknownFields.writeTo(output);
@@ -16205,31 +16327,31 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getPlatformBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, platform_);
       }
-      if (!getOsTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osType_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, osType_);
       }
-      if (!getAppVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, appVersion_);
       }
-      if (!getDeviceModelBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceModel_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, deviceModel_);
       }
-      if (!getDeviceBrandBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceBrand_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, deviceBrand_);
       }
-      if (!getOsVersionBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osVersion_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, osVersion_);
       }
-      if (!getBrowserTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(browserType_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, browserType_);
       }
-      if (!getUserAgentBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userAgent_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, userAgent_);
       }
-      if (!getNetworkBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(network_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, network_);
       }
       size += unknownFields.getSerializedSize();
@@ -17738,6 +17860,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -17867,10 +17991,10 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
-      if (!getDataBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, data_);
       }
       unknownFields.writeTo(output);
@@ -17882,10 +18006,10 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
-      if (!getDataBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, data_);
       }
       size += unknownFields.getSerializedSize();
@@ -18593,6 +18717,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -19851,9 +19977,11 @@ public final class ByteplusSaasRetail {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -19972,6 +20100,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -20270,7 +20400,7 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -20309,7 +20439,7 @@ public final class ByteplusSaasRetail {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -20327,7 +20457,7 @@ public final class ByteplusSaasRetail {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -20350,13 +20480,13 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
       }
       for (int i = 0; i < data_.size(); i++) {
@@ -20377,13 +20507,13 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!getStageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
       }
-      if (!getTopicBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
       }
       {
@@ -21317,7 +21447,7 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -21356,7 +21486,7 @@ public final class ByteplusSaasRetail {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -21374,7 +21504,7 @@ public final class ByteplusSaasRetail {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -21400,7 +21530,7 @@ public final class ByteplusSaasRetail {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -21425,8 +21555,11 @@ public final class ByteplusSaasRetail {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -21693,9 +21826,11 @@ public final class ByteplusSaasRetail {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -21835,6 +21970,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -22083,6 +22220,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -23678,7 +23817,7 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -23717,7 +23856,7 @@ public final class ByteplusSaasRetail {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -23735,7 +23874,7 @@ public final class ByteplusSaasRetail {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -23758,13 +23897,13 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!getModelIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, modelId_);
       }
-      if (!getUserIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, userId_);
       }
       if (size_ != 0) {
@@ -23791,13 +23930,13 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!getModelIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, modelId_);
       }
-      if (!getUserIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, userId_);
       }
       if (size_ != 0) {
@@ -24940,7 +25079,7 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -24979,7 +25118,7 @@ public final class ByteplusSaasRetail {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -24997,7 +25136,7 @@ public final class ByteplusSaasRetail {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -25023,7 +25162,7 @@ public final class ByteplusSaasRetail {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -25048,8 +25187,11 @@ public final class ByteplusSaasRetail {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -25220,9 +25362,11 @@ public final class ByteplusSaasRetail {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * Output only.
@@ -25319,6 +25463,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -25482,9 +25628,11 @@ public final class ByteplusSaasRetail {
        * <code>map&lt;string, string&gt; extra = 100;</code>
        */
 
-      java.lang.String getExtraOrDefault(
+      /* nullable */
+java.lang.String getExtraOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue);
+          /* nullable */
+java.lang.String defaultValue);
       /**
        * <pre>
        * Output only.
@@ -25600,6 +25748,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -25817,7 +25967,7 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -25854,7 +26004,7 @@ public final class ByteplusSaasRetail {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -25871,7 +26021,7 @@ public final class ByteplusSaasRetail {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -25894,19 +26044,19 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getProductIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productId_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, productId_);
         }
         if (rank_ != 0) {
           output.writeInt32(2, rank_);
         }
-        if (pctr_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(pctr_) != 0) {
           output.writeDouble(3, pctr_);
         }
-        if (pcvr_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(pcvr_) != 0) {
           output.writeDouble(4, pcvr_);
         }
-        if (!getRecInfoBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recInfo_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 5, recInfo_);
         }
         com.google.protobuf.GeneratedMessageV3
@@ -25924,22 +26074,22 @@ public final class ByteplusSaasRetail {
         if (size != -1) return size;
 
         size = 0;
-        if (!getProductIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productId_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, productId_);
         }
         if (rank_ != 0) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(2, rank_);
         }
-        if (pctr_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(pctr_) != 0) {
           size += com.google.protobuf.CodedOutputStream
             .computeDoubleSize(3, pctr_);
         }
-        if (pcvr_ != 0D) {
+        if (java.lang.Double.doubleToRawLongBits(pcvr_) != 0) {
           size += com.google.protobuf.CodedOutputStream
             .computeDoubleSize(4, pcvr_);
         }
-        if (!getRecInfoBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recInfo_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, recInfo_);
         }
         for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
@@ -26692,7 +26842,7 @@ public final class ByteplusSaasRetail {
         @java.lang.Override
         public boolean containsExtra(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           return internalGetExtra().getMap().containsKey(key);
         }
         /**
@@ -26729,7 +26879,7 @@ public final class ByteplusSaasRetail {
         public java.lang.String getExtraOrDefault(
             java.lang.String key,
             java.lang.String defaultValue) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -26746,7 +26896,7 @@ public final class ByteplusSaasRetail {
 
         public java.lang.String getExtraOrThrow(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           if (!map.containsKey(key)) {
@@ -26771,7 +26921,7 @@ public final class ByteplusSaasRetail {
 
         public Builder removeExtra(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           internalGetMutableExtra().getMutableMap()
               .remove(key);
           return this;
@@ -26795,8 +26945,11 @@ public final class ByteplusSaasRetail {
         public Builder putExtra(
             java.lang.String key,
             java.lang.String value) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          if (value == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
+          if (value == null) {
+  throw new NullPointerException("map value");
+}
+
           internalGetMutableExtra().getMutableMap()
               .put(key, value);
           return this;
@@ -26972,7 +27125,7 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -27009,7 +27162,7 @@ public final class ByteplusSaasRetail {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -27026,7 +27179,7 @@ public final class ByteplusSaasRetail {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -27798,7 +27951,7 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -27835,7 +27988,7 @@ public final class ByteplusSaasRetail {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -27852,7 +28005,7 @@ public final class ByteplusSaasRetail {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -27877,7 +28030,7 @@ public final class ByteplusSaasRetail {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -27901,8 +28054,11 @@ public final class ByteplusSaasRetail {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -28154,6 +28310,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -28322,7 +28480,7 @@ public final class ByteplusSaasRetail {
       if (status_ != null) {
         output.writeMessage(1, getStatus());
       }
-      if (!getRequestIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, requestId_);
       }
       if (value_ != null) {
@@ -28341,7 +28499,7 @@ public final class ByteplusSaasRetail {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getStatus());
       }
-      if (!getRequestIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, requestId_);
       }
       if (value_ != null) {
@@ -29248,7 +29406,7 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
-     * The acceptable values are "kept", "filtered", "inserted".
+     * The acceptable values are ["self", "byteplus", "other"].
      * Please refer to
      * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
@@ -29261,7 +29419,7 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
-     * The acceptable values are "kept", "filtered", "inserted".
+     * The acceptable values are ["self", "byteplus", "other"].
      * Please refer to
      * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
@@ -29402,9 +29560,11 @@ public final class ByteplusSaasRetail {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    java.lang.String getExtraOrDefault(
+    /* nullable */
+java.lang.String getExtraOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue);
+        /* nullable */
+java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -29550,6 +29710,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -29714,9 +29876,11 @@ public final class ByteplusSaasRetail {
        * <code>map&lt;string, string&gt; extra = 101;</code>
        */
 
-      java.lang.String getExtraOrDefault(
+      /* nullable */
+java.lang.String getExtraOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue);
+          /* nullable */
+java.lang.String defaultValue);
       /**
        * <pre>
        * Optional.
@@ -29828,6 +29992,8 @@ public final class ByteplusSaasRetail {
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
               e).setUnfinishedMessage(this);
@@ -30038,7 +30204,7 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -30077,7 +30243,7 @@ public final class ByteplusSaasRetail {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -30095,7 +30261,7 @@ public final class ByteplusSaasRetail {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -30118,10 +30284,10 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!getProductIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productId_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, productId_);
         }
-        if (!getAlteredReasonBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alteredReason_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, alteredReason_);
         }
         if (rank_ != 0) {
@@ -30145,10 +30311,10 @@ public final class ByteplusSaasRetail {
         if (size != -1) return size;
 
         size = 0;
-        if (!getProductIdBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(productId_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, productId_);
         }
-        if (!getAlteredReasonBytes().isEmpty()) {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alteredReason_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, alteredReason_);
         }
         if (rank_ != 0) {
@@ -30872,7 +31038,7 @@ public final class ByteplusSaasRetail {
         @java.lang.Override
         public boolean containsExtra(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           return internalGetExtra().getMap().containsKey(key);
         }
         /**
@@ -30911,7 +31077,7 @@ public final class ByteplusSaasRetail {
         public java.lang.String getExtraOrDefault(
             java.lang.String key,
             java.lang.String defaultValue) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -30929,7 +31095,7 @@ public final class ByteplusSaasRetail {
 
         public java.lang.String getExtraOrThrow(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           if (!map.containsKey(key)) {
@@ -30955,7 +31121,7 @@ public final class ByteplusSaasRetail {
 
         public Builder removeExtra(
             java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
           internalGetMutableExtra().getMutableMap()
               .remove(key);
           return this;
@@ -30980,8 +31146,11 @@ public final class ByteplusSaasRetail {
         public Builder putExtra(
             java.lang.String key,
             java.lang.String value) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          if (value == null) { throw new java.lang.NullPointerException(); }
+          if (key == null) { throw new NullPointerException("map key"); }
+          if (value == null) {
+  throw new NullPointerException("map value");
+}
+
           internalGetMutableExtra().getMutableMap()
               .put(key, value);
           return this;
@@ -31253,7 +31422,7 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
-     * The acceptable values are "kept", "filtered", "inserted".
+     * The acceptable values are ["self", "byteplus", "other"].
      * Please refer to
      * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
@@ -31278,7 +31447,7 @@ public final class ByteplusSaasRetail {
      * <pre>
      * Required.
      * This should be the traffic source.
-     * The acceptable values are "kept", "filtered", "inserted".
+     * The acceptable values are ["self", "byteplus", "other"].
      * Please refer to
      * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
      * </pre>
@@ -31449,7 +31618,7 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -31488,7 +31657,7 @@ public final class ByteplusSaasRetail {
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -31506,7 +31675,7 @@ public final class ByteplusSaasRetail {
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -31529,19 +31698,19 @@ public final class ByteplusSaasRetail {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!getModelIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, modelId_);
       }
-      if (!getPredictRequestIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predictRequestId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, predictRequestId_);
       }
-      if (!getUserIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, userId_);
       }
-      if (!getTrafficSourceBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trafficSource_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, trafficSource_);
       }
       if (scene_ != null) {
@@ -31565,19 +31734,19 @@ public final class ByteplusSaasRetail {
       if (size != -1) return size;
 
       size = 0;
-      if (!getProjectIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!getModelIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, modelId_);
       }
-      if (!getPredictRequestIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predictRequestId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, predictRequestId_);
       }
-      if (!getUserIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, userId_);
       }
-      if (!getTrafficSourceBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trafficSource_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, trafficSource_);
       }
       if (scene_ != null) {
@@ -32434,7 +32603,7 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are ["self", "byteplus", "other"].
        * Please refer to
        * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
@@ -32458,7 +32627,7 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are ["self", "byteplus", "other"].
        * Please refer to
        * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
@@ -32483,7 +32652,7 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are ["self", "byteplus", "other"].
        * Please refer to
        * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
@@ -32506,7 +32675,7 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are ["self", "byteplus", "other"].
        * Please refer to
        * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
@@ -32524,7 +32693,7 @@ public final class ByteplusSaasRetail {
        * <pre>
        * Required.
        * This should be the traffic source.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are ["self", "byteplus", "other"].
        * Please refer to
        * [this](../docs/ways-to-improve-recommendation-performance#use-usereventrec_info-and-usereventtraffic_source) for more details.
        * </pre>
@@ -33087,7 +33256,7 @@ public final class ByteplusSaasRetail {
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -33126,7 +33295,7 @@ public final class ByteplusSaasRetail {
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -33144,7 +33313,7 @@ public final class ByteplusSaasRetail {
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -33170,7 +33339,7 @@ public final class ByteplusSaasRetail {
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -33195,8 +33364,11 @@ public final class ByteplusSaasRetail {
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
+        if (key == null) { throw new NullPointerException("map key"); }
+        if (value == null) {
+  throw new NullPointerException("map value");
+}
+
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -33377,6 +33549,8 @@ public final class ByteplusSaasRetail {
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
@@ -34139,131 +34313,131 @@ public final class ByteplusSaasRetail {
   static {
     java.lang.String[] descriptorData = {
       "\n\032byteplus_saas_retail.proto\022\035bytedance." +
-      "byteplus.rec.retail\"\'\n\006Status\022\014\n\004code\030\001 " +
-      "\001(\005\022\017\n\007message\030\002 \001(\t\"0\n\004Date\022\014\n\004year\030\001 \001" +
-      "(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003day\030\003 \001(\005\"\203\001\n\026Finis" +
-      "hWriteDataRequest\022\022\n\nproject_id\030\001 \001(\t\022\r\n" +
-      "\005stage\030\002 \001(\t\022\r\n\005topic\030\003 \001(\t\0227\n\ndata_date" +
-      "s\030\n \003(\0132#.bytedance.byteplus.rec.retail." +
-      "Date\"\301\t\n\007Product\022\022\n\nproduct_id\030\001 \001(\t\022C\n\n" +
-      "categories\030\002 \003(\0132/.bytedance.byteplus.re" +
-      "c.retail.Product.Category\022<\n\006brands\030\003 \003(" +
-      "\0132,.bytedance.byteplus.rec.retail.Produc" +
-      "t.Brand\022;\n\005price\030\004 \001(\0132,.bytedance.bytep" +
-      "lus.rec.retail.Product.Price\022\030\n\020is_recom" +
-      "mendable\030\005 \001(\005\022\r\n\005title\030\006 \001(\t\022\025\n\rquality" +
-      "_score\030\007 \001(\001\022\014\n\004tags\030\010 \003(\t\022?\n\007display\030\t " +
-      "\001(\0132..bytedance.byteplus.rec.retail.Prod" +
-      "uct.Display\022H\n\014product_spec\030\n \001(\01322.byte" +
-      "dance.byteplus.rec.retail.Product.Produc" +
-      "tSpec\022=\n\006seller\030\013 \001(\0132-.bytedance.bytepl" +
-      "us.rec.retail.Product.Seller\022@\n\005extra\030d " +
-      "\003(\01321.bytedance.byteplus.rec.retail.Prod" +
-      "uct.ExtraEntry\032\234\001\n\010Category\022\026\n\016category_" +
-      "depth\030\001 \001(\005\022T\n\016category_nodes\030\002 \003(\0132<.by" +
-      "tedance.byteplus.rec.retail.Product.Cate" +
-      "gory.CategoryNode\032\"\n\014CategoryNode\022\022\n\nid_" +
-      "or_name\030\001 \001(\t\0320\n\005Brand\022\023\n\013brand_depth\030\001 " +
-      "\001(\005\022\022\n\nid_or_name\030\002 \001(\t\0324\n\005Price\022\025\n\rcurr" +
-      "ent_price\030\001 \001(\003\022\024\n\014origin_price\030\002 \001(\003\032\217\001" +
-      "\n\007Display\022!\n\031listing_page_display_tags\030\001" +
-      " \003(\t\022 \n\030detail_page_display_tags\030\002 \003(\t\022!" +
-      "\n\031listing_page_display_type\030\003 \001(\t\022\034\n\024cov" +
-      "er_multimedia_url\030\004 \001(\t\032~\n\013ProductSpec\022\030" +
-      "\n\020product_group_id\030\001 \001(\t\022\023\n\013user_rating\030" +
-      "\002 \001(\001\022\025\n\rcomment_count\030\003 \001(\005\022\016\n\006source\030\004" +
-      " \001(\t\022\031\n\021publish_timestamp\030\005 \001(\003\032A\n\006Selle" +
-      "r\022\n\n\002id\030\001 \001(\t\022\024\n\014seller_level\030\002 \001(\t\022\025\n\rs" +
-      "eller_rating\030\003 \001(\001\032,\n\nExtraEntry\022\013\n\003key\030" +
-      "\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"@\n\005Scene\022\022\n\nsce" +
-      "ne_name\030\001 \001(\t\022\023\n\013page_number\030\002 \001(\005\022\016\n\006of" +
-      "fset\030\003 \001(\005\"\273\001\n\006Device\022\020\n\010platform\030\001 \001(\t\022" +
-      "\017\n\007os_type\030\002 \001(\t\022\023\n\013app_version\030\003 \001(\t\022\024\n" +
-      "\014device_model\030\004 \001(\t\022\024\n\014device_brand\030\005 \001(" +
-      "\t\022\022\n\nos_version\030\006 \001(\t\022\024\n\014browser_type\030\007 " +
-      "\001(\t\022\022\n\nuser_agent\030\010 \001(\t\022\017\n\007network\030\t \001(\t" +
-      "\"*\n\tDataError\022\017\n\007message\030\001 \001(\t\022\014\n\004data\030\002" +
-      " \001(\t\"\200\001\n\rWriteResponse\0225\n\006status\030\001 \001(\0132%" +
-      ".bytedance.byteplus.rec.retail.Status\0228\n" +
-      "\006errors\030\002 \003(\0132(.bytedance.byteplus.rec.r" +
-      "etail.DataError\"\313\001\n\020WriteDataRequest\022\022\n\n" +
-      "project_id\030\001 \001(\t\022\r\n\005stage\030\002 \001(\t\022\r\n\005topic" +
-      "\030\003 \001(\t\022\014\n\004data\030\n \003(\t\022I\n\005extra\030d \003(\0132:.by" +
-      "tedance.byteplus.rec.retail.WriteDataReq" +
-      "uest.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\253\004\n\016PredictRequest" +
-      "\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\017" +
-      "\n\007user_id\030\n \001(\t\022\014\n\004size\030\013 \001(\005\0223\n\005scene\030\014" +
-      " \001(\0132$.bytedance.byteplus.rec.retail.Sce" +
-      "ne\022F\n\007context\030\r \001(\01325.bytedance.byteplus" +
-      ".rec.retail.PredictRequest.Context\022G\n\005ex" +
-      "tra\030d \003(\01328.bytedance.byteplus.rec.retai" +
-      "l.PredictRequest.ExtraEntry\032\337\001\n\007Context\022" +
-      "<\n\014root_product\030\001 \001(\0132&.bytedance.bytepl" +
-      "us.rec.retail.Product\0225\n\006device\030\002 \001(\0132%." +
-      "bytedance.byteplus.rec.retail.Device\022B\n\022" +
-      "candidate_products\030\004 \003(\0132&.bytedance.byt" +
-      "eplus.rec.retail.ProductJ\004\010\003\020\004R\025candidat" +
-      "e_product_ids\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n\rPredictResult\022W\n" +
-      "\021response_products\030\001 \003(\0132<.bytedance.byt" +
-      "eplus.rec.retail.PredictResult.ResponseP" +
-      "roduct\022F\n\005extra\030d \003(\01327.bytedance.bytepl" +
-      "us.rec.retail.PredictResult.ExtraEntry\032\347" +
-      "\001\n\017ResponseProduct\022\022\n\nproduct_id\030\001 \001(\t\022\014" +
-      "\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(\001\022\014\n\004pcvr\030\004 \001(\001" +
-      "\022\020\n\010rec_info\030\005 \001(\t\022V\n\005extra\030d \003(\0132G.byte" +
-      "dance.byteplus.rec.retail.PredictResult." +
-      "ResponseProduct.ExtraEntry\032,\n\nExtraEntry" +
-      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nExtr" +
-      "aEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\231" +
-      "\001\n\017PredictResponse\0225\n\006status\030\001 \001(\0132%.byt" +
-      "edance.byteplus.rec.retail.Status\022\022\n\nreq" +
-      "uest_id\030\002 \001(\t\022;\n\005value\030\003 \001(\0132,.bytedance" +
-      ".byteplus.rec.retail.PredictResult\"\237\005\n\033A" +
-      "ckServerImpressionsRequest\022\022\n\nproject_id" +
-      "\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032\n\022predict_requ" +
-      "est_id\030\n \001(\t\022\017\n\007user_id\030\013 \001(\t\022\026\n\016traffic" +
-      "_source\030\014 \001(\t\0223\n\005scene\030\r \001(\0132$.bytedance" +
-      ".byteplus.rec.retail.Scene\022c\n\020altered_pr" +
-      "oducts\030\016 \003(\0132I.bytedance.byteplus.rec.re" +
-      "tail.AckServerImpressionsRequest.Altered" +
-      "Product\022T\n\005extra\030d \003(\0132E.bytedance.bytep" +
-      "lus.rec.retail.AckServerImpressionsReque" +
-      "st.ExtraEntry\032\366\001\n\016AlteredProduct\022\022\n\nprod" +
-      "uct_id\030\001 \001(\t\022\026\n\016altered_reason\030\002 \001(\t\022\014\n\004" +
-      "rank\030\003 \001(\005\022\027\n\017product_id_hash\030d \001(\003\022c\n\005e" +
-      "xtra\030e \003(\0132T.bytedance.byteplus.rec.reta" +
-      "il.AckServerImpressionsRequest.AlteredPr" +
-      "oduct.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001 " +
-      "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"U\n\034AckServe" +
-      "rImpressionsResponse\0225\n\006status\030\001 \001(\0132%.b" +
-      "ytedance.byteplus.rec.retail.Status2\272\006\n\023" +
-      "BytePlusSaasService\022j\n\tWritUsers\022/.byted" +
-      "ance.byteplus.rec.retail.WriteDataReques" +
-      "t\032,.bytedance.byteplus.rec.retail.WriteR" +
-      "esponse\022m\n\014WritProducts\022/.bytedance.byte" +
+      "byteplus.rec.retail\"8\n\006Status\022\014\n\004code\030\001 " +
+      "\001(\005\022\017\n\007message\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"0\n" +
+      "\004Date\022\014\n\004year\030\001 \001(\005\022\r\n\005month\030\002 \001(\005\022\013\n\003da" +
+      "y\030\003 \001(\005\"\203\001\n\026FinishWriteDataRequest\022\022\n\npr" +
+      "oject_id\030\001 \001(\t\022\r\n\005stage\030\002 \001(\t\022\r\n\005topic\030\003" +
+      " \001(\t\0227\n\ndata_dates\030\n \003(\0132#.bytedance.byt" +
+      "eplus.rec.retail.Date\"\301\t\n\007Product\022\022\n\npro" +
+      "duct_id\030\001 \001(\t\022C\n\ncategories\030\002 \003(\0132/.byte" +
+      "dance.byteplus.rec.retail.Product.Catego" +
+      "ry\022<\n\006brands\030\003 \003(\0132,.bytedance.byteplus." +
+      "rec.retail.Product.Brand\022;\n\005price\030\004 \001(\0132" +
+      ",.bytedance.byteplus.rec.retail.Product." +
+      "Price\022\030\n\020is_recommendable\030\005 \001(\005\022\r\n\005title" +
+      "\030\006 \001(\t\022\025\n\rquality_score\030\007 \001(\001\022\014\n\004tags\030\010 " +
+      "\003(\t\022?\n\007display\030\t \001(\0132..bytedance.byteplu" +
+      "s.rec.retail.Product.Display\022H\n\014product_" +
+      "spec\030\n \001(\01322.bytedance.byteplus.rec.reta" +
+      "il.Product.ProductSpec\022=\n\006seller\030\013 \001(\0132-" +
+      ".bytedance.byteplus.rec.retail.Product.S" +
+      "eller\022@\n\005extra\030d \003(\01321.bytedance.byteplu" +
+      "s.rec.retail.Product.ExtraEntry\032\234\001\n\010Cate" +
+      "gory\022\026\n\016category_depth\030\001 \001(\005\022T\n\016category" +
+      "_nodes\030\002 \003(\0132<.bytedance.byteplus.rec.re" +
+      "tail.Product.Category.CategoryNode\032\"\n\014Ca" +
+      "tegoryNode\022\022\n\nid_or_name\030\001 \001(\t\0320\n\005Brand\022" +
+      "\023\n\013brand_depth\030\001 \001(\005\022\022\n\nid_or_name\030\002 \001(\t" +
+      "\0324\n\005Price\022\025\n\rcurrent_price\030\001 \001(\003\022\024\n\014orig" +
+      "in_price\030\002 \001(\003\032\217\001\n\007Display\022!\n\031listing_pa" +
+      "ge_display_tags\030\001 \003(\t\022 \n\030detail_page_dis" +
+      "play_tags\030\002 \003(\t\022!\n\031listing_page_display_" +
+      "type\030\003 \001(\t\022\034\n\024cover_multimedia_url\030\004 \001(\t" +
+      "\032~\n\013ProductSpec\022\030\n\020product_group_id\030\001 \001(" +
+      "\t\022\023\n\013user_rating\030\002 \001(\001\022\025\n\rcomment_count\030" +
+      "\003 \001(\005\022\016\n\006source\030\004 \001(\t\022\031\n\021publish_timesta" +
+      "mp\030\005 \001(\003\032A\n\006Seller\022\n\n\002id\030\001 \001(\t\022\024\n\014seller" +
+      "_level\030\002 \001(\t\022\025\n\rseller_rating\030\003 \001(\001\032,\n\nE" +
+      "xtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
+      "\001\"@\n\005Scene\022\022\n\nscene_name\030\001 \001(\t\022\023\n\013page_n" +
+      "umber\030\002 \001(\005\022\016\n\006offset\030\003 \001(\005\"\273\001\n\006Device\022\020" +
+      "\n\010platform\030\001 \001(\t\022\017\n\007os_type\030\002 \001(\t\022\023\n\013app" +
+      "_version\030\003 \001(\t\022\024\n\014device_model\030\004 \001(\t\022\024\n\014" +
+      "device_brand\030\005 \001(\t\022\022\n\nos_version\030\006 \001(\t\022\024" +
+      "\n\014browser_type\030\007 \001(\t\022\022\n\nuser_agent\030\010 \001(\t" +
+      "\022\017\n\007network\030\t \001(\t\"*\n\tDataError\022\017\n\007messag" +
+      "e\030\001 \001(\t\022\014\n\004data\030\002 \001(\t\"\200\001\n\rWriteResponse\022" +
+      "5\n\006status\030\001 \001(\0132%.bytedance.byteplus.rec" +
+      ".retail.Status\0228\n\006errors\030\002 \003(\0132(.bytedan" +
+      "ce.byteplus.rec.retail.DataError\"\313\001\n\020Wri" +
+      "teDataRequest\022\022\n\nproject_id\030\001 \001(\t\022\r\n\005sta" +
+      "ge\030\002 \001(\t\022\r\n\005topic\030\003 \001(\t\022\014\n\004data\030\n \003(\t\022I\n" +
+      "\005extra\030d \003(\0132:.bytedance.byteplus.rec.re" +
+      "tail.WriteDataRequest.ExtraEntry\032,\n\nExtr" +
+      "aEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\253" +
+      "\004\n\016PredictRequest\022\022\n\nproject_id\030\001 \001(\t\022\020\n" +
+      "\010model_id\030\002 \001(\t\022\017\n\007user_id\030\n \001(\t\022\014\n\004size" +
+      "\030\013 \001(\005\0223\n\005scene\030\014 \001(\0132$.bytedance.bytepl" +
+      "us.rec.retail.Scene\022F\n\007context\030\r \001(\01325.b" +
+      "ytedance.byteplus.rec.retail.PredictRequ" +
+      "est.Context\022G\n\005extra\030d \003(\01328.bytedance.b" +
+      "yteplus.rec.retail.PredictRequest.ExtraE" +
+      "ntry\032\337\001\n\007Context\022<\n\014root_product\030\001 \001(\0132&" +
+      ".bytedance.byteplus.rec.retail.Product\0225" +
+      "\n\006device\030\002 \001(\0132%.bytedance.byteplus.rec." +
+      "retail.Device\022B\n\022candidate_products\030\004 \003(" +
+      "\0132&.bytedance.byteplus.rec.retail.Produc" +
+      "tJ\004\010\003\020\004R\025candidate_product_ids\032,\n\nExtraE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\310\003\n" +
+      "\rPredictResult\022W\n\021response_products\030\001 \003(" +
+      "\0132<.bytedance.byteplus.rec.retail.Predic" +
+      "tResult.ResponseProduct\022F\n\005extra\030d \003(\01327" +
+      ".bytedance.byteplus.rec.retail.PredictRe" +
+      "sult.ExtraEntry\032\347\001\n\017ResponseProduct\022\022\n\np" +
+      "roduct_id\030\001 \001(\t\022\014\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 " +
+      "\001(\001\022\014\n\004pcvr\030\004 \001(\001\022\020\n\010rec_info\030\005 \001(\t\022V\n\005e" +
+      "xtra\030d \003(\0132G.bytedance.byteplus.rec.reta" +
+      "il.PredictResult.ResponseProduct.ExtraEn" +
+      "try\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
+      "value\030\002 \001(\t:\0028\001\"\231\001\n\017PredictResponse\0225\n\006s" +
+      "tatus\030\001 \001(\0132%.bytedance.byteplus.rec.ret" +
+      "ail.Status\022\022\n\nrequest_id\030\002 \001(\t\022;\n\005value\030" +
+      "\003 \001(\0132,.bytedance.byteplus.rec.retail.Pr" +
+      "edictResult\"\237\005\n\033AckServerImpressionsRequ" +
+      "est\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(" +
+      "\t\022\032\n\022predict_request_id\030\n \001(\t\022\017\n\007user_id" +
+      "\030\013 \001(\t\022\026\n\016traffic_source\030\014 \001(\t\0223\n\005scene\030" +
+      "\r \001(\0132$.bytedance.byteplus.rec.retail.Sc" +
+      "ene\022c\n\020altered_products\030\016 \003(\0132I.bytedanc" +
+      "e.byteplus.rec.retail.AckServerImpressio" +
+      "nsRequest.AlteredProduct\022T\n\005extra\030d \003(\0132" +
+      "E.bytedance.byteplus.rec.retail.AckServe" +
+      "rImpressionsRequest.ExtraEntry\032\366\001\n\016Alter" +
+      "edProduct\022\022\n\nproduct_id\030\001 \001(\t\022\026\n\016altered" +
+      "_reason\030\002 \001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017product_i" +
+      "d_hash\030d \001(\003\022c\n\005extra\030e \003(\0132T.bytedance." +
+      "byteplus.rec.retail.AckServerImpressions" +
+      "Request.AlteredProduct.ExtraEntry\032,\n\nExt" +
+      "raEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032" +
+      ",\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
+      "\t:\0028\001\"U\n\034AckServerImpressionsResponse\0225\n" +
+      "\006status\030\001 \001(\0132%.bytedance.byteplus.rec.r" +
+      "etail.Status2\272\006\n\023BytePlusSaasService\022j\n\t" +
+      "WritUsers\022/.bytedance.byteplus.rec.retai" +
+      "l.WriteDataRequest\032,.bytedance.byteplus." +
+      "rec.retail.WriteResponse\022m\n\014WritProducts" +
+      "\022/.bytedance.byteplus.rec.retail.WriteDa" +
+      "taRequest\032,.bytedance.byteplus.rec.retai" +
+      "l.WriteResponse\022o\n\016WritUserEvents\022/.byte" +
+      "dance.byteplus.rec.retail.WriteDataReque" +
+      "st\032,.bytedance.byteplus.rec.retail.Write" +
+      "Response\022l\n\013WriteOthers\022/.bytedance.byte" +
       "plus.rec.retail.WriteDataRequest\032,.byted" +
-      "ance.byteplus.rec.retail.WriteResponse\022o" +
-      "\n\016WritUserEvents\022/.bytedance.byteplus.re" +
-      "c.retail.WriteDataRequest\032,.bytedance.by" +
-      "teplus.rec.retail.WriteResponse\022l\n\013Write" +
-      "Others\022/.bytedance.byteplus.rec.retail.W" +
-      "riteDataRequest\032,.bytedance.byteplus.rec" +
-      ".retail.WriteResponse\022m\n\006Finish\0225.byteda" +
-      "nce.byteplus.rec.retail.FinishWriteDataR" +
-      "equest\032,.bytedance.byteplus.rec.retail.W" +
-      "riteResponse\022h\n\007Predict\022-.bytedance.byte" +
-      "plus.rec.retail.PredictRequest\032..bytedan" +
-      "ce.byteplus.rec.retail.PredictResponse\022\217" +
-      "\001\n\024AckServerImpressions\022:.bytedance.byte" +
-      "plus.rec.retail.AckServerImpressionsRequ" +
-      "est\032;.bytedance.byteplus.rec.retail.AckS" +
-      "erverImpressionsResponseBc\n$com.byteplus" +
-      ".rec.sdk.retail.protocolZ;github.com/byt" +
-      "eplus-sdk/byteplus-sdk-go-rec/retail/pro" +
-      "tocolb\006proto3"
+      "ance.byteplus.rec.retail.WriteResponse\022m" +
+      "\n\006Finish\0225.bytedance.byteplus.rec.retail" +
+      ".FinishWriteDataRequest\032,.bytedance.byte" +
+      "plus.rec.retail.WriteResponse\022h\n\007Predict" +
+      "\022-.bytedance.byteplus.rec.retail.Predict" +
+      "Request\032..bytedance.byteplus.rec.retail." +
+      "PredictResponse\022\217\001\n\024AckServerImpressions" +
+      "\022:.bytedance.byteplus.rec.retail.AckServ" +
+      "erImpressionsRequest\032;.bytedance.byteplu" +
+      "s.rec.retail.AckServerImpressionsRespons" +
+      "eBc\n$com.byteplus.rec.sdk.retail.protoco" +
+      "lZ;github.com/byteplus-sdk/byteplus-sdk-" +
+      "go-rec/retail/protocolb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -34274,7 +34448,7 @@ public final class ByteplusSaasRetail {
     internal_static_bytedance_byteplus_rec_retail_Status_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_retail_Status_descriptor,
-        new java.lang.String[] { "Code", "Message", });
+        new java.lang.String[] { "Code", "Message", "Success", });
     internal_static_bytedance_byteplus_rec_retail_Date_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_bytedance_byteplus_rec_retail_Date_fieldAccessorTable = new
