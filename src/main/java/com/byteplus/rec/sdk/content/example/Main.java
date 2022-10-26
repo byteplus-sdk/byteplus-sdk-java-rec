@@ -15,8 +15,19 @@ import com.byteplus.rec.sdk.content.example.entity.DemoContent;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteDataRequest;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteResponse;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.FinishWriteDataRequest;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResponse;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsResponse;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -28,12 +39,19 @@ public class Main {
 
     private final static int DEFAULT_RETRY_TIMES = 2;
 
-    private final static Duration DEFAULT_WRITE_TIMEOUT = Duration.ofMillis(8000);
+    private final static Duration DEFAULT_WRITE_TIMEOUT = Duration.ofMillis(800);
+
+    private final static Duration DEFAULT_PREDICT_TIMEOUT = Duration.ofMillis(800);
 
     private final static Duration DEFAULT_FINISH_TIMEOUT = Duration.ofMillis(800);
 
+    private final static Duration DEFAULT_ACK_IMPRESSIONS_TIMEOUT = Duration.ofMillis(800);
+
     // A unique identity assigned by Bytedance.
     public final static String PROJECT_ID = "*********";
+
+    // Unique id for this model.The saas model id that can be used to get rec results from predict api, which is need to fill in URL.
+    public final static String MODEL_ID = "*********";
 
     static {
 //        // Customize the caller config, the parameters in Example are the parameters currently used by default,
@@ -99,6 +117,9 @@ public class Main {
 
         // Finish write self defined topic data
 //        finishWriteOthersExample();
+
+        // Get recommendation results
+        recommendExample();
 
         try {
             // Pause for 5 seconds until the asynchronous import task completes
@@ -366,6 +387,110 @@ public class Main {
                 .setStage(Constant.STAGE_INCREMENTAL)
                 .setTopic(topic)
                 .addAllDataDates(buildDateList(date)).build();
+    }
+
+    public static void recommendExample() {
+        PredictRequest predictRequest = buildPredictRequest();
+        Option[] predict_opts = defaultOptions(DEFAULT_PREDICT_TIMEOUT);
+        PredictResponse response;
+        try {
+            response = client.predict(predictRequest, predict_opts);
+        } catch (Exception e) {
+            log.error("predict occur error, msg:{}", e.getMessage());
+            return;
+        }
+        if (!StatusHelper.isSuccess(response.getStatus().getCode())) {
+            log.error("predict find failure info, msg:{}", response.getStatus());
+            return;
+        }
+        log.info("predict success");
+        // The items, which is eventually shown to user,
+        // should send back to Bytedance for deduplication
+        List<AlteredContent> alteredContents = doSomethingWithPredictResult(response.getContentValue());
+        AckServerImpressionsRequest ackRequest =
+                buildAckRequest(response.getRequestId(), predictRequest, alteredContents);
+        Option[] ack_opts = defaultOptions(DEFAULT_ACK_IMPRESSIONS_TIMEOUT);
+        // Utils.Callable<AckServerImpressionsResponse, AckServerImpressionsRequest> call
+        //        = (req, optList) -> client.ackServerImpressions(req, optList);
+        try {
+            // Utils.doWithRetry(call, ackRequest, ack_opts, DEFAULT_RETRY_TIMES);
+            client.ackServerImpressions(ackRequest, ack_opts);
+        } catch (Exception e) {
+            log.error("[AckServerImpressions] occur error, msg:{}", e.getMessage());
+        }
+    }
+
+    private static PredictRequest buildPredictRequest() {
+        Scene scene = Scene.newBuilder()
+                .setOffset(10)
+                .build();
+        Content rootContent = MockHelper.mockPredictContent();
+        Device device = MockHelper.mockDevice();
+
+        List<Content> candidateContents = Arrays.asList(
+                MockHelper.mockPredictContent(),
+                MockHelper.mockPredictContent()
+        );
+
+        PredictRequest.Context context = PredictRequest.Context.newBuilder()
+                .setRootContent(rootContent)
+                .setDevice(device)
+                .addAllCandidateContents(candidateContents)
+                .build();
+
+        return PredictRequest.newBuilder()
+                .setModelId(MODEL_ID)
+                .setUserId("1457789")
+                .setSize(20)
+                .setScene(scene)
+                .setContentContext(context)
+                // .putExtra("extra_inio", "extra")
+                .build();
+    }
+
+    private static List<AlteredContent> doSomethingWithPredictResult(PredictResult predictResult) {
+        // You can handle recommend results here,
+        // such as filter, insert other items, sort again, etc.
+        // The list of goods finally displayed to user and the filtered goods
+        // should be sent back to bytedance for deduplication
+        return conv2AlteredContents(predictResult.getResponseContentsList());
+    }
+
+    @NotNull
+    private static List<AlteredContent> conv2AlteredContents(List<ResponseContent> contents) {
+        if (Objects.isNull(contents) || contents.isEmpty()) {
+            return Collections.emptyList();
+        }
+        List<AlteredContent> alteredContents = new ArrayList<>(contents.size());
+        for (int i = 0; i < contents.size(); i++) {
+            ResponseContent responseContent = contents.get(i);
+            AlteredContent alteredContent = AlteredContent.newBuilder()
+                    .setAlteredReason("kept")
+                    .setContentId(responseContent.getContentId())
+                    .setRank(i + 1)
+                    .build();
+
+            alteredContents.add(alteredContent);
+        }
+        return alteredContents;
+    }
+
+    private static AckServerImpressionsRequest buildAckRequest(
+            String predictRequestId,
+            PredictRequest predictRequest,
+            List<AlteredContent> alteredContents) {
+
+        return AckServerImpressionsRequest.newBuilder()
+                .setModelId(predictRequest.getModelId())
+                .setPredictRequestId(predictRequestId)
+                .setUserId(predictRequest.getUserId())
+                .setScene(predictRequest.getScene())
+                // If it is the recommendation result from byteplus, traffic_source is byteplus,
+                // if it is the customer's own recommendation result, traffic_source is self.
+                .setTrafficSource("byteplus")
+                .addAllAlteredContents(alteredContents)
+                //.putExtra("ip", "127.0.0.1")
+                .build();
     }
 
     private static Option[] defaultOptions(Duration timeout) {
