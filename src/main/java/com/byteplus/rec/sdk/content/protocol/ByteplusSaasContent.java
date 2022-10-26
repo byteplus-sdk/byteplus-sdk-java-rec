@@ -102,6 +102,59 @@ public final class ByteplusSaasContent {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Status(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+            case 24: {
+
+              success_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_Status_descriptor;
@@ -217,13 +270,13 @@ public final class ByteplusSaasContent {
       if (code_ != 0) {
         output.writeInt32(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
       }
       if (success_ != false) {
         output.writeBool(3, success_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -236,14 +289,14 @@ public final class ByteplusSaasContent {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, code_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
       }
       if (success_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, success_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -264,7 +317,7 @@ public final class ByteplusSaasContent {
           .equals(other.getMessage())) return false;
       if (getSuccess()
           != other.getSuccess()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -282,7 +335,7 @@ public final class ByteplusSaasContent {
       hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getSuccess());
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -406,13 +459,18 @@ public final class ByteplusSaasContent {
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -510,7 +568,7 @@ public final class ByteplusSaasContent {
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -525,45 +583,17 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                code_ = input.readInt32();
-
-                break;
-              } // case 8
-              case 18: {
-                message_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              case 24: {
-                success_ = input.readBool();
-
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
 
@@ -808,18 +838,7 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Status(input, extensionRegistry);
       }
     };
 
@@ -916,6 +935,58 @@ public final class ByteplusSaasContent {
     getUnknownFields() {
       return this.unknownFields;
     }
+    private Date(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              year_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              month_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              day_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_Date_descriptor;
@@ -1001,7 +1072,7 @@ public final class ByteplusSaasContent {
       if (day_ != 0) {
         output.writeInt32(3, day_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -1022,7 +1093,7 @@ public final class ByteplusSaasContent {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, day_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1043,7 +1114,7 @@ public final class ByteplusSaasContent {
           != other.getMonth()) return false;
       if (getDay()
           != other.getDay()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -1060,7 +1131,7 @@ public final class ByteplusSaasContent {
       hash = (53 * hash) + getMonth();
       hash = (37 * hash) + DAY_FIELD_NUMBER;
       hash = (53 * hash) + getDay();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1189,13 +1260,18 @@ public final class ByteplusSaasContent {
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -1292,7 +1368,7 @@ public final class ByteplusSaasContent {
         if (other.getDay() != 0) {
           setDay(other.getDay());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1307,45 +1383,17 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                year_ = input.readInt32();
-
-                break;
-              } // case 8
-              case 16: {
-                month_ = input.readInt32();
-
-                break;
-              } // case 16
-              case 24: {
-                day_ = input.readInt32();
-
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
 
@@ -1522,18 +1570,7 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Date(input, extensionRegistry);
       }
     };
 
@@ -1722,6 +1759,74 @@ public final class ByteplusSaasContent {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private FinishWriteDataRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              projectId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stage_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              topic_ = s;
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                dataDates_ = new java.util.ArrayList<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              dataDates_.add(
+                  input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          dataDates_ = java.util.Collections.unmodifiableList(dataDates_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1979,19 +2084,19 @@ public final class ByteplusSaasContent {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
+      if (!getStageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
+      if (!getTopicBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
       }
       for (int i = 0; i < dataDates_.size(); i++) {
         output.writeMessage(10, dataDates_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -2000,20 +2105,20 @@ public final class ByteplusSaasContent {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
+      if (!getStageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
+      if (!getTopicBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
       }
       for (int i = 0; i < dataDates_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, dataDates_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2036,7 +2141,7 @@ public final class ByteplusSaasContent {
           .equals(other.getTopic())) return false;
       if (!getDataDatesList()
           .equals(other.getDataDatesList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -2057,7 +2162,7 @@ public final class ByteplusSaasContent {
         hash = (37 * hash) + DATA_DATES_FIELD_NUMBER;
         hash = (53 * hash) + getDataDatesList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2174,13 +2279,19 @@ public final class ByteplusSaasContent {
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.FinishWriteDataRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDataDatesFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -2193,11 +2304,10 @@ public final class ByteplusSaasContent {
 
         if (dataDatesBuilder_ == null) {
           dataDates_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          dataDates_ = null;
           dataDatesBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2323,7 +2433,7 @@ public final class ByteplusSaasContent {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2338,58 +2448,17 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.FinishWriteDataRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                projectId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 18: {
-                stage_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              case 26: {
-                topic_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 26
-              case 82: {
-                com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date m =
-                    input.readMessage(
-                        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Date.parser(),
-                        extensionRegistry);
-                if (dataDatesBuilder_ == null) {
-                  ensureDataDatesIsMutable();
-                  dataDates_.add(m);
-                } else {
-                  dataDatesBuilder_.addMessage(m);
-                }
-                break;
-              } // case 82
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.FinishWriteDataRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -3109,18 +3178,7 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new FinishWriteDataRequest(input, extensionRegistry);
       }
     };
 
@@ -3218,6 +3276,55 @@ public final class ByteplusSaasContent {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private DataError(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              data_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -3340,13 +3447,13 @@ public final class ByteplusSaasContent {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, message_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
+      if (!getDataBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, data_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -3355,13 +3462,13 @@ public final class ByteplusSaasContent {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+      if (!getMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, message_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
+      if (!getDataBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, data_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3380,7 +3487,7 @@ public final class ByteplusSaasContent {
           .equals(other.getMessage())) return false;
       if (!getData()
           .equals(other.getData())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -3395,7 +3502,7 @@ public final class ByteplusSaasContent {
       hash = (53 * hash) + getMessage().hashCode();
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3516,13 +3623,18 @@ public final class ByteplusSaasContent {
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.DataError.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -3615,7 +3727,7 @@ public final class ByteplusSaasContent {
           data_ = other.data_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -3630,40 +3742,17 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.DataError parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                message_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 18: {
-                data_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.DataError) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
 
@@ -3896,18 +3985,7 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new DataError(input, extensionRegistry);
       }
     };
 
@@ -4042,6 +4120,69 @@ public final class ByteplusSaasContent {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private WriteResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status.Builder subBuilder = null;
+              if (status_ != null) {
+                subBuilder = status_.toBuilder();
+              }
+              status_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(status_);
+                status_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                errors_ = new java.util.ArrayList<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.DataError>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              errors_.add(
+                  input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.DataError.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          errors_ = java.util.Collections.unmodifiableList(errors_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4187,7 +4328,7 @@ public final class ByteplusSaasContent {
       for (int i = 0; i < errors_.size(); i++) {
         output.writeMessage(2, errors_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -4204,7 +4345,7 @@ public final class ByteplusSaasContent {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, errors_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4226,7 +4367,7 @@ public final class ByteplusSaasContent {
       }
       if (!getErrorsList()
           .equals(other.getErrorsList())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -4245,7 +4386,7 @@ public final class ByteplusSaasContent {
         hash = (37 * hash) + ERRORS_FIELD_NUMBER;
         hash = (53 * hash) + getErrorsList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4362,13 +4503,19 @@ public final class ByteplusSaasContent {
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getErrorsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -4381,11 +4528,10 @@ public final class ByteplusSaasContent {
         }
         if (errorsBuilder_ == null) {
           errors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          errors_ = null;
           errorsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -4504,7 +4650,7 @@ public final class ByteplusSaasContent {
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4519,50 +4665,17 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getStatusFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
-                break;
-              } // case 10
-              case 18: {
-                com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.DataError m =
-                    input.readMessage(
-                        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.DataError.parser(),
-                        extensionRegistry);
-                if (errorsBuilder_ == null) {
-                  ensureErrorsIsMutable();
-                  errors_.add(m);
-                } else {
-                  errorsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 18
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -5111,18 +5224,7 @@ public final class ByteplusSaasContent {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new WriteResponse(input, extensionRegistry);
       }
     };
 
@@ -5329,11 +5431,9 @@ public final class ByteplusSaasContent {
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    /* nullable */
-java.lang.String getExtraOrDefault(
+    java.lang.String getExtraOrDefault(
         java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
+        java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -5381,6 +5481,87 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private WriteDataRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              projectId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stage_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              topic_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                data_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              data_.add(s);
+              break;
+            }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                extra_ = com.google.protobuf.MapField.newMapField(
+                    ExtraDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extra__ = input.readMessage(
+                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extra_.getMutableMap().put(
+                  extra__.getKey(), extra__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          data_ = data_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5669,7 +5850,7 @@ java.lang.String defaultValue);
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -5708,7 +5889,7 @@ java.lang.String defaultValue);
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -5726,7 +5907,7 @@ java.lang.String defaultValue);
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -5749,13 +5930,13 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
+      if (!getStageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stage_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
+      if (!getTopicBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, topic_);
       }
       for (int i = 0; i < data_.size(); i++) {
@@ -5767,7 +5948,7 @@ java.lang.String defaultValue);
           internalGetExtra(),
           ExtraDefaultEntryHolder.defaultEntry,
           100);
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -5776,13 +5957,13 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stage_)) {
+      if (!getStageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stage_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topic_)) {
+      if (!getTopicBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, topic_);
       }
       {
@@ -5803,7 +5984,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(100, extra__);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5828,7 +6009,7 @@ java.lang.String defaultValue);
           .equals(other.getDataList())) return false;
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -5853,7 +6034,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtra().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5996,13 +6177,18 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteDataRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -6125,7 +6311,7 @@ java.lang.String defaultValue);
         }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -6140,59 +6326,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteDataRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                projectId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 18: {
-                stage_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              case 26: {
-                topic_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 26
-              case 82: {
-                java.lang.String s = input.readStringRequireUtf8();
-                ensureDataIsMutable();
-                data_.add(s);
-                break;
-              } // case 82
-              case 802: {
-                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                extra__ = input.readMessage(
-                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableExtra().getMutableMap().put(
-                    extra__.getKey(), extra__.getValue());
-                break;
-              } // case 802
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.WriteDataRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -6753,7 +6897,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -6792,7 +6936,7 @@ java.lang.String defaultValue);
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -6810,7 +6954,7 @@ java.lang.String defaultValue);
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -6836,7 +6980,7 @@ java.lang.String defaultValue);
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -6861,11 +7005,8 @@ java.lang.String defaultValue);
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -6919,18 +7060,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new WriteDataRequest(input, extensionRegistry);
       }
     };
 
@@ -7785,11 +7915,9 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    /* nullable */
-java.lang.String getExtraOrDefault(
+    java.lang.String getExtraOrDefault(
         java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
+        java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -7849,6 +7977,248 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private Content(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contentId_ = s;
+              break;
+            }
+            case 16: {
+
+              isRecommendable_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              categories_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contentType_ = s;
+              break;
+            }
+            case 40: {
+
+              videoDuration_ = input.readInt32();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contentTitle_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contentOwner_ = s;
+              break;
+            }
+            case 72: {
+
+              contentOwnerFollowers_ = input.readInt32();
+              break;
+            }
+            case 85: {
+
+              contentOwnerRating_ = input.readFloat();
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              contentOwnerName_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              collectionId_ = s;
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tags_ = s;
+              break;
+            }
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              topicTags_ = s;
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              imageUrls_ = s;
+              break;
+            }
+            case 128: {
+
+              detailPicNum_ = input.readInt32();
+              break;
+            }
+            case 138: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              videoUrls_ = s;
+              break;
+            }
+            case 149: {
+
+              userRating_ = input.readFloat();
+              break;
+            }
+            case 152: {
+
+              viewsCount_ = input.readInt32();
+              break;
+            }
+            case 160: {
+
+              commentsCount_ = input.readInt32();
+              break;
+            }
+            case 168: {
+
+              likesCount_ = input.readInt32();
+              break;
+            }
+            case 176: {
+
+              sharesCount_ = input.readInt32();
+              break;
+            }
+            case 184: {
+
+              saveCount_ = input.readInt32();
+              break;
+            }
+            case 192: {
+
+              currentPrice_ = input.readInt32();
+              break;
+            }
+            case 200: {
+
+              originalPrice_ = input.readInt32();
+              break;
+            }
+            case 210: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              availableLocation_ = s;
+              break;
+            }
+            case 216: {
+
+              publishTimestamp_ = input.readInt32();
+              break;
+            }
+            case 224: {
+
+              updateTimestamp_ = input.readInt32();
+              break;
+            }
+            case 232: {
+
+              copyrightStartTimestamp_ = input.readInt32();
+              break;
+            }
+            case 240: {
+
+              copyrightEndTimestamp_ = input.readInt32();
+              break;
+            }
+            case 248: {
+
+              isPaidContent_ = input.readBool();
+              break;
+            }
+            case 258: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              language_ = s;
+              break;
+            }
+            case 266: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              relatedContentIds_ = s;
+              break;
+            }
+            case 272: {
+
+              soldCount_ = input.readInt32();
+              break;
+            }
+            case 282: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              source_ = s;
+              break;
+            }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                extra_ = com.google.protobuf.MapField.newMapField(
+                    ExtraDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extra__ = input.readMessage(
+                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extra_.getMutableMap().put(
+                  extra__.getKey(), extra__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -9208,7 +9578,7 @@ java.lang.String defaultValue);
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -9247,7 +9617,7 @@ java.lang.String defaultValue);
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -9265,7 +9635,7 @@ java.lang.String defaultValue);
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -9288,58 +9658,58 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentId_)) {
+      if (!getContentIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, contentId_);
       }
       if (isRecommendable_ != 0) {
         output.writeInt32(2, isRecommendable_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categories_)) {
+      if (!getCategoriesBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, categories_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentType_)) {
+      if (!getContentTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, contentType_);
       }
       if (videoDuration_ != 0) {
         output.writeInt32(5, videoDuration_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentTitle_)) {
+      if (!getContentTitleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, contentTitle_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, description_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentOwner_)) {
+      if (!getContentOwnerBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, contentOwner_);
       }
       if (contentOwnerFollowers_ != 0) {
         output.writeInt32(9, contentOwnerFollowers_);
       }
-      if (java.lang.Float.floatToRawIntBits(contentOwnerRating_) != 0) {
+      if (contentOwnerRating_ != 0F) {
         output.writeFloat(10, contentOwnerRating_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentOwnerName_)) {
+      if (!getContentOwnerNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, contentOwnerName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(collectionId_)) {
+      if (!getCollectionIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, collectionId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tags_)) {
+      if (!getTagsBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 13, tags_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topicTags_)) {
+      if (!getTopicTagsBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, topicTags_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageUrls_)) {
+      if (!getImageUrlsBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 15, imageUrls_);
       }
       if (detailPicNum_ != 0) {
         output.writeInt32(16, detailPicNum_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(videoUrls_)) {
+      if (!getVideoUrlsBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 17, videoUrls_);
       }
-      if (java.lang.Float.floatToRawIntBits(userRating_) != 0) {
+      if (userRating_ != 0F) {
         output.writeFloat(18, userRating_);
       }
       if (viewsCount_ != 0) {
@@ -9363,7 +9733,7 @@ java.lang.String defaultValue);
       if (originalPrice_ != 0) {
         output.writeInt32(25, originalPrice_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(availableLocation_)) {
+      if (!getAvailableLocationBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 26, availableLocation_);
       }
       if (publishTimestamp_ != 0) {
@@ -9381,16 +9751,16 @@ java.lang.String defaultValue);
       if (isPaidContent_ != false) {
         output.writeBool(31, isPaidContent_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
+      if (!getLanguageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 32, language_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(relatedContentIds_)) {
+      if (!getRelatedContentIdsBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 33, relatedContentIds_);
       }
       if (soldCount_ != 0) {
         output.writeInt32(34, soldCount_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
+      if (!getSourceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 35, source_);
       }
       com.google.protobuf.GeneratedMessageV3
@@ -9399,7 +9769,7 @@ java.lang.String defaultValue);
           internalGetExtra(),
           ExtraDefaultEntryHolder.defaultEntry,
           100);
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -9408,63 +9778,63 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentId_)) {
+      if (!getContentIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, contentId_);
       }
       if (isRecommendable_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, isRecommendable_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(categories_)) {
+      if (!getCategoriesBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, categories_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentType_)) {
+      if (!getContentTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, contentType_);
       }
       if (videoDuration_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, videoDuration_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentTitle_)) {
+      if (!getContentTitleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, contentTitle_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+      if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, description_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentOwner_)) {
+      if (!getContentOwnerBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, contentOwner_);
       }
       if (contentOwnerFollowers_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(9, contentOwnerFollowers_);
       }
-      if (java.lang.Float.floatToRawIntBits(contentOwnerRating_) != 0) {
+      if (contentOwnerRating_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(10, contentOwnerRating_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentOwnerName_)) {
+      if (!getContentOwnerNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, contentOwnerName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(collectionId_)) {
+      if (!getCollectionIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, collectionId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tags_)) {
+      if (!getTagsBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, tags_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(topicTags_)) {
+      if (!getTopicTagsBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, topicTags_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageUrls_)) {
+      if (!getImageUrlsBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, imageUrls_);
       }
       if (detailPicNum_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(16, detailPicNum_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(videoUrls_)) {
+      if (!getVideoUrlsBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, videoUrls_);
       }
-      if (java.lang.Float.floatToRawIntBits(userRating_) != 0) {
+      if (userRating_ != 0F) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(18, userRating_);
       }
@@ -9496,7 +9866,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(25, originalPrice_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(availableLocation_)) {
+      if (!getAvailableLocationBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(26, availableLocation_);
       }
       if (publishTimestamp_ != 0) {
@@ -9519,17 +9889,17 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(31, isPaidContent_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(language_)) {
+      if (!getLanguageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(32, language_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(relatedContentIds_)) {
+      if (!getRelatedContentIdsBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(33, relatedContentIds_);
       }
       if (soldCount_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(34, soldCount_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(source_)) {
+      if (!getSourceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(35, source_);
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
@@ -9542,7 +9912,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(100, extra__);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9631,7 +10001,7 @@ java.lang.String defaultValue);
           .equals(other.getSource())) return false;
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -9719,7 +10089,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtra().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9862,13 +10232,18 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -10179,7 +10554,7 @@ java.lang.String defaultValue);
         }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -10194,213 +10569,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                contentId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 16: {
-                isRecommendable_ = input.readInt32();
-
-                break;
-              } // case 16
-              case 26: {
-                categories_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 26
-              case 34: {
-                contentType_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 34
-              case 40: {
-                videoDuration_ = input.readInt32();
-
-                break;
-              } // case 40
-              case 50: {
-                contentTitle_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 50
-              case 58: {
-                description_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 58
-              case 66: {
-                contentOwner_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 66
-              case 72: {
-                contentOwnerFollowers_ = input.readInt32();
-
-                break;
-              } // case 72
-              case 85: {
-                contentOwnerRating_ = input.readFloat();
-
-                break;
-              } // case 85
-              case 90: {
-                contentOwnerName_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 90
-              case 98: {
-                collectionId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 98
-              case 106: {
-                tags_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 106
-              case 114: {
-                topicTags_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 114
-              case 122: {
-                imageUrls_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 122
-              case 128: {
-                detailPicNum_ = input.readInt32();
-
-                break;
-              } // case 128
-              case 138: {
-                videoUrls_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 138
-              case 149: {
-                userRating_ = input.readFloat();
-
-                break;
-              } // case 149
-              case 152: {
-                viewsCount_ = input.readInt32();
-
-                break;
-              } // case 152
-              case 160: {
-                commentsCount_ = input.readInt32();
-
-                break;
-              } // case 160
-              case 168: {
-                likesCount_ = input.readInt32();
-
-                break;
-              } // case 168
-              case 176: {
-                sharesCount_ = input.readInt32();
-
-                break;
-              } // case 176
-              case 184: {
-                saveCount_ = input.readInt32();
-
-                break;
-              } // case 184
-              case 192: {
-                currentPrice_ = input.readInt32();
-
-                break;
-              } // case 192
-              case 200: {
-                originalPrice_ = input.readInt32();
-
-                break;
-              } // case 200
-              case 210: {
-                availableLocation_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 210
-              case 216: {
-                publishTimestamp_ = input.readInt32();
-
-                break;
-              } // case 216
-              case 224: {
-                updateTimestamp_ = input.readInt32();
-
-                break;
-              } // case 224
-              case 232: {
-                copyrightStartTimestamp_ = input.readInt32();
-
-                break;
-              } // case 232
-              case 240: {
-                copyrightEndTimestamp_ = input.readInt32();
-
-                break;
-              } // case 240
-              case 248: {
-                isPaidContent_ = input.readBool();
-
-                break;
-              } // case 248
-              case 258: {
-                language_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 258
-              case 266: {
-                relatedContentIds_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 266
-              case 272: {
-                soldCount_ = input.readInt32();
-
-                break;
-              } // case 272
-              case 282: {
-                source_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 282
-              case 802: {
-                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                extra__ = input.readMessage(
-                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableExtra().getMutableMap().put(
-                    extra__.getKey(), extra__.getValue());
-                break;
-              } // case 802
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -13520,7 +13699,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -13559,7 +13738,7 @@ java.lang.String defaultValue);
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -13577,7 +13756,7 @@ java.lang.String defaultValue);
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -13603,7 +13782,7 @@ java.lang.String defaultValue);
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -13628,11 +13807,8 @@ java.lang.String defaultValue);
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -13686,18 +13862,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Content(input, extensionRegistry);
       }
     };
 
@@ -13805,6 +13970,59 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private Scene(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              sceneName_ = s;
+              break;
+            }
+            case 16: {
+
+              pageNumber_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              offset_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -13922,7 +14140,7 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sceneName_)) {
+      if (!getSceneNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, sceneName_);
       }
       if (pageNumber_ != 0) {
@@ -13931,7 +14149,7 @@ java.lang.String defaultValue);
       if (offset_ != 0) {
         output.writeInt32(3, offset_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -13940,7 +14158,7 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sceneName_)) {
+      if (!getSceneNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, sceneName_);
       }
       if (pageNumber_ != 0) {
@@ -13951,7 +14169,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, offset_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13972,7 +14190,7 @@ java.lang.String defaultValue);
           != other.getPageNumber()) return false;
       if (getOffset()
           != other.getOffset()) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -13989,7 +14207,7 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getPageNumber();
       hash = (37 * hash) + OFFSET_FIELD_NUMBER;
       hash = (53 * hash) + getOffset();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -14110,13 +14328,18 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -14214,7 +14437,7 @@ java.lang.String defaultValue);
         if (other.getOffset() != 0) {
           setOffset(other.getOffset());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -14229,45 +14452,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                sceneName_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 16: {
-                pageNumber_ = input.readInt32();
-
-                break;
-              } // case 16
-              case 24: {
-                offset_ = input.readInt32();
-
-                break;
-              } // case 24
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
 
@@ -14521,18 +14716,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Scene(input, extensionRegistry);
       }
     };
 
@@ -14817,6 +15001,97 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private Device(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              platform_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              osType_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              appVersion_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              deviceModel_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              deviceBrand_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              osVersion_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              browserType_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userAgent_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              network_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -15301,34 +15576,34 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
+      if (!getPlatformBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, platform_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osType_)) {
+      if (!getOsTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, osType_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
+      if (!getAppVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, appVersion_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceModel_)) {
+      if (!getDeviceModelBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, deviceModel_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceBrand_)) {
+      if (!getDeviceBrandBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, deviceBrand_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osVersion_)) {
+      if (!getOsVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, osVersion_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(browserType_)) {
+      if (!getBrowserTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, browserType_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userAgent_)) {
+      if (!getUserAgentBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, userAgent_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(network_)) {
+      if (!getNetworkBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, network_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -15337,34 +15612,34 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
+      if (!getPlatformBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, platform_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osType_)) {
+      if (!getOsTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, osType_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appVersion_)) {
+      if (!getAppVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, appVersion_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceModel_)) {
+      if (!getDeviceModelBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, deviceModel_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceBrand_)) {
+      if (!getDeviceBrandBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, deviceBrand_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osVersion_)) {
+      if (!getOsVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, osVersion_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(browserType_)) {
+      if (!getBrowserTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, browserType_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userAgent_)) {
+      if (!getUserAgentBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, userAgent_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(network_)) {
+      if (!getNetworkBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, network_);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15397,7 +15672,7 @@ java.lang.String defaultValue);
           .equals(other.getUserAgent())) return false;
       if (!getNetwork()
           .equals(other.getNetwork())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -15426,7 +15701,7 @@ java.lang.String defaultValue);
       hash = (53 * hash) + getUserAgent().hashCode();
       hash = (37 * hash) + NETWORK_FIELD_NUMBER;
       hash = (53 * hash) + getNetwork().hashCode();
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15547,13 +15822,18 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -15695,7 +15975,7 @@ java.lang.String defaultValue);
           network_ = other.network_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -15710,75 +15990,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                platform_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 18: {
-                osType_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              case 26: {
-                appVersion_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 26
-              case 34: {
-                deviceModel_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 34
-              case 42: {
-                deviceBrand_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 42
-              case 50: {
-                osVersion_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 50
-              case 58: {
-                browserType_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 58
-              case 66: {
-                userAgent_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 66
-              case 74: {
-                network_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 74
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
 
@@ -16783,18 +17005,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new Device(input, extensionRegistry);
       }
     };
 
@@ -17007,11 +17218,9 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    /* nullable */
-java.lang.String getExtraOrDefault(
+    java.lang.String getExtraOrDefault(
         java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
+        java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -17058,6 +17267,106 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private PredictRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              projectId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              modelId_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userId_ = s;
+              break;
+            }
+            case 88: {
+
+              size_ = input.readInt32();
+              break;
+            }
+            case 98: {
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene.Builder subBuilder = null;
+              if (scene_ != null) {
+                subBuilder = scene_.toBuilder();
+              }
+              scene_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scene_);
+                scene_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 114: {
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest.Context.Builder subBuilder = null;
+              if (contentContext_ != null) {
+                subBuilder = contentContext_.toBuilder();
+              }
+              contentContext_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest.Context.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(contentContext_);
+                contentContext_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                extra_ = com.google.protobuf.MapField.newMapField(
+                    ExtraDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extra__ = input.readMessage(
+                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extra_.getMutableMap().put(
+                  extra__.getKey(), extra__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -17233,6 +17542,82 @@ java.lang.String defaultValue);
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
+      }
+      private Context(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content.Builder subBuilder = null;
+                if (rootContent_ != null) {
+                  subBuilder = rootContent_.toBuilder();
+                }
+                rootContent_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(rootContent_);
+                  rootContent_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 18: {
+                com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device.Builder subBuilder = null;
+                if (device_ != null) {
+                  subBuilder = device_.toBuilder();
+                }
+                device_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(device_);
+                  device_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 26: {
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  candidateContents_ = new java.util.ArrayList<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                candidateContents_.add(
+                    input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content.parser(), extensionRegistry));
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          if (((mutable_bitField0_ & 0x00000001) != 0)) {
+            candidateContents_ = java.util.Collections.unmodifiableList(candidateContents_);
+          }
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -17422,7 +17807,7 @@ java.lang.String defaultValue);
         for (int i = 0; i < candidateContents_.size(); i++) {
           output.writeMessage(3, candidateContents_.get(i));
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
       @java.lang.Override
@@ -17443,7 +17828,7 @@ java.lang.String defaultValue);
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, candidateContents_.get(i));
         }
-        size += getUnknownFields().getSerializedSize();
+        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -17470,7 +17855,7 @@ java.lang.String defaultValue);
         }
         if (!getCandidateContentsList()
             .equals(other.getCandidateContentsList())) return false;
-        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
 
@@ -17493,7 +17878,7 @@ java.lang.String defaultValue);
           hash = (37 * hash) + CANDIDATE_CONTENTS_FIELD_NUMBER;
           hash = (53 * hash) + getCandidateContentsList().hashCode();
         }
-        hash = (29 * hash) + getUnknownFields().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -17614,13 +17999,19 @@ java.lang.String defaultValue);
 
         // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest.Context.newBuilder()
         private Builder() {
-
+          maybeForceBuilderInitialization();
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+            getCandidateContentsFieldBuilder();
+          }
         }
         @java.lang.Override
         public Builder clear() {
@@ -17639,11 +18030,10 @@ java.lang.String defaultValue);
           }
           if (candidateContentsBuilder_ == null) {
             candidateContents_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            candidateContents_ = null;
             candidateContentsBuilder_.clear();
           }
-          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -17770,7 +18160,7 @@ java.lang.String defaultValue);
               }
             }
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
@@ -17785,57 +18175,17 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
+          com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest.Context parsedMessage = null;
           try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  input.readMessage(
-                      getRootContentFieldBuilder().getBuilder(),
-                      extensionRegistry);
-
-                  break;
-                } // case 10
-                case 18: {
-                  input.readMessage(
-                      getDeviceFieldBuilder().getBuilder(),
-                      extensionRegistry);
-
-                  break;
-                } // case 18
-                case 26: {
-                  com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content m =
-                      input.readMessage(
-                          com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content.parser(),
-                          extensionRegistry);
-                  if (candidateContentsBuilder_ == null) {
-                    ensureCandidateContentsIsMutable();
-                    candidateContents_.add(m);
-                  } else {
-                    candidateContentsBuilder_.addMessage(m);
-                  }
-                  break;
-                } // case 26
-                default: {
-                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                    done = true; // was an endgroup tag
-                  }
-                  break;
-                } // default:
-              } // switch (tag)
-            } // while (!done)
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest.Context) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            onChanged();
-          } // finally
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
           return this;
         }
         private int bitField0_;
@@ -18548,18 +18898,7 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(builder.buildPartial());
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                .setUnfinishedMessage(builder.buildPartial());
-          }
-          return builder.buildPartial();
+          return new Context(input, extensionRegistry);
         }
       };
 
@@ -18864,7 +19203,7 @@ java.lang.String defaultValue);
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -18903,7 +19242,7 @@ java.lang.String defaultValue);
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -18921,7 +19260,7 @@ java.lang.String defaultValue);
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -18944,13 +19283,13 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
+      if (!getModelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, modelId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+      if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, userId_);
       }
       if (size_ != 0) {
@@ -18968,7 +19307,7 @@ java.lang.String defaultValue);
           internalGetExtra(),
           ExtraDefaultEntryHolder.defaultEntry,
           100);
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -18977,13 +19316,13 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
+      if (!getModelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, modelId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+      if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, userId_);
       }
       if (size_ != 0) {
@@ -19008,7 +19347,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(100, extra__);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -19043,7 +19382,7 @@ java.lang.String defaultValue);
       }
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -19074,7 +19413,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtra().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -19217,13 +19556,18 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -19363,7 +19707,7 @@ java.lang.String defaultValue);
         }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -19378,72 +19722,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                projectId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 18: {
-                modelId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              case 82: {
-                userId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 82
-              case 88: {
-                size_ = input.readInt32();
-
-                break;
-              } // case 88
-              case 98: {
-                input.readMessage(
-                    getSceneFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
-                break;
-              } // case 98
-              case 114: {
-                input.readMessage(
-                    getContentContextFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
-                break;
-              } // case 114
-              case 802: {
-                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                extra__ = input.readMessage(
-                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableExtra().getMutableMap().put(
-                    extra__.getKey(), extra__.getValue());
-                break;
-              } // case 802
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -20176,7 +20465,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -20215,7 +20504,7 @@ java.lang.String defaultValue);
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -20233,7 +20522,7 @@ java.lang.String defaultValue);
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -20259,7 +20548,7 @@ java.lang.String defaultValue);
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -20284,11 +20573,8 @@ java.lang.String defaultValue);
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -20342,18 +20628,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PredictRequest(input, extensionRegistry);
       }
     };
 
@@ -20470,11 +20745,9 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    /* nullable */
-java.lang.String getExtraOrDefault(
+    java.lang.String getExtraOrDefault(
         java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
+        java.lang.String defaultValue);
     /**
      * <pre>
      * Output only.
@@ -20518,6 +20791,69 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private PredictResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                responseContents_ = new java.util.ArrayList<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              responseContents_.add(
+                  input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent.parser(), extensionRegistry));
+              break;
+            }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                extra_ = com.google.protobuf.MapField.newMapField(
+                    ExtraDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extra__ = input.readMessage(
+                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extra_.getMutableMap().put(
+                  extra__.getKey(), extra__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          responseContents_ = java.util.Collections.unmodifiableList(responseContents_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -20673,11 +21009,9 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; extra = 100;</code>
        */
 
-      /* nullable */
-java.lang.String getExtraOrDefault(
+      java.lang.String getExtraOrDefault(
           java.lang.String key,
-          /* nullable */
-java.lang.String defaultValue);
+          java.lang.String defaultValue);
       /**
        * <pre>
        * Output only.
@@ -20722,6 +21056,84 @@ java.lang.String defaultValue);
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
+      }
+      private ResponseContent(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                contentId_ = s;
+                break;
+              }
+              case 16: {
+
+                rank_ = input.readInt32();
+                break;
+              }
+              case 25: {
+
+                pctr_ = input.readDouble();
+                break;
+              }
+              case 33: {
+
+                pcvr_ = input.readDouble();
+                break;
+              }
+              case 42: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                recInfo_ = s;
+                break;
+              }
+              case 802: {
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  extra_ = com.google.protobuf.MapField.newMapField(
+                      ExtraDefaultEntryHolder.defaultEntry);
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                extra__ = input.readMessage(
+                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                extra_.getMutableMap().put(
+                    extra__.getKey(), extra__.getValue());
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -20934,7 +21346,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -20971,7 +21383,7 @@ java.lang.String defaultValue);
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -20988,7 +21400,7 @@ java.lang.String defaultValue);
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -21011,19 +21423,19 @@ java.lang.String defaultValue);
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentId_)) {
+        if (!getContentIdBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, contentId_);
         }
         if (rank_ != 0) {
           output.writeInt32(2, rank_);
         }
-        if (java.lang.Double.doubleToRawLongBits(pctr_) != 0) {
+        if (pctr_ != 0D) {
           output.writeDouble(3, pctr_);
         }
-        if (java.lang.Double.doubleToRawLongBits(pcvr_) != 0) {
+        if (pcvr_ != 0D) {
           output.writeDouble(4, pcvr_);
         }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recInfo_)) {
+        if (!getRecInfoBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 5, recInfo_);
         }
         com.google.protobuf.GeneratedMessageV3
@@ -21032,7 +21444,7 @@ java.lang.String defaultValue);
             internalGetExtra(),
             ExtraDefaultEntryHolder.defaultEntry,
             100);
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
       @java.lang.Override
@@ -21041,22 +21453,22 @@ java.lang.String defaultValue);
         if (size != -1) return size;
 
         size = 0;
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentId_)) {
+        if (!getContentIdBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, contentId_);
         }
         if (rank_ != 0) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(2, rank_);
         }
-        if (java.lang.Double.doubleToRawLongBits(pctr_) != 0) {
+        if (pctr_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
             .computeDoubleSize(3, pctr_);
         }
-        if (java.lang.Double.doubleToRawLongBits(pcvr_) != 0) {
+        if (pcvr_ != 0D) {
           size += com.google.protobuf.CodedOutputStream
             .computeDoubleSize(4, pcvr_);
         }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recInfo_)) {
+        if (!getRecInfoBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, recInfo_);
         }
         for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
@@ -21069,7 +21481,7 @@ java.lang.String defaultValue);
           size += com.google.protobuf.CodedOutputStream
               .computeMessageSize(100, extra__);
         }
-        size += getUnknownFields().getSerializedSize();
+        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -21098,7 +21510,7 @@ java.lang.String defaultValue);
             .equals(other.getRecInfo())) return false;
         if (!internalGetExtra().equals(
             other.internalGetExtra())) return false;
-        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
 
@@ -21125,7 +21537,7 @@ java.lang.String defaultValue);
           hash = (37 * hash) + EXTRA_FIELD_NUMBER;
           hash = (53 * hash) + internalGetExtra().hashCode();
         }
-        hash = (29 * hash) + getUnknownFields().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -21268,13 +21680,18 @@ java.lang.String defaultValue);
 
         // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent.newBuilder()
         private Builder() {
-
+          maybeForceBuilderInitialization();
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
         }
         @java.lang.Override
         public Builder clear() {
@@ -21391,7 +21808,7 @@ java.lang.String defaultValue);
           }
           internalGetMutableExtra().mergeFrom(
               other.internalGetExtra());
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
@@ -21406,63 +21823,17 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
+          com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent parsedMessage = null;
           try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  contentId_ = input.readStringRequireUtf8();
-
-                  break;
-                } // case 10
-                case 16: {
-                  rank_ = input.readInt32();
-
-                  break;
-                } // case 16
-                case 25: {
-                  pctr_ = input.readDouble();
-
-                  break;
-                } // case 25
-                case 33: {
-                  pcvr_ = input.readDouble();
-
-                  break;
-                } // case 33
-                case 42: {
-                  recInfo_ = input.readStringRequireUtf8();
-
-                  break;
-                } // case 42
-                case 802: {
-                  com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                  extra__ = input.readMessage(
-                      ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                  internalGetMutableExtra().getMutableMap().put(
-                      extra__.getKey(), extra__.getValue());
-                  break;
-                } // case 802
-                default: {
-                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                    done = true; // was an endgroup tag
-                  }
-                  break;
-                } // default:
-              } // switch (tag)
-            } // while (!done)
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            onChanged();
-          } // finally
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
           return this;
         }
         private int bitField0_;
@@ -21855,7 +22226,7 @@ java.lang.String defaultValue);
         @java.lang.Override
         public boolean containsExtra(
             java.lang.String key) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           return internalGetExtra().getMap().containsKey(key);
         }
         /**
@@ -21892,7 +22263,7 @@ java.lang.String defaultValue);
         public java.lang.String getExtraOrDefault(
             java.lang.String key,
             java.lang.String defaultValue) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -21909,7 +22280,7 @@ java.lang.String defaultValue);
 
         public java.lang.String getExtraOrThrow(
             java.lang.String key) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           if (!map.containsKey(key)) {
@@ -21934,7 +22305,7 @@ java.lang.String defaultValue);
 
         public Builder removeExtra(
             java.lang.String key) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           internalGetMutableExtra().getMutableMap()
               .remove(key);
           return this;
@@ -21958,11 +22329,8 @@ java.lang.String defaultValue);
         public Builder putExtra(
             java.lang.String key,
             java.lang.String value) {
-          if (key == null) { throw new NullPointerException("map key"); }
-          if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (value == null) { throw new java.lang.NullPointerException(); }
           internalGetMutableExtra().getMutableMap()
               .put(key, value);
           return this;
@@ -22015,18 +22383,7 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(builder.buildPartial());
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                .setUnfinishedMessage(builder.buildPartial());
-          }
-          return builder.buildPartial();
+          return new ResponseContent(input, extensionRegistry);
         }
       };
 
@@ -22149,7 +22506,7 @@ java.lang.String defaultValue);
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -22186,7 +22543,7 @@ java.lang.String defaultValue);
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -22203,7 +22560,7 @@ java.lang.String defaultValue);
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -22235,7 +22592,7 @@ java.lang.String defaultValue);
           internalGetExtra(),
           ExtraDefaultEntryHolder.defaultEntry,
           100);
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -22258,7 +22615,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(100, extra__);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -22277,7 +22634,7 @@ java.lang.String defaultValue);
           .equals(other.getResponseContentsList())) return false;
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -22296,7 +22653,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtra().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -22439,24 +22796,29 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getResponseContentsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         if (responseContentsBuilder_ == null) {
           responseContents_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          responseContents_ = null;
           responseContentsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableExtra().clear();
         return this;
       }
@@ -22572,7 +22934,7 @@ java.lang.String defaultValue);
         }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -22587,51 +22949,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent m =
-                    input.readMessage(
-                        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent.parser(),
-                        extensionRegistry);
-                if (responseContentsBuilder_ == null) {
-                  ensureResponseContentsIsMutable();
-                  responseContents_.add(m);
-                } else {
-                  responseContentsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 10
-              case 802: {
-                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                extra__ = input.readMessage(
-                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableExtra().getMutableMap().put(
-                    extra__.getKey(), extra__.getValue());
-                break;
-              } // case 802
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -23004,7 +23332,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -23041,7 +23369,7 @@ java.lang.String defaultValue);
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -23058,7 +23386,7 @@ java.lang.String defaultValue);
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -23083,7 +23411,7 @@ java.lang.String defaultValue);
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -23107,11 +23435,8 @@ java.lang.String defaultValue);
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -23164,18 +23489,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PredictResult(input, extensionRegistry);
       }
     };
 
@@ -23312,6 +23626,75 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private PredictResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status.Builder subBuilder = null;
+              if (status_ != null) {
+                subBuilder = status_.toBuilder();
+              }
+              status_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(status_);
+                status_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              requestId_ = s;
+              break;
+            }
+            case 34: {
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.Builder subBuilder = null;
+              if (contentValue_ != null) {
+                subBuilder = contentValue_.toBuilder();
+              }
+              contentValue_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(contentValue_);
+                contentValue_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -23473,13 +23856,13 @@ java.lang.String defaultValue);
       if (status_ != null) {
         output.writeMessage(1, getStatus());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
+      if (!getRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, requestId_);
       }
       if (contentValue_ != null) {
         output.writeMessage(4, getContentValue());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -23492,14 +23875,14 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getStatus());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
+      if (!getRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, requestId_);
       }
       if (contentValue_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getContentValue());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -23526,7 +23909,7 @@ java.lang.String defaultValue);
         if (!getContentValue()
             .equals(other.getContentValue())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -23547,7 +23930,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + CONTENT_VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getContentValue().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -23668,13 +24051,18 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -23788,7 +24176,7 @@ java.lang.String defaultValue);
         if (other.hasContentValue()) {
           mergeContentValue(other.getContentValue());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -23803,49 +24191,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getStatusFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
-                break;
-              } // case 10
-              case 18: {
-                requestId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              case 34: {
-                input.readMessage(
-                    getContentValueFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
-                break;
-              } // case 34
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
 
@@ -24310,18 +24666,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new PredictResponse(input, extensionRegistry);
       }
     };
 
@@ -24591,11 +24936,9 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; extra = 100;</code>
      */
 
-    /* nullable */
-java.lang.String getExtraOrDefault(
+    java.lang.String getExtraOrDefault(
         java.lang.String key,
-        /* nullable */
-java.lang.String defaultValue);
+        java.lang.String defaultValue);
     /**
      * <pre>
      * Optional.
@@ -24645,6 +24988,112 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
+    }
+    private AckServerImpressionsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              projectId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              modelId_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              predictRequestId_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userId_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              trafficSource_ = s;
+              break;
+            }
+            case 106: {
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene.Builder subBuilder = null;
+              if (scene_ != null) {
+                subBuilder = scene_.toBuilder();
+              }
+              scene_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Scene.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scene_);
+                scene_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 122: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                alteredContents_ = new java.util.ArrayList<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              alteredContents_.add(
+                  input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent.parser(), extensionRegistry));
+              break;
+            }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                extra_ = com.google.protobuf.MapField.newMapField(
+                    ExtraDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000002;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extra__ = input.readMessage(
+                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extra_.getMutableMap().put(
+                  extra__.getKey(), extra__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          alteredContents_ = java.util.Collections.unmodifiableList(alteredContents_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -24799,11 +25248,9 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; extra = 101;</code>
        */
 
-      /* nullable */
-java.lang.String getExtraOrDefault(
+      java.lang.String getExtraOrDefault(
           java.lang.String key,
-          /* nullable */
-java.lang.String defaultValue);
+          java.lang.String defaultValue);
       /**
        * <pre>
        * Optional.
@@ -24849,6 +25296,79 @@ java.lang.String defaultValue);
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
+      }
+      private AlteredContent(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                contentId_ = s;
+                break;
+              }
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                alteredReason_ = s;
+                break;
+              }
+              case 24: {
+
+                rank_ = input.readInt32();
+                break;
+              }
+              case 800: {
+
+                contentIdHash_ = input.readInt64();
+                break;
+              }
+              case 810: {
+                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                  extra_ = com.google.protobuf.MapField.newMapField(
+                      ExtraDefaultEntryHolder.defaultEntry);
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                extra__ = input.readMessage(
+                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                extra_.getMutableMap().put(
+                    extra__.getKey(), extra__.getValue());
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -25052,7 +25572,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -25091,7 +25611,7 @@ java.lang.String defaultValue);
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -25109,7 +25629,7 @@ java.lang.String defaultValue);
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -25132,10 +25652,10 @@ java.lang.String defaultValue);
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentId_)) {
+        if (!getContentIdBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 1, contentId_);
         }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alteredReason_)) {
+        if (!getAlteredReasonBytes().isEmpty()) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, alteredReason_);
         }
         if (rank_ != 0) {
@@ -25150,7 +25670,7 @@ java.lang.String defaultValue);
             internalGetExtra(),
             ExtraDefaultEntryHolder.defaultEntry,
             101);
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
       @java.lang.Override
@@ -25159,10 +25679,10 @@ java.lang.String defaultValue);
         if (size != -1) return size;
 
         size = 0;
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contentId_)) {
+        if (!getContentIdBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, contentId_);
         }
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(alteredReason_)) {
+        if (!getAlteredReasonBytes().isEmpty()) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, alteredReason_);
         }
         if (rank_ != 0) {
@@ -25183,7 +25703,7 @@ java.lang.String defaultValue);
           size += com.google.protobuf.CodedOutputStream
               .computeMessageSize(101, extra__);
         }
-        size += getUnknownFields().getSerializedSize();
+        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -25208,7 +25728,7 @@ java.lang.String defaultValue);
             != other.getContentIdHash()) return false;
         if (!internalGetExtra().equals(
             other.internalGetExtra())) return false;
-        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
         return true;
       }
 
@@ -25232,7 +25752,7 @@ java.lang.String defaultValue);
           hash = (37 * hash) + EXTRA_FIELD_NUMBER;
           hash = (53 * hash) + internalGetExtra().hashCode();
         }
-        hash = (29 * hash) + getUnknownFields().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -25375,13 +25895,18 @@ java.lang.String defaultValue);
 
         // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent.newBuilder()
         private Builder() {
-
+          maybeForceBuilderInitialization();
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
         }
         @java.lang.Override
         public Builder clear() {
@@ -25492,7 +26017,7 @@ java.lang.String defaultValue);
           }
           internalGetMutableExtra().mergeFrom(
               other.internalGetExtra());
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
@@ -25507,58 +26032,17 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
+          com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent parsedMessage = null;
           try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  contentId_ = input.readStringRequireUtf8();
-
-                  break;
-                } // case 10
-                case 18: {
-                  alteredReason_ = input.readStringRequireUtf8();
-
-                  break;
-                } // case 18
-                case 24: {
-                  rank_ = input.readInt32();
-
-                  break;
-                } // case 24
-                case 800: {
-                  contentIdHash_ = input.readInt64();
-
-                  break;
-                } // case 800
-                case 810: {
-                  com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                  extra__ = input.readMessage(
-                      ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                  internalGetMutableExtra().getMutableMap().put(
-                      extra__.getKey(), extra__.getValue());
-                  break;
-                } // case 810
-                default: {
-                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                    done = true; // was an endgroup tag
-                  }
-                  break;
-                } // default:
-              } // switch (tag)
-            } // while (!done)
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            onChanged();
-          } // finally
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
           return this;
         }
         private int bitField0_;
@@ -25922,7 +26406,7 @@ java.lang.String defaultValue);
         @java.lang.Override
         public boolean containsExtra(
             java.lang.String key) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           return internalGetExtra().getMap().containsKey(key);
         }
         /**
@@ -25961,7 +26445,7 @@ java.lang.String defaultValue);
         public java.lang.String getExtraOrDefault(
             java.lang.String key,
             java.lang.String defaultValue) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -25979,7 +26463,7 @@ java.lang.String defaultValue);
 
         public java.lang.String getExtraOrThrow(
             java.lang.String key) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           java.util.Map<java.lang.String, java.lang.String> map =
               internalGetExtra().getMap();
           if (!map.containsKey(key)) {
@@ -26005,7 +26489,7 @@ java.lang.String defaultValue);
 
         public Builder removeExtra(
             java.lang.String key) {
-          if (key == null) { throw new NullPointerException("map key"); }
+          if (key == null) { throw new java.lang.NullPointerException(); }
           internalGetMutableExtra().getMutableMap()
               .remove(key);
           return this;
@@ -26030,11 +26514,8 @@ java.lang.String defaultValue);
         public Builder putExtra(
             java.lang.String key,
             java.lang.String value) {
-          if (key == null) { throw new NullPointerException("map key"); }
-          if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+          if (key == null) { throw new java.lang.NullPointerException(); }
+          if (value == null) { throw new java.lang.NullPointerException(); }
           internalGetMutableExtra().getMutableMap()
               .put(key, value);
           return this;
@@ -26088,18 +26569,7 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(builder.buildPartial());
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(e)
-                .setUnfinishedMessage(builder.buildPartial());
-          }
-          return builder.buildPartial();
+          return new AlteredContent(input, extensionRegistry);
         }
       };
 
@@ -26513,7 +26983,7 @@ java.lang.String defaultValue);
     @java.lang.Override
     public boolean containsExtra(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       return internalGetExtra().getMap().containsKey(key);
     }
     /**
@@ -26552,7 +27022,7 @@ java.lang.String defaultValue);
     public java.lang.String getExtraOrDefault(
         java.lang.String key,
         java.lang.String defaultValue) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -26570,7 +27040,7 @@ java.lang.String defaultValue);
 
     public java.lang.String getExtraOrThrow(
         java.lang.String key) {
-      if (key == null) { throw new NullPointerException("map key"); }
+      if (key == null) { throw new java.lang.NullPointerException(); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetExtra().getMap();
       if (!map.containsKey(key)) {
@@ -26593,19 +27063,19 @@ java.lang.String defaultValue);
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
+      if (!getModelIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, modelId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predictRequestId_)) {
+      if (!getPredictRequestIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, predictRequestId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+      if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, userId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trafficSource_)) {
+      if (!getTrafficSourceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, trafficSource_);
       }
       if (scene_ != null) {
@@ -26620,7 +27090,7 @@ java.lang.String defaultValue);
           internalGetExtra(),
           ExtraDefaultEntryHolder.defaultEntry,
           100);
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -26629,19 +27099,19 @@ java.lang.String defaultValue);
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
+      if (!getProjectIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(modelId_)) {
+      if (!getModelIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, modelId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predictRequestId_)) {
+      if (!getPredictRequestIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, predictRequestId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+      if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, userId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(trafficSource_)) {
+      if (!getTrafficSourceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, trafficSource_);
       }
       if (scene_ != null) {
@@ -26662,7 +27132,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(100, extra__);
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -26696,7 +27166,7 @@ java.lang.String defaultValue);
           .equals(other.getAlteredContentsList())) return false;
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -26729,7 +27199,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetExtra().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -26872,13 +27342,19 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getAlteredContentsFieldBuilder();
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -26901,11 +27377,10 @@ java.lang.String defaultValue);
         }
         if (alteredContentsBuilder_ == null) {
           alteredContents_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          alteredContents_ = null;
           alteredContentsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableExtra().clear();
         return this;
       }
@@ -27054,7 +27529,7 @@ java.lang.String defaultValue);
         }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -27069,83 +27544,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                projectId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 10
-              case 18: {
-                modelId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 18
-              case 82: {
-                predictRequestId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 82
-              case 90: {
-                userId_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 90
-              case 98: {
-                trafficSource_ = input.readStringRequireUtf8();
-
-                break;
-              } // case 98
-              case 106: {
-                input.readMessage(
-                    getSceneFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
-                break;
-              } // case 106
-              case 122: {
-                com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent m =
-                    input.readMessage(
-                        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent.parser(),
-                        extensionRegistry);
-                if (alteredContentsBuilder_ == null) {
-                  ensureAlteredContentsIsMutable();
-                  alteredContents_.add(m);
-                } else {
-                  alteredContentsBuilder_.addMessage(m);
-                }
-                break;
-              } // case 122
-              case 802: {
-                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-                extra__ = input.readMessage(
-                    ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                internalGetMutableExtra().getMutableMap().put(
-                    extra__.getKey(), extra__.getValue());
-                break;
-              } // case 802
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
       private int bitField0_;
@@ -28212,7 +28621,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public boolean containsExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         return internalGetExtra().getMap().containsKey(key);
       }
       /**
@@ -28251,7 +28660,7 @@ java.lang.String defaultValue);
       public java.lang.String getExtraOrDefault(
           java.lang.String key,
           java.lang.String defaultValue) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         return map.containsKey(key) ? map.get(key) : defaultValue;
@@ -28269,7 +28678,7 @@ java.lang.String defaultValue);
 
       public java.lang.String getExtraOrThrow(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetExtra().getMap();
         if (!map.containsKey(key)) {
@@ -28295,7 +28704,7 @@ java.lang.String defaultValue);
 
       public Builder removeExtra(
           java.lang.String key) {
-        if (key == null) { throw new NullPointerException("map key"); }
+        if (key == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .remove(key);
         return this;
@@ -28320,11 +28729,8 @@ java.lang.String defaultValue);
       public Builder putExtra(
           java.lang.String key,
           java.lang.String value) {
-        if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
         internalGetMutableExtra().getMutableMap()
             .put(key, value);
         return this;
@@ -28378,18 +28784,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AckServerImpressionsRequest(input, extensionRegistry);
       }
     };
 
@@ -28474,6 +28869,56 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
+    private AckServerImpressionsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status.Builder subBuilder = null;
+              if (status_ != null) {
+                subBuilder = status_.toBuilder();
+              }
+              status_ = input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Status.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(status_);
+                status_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_AckServerImpressionsResponse_descriptor;
@@ -28545,7 +28990,7 @@ java.lang.String defaultValue);
       if (status_ != null) {
         output.writeMessage(1, getStatus());
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
     @java.lang.Override
@@ -28558,7 +29003,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getStatus());
       }
-      size += getUnknownFields().getSerializedSize();
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -28578,7 +29023,7 @@ java.lang.String defaultValue);
         if (!getStatus()
             .equals(other.getStatus())) return false;
       }
-      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
 
@@ -28593,7 +29038,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + STATUS_FIELD_NUMBER;
         hash = (53 * hash) + getStatus().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -28714,13 +29159,18 @@ java.lang.String defaultValue);
 
       // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsResponse.newBuilder()
       private Builder() {
-
+        maybeForceBuilderInitialization();
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
       }
       @java.lang.Override
       public Builder clear() {
@@ -28813,7 +29263,7 @@ java.lang.String defaultValue);
         if (other.hasStatus()) {
           mergeStatus(other.getStatus());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -28828,37 +29278,17 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsResponse parsedMessage = null;
         try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                input.readMessage(
-                    getStatusFieldBuilder().getBuilder(),
-                    extensionRegistry);
-
-                break;
-              } // case 10
-              default: {
-                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                  done = true; // was an endgroup tag
-                }
-                break;
-              } // default:
-            } // switch (tag)
-          } // while (!done)
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          onChanged();
-        } // finally
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
         return this;
       }
 
@@ -29058,18 +29488,7 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(builder.buildPartial());
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(e)
-              .setUnfinishedMessage(builder.buildPartial());
-        }
-        return builder.buildPartial();
+        return new AckServerImpressionsResponse(input, extensionRegistry);
       }
     };
 
