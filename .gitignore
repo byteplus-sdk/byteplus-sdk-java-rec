@@ -130,3 +130,5 @@ target
 
 *.iml
 /src/main/resources/log4j.properties
+/node_modules
+package*.json
