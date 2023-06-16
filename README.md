@@ -24,8 +24,9 @@ public class Main {
                     .AccountID("***********")  // Required
                     .projectID("***********")
                     .region(Region.SG)  // Required
-                    .authAK("***********")  // Required
-                    .authSK("***********")  // Required
+                    .authAK("*********")  // Required. Access Key, used to generate request signature. Saas Standard projects should use.
+                    .authSK("*********")  // Required. Secure key, used to generate request signature. Saas Standard projects should use.
+//                    .airAuthToken("*********") // Required. The token of this project. Saas Premium projects should use.
 //                    .Schema("http") // Optional
 //                    .Hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
                     .build();
@@ -58,8 +59,9 @@ public class Main {
                     .AccountID("***********")  // Required
                     .projectID("***********")
                     .region(Region.SG)  // Required
-                    .authAK("***********")  // Required
-                    .authSK("***********")  // Required
+                    .authAK("*********")  // Required. Access Key, used to generate request signature. Saas Standard projects should use.
+                    .authSK("*********")  // Required. Secure key, used to generate request signature. Saas Standard projects should use.
+//                    .airAuthToken("*********") // Required. The token of this project. Saas Premium projects should use.
 //                    .Schema("http") // Optional
 //                    .Hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
                     .build();

@@ -38,10 +38,11 @@ public class MockHelper {
         user.setActivationChannel("AppStore");
         user.setMembershipLevel("silver");
         user.setRegistrationTimestamp(1623593487);
-        user.setLocationCity("Kirkland");
-        user.setLocationCountry("USA");
-        user.setLocationDistrictOrArea("King County");
-        user.setLocationPostcode("98033");
+        user.setCity("Kirkland");
+        user.setCountry("USA");
+        user.setDistrict("King County");
+        user.setProvince("98033");
+        user.setLanguage("English");
 
         // your custom field
         // user.setCustomField("custom");
@@ -61,26 +62,23 @@ public class MockHelper {
     public static DemoProduct mockProduct() {
         DemoProduct product = new DemoProduct();
         product.setProductId("632461");
-        product.setCategory("[{\"category_depth\":1,\"category_nodes\":[{\"id_or_name\":\"Shoes\"}]},{\"category_depth\":2,\"category_nodes\":[{\"id_or_name\":\"Men's Shoes\"}]}]");
+        product.setCategories("[{\"category_depth\":1,\"category_nodes\":[{\"id_or_name\":\"Shoes\"}]},{\"category_depth\":2,\"category_nodes\":[{\"id_or_name\":\"Men's Shoes\"}]}]");
         product.setBrands("Adidas");
-        product.setPriceCurrentPrice(49900);
-        product.setPriceOriginPrice(69900);
+        product.setCurrentPrice(49.99f);
+        product.setOriginalPrice(69.98f);
         product.setIsRecommendable(1);
         product.setTitle("adidas Men's Yeezy Boost 350 V2 Grey/Borang/Dgsogr");
-        product.setQualityScore(4.4);
         product.setTags("[\"New Product\",\"Summer Product\"]");
-        product.setDisplayDetailPageDisplayTags("[\"FreeShipping\",\"Return in 7 days without any reasons\"]");
-        product.setDisplayCoverMultimediaUrl("https://images-na.ssl-images-amazon.com/images/I/81WmojBxvbL._AC_UL1500_.jpg");
-        product.setDisplayListingPageDisplayTags("[\"best seller\",\"hot sales\"]");
-        product.setDisplayListingPageDisplayType("image");
-        product.setProductSpecProductGroupId("1356");
-        product.setProductSpecCommentCount(100);
-        product.setProductSpecPublishTimestamp(1623193487);
-        product.setProductSpecSource("self");
-        product.setProductSpecUserRating(0.25);
+        product.setDisplayCoverMultimediaUrl("[\"https://images-na.ssl-images-amazon.com/images/I/81WmojBxvbL._AC_UL1500_.jpg\"]");
+        product.setProductGroupId("1356");
+        product.setCommentCount(100);
+        product.setSoldCount(60);
+        product.setPublishTimestamp(1623193487);
+        product.setSource("self");
+        product.setUserRating(0.25f);
         product.setSellerId("43485");
-        product.setSellerSellerLevel("1");
-        product.setSellerSellerRating(3.5);
+        product.setSellerLevel("1");
+        product.setSellerRating(3.5f);
 
         // your custom field
         // product.setCustomField("custom");
@@ -100,27 +98,28 @@ public class MockHelper {
         DemoUserEvent userEvent = new DemoUserEvent();
         userEvent.setUserId("1457789");
         userEvent.setEventType("purchase");
-        userEvent.setEventTimestamp(1640657087);
-        userEvent.setScene("product detail page");
-        userEvent.setScenePageNumber(2);
-        userEvent.setSceneOffset(10);
+        userEvent.setEventTimestamp(1686883465);
+        userEvent.setSceneName("product detail page");
+        userEvent.setPageNumber(2);
+        userEvent.setOffset(10);
         userEvent.setProductId("632461");
-        userEvent.setDevicePlatform("app");
-        userEvent.setDeviceOsType("android");
-        userEvent.setDeviceAppVersion("9.2.0");
-        userEvent.setDeviceDeviceModel("huawei-mate30");
-        userEvent.setDeviceDeviceBrand("huawei");
-        userEvent.setDeviceOsVersion("10");
-        userEvent.setDeviceBrowserType("chrome");
-        userEvent.setDeviceUserAgent("Mozilla/5.0 (Linux; Android 10; TAS-AN00; HMSCore 5.3.0.312) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 HuaweiBrowser/11.0.8.303 Mobile Safari/537.36");
-        userEvent.setDeviceNetwork("3g");
-        userEvent.setContextQuery("iPad");
-        userEvent.setContextRootProductId("441356");
+        userEvent.setPlatform("app");
+        userEvent.setOsType("android");
+        userEvent.setAppVersion("9.2.0");
+        userEvent.setDeviceModel("huawei-mate30");
+        userEvent.setOsVersion("10");
+        userEvent.setNetwork("3g");
+        userEvent.setQuery("iPad");
+        userEvent.setParentProductId("441356");
         userEvent.setAttributionToken("eyJpc3MiOiJuaW5naGFvLm5ldCIsImV4cCI6IjE0Mzg5NTU0NDUiLCJuYW1lIjoid2FuZ2hhbyIsImFkbWluIjp0cnVlfQ");
-        userEvent.setRecInfo("CiRiMjYyYjM1YS0xOTk1LTQ5YmMtOGNkNS1mZTVmYTczN2FkNDASJAobcmVjZW50X2hvdF9jbGlja3NfcmV0cmlldmVyFQAAAAAYDxoKCgNjdHIdog58PBoKCgNjdnIdANK2OCIHMjcyNTgwMg");
         userEvent.setTrafficSource("self");
         userEvent.setPurchaseCount(20);
-        userEvent.setDetailPageStayTime(10); //10 second
+        userEvent.setPaidPrice(12.23f);
+        userEvent.setCurrency("USD");
+        userEvent.setCity("Kirkland");
+        userEvent.setCountry("USA");
+        userEvent.setDistrict("King County");
+        userEvent.setProvince("98033");
 
         // your custom field
         // userEvent.setCustomField("custom");

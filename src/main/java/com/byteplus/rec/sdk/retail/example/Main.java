@@ -83,8 +83,9 @@ public class Main {
                     .accountID("*********")  // Required
                     .projectID(PROJECT_ID)
                     .region(Region.SG)  // Required
-                    .authAK("*********")  // Required
-                    .authSK("*********")  // Required
+                    .authAK("*********")  // Required. Access Key, used to generate request signature. Saas Standard projects should use.
+                    .authSK("*********")  // Required. Secure key, used to generate request signature. Saas Standard projects should use.
+//                    .airAuthToken("*********") // Required. The token of this project. Saas Premium projects should use.
 //                    .metricsConfig(metricsCfg) // Optional.
 //                    .keepAlive(true) // Optional.
 //                    .callerConfig(callerConfig) // Optional.
