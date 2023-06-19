@@ -14,55 +14,43 @@ public class DemoUserEvent {
     @JSONField(name = "event_timestamp")
     private long eventTimestamp;
 
-    private String scene;
+    @JSONField(name = "scene_name")
+    private String sceneName;
 
-    @JSONField(name = "scene_page_number")
-    private int scenePageNumber;
+    @JSONField(name = "page_number")
+    private int pageNumber;
 
-    @JSONField(name = "scene_offset")
-    private int sceneOffset;
+    @JSONField(name = "offset")
+    private int offset;
 
     @JSONField(name = "product_id")
     private String productId;
 
-    @JSONField(name = "device_platform")
-    private String devicePlatform;
+    private String platform;
 
-    @JSONField(name = "device_os_type")
-    private String deviceOsType;
+    @JSONField(name = "os_type")
+    private String osType;
 
-    @JSONField(name = "device_app_version")
-    private String deviceAppVersion;
+    @JSONField(name = "app_version")
+    private String appVersion;
 
-    @JSONField(name = "device_device_model")
-    private String deviceDeviceModel;
+    @JSONField(name = "device_model")
+    private String deviceModel;
 
-    @JSONField(name = "device_device_brand")
-    private String deviceDeviceBrand;
+    @JSONField(name = "os_version")
+    private String osVersion;
 
-    @JSONField(name = "device_os_version")
-    private String deviceOsVersion;
+    @JSONField(name = "network")
+    private String network;
 
-    @JSONField(name = "device_browser_type")
-    private String deviceBrowserType;
+    @JSONField(name = "query")
+    private String query;
 
-    @JSONField(name = "device_user_agent")
-    private String deviceUserAgent;
-
-    @JSONField(name = "device_network")
-    private String deviceNetwork;
-
-    @JSONField(name = "context_query")
-    private String contextQuery;
-
-    @JSONField(name = "context_root_product_id")
-    private String contextRootProductId;
+    @JSONField(name = "parent_product_id")
+    private String parentProductId;
 
     @JSONField(name = "attribution_token")
     private String attributionToken;
-
-    @JSONField(name = "rec_info")
-    private String recInfo;
 
     @JSONField(name = "traffic_source")
     private String trafficSource;
@@ -70,8 +58,18 @@ public class DemoUserEvent {
     @JSONField(name = "purchase_count")
     private int purchaseCount;
 
-    @JSONField(name = "detail_page_stay_time")
-    private int detailPageStayTime;
+    @JSONField(name = "paid_price")
+    private float paidPrice;
+
+    private String currency;
+
+    private String city;
+
+    private String country;
+
+    private String district;
+
+    private String province;
 
     @JSONField(name = "custom_field")
     private String customField;

@@ -24,17 +24,15 @@ public class DemoUser {
     @JSONField(name = "registration_timestamp")
     private long registrationTimestamp;
 
-    @JSONField(name = "location_city")
-    private String locationCity;
+    private String city;
 
-    @JSONField(name = "location_country")
-    private String locationCountry;
+    private String country;
 
-    @JSONField(name = "location_district_or_area")
-    private String locationDistrictOrArea;
+    private String district;
 
-    @JSONField(name = "location_postcode")
-    private String locationPostcode;
+    private String province;
+
+    private String language;
 
     @JSONField(name = "custom_field")
     private String customField;

@@ -20,12 +20,6 @@ public class DemoUserEvent {
     @JSONField(name = "traffic_source")
     private String trafficSource;
 
-    @JSONField(name = "request_id")
-    private String requestId;
-
-    @JSONField(name = "rec_info")
-    private String recInfo;
-
     @JSONField(name = "attribution_token")
     private String attributionToken;
 
@@ -38,32 +32,14 @@ public class DemoUserEvent {
     @JSONField(name = "offset")
     private int offset;
 
-    @JSONField(name = "play_duration")
-    private int playDuration;
-
-    @JSONField(name = "video_duration")
-    private int videoDuration;
-
-    @JSONField(name = "start_time")
-    private int startTime;
-
-    @JSONField(name = "end_time")
-    private int endTime;
+    @JSONField(name = "stay_duration")
+    private int stayDuration;
 
     @JSONField(name = "parent_content_id")
     private String parentContentId;
 
     @JSONField(name = "content_owner_id")
     private String contentOwnerId;
-
-    @JSONField(name = "detail_stay_time")
-    private int detailStayTime;
-
-    @JSONField(name = "dislike_type")
-    private String dislikeType;
-
-    @JSONField(name = "dislike_value")
-    private String dislikeValue;
 
     private String query;
 
@@ -91,7 +67,13 @@ public class DemoUserEvent {
 
     private String district;
 
-    private String area;
+    @JSONField(name = "purchase_count")
+    private int purchaseCount;
+
+    @JSONField(name = "paid_price")
+    private float paidPrice;
+
+    private String currency;
 
     @JSONField(name = "custom_field")
     private String customField;

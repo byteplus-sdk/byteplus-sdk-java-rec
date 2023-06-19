@@ -24,27 +24,17 @@ public class MockHelper {
     public static DemoUser mockUser() {
         DemoUser user = new DemoUser();
         user.setUserId("1457789");
-        user.setUserIdType("system_generated");
         user.setGender("male");
         user.setAge("23");
         user.setTags("[\"new user\",\"low purchasing power\",\"bargain seeker\"]");
         user.setLanguage("English");
         user.setSubscriberType("free");
-        user.setNetwork("4g");
-        user.setPlatform("app");
-        user.setOsType("ios");
-        user.setAppVersion("1.0.1");
-        user.setDeviceModel("iPhone10");
-        user.setOsVersion("14.4.2");
         user.setMembershipLevel("silver");
         user.setRegistrationTimestamp(1659958007);
-        user.setUpdateTimestamp(1659958007);
-        user.setLastLoginTimestamp(1659958207);
         user.setCountry("USA");
         user.setProvince("Texas");
         user.setCity("Kirkland");
         user.setDistrict("King County");
-        user.setArea("Neighborhood #1");
 
         // your custom field
         // user.setCustomField("custom");
@@ -70,33 +60,18 @@ public class MockHelper {
         content.setVideoDuration(120000);
         content.setContentTitle("Green Book Movie Explanation");
         content.setDescription("A brief summary of the main content of the Green Book movie");
-        content.setContentOwner("1457789");
-        content.setContentOwnerFollowers(25);
-        content.setContentOwnerRating(4.5f);
-        content.setContentOwnerName("comedy movie commentary");
+        content.setContentOwnerId("1457789");
         content.setCollectionId("1342");
         content.setTags("[\"New\",\"Trending\"]");
-        content.setTopicTags("[\"Political\",\"Latest\"]");
         content.setImageUrls("[\"https://images-na.ssl-images-amazon.com/images/I/81WmojBxvbL._AC_UL1500_.jpg\"]");
-        content.setDetailPicNum(5);
         content.setVideoUrls("[\"https://test_video.mov\"]");
         content.setUserRating(4.9f);
-        content.setViewsCount(10000);
-        content.setCommentsCount(100);
-        content.setLikesCount(10);
-        content.setSharesCount(50);
-        content.setSaveCount(50);
-        content.setCurrentPrice(1300);
-        content.setOriginalPrice(1600);
-        content.setAvailableLocation("[\"Cafe 101\"]");
+        content.setCurrentPrice(1300.12f);
+        content.setOriginalPrice(1600.12f);
         content.setPublishTimestamp(1660035734);
-        content.setUpdateTimestamp(1660035734);
-        content.setCopyrightStartTimestamp(1660035734);
-        content.setCopyrightEndTimestamp(1760035734);
         content.setPaidContent(true);
         content.setLanguage("English");
-        content.setRelatedContentIds("[\"632462\",\"632463\"]");
-        content.setSoldCount(60);
+        content.setLinkedProductId("[\"632462\",\"632463\"]");
         content.setSource("self");
 
         // your custom field
@@ -116,25 +91,17 @@ public class MockHelper {
     public static DemoUserEvent mockUserEvent() {
         DemoUserEvent userEvent = new DemoUserEvent();
         userEvent.setUserId("1457787");
-        userEvent.setEventType("impression");
-        userEvent.setEventTimestamp(1660036970);
+        userEvent.setEventType("purchase");
+        userEvent.setEventTimestamp(1686883465);
         userEvent.setContentId("632461");
         userEvent.setTrafficSource("byteplus");
-        userEvent.setRequestId("67a9fcf74a82fdc55a26ab4ee12a7b96890407fc0042f8cc014e07a4a560a9ac");
-        userEvent.setRecInfo("CiRiMjYyYjM1YS0xOTk1LTQ5YmMtOGNkNS1mZTVmYTczN2FkNDASJAobcmVjZW50X2hvdF9jbGlja3NfcmV0cmlldmVyFQAAAAAYDxoKCgNjdHIdog58PBoKCgNjdnIdANK2OCIHMjcyNTgwMg==");
         userEvent.setAttributionToken("eyJpc3MiOiJuaW5naGFvLm5ldCIsImV4cCI6IjE0Mzg5NTU0NDUiLCJuYW1lIjoid2FuZ2hhbyIsImFkbWluIjp0cnVlfQ");
         userEvent.setSceneName("Home page");
         userEvent.setPageNumber(2);
         userEvent.setOffset(10);
-        userEvent.setPlayDuration(150000);
-        userEvent.setVideoDuration(1200000);
-        userEvent.setStartTime(150000);
-        userEvent.setEndTime(300000);
+        userEvent.setStayDuration(150000);
         userEvent.setParentContentId("632431");
         userEvent.setContentOwnerId("1457789");
-        userEvent.setDetailStayTime(10);
-        userEvent.setDislikeType("content_id");
-        userEvent.setDislikeValue("675411");
         userEvent.setQuery("comedy");
         userEvent.setPlatform("app");
         userEvent.setOsType("ios");
@@ -146,7 +113,9 @@ public class MockHelper {
         userEvent.setProvince("Texas");
         userEvent.setCity("Kirkland");
         userEvent.setDistrict("King County");
-        userEvent.setArea("Neighborhood #1");
+        userEvent.setPurchaseCount(20);
+        userEvent.setPaidPrice(12.23f);
+        userEvent.setCurrency("USD");
 
         // your custom field
         // userEvent.setCustomField("custom");
