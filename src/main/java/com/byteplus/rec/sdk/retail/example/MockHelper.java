@@ -5,18 +5,10 @@ import com.byteplus.rec.sdk.retail.example.entity.DemoUser;
 import com.byteplus.rec.sdk.retail.example.entity.DemoUserEvent;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Device;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product;
-import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Brand;
-import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Category;
-import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Display;
-import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Price;
-import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.ProductSpec;
-import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Seller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Product.Category.*;
 
 public class MockHelper {
     public static List<DemoUser> mockUsers(int count) {
@@ -127,71 +119,8 @@ public class MockHelper {
     }
 
     public static Product mockPredictProduct() {
-        CategoryNode category1Node1 = CategoryNode.newBuilder()
-                .setIdOrName("Shoes")
-                .build();
-        Category category1 = newBuilder()
-                .setCategoryDepth(1)
-                .addCategoryNodes(category1Node1)
-                .build();
-        CategoryNode category2Node1 = CategoryNode.newBuilder()
-                .setIdOrName("Men's Shoes")
-                .build();
-        Category category2 = newBuilder()
-                .setCategoryDepth(2)
-                .addCategoryNodes(category2Node1)
-                .build();
-
-        Brand brand1 = Brand.newBuilder()
-                .setBrandDepth(1)
-                .setIdOrName("Adidas")
-                .build();
-        Brand brand2 = Brand.newBuilder()
-                .setBrandDepth(2)
-                .setIdOrName("Yeezy")
-                .build();
-
-        Price price = Price.newBuilder()
-                .setCurrentPrice(49900)
-                .setOriginPrice(69900)
-                .build();
-
-        Display display = Display.newBuilder()
-                .addAllDetailPageDisplayTags(Arrays.asList("FreeShipping", "Return in 7 days without any reasons"))
-                .addAllListingPageDisplayTags(Arrays.asList("best seller", "hot sales"))
-                .setListingPageDisplayType("image")
-                .setCoverMultimediaUrl("https://images-na.ssl-images-amazon.com/images/I/81WmojBxvbL._AC_UL1500_.jpg")
-                .build();
-
-        ProductSpec spec = ProductSpec.newBuilder()
-                .setProductGroupId("1356")
-                .setUserRating(0.25)
-                .setCommentCount(100)
-                .setSource("self")
-                .setPublishTimestamp(1623193487)
-                .build();
-
-        Seller seller = Seller.newBuilder()
-                .setId("43485")
-                .setSellerLevel("1")
-                .setSellerRating(3.5)
-                .build();
-
         return Product.newBuilder()
                 .setProductId("632461")
-                .addCategories(category1)
-                .addCategories(category2)
-                .addBrands(brand1)
-                .addBrands(brand2)
-                .setPrice(price)
-                .setIsRecommendable(1)
-                .setTitle("adidas Men's Yeezy Boost 350 V2 Grey/Borang/Dgsogr")
-                .setQualityScore(4.4)
-                .addAllTags(Arrays.asList("New Product", "Summer Product"))
-                .setDisplay(display)
-                .setProductSpec(spec)
-                .setSeller(seller)
-                // .putExtra("count", "20")
                 .build();
     }
 
