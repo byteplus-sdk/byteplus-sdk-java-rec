@@ -1,14 +1,18 @@
-#  (2022-12-27)
+## [1.0.14](https://code.byted.org/byteair/byteplus-sdk-java-rec/compare/1.0.12...1.0.14) (2023-08-01)
 
 
+### Bug Fixes
 
-## [1.0.13](https://code.byted.org/byteair/byteplus-sdk-java-rec/compare/1.0.12...1.0.13) (2022-12-26)
+* fix ci pipelines ([0404637](https://code.byted.org/byteair/byteplus-sdk-java-rec/commits/04046370d2d69420c5f0b8cf250da9293238246b))
 
 
 ### Features
 
-* add content industry performance template ([a24d149](https://code.byted.org/byteair/byteplus-sdk-java-rec/commits/a24d1494088ead696649123cc924bc14061b8d3d))
+* add content industry performance template ([b8305dc](https://code.byted.org/byteair/byteplus-sdk-java-rec/commits/b8305dcb1f10f7ed4f42bec95283097ddd33ba3e))
 * add retail industry performance template ([cc63e5b](https://code.byted.org/byteair/byteplus-sdk-java-rec/commits/cc63e5b148791ba4d8ae6d8bef659278601a31ed))
+* release 1.0.14 ([f2cd312](https://code.byted.org/byteair/byteplus-sdk-java-rec/commits/f2cd31215c91d207a5508d136cbb811ade09b8e3))
+* update byteplus schema ([878af03](https://code.byted.org/byteair/byteplus-sdk-java-rec/commits/878af03793df2d4ac2930cec9444b43960658d24))
+* update saas predict proto ([a2d2eb0](https://code.byted.org/byteair/byteplus-sdk-java-rec/commits/a2d2eb0726061207d2279bf7a2f580038457bac5))
 
 
 
