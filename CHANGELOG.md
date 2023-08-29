@@ -1,3 +1,12 @@
+## [1.0.15](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.14...1.0.15) (2023-08-28)
+
+
+### Features
+
+* update core version 
+
+
+
 ## [1.0.14](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.12...1.0.14) (2023-08-01)
 
 
