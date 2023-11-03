@@ -33,6 +33,8 @@ public class RetailClientBuilder {
 
     private List<String> hosts;
 
+    private String mainHost;
+
     private IRegion region;
 
     private boolean keepAlive;
@@ -60,6 +62,7 @@ public class RetailClientBuilder {
                 .authSK(authSK)
                 .schema(schema)
                 .hosts(hosts)
+                .mainHost(mainHost)
                 .region(region)
                 .useAirAuth(isUseAirAuth())
                 .authService(BYTEPLUS_AUTH_SERVICE)

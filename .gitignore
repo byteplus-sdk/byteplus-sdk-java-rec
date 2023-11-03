@@ -132,3 +132,7 @@ target
 /src/main/resources/log4j.properties
 /node_modules
 package*.json
+
+/src/main/java/com/byteplus/rec/sdk/content/dev_test/
+/src/main/java/com/byteplus/rec/sdk/retail/dev_test/
+/src/main/resources/log4j2.xml
