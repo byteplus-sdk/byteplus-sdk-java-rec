@@ -91,6 +91,7 @@ public class Main {
 //                    .callerConfig(callerConfig) // Optional.
 //                    .schema("http") // Optional.
 //                    .hosts(Collections.singletonList("rec-api-sg1.recplusapi.com")) // Optional
+//                    .mainHost("rec-ap-singapore-1.byteplusapi.com") // Optional. Set one of the hosts set by '.hosts()' as the primary one.
                     .build();
         } catch (BizException e) {
             log.error("fail to create byteplus rec client", e);
