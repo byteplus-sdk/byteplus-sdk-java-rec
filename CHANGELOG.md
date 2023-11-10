@@ -1,3 +1,22 @@
+# [](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/v1.0.16...v) (2023-11-10)
+
+
+
+## [1.0.16](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.15...v1.0.16) (2023-11-10)
+
+
+### Bug Fixes
+
+* fix readme doc links 
+* update altered_reason field description 
+
+
+### Features
+
+* support set mainhost 
+
+
+
 ## [1.0.15](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.14...1.0.15) (2023-08-28)
 
 
