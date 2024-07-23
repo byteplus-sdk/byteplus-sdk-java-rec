@@ -1,4 +1,11 @@
-# [](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/v1.0.16...v) (2023-11-10)
+#  (2024-07-23)
+
+## [1.0.17](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.16...v1.0.17) (2024-07-23)
+
+
+### Bug Fixes
+
+* **exclude slf4j-impl:** exclude slf4j-impl 
 
 
 
@@ -13,6 +20,7 @@
 
 ### Features
 
+* support main host 
 * support set mainhost 
 
 
