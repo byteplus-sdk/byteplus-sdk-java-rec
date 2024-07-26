@@ -6,7 +6,7 @@
 
     <groupId>com.byteplus</groupId>
     <artifactId>byteplus-sdk-java-rec</artifactId>
-    <version>1.0.17</version>
+    <version>1.0.18</version>
     <packaging>jar</packaging>
 
     <name>byteplus-sdk-java-rec</name>
@@ -33,19 +33,6 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.jmeter</groupId>
-            <artifactId>ApacheJMeter_java</artifactId>
-            <version>5.5</version>
-            <scope>compile</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
     </dependencies>
@@ -196,10 +183,10 @@
 
     <developers>
         <developer>
-            <name>leiguowei</name>
-            <email>leiguowei@bytedance.com</email>
+            <name>zhangyu.lzj</name>
+            <email>zhangyu.lzj@bytedance.com</email>
             <organization>bytedance</organization>
-            <url>https://github.com/leiguowei</url>
+            <url>https://github.com/byteplus-rec</url>
         </developer>
     </developers>
 
@@ -207,7 +194,7 @@
         <connection>scm:git:https://github.com/byteplus-sdk/byteplus-sdk-java-rec.git</connection>
         <developerConnection>scm:git:https://github.com/byteplus-sdk/byteplus-sdk-java-rec.git</developerConnection>
         <url>https://github.com/byteplus-sdk</url>
-        <tag>1.0.17</tag>
+        <tag>1.0.18</tag>
     </scm>
 
     <distributionManagement>
