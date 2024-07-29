@@ -1,21 +1,24 @@
-#  (2024-07-23)
-
-## [1.0.17](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.16...v1.0.17) (2024-07-23)
+## [1.0.18](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.17...1.0.18) (2023-07-29)
 
 
 ### Bug Fixes
 
-* **exclude slf4j-impl:** exclude slf4j-impl 
+* delete performance package, solve the slf4j dependency conflict problem introduced by Jmeter 
 
 
 
-## [1.0.16](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.15...v1.0.16) (2023-11-10)
+## [1.0.17](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.16...1.0.17) (2023-07-23)
 
 
 ### Bug Fixes
 
+* exclude slf4j-impl 
 * fix readme doc links 
 * update altered_reason field description 
+
+
+
+## [1.0.16](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.15...1.0.16) (2023-11-10)
 
 
 ### Features
