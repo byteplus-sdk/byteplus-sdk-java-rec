@@ -21,6 +21,7 @@ import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResponse;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent;
@@ -440,12 +441,19 @@ public class Main {
                 .addAllCandidateContents(candidateContents)
                 .build();
 
+//        // Specify the list of IDs that need to be filtered by Byteplus recommendation service.
+//        List<PredictFilterItem> filterItems = Arrays.asList(
+//                PredictFilterItem.newBuilder().setId("632461").build(),
+//                PredictFilterItem.newBuilder().setId("632462").build()
+//        );
+
         return PredictRequest.newBuilder()
                 .setModelId(MODEL_ID)
                 .setUserId("1457789")
                 .setSize(20)
                 .setScene(scene)
                 .setContentContext(context)
+                // .addAllFilterItems(filterItems)
                 // .putExtra("extra_inio", "extra")
                 .build();
     }
