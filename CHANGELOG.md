@@ -1,3 +1,12 @@
+## [1.0.19](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.19...1.0.20) (2023-08-27)
+
+
+### Features
+
+* update core: keepalive supports maxKeepAliveConnections parameter
+
+
+
 ## [1.0.19](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.18...1.0.19) (2023-07-30)
 
 
