@@ -62,8 +62,9 @@ public class Main {
 //        // you can customize them according to your own needs.
 //        Config callerConfig = new Config().toBuilder()
 //                .maxIdleConnections(32) // OKHttpClient maxIdleConnections param.
-//                .keepAliveDuration(Duration.ofSeconds(60)) // OKHttpClient keepAliveDuration param.
-//                .keepAlivePingInterval(Duration.ofSeconds(45)) // Only takes effect when retailClient.keepAlive(true), heartbeat packet sending interval.
+//                .keepAliveDuration(Duration.ofSeconds(60)) // OKHttpClient keepAliveDuration param. The maximum idle time of the connection.
+//                .keepAlivePingInterval(Duration.ofSeconds(45)) // Only takes effect when retailClient.keepAlive(true). Heartbeat packet sending interval.
+//                .maxKeepAliveConnections(3) // Only takes effect when retailClient.keepAlive(true). The number of heartbeats sent by a single host at the same time, it means the maximum number of keepalive connections
 //                .build();
 
 
