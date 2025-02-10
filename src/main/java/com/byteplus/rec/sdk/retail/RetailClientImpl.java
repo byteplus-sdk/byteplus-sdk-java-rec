@@ -187,9 +187,6 @@ public class RetailClientImpl implements RetailClient {
         if (Utils.isEmptyString(request.getProjectId())) {
             throw new BizException("project id is empty");
         }
-        if (Utils.isEmptyString(request.getModelId())) {
-            throw new BizException("model id is empty");
-        }
     }
 
     public final void release() {

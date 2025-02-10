@@ -188,9 +188,6 @@ public class ContentClientImpl implements ContentClient {
         if (Utils.isEmptyString(request.getProjectId())) {
             throw new BizException("project id is empty");
         }
-        if (Utils.isEmptyString(request.getModelId())) {
-            throw new BizException("model id is empty");
-        }
     }
 
     @Override
