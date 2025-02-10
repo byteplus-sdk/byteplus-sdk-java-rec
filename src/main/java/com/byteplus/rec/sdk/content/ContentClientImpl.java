@@ -79,6 +79,12 @@ public class ContentClientImpl implements ContentClient {
         return doFinishData(request, Constant.FINISH_OTHERS_URI, opts);
     }
 
+    @Override
+    public WriteResponse finishWrite(FinishWriteDataRequest request,
+                                           Option... opts) throws NetException, BizException {
+        return doFinishData(request, Constant.FINISH_URI, opts);
+    }
+
     private WriteResponse doWriteData(WriteDataRequest request,
                                                          String path, Option... opts) throws NetException, BizException {
         if (Objects.nonNull(projectID) && request.getProjectId().length() == 0) {
@@ -158,9 +164,6 @@ public class ContentClientImpl implements ContentClient {
     private void checkPredictRequest(PredictRequest request) throws BizException {
         if (Utils.isEmptyString(request.getProjectId())) {
             throw new BizException("project id is empty");
-        }
-        if (Utils.isEmptyString(request.getModelId())) {
-            throw new BizException("model id is empty");
         }
     }
 

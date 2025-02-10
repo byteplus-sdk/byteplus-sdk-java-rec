@@ -68,6 +68,13 @@ public interface ContentClient {
     // No need to finish real-time data, the system will automatically finish when entering the next day
     WriteResponse finishWriteOthers(FinishWriteDataRequest request, Option... opts) throws NetException, BizException;
 
+    // finishWrite
+    //
+    // Recording that some data has been written, the topic of these data is set by users.
+    // Mark at most 100 dates at a time
+    // No need to finish real-time data, the system will automatically finish when entering the next day
+    WriteResponse finishWrite(FinishWriteDataRequest request, Option... opts) throws NetException, BizException;
+
     // predict
     //
     // Gets the list of contents (ranked).

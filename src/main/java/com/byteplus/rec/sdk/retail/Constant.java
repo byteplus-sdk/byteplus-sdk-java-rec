@@ -49,6 +49,8 @@ public final class Constant {
 
     public final static String FINISH_OTHERS_URI = "/RetailSaaS/FinishWriteOthers";
 
+    public final static String FINISH_URI = "/RetailSaaS/FinishWrite";
+
     public final static String PREDICT_URI = "/RetailSaaS/Predict";
 
     public final static String ACK_SERVER_IMPRESSIONS_URI = "/RetailSaaS/AckServerImpressions";

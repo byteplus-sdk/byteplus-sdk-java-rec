@@ -2,9 +2,6 @@ package com.byteplus.rec.sdk.retail.example;
 
 import com.alibaba.fastjson.JSON;
 import com.byteplus.rec.core.*;
-import com.byteplus.rec.core.HTTPCaller.Config;
-import com.byteplus.rec.core.metrics.MetricsCollector.MetricsCfg;
-import com.byteplus.rec.core.metrics.MetricsCollector;
 import com.byteplus.rec.sdk.region.Region;
 import com.byteplus.rec.sdk.retail.Constant;
 import com.byteplus.rec.sdk.retail.RetailClient;
@@ -26,14 +23,11 @@ import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteDataRequest;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.WriteResponse;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.FinishWriteDataRequest;
 import lombok.extern.slf4j.Slf4j;
-import okhttp3.ConnectionPool;
-import okhttp3.OkHttpClient;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class Main {
@@ -52,8 +46,8 @@ public class Main {
     // A unique identity assigned by Bytedance.
     public final static String PROJECT_ID = "*********";
 
-    // Unique id for this model.The saas model id that can be used to get rec results from predict api, which is need to fill in URL.
-    public final static String MODEL_ID = "*********";
+    // The unique identifier for the cooperation scenario.
+    public final static String SCENE_NAME = "*********";
 
 
     static {
@@ -103,26 +97,19 @@ public class Main {
         // Write real-time user data
         writeUsersExample();
 
-        // Finish write real-time user data
-//        finishWriteUsersExample();
-
         // Write real-time product data
         writeProductsExample();
 
-        // Finish write real-time product data
-//        finishWriteProductsExample();
 
         // Write real-time user event data
         writeUserEventsExample();
 
-        // Finish write real-time user event data
-//        finishWriteUserEventsExample();
 
         // Write self defined topic data
 //        writeOthersExample();
 
-        // Finish write self defined topic data
-//        finishWriteOthersExample();
+        // Finish write topic data
+//        finishWriteExample();
 
         // Get recommendation results
         recommendExample();
@@ -167,30 +154,6 @@ public class Main {
         return requestBuilder.build();
     }
 
-    public static void finishWriteUsersExample() {
-        ByteplusSaasRetail.FinishWriteDataRequest request = buildFinishUserRequest();
-        Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
-        WriteResponse response;
-        try {
-            response = client.finishWriteUsers(request, opts);
-            // response = Utils.doWithRetry(client::finishWriteUsers, request, opts, DEFAULT_RETRY_TIMES);
-        } catch (NetException | BizException e) {
-            log.error("run finish occur error, msg:{}", e.getMessage());
-            return;
-        }
-        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
-            log.info("finish write user data");
-            return;
-        }
-        log.error("fail to finish write user data, msg:{} errItems:{}",
-                response.getStatus(), response.getInitializationErrorString());
-    }
-
-    private static FinishWriteDataRequest buildFinishUserRequest() {
-        return FinishWriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_INCREMENTAL)
-                .build();
-    }
 
     private static void addFinishDate(List<ByteplusSaasRetail.Date> dateMapList, LocalDate date) {
         dateMapList.add(buildFinishDate(date));
@@ -234,32 +197,6 @@ public class Main {
         return requestBuilder.build();
     }
 
-    public static void finishWriteProductsExample() {
-        // The "FinishXXX" api can mark max to 100 dates at one request
-        ByteplusSaasRetail.FinishWriteDataRequest request = buildFinishProductRequest();
-        Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
-        WriteResponse response;
-        try {
-            response = client.finishWriteProducts(request, opts);
-            // response = Utils.doWithRetry(client::finishWriteProducts, request, opts, DEFAULT_RETRY_TIMES);
-        } catch (BizException | NetException e) {
-            log.error("run finish occur error, msg:{}", e.getMessage());
-            return;
-        }
-        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
-            log.info("finish write product data");
-            return;
-        }
-        log.error("fail to finish write product data, msg:{} errItems:{}",
-                response.getStatus(), response.getInitializationErrorString());
-    }
-
-    private static FinishWriteDataRequest buildFinishProductRequest() {
-        return FinishWriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_INCREMENTAL)
-                .build();
-    }
-
     public static void writeUserEventsExample() {
         // The "WriteXXX" api can transfer max to 2000 items at one request
         WriteDataRequest request = buildWriteUserEventsRequest(1);
@@ -288,34 +225,6 @@ public class Main {
             requestBuilder.addData(JSON.toJSONString(userEvent));
         }
         return requestBuilder.build();
-    }
-
-    public static void finishWriteUserEventsExample() {
-        // The "FinishXXX" api can mark max to 100 dates at one request
-        FinishWriteDataRequest request = buildFinishUserEventRequest();
-        Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
-        WriteResponse response;
-        try {
-            response = client.finishWriteUserEvents(request, opts);
-            // response = Utils.doWithRetry(client::finishWriteUserEvents, request, opts, DEFAULT_RETRY_TIMES);
-        } catch (BizException | NetException e) {
-            log.error("run finish occur error, msg:{}", e.getMessage());
-            return;
-        }
-        if (StatusHelper.isUploadSuccess(response.getStatus().getCode())) {
-            log.info("finish write user_event data");
-            return;
-        }
-        log.error("fail to finish write user_event data, msg:{} errItems:{}",
-                response.getStatus(), response.getInitializationErrorString());
-    }
-
-    private static FinishWriteDataRequest buildFinishUserEventRequest() {
-        // dates should be passed when finishing user event
-        LocalDate date = LocalDate.of(2022, 3, 1);
-        return FinishWriteDataRequest.newBuilder()
-                .setStage(Constant.STAGE_INCREMENTAL)
-                .addAllDataDates(buildDateList(date)).build();
     }
 
     private static List<ByteplusSaasRetail.Date> buildDateList(LocalDate date) {
@@ -363,17 +272,17 @@ public class Main {
                 .build();
     }
 
-    public static void finishWriteOthersExample() {
+    public static void finishWriteExample() {
         // The "FinishXXX" api can mark max to 100 dates at one request
         // The `topic` is datatype, which specify the type of data users are going to finish writing
         // It is temporarily set to "video", the specific value depends on your need.
         String topic = "video";
-        FinishWriteDataRequest request = buildFinishOthersRequest(topic);
+        FinishWriteDataRequest request = buildFinishRequest(topic);
         Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
         try {
-            response = client.finishWriteOthers(request, opts);
-            // response = Utils.doWithRetry(client::finishWriteOthers, request, opts, DEFAULT_RETRY_TIMES);
+            response = client.finishWrite(request, opts);
+            // response = Utils.doWithRetry(client::finishWrite, request, opts, DEFAULT_RETRY_TIMES);
         } catch (BizException | NetException e) {
             log.error("run finish occur error, msg:{}", e.getMessage());
             return;
@@ -386,7 +295,7 @@ public class Main {
                 response.getStatus(), response.getInitializationErrorString());
     }
 
-    private static FinishWriteDataRequest buildFinishOthersRequest(String topic) {
+    private static FinishWriteDataRequest buildFinishRequest(String topic) {
         // dates should be passed when finishing user event
         LocalDate date = LocalDate.of(2022, 2, 1);
         return FinishWriteDataRequest.newBuilder()
@@ -428,6 +337,7 @@ public class Main {
 
     private static PredictRequest buildPredictRequest() {
         Scene scene = Scene.newBuilder()
+                .setSceneName(SCENE_NAME)
                 .setOffset(10)
                 .build();
         Product rootProduct = MockHelper.mockPredictProduct();
@@ -445,7 +355,7 @@ public class Main {
                 .build();
 
         return PredictRequest.newBuilder()
-                .setModelId(MODEL_ID)
+                .setModelId(SCENE_NAME)
                 .setUserId("1457789")
                 .setSize(20)
                 .setScene(scene)
