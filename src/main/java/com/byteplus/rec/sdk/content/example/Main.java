@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.byteplus.rec.core.BizException;
 import com.byteplus.rec.core.NetException;
 import com.byteplus.rec.core.Option;
+import com.byteplus.rec.core.HTTPCaller.Config;
+import com.byteplus.rec.core.metrics.MetricsCollector.MetricsCfg;
+import com.byteplus.rec.core.metrics.MetricsCollector;
 import com.byteplus.rec.core.StatusHelper;
 import com.byteplus.rec.sdk.content.ContentClient;
 import com.byteplus.rec.sdk.content.ContentClientBuilder;
@@ -21,6 +24,7 @@ import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Content;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.Device;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResponse;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult;
+import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictResult.ResponseContent;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest;
 import com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.AckServerImpressionsRequest.AlteredContent;
@@ -57,8 +61,9 @@ public class Main {
 //        // you can customize them according to your own needs.
 //        Config callerConfig = new Config().toBuilder()
 //                .maxIdleConnections(32) // OKHttpClient maxIdleConnections param.
-//                .keepAliveDuration(Duration.ofSeconds(60)) // OKHttpClient keepAliveDuration param.
-//                .keepAlivePingInterval(Duration.ofSeconds(45)) // Only takes effect when contentClient.keepAlive(true), heartbeat packet sending interval.
+//                .keepAliveDuration(Duration.ofSeconds(60)) // OKHttpClient keepAliveDuration param. The maximum idle time of the connection.
+//                .keepAlivePingInterval(Duration.ofSeconds(45)) // Only takes effect when contentClient.keepAlive(true). Heartbeat packet sending interval.
+//                .maxKeepAliveConnections(3) // Only takes effect when contentClient.keepAlive(true). The number of heartbeats sent by a single host at the same time, it means the maximum number of keepalive connections
 //                .build();
 
 
@@ -352,12 +357,19 @@ public class Main {
                 .addAllCandidateContents(candidateContents)
                 .build();
 
+//        // Specify the list of IDs that need to be filtered by Byteplus recommendation service.
+//        List<PredictFilterItem> filterItems = Arrays.asList(
+//                PredictFilterItem.newBuilder().setId("632461").build(),
+//                PredictFilterItem.newBuilder().setId("632462").build()
+//        );
+
         return PredictRequest.newBuilder()
                 .setModelId(SCENE_NAME)
                 .setUserId("1457789")
                 .setSize(20)
                 .setScene(scene)
                 .setContentContext(context)
+                // .addAllFilterItems(filterItems)
                 // .putExtra("extra_inio", "extra")
                 .build();
     }
@@ -414,7 +426,6 @@ public class Main {
                 Option.withRequestID(UUID.randomUUID().toString()),
                 // Optional. request timeout
                 Option.withTimeout(timeout),
-                Option.withHTTPHeader("X-TT-ENV", "preview_prod")
                 // Optional. Add a header to a custom header collection.
                 // Option.withHTTPHeader("key", "value"),
                 // Optional. Add a query to a custom query collection.

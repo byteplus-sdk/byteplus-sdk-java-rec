@@ -14,6 +14,7 @@ import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressi
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.AckServerImpressionsRequest.AlteredProduct;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.Device;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictRequest;
+import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictFilterItem;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResponse;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResult;
 import com.byteplus.rec.sdk.retail.protocol.ByteplusSaasRetail.PredictResult.ResponseProduct;
@@ -55,8 +56,9 @@ public class Main {
 //        // you can customize them according to your own needs.
 //        Config callerConfig = new Config().toBuilder()
 //                .maxIdleConnections(32) // OKHttpClient maxIdleConnections param.
-//                .keepAliveDuration(Duration.ofSeconds(60)) // OKHttpClient keepAliveDuration param.
-//                .keepAlivePingInterval(Duration.ofSeconds(45)) // Only takes effect when retailClient.keepAlive(true), heartbeat packet sending interval.
+//                .keepAliveDuration(Duration.ofSeconds(60)) // OKHttpClient keepAliveDuration param. The maximum idle time of the connection.
+//                .keepAlivePingInterval(Duration.ofSeconds(45)) // Only takes effect when retailClient.keepAlive(true). Heartbeat packet sending interval.
+//                .maxKeepAliveConnections(3) // Only takes effect when retailClient.keepAlive(true). The number of heartbeats sent by a single host at the same time, it means the maximum number of keepalive connections
 //                .build();
 
 
@@ -348,6 +350,12 @@ public class Main {
                 MockHelper.mockPredictProduct()
         );
 
+//        // Specify the list of IDs that need to be filtered by Byteplus recommendation service.
+//        List<PredictFilterItem> filterItems = Arrays.asList(
+//                PredictFilterItem.newBuilder().setId("632461").build(),
+//                PredictFilterItem.newBuilder().setId("632462").build()
+//        );
+
         PredictRequest.Context context = PredictRequest.Context.newBuilder()
                 .setRootProduct(rootProduct)
                 .setDevice(device)
@@ -360,6 +368,7 @@ public class Main {
                 .setSize(20)
                 .setScene(scene)
                 .setContext(context)
+                // .addAllFilterItems(filterItems)
                 // .putExtra("extra_inio", "extra")
                 .build();
     }

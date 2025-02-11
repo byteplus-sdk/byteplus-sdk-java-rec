@@ -14710,6 +14710,55 @@ public final class ByteplusSaasContent {
     /**
      * <pre>
      * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    java.util.List<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem> 
+        getFilterItemsList();
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem getFilterItems(int index);
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    int getFilterItemsCount();
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    java.util.List<? extends com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder> 
+        getFilterItemsOrBuilderList();
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder getFilterItemsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * Optional.
      * This is a catch-all field to pass all the additional information.
      * Please provide as much information as possible.
      * </pre>
@@ -14791,6 +14840,7 @@ public final class ByteplusSaasContent {
       projectId_ = "";
       modelId_ = "";
       userId_ = "";
+      filterItems_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -14873,11 +14923,20 @@ public final class ByteplusSaasContent {
 
               break;
             }
-            case 802: {
+            case 122: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                filterItems_ = new java.util.ArrayList<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              filterItems_.add(
+                  input.readMessage(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.parser(), extensionRegistry));
+              break;
+            }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
                 extra_ = com.google.protobuf.MapField.newMapField(
                     ExtraDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
               extra__ = input.readMessage(
@@ -14901,6 +14960,9 @@ public final class ByteplusSaasContent {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          filterItems_ = java.util.Collections.unmodifiableList(filterItems_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -17257,6 +17319,71 @@ public final class ByteplusSaasContent {
       return getContentContext();
     }
 
+    public static final int FILTER_ITEMS_FIELD_NUMBER = 15;
+    private java.util.List<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem> filterItems_;
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem> getFilterItemsList() {
+      return filterItems_;
+    }
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder> 
+        getFilterItemsOrBuilderList() {
+      return filterItems_;
+    }
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    @java.lang.Override
+    public int getFilterItemsCount() {
+      return filterItems_.size();
+    }
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    @java.lang.Override
+    public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem getFilterItems(int index) {
+      return filterItems_.get(index);
+    }
+    /**
+     * <pre>
+     * Optional.
+     * Filter some IDs in recommendations
+     * </pre>
+     *
+     * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+     */
+    @java.lang.Override
+    public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder getFilterItemsOrBuilder(
+        int index) {
+      return filterItems_.get(index);
+    }
+
     public static final int EXTRA_FIELD_NUMBER = 100;
     private static final class ExtraDefaultEntryHolder {
       static final com.google.protobuf.MapEntry<
@@ -17394,6 +17521,9 @@ public final class ByteplusSaasContent {
       if (contentContext_ != null) {
         output.writeMessage(14, getContentContext());
       }
+      for (int i = 0; i < filterItems_.size(); i++) {
+        output.writeMessage(15, filterItems_.get(i));
+      }
       com.google.protobuf.GeneratedMessageV3
         .serializeStringMapTo(
           output,
@@ -17429,6 +17559,10 @@ public final class ByteplusSaasContent {
       if (contentContext_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, getContentContext());
+      }
+      for (int i = 0; i < filterItems_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(15, filterItems_.get(i));
       }
       for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
            : internalGetExtra().getMap().entrySet()) {
@@ -17473,6 +17607,8 @@ public final class ByteplusSaasContent {
         if (!getContentContext()
             .equals(other.getContentContext())) return false;
       }
+      if (!getFilterItemsList()
+          .equals(other.getFilterItemsList())) return false;
       if (!internalGetExtra().equals(
           other.internalGetExtra())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -17501,6 +17637,10 @@ public final class ByteplusSaasContent {
       if (hasContentContext()) {
         hash = (37 * hash) + CONTENT_CONTEXT_FIELD_NUMBER;
         hash = (53 * hash) + getContentContext().hashCode();
+      }
+      if (getFilterItemsCount() > 0) {
+        hash = (37 * hash) + FILTER_ITEMS_FIELD_NUMBER;
+        hash = (53 * hash) + getFilterItemsList().hashCode();
       }
       if (!internalGetExtra().getMap().isEmpty()) {
         hash = (37 * hash) + EXTRA_FIELD_NUMBER;
@@ -17660,6 +17800,7 @@ public final class ByteplusSaasContent {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getFilterItemsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -17684,6 +17825,12 @@ public final class ByteplusSaasContent {
         } else {
           contentContext_ = null;
           contentContextBuilder_ = null;
+        }
+        if (filterItemsBuilder_ == null) {
+          filterItems_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          filterItemsBuilder_.clear();
         }
         internalGetMutableExtra().clear();
         return this;
@@ -17726,6 +17873,15 @@ public final class ByteplusSaasContent {
           result.contentContext_ = contentContext_;
         } else {
           result.contentContext_ = contentContextBuilder_.build();
+        }
+        if (filterItemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            filterItems_ = java.util.Collections.unmodifiableList(filterItems_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.filterItems_ = filterItems_;
+        } else {
+          result.filterItems_ = filterItemsBuilder_.build();
         }
         result.extra_ = internalGetExtra();
         result.extra_.makeImmutable();
@@ -17797,6 +17953,32 @@ public final class ByteplusSaasContent {
         }
         if (other.hasContentContext()) {
           mergeContentContext(other.getContentContext());
+        }
+        if (filterItemsBuilder_ == null) {
+          if (!other.filterItems_.isEmpty()) {
+            if (filterItems_.isEmpty()) {
+              filterItems_ = other.filterItems_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureFilterItemsIsMutable();
+              filterItems_.addAll(other.filterItems_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.filterItems_.isEmpty()) {
+            if (filterItemsBuilder_.isEmpty()) {
+              filterItemsBuilder_.dispose();
+              filterItemsBuilder_ = null;
+              filterItems_ = other.filterItems_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              filterItemsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFilterItemsFieldBuilder() : null;
+            } else {
+              filterItemsBuilder_.addAllMessages(other.filterItems_);
+            }
+          }
         }
         internalGetMutableExtra().mergeFrom(
             other.internalGetExtra());
@@ -18519,6 +18701,336 @@ public final class ByteplusSaasContent {
         return contentContextBuilder_;
       }
 
+      private java.util.List<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem> filterItems_ =
+        java.util.Collections.emptyList();
+      private void ensureFilterItemsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          filterItems_ = new java.util.ArrayList<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem>(filterItems_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder> filterItemsBuilder_;
+
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public java.util.List<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem> getFilterItemsList() {
+        if (filterItemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(filterItems_);
+        } else {
+          return filterItemsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public int getFilterItemsCount() {
+        if (filterItemsBuilder_ == null) {
+          return filterItems_.size();
+        } else {
+          return filterItemsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem getFilterItems(int index) {
+        if (filterItemsBuilder_ == null) {
+          return filterItems_.get(index);
+        } else {
+          return filterItemsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder setFilterItems(
+          int index, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem value) {
+        if (filterItemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFilterItemsIsMutable();
+          filterItems_.set(index, value);
+          onChanged();
+        } else {
+          filterItemsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder setFilterItems(
+          int index, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder builderForValue) {
+        if (filterItemsBuilder_ == null) {
+          ensureFilterItemsIsMutable();
+          filterItems_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          filterItemsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder addFilterItems(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem value) {
+        if (filterItemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFilterItemsIsMutable();
+          filterItems_.add(value);
+          onChanged();
+        } else {
+          filterItemsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder addFilterItems(
+          int index, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem value) {
+        if (filterItemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFilterItemsIsMutable();
+          filterItems_.add(index, value);
+          onChanged();
+        } else {
+          filterItemsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder addFilterItems(
+          com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder builderForValue) {
+        if (filterItemsBuilder_ == null) {
+          ensureFilterItemsIsMutable();
+          filterItems_.add(builderForValue.build());
+          onChanged();
+        } else {
+          filterItemsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder addFilterItems(
+          int index, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder builderForValue) {
+        if (filterItemsBuilder_ == null) {
+          ensureFilterItemsIsMutable();
+          filterItems_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          filterItemsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder addAllFilterItems(
+          java.lang.Iterable<? extends com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem> values) {
+        if (filterItemsBuilder_ == null) {
+          ensureFilterItemsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, filterItems_);
+          onChanged();
+        } else {
+          filterItemsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder clearFilterItems() {
+        if (filterItemsBuilder_ == null) {
+          filterItems_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          filterItemsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public Builder removeFilterItems(int index) {
+        if (filterItemsBuilder_ == null) {
+          ensureFilterItemsIsMutable();
+          filterItems_.remove(index);
+          onChanged();
+        } else {
+          filterItemsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder getFilterItemsBuilder(
+          int index) {
+        return getFilterItemsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder getFilterItemsOrBuilder(
+          int index) {
+        if (filterItemsBuilder_ == null) {
+          return filterItems_.get(index);  } else {
+          return filterItemsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public java.util.List<? extends com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder> 
+           getFilterItemsOrBuilderList() {
+        if (filterItemsBuilder_ != null) {
+          return filterItemsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(filterItems_);
+        }
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder addFilterItemsBuilder() {
+        return getFilterItemsFieldBuilder().addBuilder(
+            com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder addFilterItemsBuilder(
+          int index) {
+        return getFilterItemsFieldBuilder().addBuilder(
+            index, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * Optional.
+       * Filter some IDs in recommendations
+       * </pre>
+       *
+       * <code>repeated .bytedance.byteplus.rec.content.PredictFilterItem filter_items = 15;</code>
+       */
+      public java.util.List<com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder> 
+           getFilterItemsBuilderList() {
+        return getFilterItemsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder> 
+          getFilterItemsFieldBuilder() {
+        if (filterItemsBuilder_ == null) {
+          filterItemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder>(
+                  filterItems_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          filterItems_ = null;
+        }
+        return filterItemsBuilder_;
+      }
+
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> extra_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -18736,6 +19248,994 @@ public final class ByteplusSaasContent {
 
     @java.lang.Override
     public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PredictFilterItemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bytedance.byteplus.rec.content.PredictFilterItem)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * item id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    java.lang.String getId();
+    /**
+     * <pre>
+     * item id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    int getExtraCount();
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    boolean containsExtra(
+        java.lang.String key);
+    /**
+     * Use {@link #getExtraMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, java.lang.String>
+    getExtra();
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    java.util.Map<java.lang.String, java.lang.String>
+    getExtraMap();
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+
+    java.lang.String getExtraOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue);
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+
+    java.lang.String getExtraOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code bytedance.byteplus.rec.content.PredictFilterItem}
+   */
+  public static final class PredictFilterItem extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bytedance.byteplus.rec.content.PredictFilterItem)
+      PredictFilterItemOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PredictFilterItem.newBuilder() to construct.
+    private PredictFilterItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PredictFilterItem() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new PredictFilterItem();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PredictFilterItem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 802: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                extra_ = com.google.protobuf.MapField.newMapField(
+                    ExtraDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              extra__ = input.readMessage(
+                  ExtraDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              extra_.getMutableMap().put(
+                  extra__.getKey(), extra__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_PredictFilterItem_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    @java.lang.Override
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 100:
+          return internalGetExtra();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_PredictFilterItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.class, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <pre>
+     * item id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The id.
+     */
+    @java.lang.Override
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * item id
+     * </pre>
+     *
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXTRA_FIELD_NUMBER = 100;
+    private static final class ExtraDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, java.lang.String> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, java.lang.String>newDefaultInstance(
+                  com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_PredictFilterItem_ExtraEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "");
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> extra_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+    internalGetExtra() {
+      if (extra_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ExtraDefaultEntryHolder.defaultEntry);
+      }
+      return extra_;
+    }
+
+    public int getExtraCount() {
+      return internalGetExtra().getMap().size();
+    }
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+
+    @java.lang.Override
+    public boolean containsExtra(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetExtra().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getExtraMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getExtra() {
+      return getExtraMap();
+    }
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    @java.lang.Override
+
+    public java.util.Map<java.lang.String, java.lang.String> getExtraMap() {
+      return internalGetExtra().getMap();
+    }
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getExtraOrDefault(
+        java.lang.String key,
+        java.lang.String defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetExtra().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * extra info
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; extra = 100;</code>
+     */
+    @java.lang.Override
+
+    public java.lang.String getExtraOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetExtra().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetExtra(),
+          ExtraDefaultEntryHolder.defaultEntry,
+          100);
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+           : internalGetExtra().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+        extra__ = ExtraDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(100, extra__);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem)) {
+        return super.equals(obj);
+      }
+      com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem other = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!internalGetExtra().equals(
+          other.internalGetExtra())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      if (!internalGetExtra().getMap().isEmpty()) {
+        hash = (37 * hash) + EXTRA_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetExtra().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code bytedance.byteplus.rec.content.PredictFilterItem}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bytedance.byteplus.rec.content.PredictFilterItem)
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_PredictFilterItem_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 100:
+            return internalGetExtra();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 100:
+            return internalGetMutableExtra();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_PredictFilterItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.class, com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.Builder.class);
+      }
+
+      // Construct using com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        internalGetMutableExtra().clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.internal_static_bytedance_byteplus_rec_content_PredictFilterItem_descriptor;
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem getDefaultInstanceForType() {
+        return com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem build() {
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem buildPartial() {
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem result = new com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem(this);
+        int from_bitField0_ = bitField0_;
+        result.id_ = id_;
+        result.extra_ = internalGetExtra();
+        result.extra_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem) {
+          return mergeFrom((com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem other) {
+        if (other == com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        internalGetMutableExtra().mergeFrom(
+            other.internalGetExtra());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object id_ = "";
+      /**
+       * <pre>
+       * item id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The id.
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * item id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return The bytes for id.
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * item id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * item id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * item id
+       * </pre>
+       *
+       * <code>string id = 1;</code>
+       * @param value The bytes for id to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, java.lang.String> extra_;
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetExtra() {
+        if (extra_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ExtraDefaultEntryHolder.defaultEntry);
+        }
+        return extra_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableExtra() {
+        onChanged();;
+        if (extra_ == null) {
+          extra_ = com.google.protobuf.MapField.newMapField(
+              ExtraDefaultEntryHolder.defaultEntry);
+        }
+        if (!extra_.isMutable()) {
+          extra_ = extra_.copy();
+        }
+        return extra_;
+      }
+
+      public int getExtraCount() {
+        return internalGetExtra().getMap().size();
+      }
+      /**
+       * <pre>
+       * extra info
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+
+      @java.lang.Override
+      public boolean containsExtra(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetExtra().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getExtraMap()} instead.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String> getExtra() {
+        return getExtraMap();
+      }
+      /**
+       * <pre>
+       * extra info
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      @java.lang.Override
+
+      public java.util.Map<java.lang.String, java.lang.String> getExtraMap() {
+        return internalGetExtra().getMap();
+      }
+      /**
+       * <pre>
+       * extra info
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtraOrDefault(
+          java.lang.String key,
+          java.lang.String defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtra().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <pre>
+       * extra info
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      @java.lang.Override
+
+      public java.lang.String getExtraOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, java.lang.String> map =
+            internalGetExtra().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearExtra() {
+        internalGetMutableExtra().getMutableMap()
+            .clear();
+        return this;
+      }
+      /**
+       * <pre>
+       * extra info
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+
+      public Builder removeExtra(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableExtra().getMutableMap()
+            .remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, java.lang.String>
+      getMutableExtra() {
+        return internalGetMutableExtra().getMutableMap();
+      }
+      /**
+       * <pre>
+       * extra info
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+      public Builder putExtra(
+          java.lang.String key,
+          java.lang.String value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        internalGetMutableExtra().getMutableMap()
+            .put(key, value);
+        return this;
+      }
+      /**
+       * <pre>
+       * extra info
+       * </pre>
+       *
+       * <code>map&lt;string, string&gt; extra = 100;</code>
+       */
+
+      public Builder putAllExtra(
+          java.util.Map<java.lang.String, java.lang.String> values) {
+        internalGetMutableExtra().getMutableMap()
+            .putAll(values);
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bytedance.byteplus.rec.content.PredictFilterItem)
+    }
+
+    // @@protoc_insertion_point(class_scope:bytedance.byteplus.rec.content.PredictFilterItem)
+    private static final com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem();
+    }
+
+    public static com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PredictFilterItem>
+        PARSER = new com.google.protobuf.AbstractParser<PredictFilterItem>() {
+      @java.lang.Override
+      public PredictFilterItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PredictFilterItem(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PredictFilterItem> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PredictFilterItem> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.byteplus.rec.sdk.content.protocol.ByteplusSaasContent.PredictFilterItem getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -31242,10 +32742,11 @@ public final class ByteplusSaasContent {
        * <pre>
        * Required.
        * The final state of the content.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are "kept", "filtered", "inserted", "filled".
        * kept     : The content was kept as is.
        * filtered : The content is filtered by the caller's own logic.
        * inserted : The content is inserted by the caller's own logic.
+       * filled   : The content is filled by the caller's own logic.
        * </pre>
        *
        * <code>string altered_reason = 2;</code>
@@ -31256,10 +32757,11 @@ public final class ByteplusSaasContent {
        * <pre>
        * Required.
        * The final state of the content.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are "kept", "filtered", "inserted", "filled".
        * kept     : The content was kept as is.
        * filtered : The content is filtered by the caller's own logic.
        * inserted : The content is inserted by the caller's own logic.
+       * filled   : The content is filled by the caller's own logic.
        * </pre>
        *
        * <code>string altered_reason = 2;</code>
@@ -31541,10 +33043,11 @@ public final class ByteplusSaasContent {
        * <pre>
        * Required.
        * The final state of the content.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are "kept", "filtered", "inserted", "filled".
        * kept     : The content was kept as is.
        * filtered : The content is filtered by the caller's own logic.
        * inserted : The content is inserted by the caller's own logic.
+       * filled   : The content is filled by the caller's own logic.
        * </pre>
        *
        * <code>string altered_reason = 2;</code>
@@ -31567,10 +33070,11 @@ public final class ByteplusSaasContent {
        * <pre>
        * Required.
        * The final state of the content.
-       * The acceptable values are "kept", "filtered", "inserted".
+       * The acceptable values are "kept", "filtered", "inserted", "filled".
        * kept     : The content was kept as is.
        * filtered : The content is filtered by the caller's own logic.
        * inserted : The content is inserted by the caller's own logic.
+       * filled   : The content is filled by the caller's own logic.
        * </pre>
        *
        * <code>string altered_reason = 2;</code>
@@ -32245,10 +33749,11 @@ public final class ByteplusSaasContent {
          * <pre>
          * Required.
          * The final state of the content.
-         * The acceptable values are "kept", "filtered", "inserted".
+         * The acceptable values are "kept", "filtered", "inserted", "filled".
          * kept     : The content was kept as is.
          * filtered : The content is filtered by the caller's own logic.
          * inserted : The content is inserted by the caller's own logic.
+         * filled   : The content is filled by the caller's own logic.
          * </pre>
          *
          * <code>string altered_reason = 2;</code>
@@ -32270,10 +33775,11 @@ public final class ByteplusSaasContent {
          * <pre>
          * Required.
          * The final state of the content.
-         * The acceptable values are "kept", "filtered", "inserted".
+         * The acceptable values are "kept", "filtered", "inserted", "filled".
          * kept     : The content was kept as is.
          * filtered : The content is filtered by the caller's own logic.
          * inserted : The content is inserted by the caller's own logic.
+         * filled   : The content is filled by the caller's own logic.
          * </pre>
          *
          * <code>string altered_reason = 2;</code>
@@ -32296,10 +33802,11 @@ public final class ByteplusSaasContent {
          * <pre>
          * Required.
          * The final state of the content.
-         * The acceptable values are "kept", "filtered", "inserted".
+         * The acceptable values are "kept", "filtered", "inserted", "filled".
          * kept     : The content was kept as is.
          * filtered : The content is filtered by the caller's own logic.
          * inserted : The content is inserted by the caller's own logic.
+         * filled   : The content is filled by the caller's own logic.
          * </pre>
          *
          * <code>string altered_reason = 2;</code>
@@ -32320,10 +33827,11 @@ public final class ByteplusSaasContent {
          * <pre>
          * Required.
          * The final state of the content.
-         * The acceptable values are "kept", "filtered", "inserted".
+         * The acceptable values are "kept", "filtered", "inserted", "filled".
          * kept     : The content was kept as is.
          * filtered : The content is filtered by the caller's own logic.
          * inserted : The content is inserted by the caller's own logic.
+         * filled   : The content is filled by the caller's own logic.
          * </pre>
          *
          * <code>string altered_reason = 2;</code>
@@ -32339,10 +33847,11 @@ public final class ByteplusSaasContent {
          * <pre>
          * Required.
          * The final state of the content.
-         * The acceptable values are "kept", "filtered", "inserted".
+         * The acceptable values are "kept", "filtered", "inserted", "filled".
          * kept     : The content was kept as is.
          * filtered : The content is filtered by the caller's own logic.
          * inserted : The content is inserted by the caller's own logic.
+         * filled   : The content is filled by the caller's own logic.
          * </pre>
          *
          * <code>string altered_reason = 2;</code>
@@ -35671,6 +37180,16 @@ public final class ByteplusSaasContent {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bytedance_byteplus_rec_content_PredictRequest_ExtraEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_content_PredictFilterItem_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_content_PredictFilterItem_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bytedance_byteplus_rec_content_PredictFilterItem_ExtraEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bytedance_byteplus_rec_content_PredictFilterItem_ExtraEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bytedance_byteplus_rec_content_PredictFeature_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -35876,155 +37395,160 @@ public final class ByteplusSaasContent {
       "\002 \001(\t\022\023\n\013app_version\030\003 \001(\t\022\024\n\014device_mod" +
       "el\030\004 \001(\t\022\024\n\014device_brand\030\005 \001(\t\022\022\n\nos_ver" +
       "sion\030\006 \001(\t\022\024\n\014browser_type\030\007 \001(\t\022\022\n\nuser" +
-      "_agent\030\010 \001(\t\022\017\n\007network\030\t \001(\t\"\234\005\n\016Predic" +
+      "_agent\030\010 \001(\t\022\017\n\007network\030\t \001(\t\"\345\005\n\016Predic" +
       "tRequest\022\022\n\nproject_id\030\001 \001(\t\022\020\n\010model_id" +
       "\030\002 \001(\t\022\017\n\007user_id\030\n \001(\t\022\014\n\004size\030\013 \001(\005\0224\n" +
       "\005scene\030\014 \001(\0132%.bytedance.byteplus.rec.co" +
       "ntent.Scene\022O\n\017content_context\030\016 \001(\01326.b" +
       "ytedance.byteplus.rec.content.PredictReq" +
-      "uest.Context\022H\n\005extra\030d \003(\01329.bytedance." +
-      "byteplus.rec.content.PredictRequest.Extr" +
-      "aEntry\032\305\002\n\007Context\022=\n\014root_content\030\001 \001(\013" +
-      "2\'.bytedance.byteplus.rec.content.Conten" +
-      "t\0226\n\006device\030\002 \001(\0132&.bytedance.byteplus.r" +
-      "ec.content.Device\022C\n\022candidate_contents\030" +
-      "\003 \003(\0132\'.bytedance.byteplus.rec.content.C" +
-      "ontent\022?\n\007feature\030\004 \001(\0132..bytedance.byte" +
-      "plus.rec.content.PredictFeature\022=\n\006filte" +
-      "r\030\005 \001(\0132-.bytedance.byteplus.rec.content" +
-      ".PredictFilter\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\360\n\n\016PredictFeature\022" +
-      "Y\n\016string_feature\030\001 \003(\0132A.bytedance.byte" +
-      "plus.rec.content.PredictFeature.StringFe" +
-      "atureEntry\022S\n\013int_feature\030\002 \003(\0132>.byteda" +
-      "nce.byteplus.rec.content.PredictFeature." +
-      "IntFeatureEntry\022W\n\rfloat_feature\030\003 \003(\0132@" +
+      "uest.Context\022G\n\014filter_items\030\017 \003(\01321.byt" +
+      "edance.byteplus.rec.content.PredictFilte" +
+      "rItem\022H\n\005extra\030d \003(\01329.bytedance.byteplu" +
+      "s.rec.content.PredictRequest.ExtraEntry\032" +
+      "\305\002\n\007Context\022=\n\014root_content\030\001 \001(\0132\'.byte" +
+      "dance.byteplus.rec.content.Content\0226\n\006de" +
+      "vice\030\002 \001(\0132&.bytedance.byteplus.rec.cont" +
+      "ent.Device\022C\n\022candidate_contents\030\003 \003(\0132\'" +
+      ".bytedance.byteplus.rec.content.Content\022" +
+      "?\n\007feature\030\004 \001(\0132..bytedance.byteplus.re" +
+      "c.content.PredictFeature\022=\n\006filter\030\005 \001(\013" +
+      "2-.bytedance.byteplus.rec.content.Predic" +
+      "tFilter\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
+      "lue\030\002 \001(\t:\0028\001\"\232\001\n\021PredictFilterItem\022\n\n\002i" +
+      "d\030\001 \001(\t\022K\n\005extra\030d \003(\0132<.bytedance.bytep" +
+      "lus.rec.content.PredictFilterItem.ExtraE" +
+      "ntry\032,\n\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t:\0028\001\"\360\n\n\016PredictFeature\022Y\n\016string_" +
+      "feature\030\001 \003(\0132A.bytedance.byteplus.rec.c" +
+      "ontent.PredictFeature.StringFeatureEntry" +
+      "\022S\n\013int_feature\030\002 \003(\0132>.bytedance.bytepl" +
+      "us.rec.content.PredictFeature.IntFeature" +
+      "Entry\022W\n\rfloat_feature\030\003 \003(\0132@.bytedance" +
+      ".byteplus.rec.content.PredictFeature.Flo" +
+      "atFeatureEntry\022Y\n\016double_feature\030\004 \003(\0132A" +
       ".bytedance.byteplus.rec.content.PredictF" +
-      "eature.FloatFeatureEntry\022Y\n\016double_featu" +
-      "re\030\004 \003(\0132A.bytedance.byteplus.rec.conten" +
-      "t.PredictFeature.DoubleFeatureEntry\022d\n\024s" +
-      "tring_array_feature\030\005 \003(\0132F.bytedance.by" +
-      "teplus.rec.content.PredictFeature.String" +
-      "ArrayFeatureEntry\022^\n\021int_array_feature\030\006" +
-      " \003(\0132C.bytedance.byteplus.rec.content.Pr" +
-      "edictFeature.IntArrayFeatureEntry\022b\n\023flo" +
-      "at_array_feature\030\007 \003(\0132E.bytedance.bytep" +
-      "lus.rec.content.PredictFeature.FloatArra" +
-      "yFeatureEntry\022d\n\024double_array_feature\030\010 " +
-      "\003(\0132F.bytedance.byteplus.rec.content.Pre" +
-      "dictFeature.DoubleArrayFeatureEntry\0324\n\022S" +
-      "tringFeatureEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001\0321\n\017IntFeatureEntry\022\013\n\003key\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\003:\0028\001\0323\n\021FloatFeatureEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\002:\0028\001\0324\n\022Dou" +
-      "bleFeatureEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
-      "\001(\001:\0028\001\032f\n\027StringArrayFeatureEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022:\n\005value\030\002 \001(\0132+.bytedance.bytep" +
-      "lus.rec.content.StringArray:\0028\001\032`\n\024IntAr" +
-      "rayFeatureEntry\022\013\n\003key\030\001 \001(\t\0227\n\005value\030\002 " +
-      "\001(\0132(.bytedance.byteplus.rec.content.Int" +
-      "Array:\0028\001\032d\n\026FloatArrayFeatureEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\0229\n\005value\030\002 \001(\0132*.bytedance.byte" +
-      "plus.rec.content.FloatArray:\0028\001\032f\n\027Doubl" +
-      "eArrayFeatureEntry\022\013\n\003key\030\001 \001(\t\022:\n\005value" +
-      "\030\002 \001(\0132+.bytedance.byteplus.rec.content." +
-      "DoubleArray:\0028\001\"\317\n\n\rPredictFilter\022V\n\rstr" +
-      "ing_filter\030\001 \003(\0132?.bytedance.byteplus.re" +
-      "c.content.PredictFilter.StringFilterEntr" +
-      "y\022P\n\nint_filter\030\002 \003(\0132<.bytedance.bytepl" +
-      "us.rec.content.PredictFilter.IntFilterEn" +
-      "try\022T\n\014float_filter\030\003 \003(\0132>.bytedance.by" +
-      "teplus.rec.content.PredictFilter.FloatFi" +
-      "lterEntry\022V\n\rdouble_filter\030\004 \003(\0132?.byted" +
-      "ance.byteplus.rec.content.PredictFilter." +
-      "DoubleFilterEntry\022a\n\023string_array_filter" +
-      "\030\005 \003(\0132D.bytedance.byteplus.rec.content." +
-      "PredictFilter.StringArrayFilterEntry\022[\n\020" +
-      "int_array_filter\030\006 \003(\0132A.bytedance.bytep" +
-      "lus.rec.content.PredictFilter.IntArrayFi" +
-      "lterEntry\022_\n\022float_array_filter\030\007 \003(\0132C." +
-      "bytedance.byteplus.rec.content.PredictFi" +
-      "lter.FloatArrayFilterEntry\022a\n\023double_arr" +
-      "ay_filter\030\010 \003(\0132D.bytedance.byteplus.rec" +
-      ".content.PredictFilter.DoubleArrayFilter" +
-      "Entry\0323\n\021StringFilterEntry\022\013\n\003key\030\001 \001(\t\022" +
-      "\r\n\005value\030\002 \001(\t:\0028\001\0320\n\016IntFilterEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\003:\0028\001\0322\n\020FloatFil" +
-      "terEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\002:\0028\001" +
-      "\0323\n\021DoubleFilterEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\001:\0028\001\032e\n\026StringArrayFilterEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022:\n\005value\030\002 \001(\0132+.bytedance." +
-      "byteplus.rec.content.StringArray:\0028\001\032_\n\023" +
-      "IntArrayFilterEntry\022\013\n\003key\030\001 \001(\t\0227\n\005valu" +
-      "e\030\002 \001(\0132(.bytedance.byteplus.rec.content" +
-      ".IntArray:\0028\001\032c\n\025FloatArrayFilterEntry\022\013" +
-      "\n\003key\030\001 \001(\t\0229\n\005value\030\002 \001(\0132*.bytedance.b" +
-      "yteplus.rec.content.FloatArray:\0028\001\032e\n\026Do" +
-      "ubleArrayFilterEntry\022\013\n\003key\030\001 \001(\t\022:\n\005val" +
-      "ue\030\002 \001(\0132+.bytedance.byteplus.rec.conten" +
-      "t.DoubleArray:\0028\001\"\035\n\013StringArray\022\016\n\006valu" +
-      "es\030\001 \003(\t\"\032\n\010IntArray\022\016\n\006values\030\001 \003(\003\"\034\n\n" +
-      "FloatArray\022\016\n\006values\030\001 \003(\002\"\035\n\013DoubleArra" +
-      "y\022\016\n\006values\030\001 \003(\001\"\313\003\n\rPredictResult\022X\n\021r" +
-      "esponse_contents\030\001 \003(\0132=.bytedance.bytep" +
-      "lus.rec.content.PredictResult.ResponseCo" +
-      "ntent\022G\n\005extra\030d \003(\01328.bytedance.byteplu" +
-      "s.rec.content.PredictResult.ExtraEntry\032\350" +
-      "\001\n\017ResponseContent\022\022\n\ncontent_id\030\001 \001(\t\022\014" +
-      "\n\004rank\030\002 \001(\005\022\014\n\004pctr\030\003 \001(\001\022\014\n\004pcvr\030\004 \001(\001" +
-      "\022\020\n\010rec_info\030\005 \001(\t\022W\n\005extra\030d \003(\0132H.byte" +
-      "dance.byteplus.rec.content.PredictResult" +
-      ".ResponseContent.ExtraEntry\032,\n\nExtraEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nExt" +
-      "raEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
-      "\243\001\n\017PredictResponse\0226\n\006status\030\001 \001(\0132&.by" +
-      "tedance.byteplus.rec.content.Status\022\022\n\nr" +
-      "equest_id\030\002 \001(\t\022D\n\rcontent_value\030\004 \001(\0132-" +
-      ".bytedance.byteplus.rec.content.PredictR" +
-      "esult\"\243\005\n\033AckServerImpressionsRequest\022\022\n" +
-      "\nproject_id\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032\n\022p" +
-      "redict_request_id\030\n \001(\t\022\017\n\007user_id\030\013 \001(\t" +
-      "\022\026\n\016traffic_source\030\014 \001(\t\0224\n\005scene\030\r \001(\0132" +
-      "%.bytedance.byteplus.rec.content.Scene\022d" +
-      "\n\020altered_contents\030\017 \003(\0132J.bytedance.byt" +
-      "eplus.rec.content.AckServerImpressionsRe" +
-      "quest.AlteredContent\022U\n\005extra\030d \003(\0132F.by" +
-      "tedance.byteplus.rec.content.AckServerIm" +
-      "pressionsRequest.ExtraEntry\032\367\001\n\016AlteredC" +
-      "ontent\022\022\n\ncontent_id\030\001 \001(\t\022\026\n\016altered_re" +
-      "ason\030\002 \001(\t\022\014\n\004rank\030\003 \001(\005\022\027\n\017content_id_h" +
-      "ash\030d \001(\003\022d\n\005extra\030e \003(\0132U.bytedance.byt" +
-      "eplus.rec.content.AckServerImpressionsRe" +
-      "quest.AlteredContent.ExtraEntry\032,\n\nExtra" +
-      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n" +
-      "\nExtraEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:" +
-      "\0028\001\"V\n\034AckServerImpressionsResponse\0226\n\006s" +
-      "tatus\030\001 \001(\0132&.bytedance.byteplus.rec.con" +
-      "tent.Status2\310\006\n\023BytePlusSaasService\022l\n\tW" +
-      "ritUsers\0220.bytedance.byteplus.rec.conten" +
-      "t.WriteDataRequest\032-.bytedance.byteplus." +
-      "rec.content.WriteResponse\022o\n\014WritContent" +
-      "s\0220.bytedance.byteplus.rec.content.Write" +
-      "DataRequest\032-.bytedance.byteplus.rec.con" +
-      "tent.WriteResponse\022q\n\016WritUserEvents\0220.b" +
-      "ytedance.byteplus.rec.content.WriteDataR" +
-      "equest\032-.bytedance.byteplus.rec.content." +
-      "WriteResponse\022n\n\013WriteOthers\0220.bytedance" +
-      ".byteplus.rec.content.WriteDataRequest\032-" +
-      ".bytedance.byteplus.rec.content.WriteRes" +
-      "ponse\022o\n\006Finish\0226.bytedance.byteplus.rec" +
-      ".content.FinishWriteDataRequest\032-.byteda" +
-      "nce.byteplus.rec.content.WriteResponse\022j" +
-      "\n\007Predict\022..bytedance.byteplus.rec.conte" +
-      "nt.PredictRequest\032/.bytedance.byteplus.r" +
-      "ec.content.PredictResponse\022\221\001\n\024AckServer" +
-      "Impressions\022;.bytedance.byteplus.rec.con" +
-      "tent.AckServerImpressionsRequest\032<.byted" +
-      "ance.byteplus.rec.content.AckServerImpre" +
-      "ssionsResponseBe\n%com.byteplus.rec.sdk.c" +
-      "ontent.protocolZ<github.com/byteplus-sdk" +
-      "/byteplus-sdk-go-rec/content/protocolb\006p" +
-      "roto3"
+      "eature.DoubleFeatureEntry\022d\n\024string_arra" +
+      "y_feature\030\005 \003(\0132F.bytedance.byteplus.rec" +
+      ".content.PredictFeature.StringArrayFeatu" +
+      "reEntry\022^\n\021int_array_feature\030\006 \003(\0132C.byt" +
+      "edance.byteplus.rec.content.PredictFeatu" +
+      "re.IntArrayFeatureEntry\022b\n\023float_array_f" +
+      "eature\030\007 \003(\0132E.bytedance.byteplus.rec.co" +
+      "ntent.PredictFeature.FloatArrayFeatureEn" +
+      "try\022d\n\024double_array_feature\030\010 \003(\0132F.byte" +
+      "dance.byteplus.rec.content.PredictFeatur" +
+      "e.DoubleArrayFeatureEntry\0324\n\022StringFeatu" +
+      "reEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032" +
+      "1\n\017IntFeatureEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\003:\0028\001\0323\n\021FloatFeatureEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\002:\0028\001\0324\n\022DoubleFeature" +
+      "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\032f\n" +
+      "\027StringArrayFeatureEntry\022\013\n\003key\030\001 \001(\t\022:\n" +
+      "\005value\030\002 \001(\0132+.bytedance.byteplus.rec.co" +
+      "ntent.StringArray:\0028\001\032`\n\024IntArrayFeature" +
+      "Entry\022\013\n\003key\030\001 \001(\t\0227\n\005value\030\002 \001(\0132(.byte" +
+      "dance.byteplus.rec.content.IntArray:\0028\001\032" +
+      "d\n\026FloatArrayFeatureEntry\022\013\n\003key\030\001 \001(\t\0229" +
+      "\n\005value\030\002 \001(\0132*.bytedance.byteplus.rec.c" +
+      "ontent.FloatArray:\0028\001\032f\n\027DoubleArrayFeat" +
+      "ureEntry\022\013\n\003key\030\001 \001(\t\022:\n\005value\030\002 \001(\0132+.b" +
+      "ytedance.byteplus.rec.content.DoubleArra" +
+      "y:\0028\001\"\317\n\n\rPredictFilter\022V\n\rstring_filter" +
+      "\030\001 \003(\0132?.bytedance.byteplus.rec.content." +
+      "PredictFilter.StringFilterEntry\022P\n\nint_f" +
+      "ilter\030\002 \003(\0132<.bytedance.byteplus.rec.con" +
+      "tent.PredictFilter.IntFilterEntry\022T\n\014flo" +
+      "at_filter\030\003 \003(\0132>.bytedance.byteplus.rec" +
+      ".content.PredictFilter.FloatFilterEntry\022" +
+      "V\n\rdouble_filter\030\004 \003(\0132?.bytedance.bytep" +
+      "lus.rec.content.PredictFilter.DoubleFilt" +
+      "erEntry\022a\n\023string_array_filter\030\005 \003(\0132D.b" +
+      "ytedance.byteplus.rec.content.PredictFil" +
+      "ter.StringArrayFilterEntry\022[\n\020int_array_" +
+      "filter\030\006 \003(\0132A.bytedance.byteplus.rec.co" +
+      "ntent.PredictFilter.IntArrayFilterEntry\022" +
+      "_\n\022float_array_filter\030\007 \003(\0132C.bytedance." +
+      "byteplus.rec.content.PredictFilter.Float" +
+      "ArrayFilterEntry\022a\n\023double_array_filter\030" +
+      "\010 \003(\0132D.bytedance.byteplus.rec.content.P" +
+      "redictFilter.DoubleArrayFilterEntry\0323\n\021S" +
+      "tringFilterEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001\0320\n\016IntFilterEntry\022\013\n\003key\030\001 \001(\t\022" +
+      "\r\n\005value\030\002 \001(\003:\0028\001\0322\n\020FloatFilterEntry\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\002:\0028\001\0323\n\021Double" +
+      "FilterEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:" +
+      "\0028\001\032e\n\026StringArrayFilterEntry\022\013\n\003key\030\001 \001" +
+      "(\t\022:\n\005value\030\002 \001(\0132+.bytedance.byteplus.r" +
+      "ec.content.StringArray:\0028\001\032_\n\023IntArrayFi" +
+      "lterEntry\022\013\n\003key\030\001 \001(\t\0227\n\005value\030\002 \001(\0132(." +
+      "bytedance.byteplus.rec.content.IntArray:" +
+      "\0028\001\032c\n\025FloatArrayFilterEntry\022\013\n\003key\030\001 \001(" +
+      "\t\0229\n\005value\030\002 \001(\0132*.bytedance.byteplus.re" +
+      "c.content.FloatArray:\0028\001\032e\n\026DoubleArrayF" +
+      "ilterEntry\022\013\n\003key\030\001 \001(\t\022:\n\005value\030\002 \001(\0132+" +
+      ".bytedance.byteplus.rec.content.DoubleAr" +
+      "ray:\0028\001\"\035\n\013StringArray\022\016\n\006values\030\001 \003(\t\"\032" +
+      "\n\010IntArray\022\016\n\006values\030\001 \003(\003\"\034\n\nFloatArray" +
+      "\022\016\n\006values\030\001 \003(\002\"\035\n\013DoubleArray\022\016\n\006value" +
+      "s\030\001 \003(\001\"\313\003\n\rPredictResult\022X\n\021response_co" +
+      "ntents\030\001 \003(\0132=.bytedance.byteplus.rec.co" +
+      "ntent.PredictResult.ResponseContent\022G\n\005e" +
+      "xtra\030d \003(\01328.bytedance.byteplus.rec.cont" +
+      "ent.PredictResult.ExtraEntry\032\350\001\n\017Respons" +
+      "eContent\022\022\n\ncontent_id\030\001 \001(\t\022\014\n\004rank\030\002 \001" +
+      "(\005\022\014\n\004pctr\030\003 \001(\001\022\014\n\004pcvr\030\004 \001(\001\022\020\n\010rec_in" +
+      "fo\030\005 \001(\t\022W\n\005extra\030d \003(\0132H.bytedance.byte" +
+      "plus.rec.content.PredictResult.ResponseC" +
+      "ontent.ExtraEntry\032,\n\nExtraEntry\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nExtraEntry\022\013\n" +
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\243\001\n\017Predic" +
+      "tResponse\0226\n\006status\030\001 \001(\0132&.bytedance.by" +
+      "teplus.rec.content.Status\022\022\n\nrequest_id\030" +
+      "\002 \001(\t\022D\n\rcontent_value\030\004 \001(\0132-.bytedance" +
+      ".byteplus.rec.content.PredictResult\"\243\005\n\033" +
+      "AckServerImpressionsRequest\022\022\n\nproject_i" +
+      "d\030\001 \001(\t\022\020\n\010model_id\030\002 \001(\t\022\032\n\022predict_req" +
+      "uest_id\030\n \001(\t\022\017\n\007user_id\030\013 \001(\t\022\026\n\016traffi" +
+      "c_source\030\014 \001(\t\0224\n\005scene\030\r \001(\0132%.bytedanc" +
+      "e.byteplus.rec.content.Scene\022d\n\020altered_" +
+      "contents\030\017 \003(\0132J.bytedance.byteplus.rec." +
+      "content.AckServerImpressionsRequest.Alte" +
+      "redContent\022U\n\005extra\030d \003(\0132F.bytedance.by" +
+      "teplus.rec.content.AckServerImpressionsR" +
+      "equest.ExtraEntry\032\367\001\n\016AlteredContent\022\022\n\n" +
+      "content_id\030\001 \001(\t\022\026\n\016altered_reason\030\002 \001(\t" +
+      "\022\014\n\004rank\030\003 \001(\005\022\027\n\017content_id_hash\030d \001(\003\022" +
+      "d\n\005extra\030e \003(\0132U.bytedance.byteplus.rec." +
+      "content.AckServerImpressionsRequest.Alte" +
+      "redContent.ExtraEntry\032,\n\nExtraEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032,\n\nExtraEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"V\n\034Ack" +
+      "ServerImpressionsResponse\0226\n\006status\030\001 \001(" +
+      "\0132&.bytedance.byteplus.rec.content.Statu" +
+      "s2\310\006\n\023BytePlusSaasService\022l\n\tWritUsers\0220" +
+      ".bytedance.byteplus.rec.content.WriteDat" +
+      "aRequest\032-.bytedance.byteplus.rec.conten" +
+      "t.WriteResponse\022o\n\014WritContents\0220.byteda" +
+      "nce.byteplus.rec.content.WriteDataReques" +
+      "t\032-.bytedance.byteplus.rec.content.Write" +
+      "Response\022q\n\016WritUserEvents\0220.bytedance.b" +
+      "yteplus.rec.content.WriteDataRequest\032-.b" +
+      "ytedance.byteplus.rec.content.WriteRespo" +
+      "nse\022n\n\013WriteOthers\0220.bytedance.byteplus." +
+      "rec.content.WriteDataRequest\032-.bytedance" +
+      ".byteplus.rec.content.WriteResponse\022o\n\006F" +
+      "inish\0226.bytedance.byteplus.rec.content.F" +
+      "inishWriteDataRequest\032-.bytedance.bytepl" +
+      "us.rec.content.WriteResponse\022j\n\007Predict\022" +
+      "..bytedance.byteplus.rec.content.Predict" +
+      "Request\032/.bytedance.byteplus.rec.content" +
+      ".PredictResponse\022\221\001\n\024AckServerImpression" +
+      "s\022;.bytedance.byteplus.rec.content.AckSe" +
+      "rverImpressionsRequest\032<.bytedance.bytep" +
+      "lus.rec.content.AckServerImpressionsResp" +
+      "onseBe\n%com.byteplus.rec.sdk.content.pro" +
+      "tocolZ<github.com/byteplus-sdk/byteplus-" +
+      "sdk-go-rec/content/protocolb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -36101,7 +37625,7 @@ public final class ByteplusSaasContent {
     internal_static_bytedance_byteplus_rec_content_PredictRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_PredictRequest_descriptor,
-        new java.lang.String[] { "ProjectId", "ModelId", "UserId", "Size", "Scene", "ContentContext", "Extra", });
+        new java.lang.String[] { "ProjectId", "ModelId", "UserId", "Size", "Scene", "ContentContext", "FilterItems", "Extra", });
     internal_static_bytedance_byteplus_rec_content_PredictRequest_Context_descriptor =
       internal_static_bytedance_byteplus_rec_content_PredictRequest_descriptor.getNestedTypes().get(0);
     internal_static_bytedance_byteplus_rec_content_PredictRequest_Context_fieldAccessorTable = new
@@ -36114,8 +37638,20 @@ public final class ByteplusSaasContent {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_PredictRequest_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
-    internal_static_bytedance_byteplus_rec_content_PredictFeature_descriptor =
+    internal_static_bytedance_byteplus_rec_content_PredictFilterItem_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_bytedance_byteplus_rec_content_PredictFilterItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_content_PredictFilterItem_descriptor,
+        new java.lang.String[] { "Id", "Extra", });
+    internal_static_bytedance_byteplus_rec_content_PredictFilterItem_ExtraEntry_descriptor =
+      internal_static_bytedance_byteplus_rec_content_PredictFilterItem_descriptor.getNestedTypes().get(0);
+    internal_static_bytedance_byteplus_rec_content_PredictFilterItem_ExtraEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bytedance_byteplus_rec_content_PredictFilterItem_ExtraEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_bytedance_byteplus_rec_content_PredictFeature_descriptor =
+      getDescriptor().getMessageTypes().get(11);
     internal_static_bytedance_byteplus_rec_content_PredictFeature_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_PredictFeature_descriptor,
@@ -36169,7 +37705,7 @@ public final class ByteplusSaasContent {
         internal_static_bytedance_byteplus_rec_content_PredictFeature_DoubleArrayFeatureEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_content_PredictFilter_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_bytedance_byteplus_rec_content_PredictFilter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_PredictFilter_descriptor,
@@ -36223,31 +37759,31 @@ public final class ByteplusSaasContent {
         internal_static_bytedance_byteplus_rec_content_PredictFilter_DoubleArrayFilterEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_content_StringArray_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_bytedance_byteplus_rec_content_StringArray_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_StringArray_descriptor,
         new java.lang.String[] { "Values", });
     internal_static_bytedance_byteplus_rec_content_IntArray_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_bytedance_byteplus_rec_content_IntArray_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_IntArray_descriptor,
         new java.lang.String[] { "Values", });
     internal_static_bytedance_byteplus_rec_content_FloatArray_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_bytedance_byteplus_rec_content_FloatArray_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_FloatArray_descriptor,
         new java.lang.String[] { "Values", });
     internal_static_bytedance_byteplus_rec_content_DoubleArray_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_bytedance_byteplus_rec_content_DoubleArray_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_DoubleArray_descriptor,
         new java.lang.String[] { "Values", });
     internal_static_bytedance_byteplus_rec_content_PredictResult_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_bytedance_byteplus_rec_content_PredictResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_PredictResult_descriptor,
@@ -36271,13 +37807,13 @@ public final class ByteplusSaasContent {
         internal_static_bytedance_byteplus_rec_content_PredictResult_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_content_PredictResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_bytedance_byteplus_rec_content_PredictResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_PredictResponse_descriptor,
         new java.lang.String[] { "Status", "RequestId", "ContentValue", });
     internal_static_bytedance_byteplus_rec_content_AckServerImpressionsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_bytedance_byteplus_rec_content_AckServerImpressionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_AckServerImpressionsRequest_descriptor,
@@ -36301,7 +37837,7 @@ public final class ByteplusSaasContent {
         internal_static_bytedance_byteplus_rec_content_AckServerImpressionsRequest_ExtraEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bytedance_byteplus_rec_content_AckServerImpressionsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_bytedance_byteplus_rec_content_AckServerImpressionsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bytedance_byteplus_rec_content_AckServerImpressionsResponse_descriptor,
