@@ -1,3 +1,13 @@
+## [1.0.21](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.20...1.0.21) (2025-02-12)
+
+
+### Features
+
+* support FinishWrite API
+* remove model_id check
+
+
+
 ## [1.0.19](https://github.com/byteplus-sdk/byteplus-sdk-java-rec/compare/1.0.19...1.0.20) (2023-08-27)
 
 
