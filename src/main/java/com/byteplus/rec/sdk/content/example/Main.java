@@ -54,6 +54,7 @@ public class Main {
     public final static String PROJECT_ID = "*********";
 
     // The unique identifier for the cooperation scenario.
+    // Please keep it consistent with the 'Scene name' configured in 'Slot management'.
     public final static String SCENE_NAME = "*********";
 
     static {
@@ -277,9 +278,9 @@ public class Main {
 
     public static void finishWriteExample() {
         // The "FinishXXX" api can mark max to 100 dates at one request
-        // The `topic` is datatype, which specify the type of data users are going to finish writing
-        // It is temporarily set to "video", the specific value depends on your need.
-        String topic = "video";
+        // When using "WriteUsers", "WriteContents", and "WriteUserEvents" API, the topics are "user", "content", and "user_event" respectively.
+        // When using the WriteOthers API, the topic here is the same as the topic in WriteOthers.
+        String topic = "user";
         FinishWriteDataRequest request = buildFinishRequest(topic);
         Option[] opts = defaultOptions(DEFAULT_FINISH_TIMEOUT);
         WriteResponse response;
