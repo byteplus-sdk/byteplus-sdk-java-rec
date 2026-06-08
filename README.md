@@ -1,5 +1,7 @@
 ## byteplus rec java sdk
-
+## Security and privacy
+This project takes security seriously.
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)
 #### Install the client library
 ```xml
 <!-- https://mvnrepository.com/artifact/com.byteplus/byteplus-sdk-java-rec -->
